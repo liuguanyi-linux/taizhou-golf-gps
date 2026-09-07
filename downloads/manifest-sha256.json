@@ -1,6 +1,6 @@
 {
   "algorithm": "SHA-256",
-  "generated_at": "2026-09-07T16:23:00.609Z",
+  "generated_at": "2026-09-07T16:24:17.879Z",
   "excludes": [
     ".git",
     "hidden files",
@@ -25,8 +25,8 @@
     },
     {
       "path": "docs/DISTRIBUTION.html",
-      "bytes": 3505,
-      "sha256": "18cbd84e091c48f6d33d1f0abf80f94b2fe6ab38349f91f4a62ccecde792211f"
+      "bytes": 3508,
+      "sha256": "288bb5e2a7acd5be1910942ea108e8ff64d30dd11676521f5d26562cf6f36c1f"
     },
     {
       "path": "docs/DISTRIBUTION.md",
@@ -35,8 +35,8 @@
     },
     {
       "path": "docs/QUICKSTART.html",
-      "bytes": 4218,
-      "sha256": "1ceaceaeee7e0c8c5a12b76d7c677fa978d2bde1dbd9d6a66ed689247c4603b3"
+      "bytes": 4221,
+      "sha256": "a0c9db91d420486ecfb3eaf8f29be245ccd1d9b04a48f1134751d652d540e398"
     },
     {
       "path": "docs/QUICKSTART.md",
@@ -60,18 +60,18 @@
     },
     {
       "path": "docs/index.html",
-      "bytes": 49434,
-      "sha256": "7a82eb58055ea6327b78e2dd0a88681d0f1f4faf54ba6c9a629eb67754f69426"
+      "bytes": 49437,
+      "sha256": "0c2776a27ce1374d3b1abd6b8aa3b94234316619741c2f9422e7f20e8bf977c1"
     },
     {
       "path": "downloads/cn0000385-baseline-test-package.json",
       "bytes": 190048,
-      "sha256": "d276c086e620d375e3f33efab38870323e6f55568f4def92b7a038e8c4e9cf0d"
+      "sha256": "3cf416e4bf3502ec97d1396e2cd095dfd5800d65cac27ec807c0a11455281f9d"
     },
     {
       "path": "downloads/cn0000385-geometry.geojson",
       "bytes": 953990,
-      "sha256": "c9b44d0c21ad4bdb7cff24e8c6cac74abe8e663f740d99e6ae3887f30249fce7"
+      "sha256": "87f686c87e8c30a5114246bd4ad260b3c9e8a351bbe914497685af9c28ca0501"
     },
     {
       "path": "downloads/cn0000385-points.geojson",
@@ -81,7 +81,7 @@
     {
       "path": "downloads/data-inventory.json",
       "bytes": 9931,
-      "sha256": "3c0829b1c523a3bec9e5d3f28b90c22afbd04fe2ec18eff87710282e877f4928"
+      "sha256": "ababb30baba329f44a06402f0e682fabd88e8b30fedbead3c4082dc76ad5ed19"
     },
     {
       "path": "downloads/registration-audit.json",
@@ -505,8 +505,8 @@
     },
     {
       "path": "scripts/build-delivery.cjs",
-      "bytes": 7004,
-      "sha256": "7c7b4af54a54220bc5cec49b7912ebd166a19a454659e7e0e97e10f8a05ed7f3"
+      "bytes": 7046,
+      "sha256": "343e58cb0108c86dc4ea36ec0549c2b29c12ea808b198d16dc3b63234007cd1e"
     },
     {
       "path": "scripts/check.cjs",

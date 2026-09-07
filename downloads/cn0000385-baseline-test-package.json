@@ -9,7 +9,7 @@
   "unit": "m",
   "distance_type": "surface_geodesic_not_route",
   "field_verified": false,
-  "generated_at": "2026-09-07T16:23:00.609Z",
+  "generated_at": "2026-09-07T16:24:17.879Z",
   "data_source": "disk_baseline_not_browser_drafts",
   "warning": "默认图像配准未现场验收；本包不含浏览器里未导出的编辑。",
   "geojson": {
