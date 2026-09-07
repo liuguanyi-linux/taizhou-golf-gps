@@ -1,0 +1,390 @@
+{
+  "version": "2026-09-07",
+  "course_id": "cn0000385",
+  "field_verified": false,
+  "generated_at": "2026-09-07T15:43:29.769Z",
+  "holes_count": 18,
+  "catalog_points": 144,
+  "point_geojson_features": 162,
+  "geometry_features": 626,
+  "holes": [
+    {
+      "hole": 1,
+      "par": 4,
+      "image": {
+        "path": "holemap-hd/assets/hole-01-hd-concept-v1.png",
+        "width": 886,
+        "height": 1775,
+        "bytes": 2267166,
+        "sha256": "978cc9d1a2cb801c761683f3523c5d208bca995e637056ba299c4dd512da00bc"
+      },
+      "reference_image": "holemap-hd/assets/satellite-hd-h1.jpg",
+      "tees": [
+        "black",
+        "blue",
+        "white",
+        "red"
+      ],
+      "saved_registration": false,
+      "custom_points": 0,
+      "cart_route_nodes": 19
+    },
+    {
+      "hole": 2,
+      "par": 4,
+      "image": {
+        "path": "holemap-hd/assets/hole-02-hd-concept-v1.png",
+        "width": 1033,
+        "height": 1522,
+        "bytes": 2167767,
+        "sha256": "8321d8c47af775df2d7b150029fd699493a296398a41b7cdabb81846d788e21b"
+      },
+      "reference_image": "holemap-hd/assets/satellite-hd-h2.jpg",
+      "tees": [
+        "black",
+        "blue",
+        "white",
+        "red"
+      ],
+      "saved_registration": false,
+      "custom_points": 0,
+      "cart_route_nodes": 0
+    },
+    {
+      "hole": 3,
+      "par": 3,
+      "image": {
+        "path": "holemap-hd/assets/hole-03-hd-concept-v1.png",
+        "width": 1089,
+        "height": 1444,
+        "bytes": 1995505,
+        "sha256": "974059885bf3bf3da48c6a9f1557dcfac0a695547b85e9a5e1ed637790384fa4"
+      },
+      "reference_image": "holemap-hd/assets/satellite-hd-h3.jpg",
+      "tees": [
+        "black",
+        "blue",
+        "white",
+        "red"
+      ],
+      "saved_registration": false,
+      "custom_points": 0,
+      "cart_route_nodes": 0
+    },
+    {
+      "hole": 4,
+      "par": 4,
+      "image": {
+        "path": "holemap-hd/assets/hole-04-hd-concept-v1.png",
+        "width": 1199,
+        "height": 1312,
+        "bytes": 2069818,
+        "sha256": "075b472c4298c7a9c620fa8d384f30c3d4a953e393b3b8f8865b674d6fb444b2"
+      },
+      "reference_image": "holemap-hd/assets/satellite-hd-h4.jpg",
+      "tees": [
+        "black",
+        "blue",
+        "white",
+        "red"
+      ],
+      "saved_registration": false,
+      "custom_points": 0,
+      "cart_route_nodes": 0
+    },
+    {
+      "hole": 5,
+      "par": 4,
+      "image": {
+        "path": "holemap-hd/assets/hole-05-hd-concept-v1.png",
+        "width": 1098,
+        "height": 1433,
+        "bytes": 1937134,
+        "sha256": "2c77df5b162112e98a7771141b21146b69cb8d376e566f54b1e17da4b13b6dcc"
+      },
+      "reference_image": "holemap-hd/assets/satellite-hd-h5.jpg",
+      "tees": [
+        "black",
+        "blue",
+        "white",
+        "red"
+      ],
+      "saved_registration": false,
+      "custom_points": 0,
+      "cart_route_nodes": 0
+    },
+    {
+      "hole": 6,
+      "par": 5,
+      "image": {
+        "path": "holemap-hd/assets/hole-06-hd-concept-v1.png",
+        "width": 1003,
+        "height": 1568,
+        "bytes": 2012266,
+        "sha256": "afa80fe8a71d5f645608dd1304999a2928ffd73c88f77f15f1a65a1aa024dce9"
+      },
+      "reference_image": "holemap-hd/assets/satellite-hd-h6.jpg",
+      "tees": [
+        "black",
+        "blue",
+        "white",
+        "red"
+      ],
+      "saved_registration": false,
+      "custom_points": 0,
+      "cart_route_nodes": 0
+    },
+    {
+      "hole": 7,
+      "par": 4,
+      "image": {
+        "path": "holemap-hd/assets/hole-07-hd-concept-v1.png",
+        "width": 1293,
+        "height": 1217,
+        "bytes": 2073818,
+        "sha256": "ec37e5ac6580292e512332997aa300c6a991315c571e6606b9df0dfb0d4eb0a1"
+      },
+      "reference_image": "holemap-hd/assets/satellite-hd-h7.jpg",
+      "tees": [
+        "black",
+        "blue",
+        "white",
+        "red"
+      ],
+      "saved_registration": false,
+      "custom_points": 0,
+      "cart_route_nodes": 0
+    },
+    {
+      "hole": 8,
+      "par": 5,
+      "image": {
+        "path": "holemap-hd/assets/hole-08-hd-concept-v1.png",
+        "width": 947,
+        "height": 1660,
+        "bytes": 1944042,
+        "sha256": "d32c231307a1b5471c0d546253d46e2c8713c0fef8ee808b5ccef7a7da187a99"
+      },
+      "reference_image": "holemap-hd/assets/satellite-hd-h8.jpg",
+      "tees": [
+        "black",
+        "blue",
+        "white",
+        "red"
+      ],
+      "saved_registration": false,
+      "custom_points": 0,
+      "cart_route_nodes": 0
+    },
+    {
+      "hole": 9,
+      "par": 3,
+      "image": {
+        "path": "holemap-hd/assets/hole-09-hd-concept-v1.png",
+        "width": 1222,
+        "height": 1287,
+        "bytes": 2129061,
+        "sha256": "e771d75dfc50eba5d4367f25ce0e1828ee1fe3934d27d1695b1b1705183ade01"
+      },
+      "reference_image": "holemap-hd/assets/satellite-hd-h9.jpg",
+      "tees": [
+        "black",
+        "blue",
+        "white",
+        "red"
+      ],
+      "saved_registration": false,
+      "custom_points": 0,
+      "cart_route_nodes": 0
+    },
+    {
+      "hole": 10,
+      "par": 4,
+      "image": {
+        "path": "holemap-hd/assets/hole-10-hd-concept-v2.png",
+        "width": 1005,
+        "height": 1565,
+        "bytes": 1016918,
+        "sha256": "515608b3ae73f98a84861509ea49a8486ee005d5e809d080ba423dab68c59758"
+      },
+      "reference_image": "holemap-hd/assets/satellite-hd-h10.jpg",
+      "tees": [
+        "black",
+        "blue",
+        "white",
+        "red"
+      ],
+      "saved_registration": false,
+      "custom_points": 0,
+      "cart_route_nodes": 0
+    },
+    {
+      "hole": 11,
+      "par": 4,
+      "image": {
+        "path": "holemap-hd/assets/hole-11-hd-concept-v2.png",
+        "width": 1060,
+        "height": 1484,
+        "bytes": 556660,
+        "sha256": "8c7d6b6b2b783c8bac8792beb3afaa7daf5b7479352b291932503244ca034b5f"
+      },
+      "reference_image": "holemap-hd/assets/satellite-hd-h11.jpg",
+      "tees": [
+        "black",
+        "blue",
+        "white",
+        "red"
+      ],
+      "saved_registration": false,
+      "custom_points": 0,
+      "cart_route_nodes": 0
+    },
+    {
+      "hole": 12,
+      "par": 3,
+      "image": {
+        "path": "holemap-hd/assets/hole-12-hd-concept-v2.png",
+        "width": 1078,
+        "height": 1459,
+        "bytes": 664681,
+        "sha256": "d3b3bd27c51ed09c34f3fb50a6d543407ef8ae823a7fe6a7fae4adc38458f942"
+      },
+      "reference_image": "holemap-hd/assets/satellite-hd-h12.jpg",
+      "tees": [
+        "black",
+        "blue",
+        "white",
+        "red"
+      ],
+      "saved_registration": false,
+      "custom_points": 0,
+      "cart_route_nodes": 0
+    },
+    {
+      "hole": 13,
+      "par": 5,
+      "image": {
+        "path": "holemap-hd/assets/hole-13-hd-concept-v2.png",
+        "width": 1050,
+        "height": 1498,
+        "bytes": 1356446,
+        "sha256": "bd7633eb301f41d937f34126b749a27e712e9fa78d260352c3e724af32b29cfd"
+      },
+      "reference_image": "holemap-hd/assets/satellite-hd-h13.jpg",
+      "tees": [
+        "black",
+        "blue",
+        "white",
+        "red"
+      ],
+      "saved_registration": false,
+      "custom_points": 0,
+      "cart_route_nodes": 0
+    },
+    {
+      "hole": 14,
+      "par": 4,
+      "image": {
+        "path": "holemap-hd/assets/hole-14-hd-concept-v2.png",
+        "width": 1244,
+        "height": 1265,
+        "bytes": 833391,
+        "sha256": "fe8e4349c55a6a17c40f0db0c241a0f40cf92de6e513634c169446fe47fb2e1b"
+      },
+      "reference_image": "holemap-hd/assets/satellite-hd-h14.jpg",
+      "tees": [
+        "black",
+        "blue",
+        "white",
+        "red"
+      ],
+      "saved_registration": false,
+      "custom_points": 0,
+      "cart_route_nodes": 0
+    },
+    {
+      "hole": 15,
+      "par": 4,
+      "image": {
+        "path": "holemap-hd/assets/hole-15-hd-concept-v2.png",
+        "width": 1103,
+        "height": 1426,
+        "bytes": 745894,
+        "sha256": "20d61f0adc425918c8a6272602c6a3a262461cf5a6ca928f7a51ed5828a5eaa7"
+      },
+      "reference_image": "holemap-hd/assets/satellite-hd-h15.jpg",
+      "tees": [
+        "black",
+        "blue",
+        "white",
+        "red"
+      ],
+      "saved_registration": false,
+      "custom_points": 0,
+      "cart_route_nodes": 0
+    },
+    {
+      "hole": 16,
+      "par": 3,
+      "image": {
+        "path": "holemap-hd/assets/hole-16-hd-concept-v2.png",
+        "width": 1551,
+        "height": 1014,
+        "bytes": 914343,
+        "sha256": "a1bd8da5d569e040c305287cd49a34e9b2ae3846eae5174398b34424eb0e8677"
+      },
+      "reference_image": "holemap-hd/assets/satellite-hd-h16.jpg",
+      "tees": [
+        "black",
+        "blue",
+        "white",
+        "red"
+      ],
+      "saved_registration": false,
+      "custom_points": 0,
+      "cart_route_nodes": 0
+    },
+    {
+      "hole": 17,
+      "par": 4,
+      "image": {
+        "path": "holemap-hd/assets/hole-17-hd-concept-v2.png",
+        "width": 1740,
+        "height": 904,
+        "bytes": 1561676,
+        "sha256": "770d23311fec1168894b9735d6a2f94dba8a523aace3637d7e5aaba252fa5768"
+      },
+      "reference_image": "holemap-hd/assets/satellite-hd-h17.jpg",
+      "tees": [
+        "black",
+        "blue",
+        "white",
+        "red"
+      ],
+      "saved_registration": false,
+      "custom_points": 0,
+      "cart_route_nodes": 0
+    },
+    {
+      "hole": 18,
+      "par": 5,
+      "image": {
+        "path": "holemap-hd/assets/hole-18-hd-concept-v2.png",
+        "width": 958,
+        "height": 1641,
+        "bytes": 1675077,
+        "sha256": "76499f634b972b839ca7867270b7370b9c23fc8f752ca42c76f424c509e53ee5"
+      },
+      "reference_image": "holemap-hd/assets/satellite-hd-h18.jpg",
+      "tees": [
+        "black",
+        "blue",
+        "white",
+        "red"
+      ],
+      "saved_registration": false,
+      "custom_points": 0,
+      "cart_route_nodes": 0
+    }
+  ]
+}

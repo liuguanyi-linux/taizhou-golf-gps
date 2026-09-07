@@ -1,0 +1,7330 @@
+{
+  "schema_version": "golf-point-workspace/1",
+  "course_id": "cn0000385",
+  "coordinate_system": "WGS84",
+  "coordinate_order": [
+    "longitude",
+    "latitude"
+  ],
+  "unit": "m",
+  "distance_type": "surface_geodesic_not_route",
+  "field_verified": false,
+  "generated_at": "2026-09-07T15:43:29.769Z",
+  "data_source": "disk_baseline_not_browser_drafts",
+  "warning": "默认图像配准未现场验收；本包不含浏览器里未导出的编辑。",
+  "geojson": {
+    "type": "FeatureCollection",
+    "point_workspace_schema": "1.0",
+    "coordinate_system": "WGS84 / EPSG:4326",
+    "coordinate_order": [
+      "longitude",
+      "latitude"
+    ],
+    "distance_type": "surface_geodesic_not_route",
+    "distance_unit": "m",
+    "properties": {
+      "course_id": "cn0000385",
+      "course_name": "泰州华侨城云海湿地高尔夫球会 · Codex 18洞地图图层校准 v15",
+      "accuracy_note": "accuracy_m is reported measurement accuracy, not coordinate decimal precision; null means unknown.",
+      "registration_note": "unverified registration must be field-calibrated before reliable physical deployment."
+    },
+    "features": [
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/1/tee/black",
+        "properties": {
+          "id": "cn0000385/hole/1/tee/black",
+          "local_id": "black",
+          "course_id": "cn0000385",
+          "hole": 1,
+          "name": "black Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "black",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0722796,
+            32.6162106
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/1/tee/blue",
+        "properties": {
+          "id": "cn0000385/hole/1/tee/blue",
+          "local_id": "blue",
+          "course_id": "cn0000385",
+          "hole": 1,
+          "name": "blue Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "blue",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0724083,
+            32.6160343
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/1/tee/white",
+        "properties": {
+          "id": "cn0000385/hole/1/tee/white",
+          "local_id": "white",
+          "course_id": "cn0000385",
+          "hole": 1,
+          "name": "white Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "white",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0725585,
+            32.6158128
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/1/tee/red",
+        "properties": {
+          "id": "cn0000385/hole/1/tee/red",
+          "local_id": "red",
+          "course_id": "cn0000385",
+          "hole": 1,
+          "name": "red Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "red",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0727462,
+            32.6155145
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/1/green/flag",
+        "properties": {
+          "id": "cn0000385/hole/1/green/flag",
+          "local_id": "flag",
+          "course_id": "cn0000385",
+          "hole": 1,
+          "name": "果岭旗杆",
+          "type": "green",
+          "kind": "green",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "flag",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0726231,
+            32.6128044
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/1/green/front",
+        "properties": {
+          "id": "cn0000385/hole/1/green/front",
+          "local_id": "front",
+          "course_id": "cn0000385",
+          "hole": 1,
+          "name": "果岭前缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "front",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0726076,
+            32.6129576
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/1/green/middle",
+        "properties": {
+          "id": "cn0000385/hole/1/green/middle",
+          "local_id": "middle",
+          "course_id": "cn0000385",
+          "hole": 1,
+          "name": "果岭中心",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "middle",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.07262363448278,
+            32.61279911724138
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/1/green/back",
+        "properties": {
+          "id": "cn0000385/hole/1/green/back",
+          "local_id": "back",
+          "course_id": "cn0000385",
+          "hole": 1,
+          "name": "果岭后缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "back",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0726386,
+            32.6126512
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/2/tee/black",
+        "properties": {
+          "id": "cn0000385/hole/2/tee/black",
+          "local_id": "black",
+          "course_id": "cn0000385",
+          "hole": 2,
+          "name": "black Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "black",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.072709,
+            32.6124068
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/2/tee/blue",
+        "properties": {
+          "id": "cn0000385/hole/2/tee/blue",
+          "local_id": "blue",
+          "course_id": "cn0000385",
+          "hole": 2,
+          "name": "blue Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "blue",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0724248,
+            32.6122762
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/2/tee/white",
+        "properties": {
+          "id": "cn0000385/hole/2/tee/white",
+          "local_id": "white",
+          "course_id": "cn0000385",
+          "hole": 2,
+          "name": "white Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "white",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.072205,
+            32.6121183
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/2/tee/red",
+        "properties": {
+          "id": "cn0000385/hole/2/tee/red",
+          "local_id": "red",
+          "course_id": "cn0000385",
+          "hole": 2,
+          "name": "red Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "red",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0720549,
+            32.6116171
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/2/green/flag",
+        "properties": {
+          "id": "cn0000385/hole/2/green/flag",
+          "local_id": "flag",
+          "course_id": "cn0000385",
+          "hole": 2,
+          "name": "果岭旗杆",
+          "type": "green",
+          "kind": "green",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "flag",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0712991,
+            32.6091516
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/2/green/front",
+        "properties": {
+          "id": "cn0000385/hole/2/green/front",
+          "local_id": "front",
+          "course_id": "cn0000385",
+          "hole": 2,
+          "name": "果岭前缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "front",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0713616,
+            32.609296
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/2/green/middle",
+        "properties": {
+          "id": "cn0000385/hole/2/green/middle",
+          "local_id": "middle",
+          "course_id": "cn0000385",
+          "hole": 2,
+          "name": "果岭中心",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "middle",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.07129694482758,
+            32.60914662068965
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/2/green/back",
+        "properties": {
+          "id": "cn0000385/hole/2/green/back",
+          "local_id": "back",
+          "course_id": "cn0000385",
+          "hole": 2,
+          "name": "果岭后缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "back",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0712366,
+            32.6090072
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/3/tee/black",
+        "properties": {
+          "id": "cn0000385/hole/3/tee/black",
+          "local_id": "black",
+          "course_id": "cn0000385",
+          "hole": 3,
+          "name": "black Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "black",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0723929,
+            32.6088702
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/3/tee/blue",
+        "properties": {
+          "id": "cn0000385/hole/3/tee/blue",
+          "local_id": "blue",
+          "course_id": "cn0000385",
+          "hole": 3,
+          "name": "blue Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "blue",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0722696,
+            32.609295
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/3/tee/white",
+        "properties": {
+          "id": "cn0000385/hole/3/tee/white",
+          "local_id": "white",
+          "course_id": "cn0000385",
+          "hole": 3,
+          "name": "white Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "white",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0721569,
+            32.6095119
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/3/tee/red",
+        "properties": {
+          "id": "cn0000385/hole/3/tee/red",
+          "local_id": "red",
+          "course_id": "cn0000385",
+          "hole": 3,
+          "name": "red Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "red",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0722534,
+            32.6097151
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/3/green/flag",
+        "properties": {
+          "id": "cn0000385/hole/3/green/flag",
+          "local_id": "flag",
+          "course_id": "cn0000385",
+          "hole": 3,
+          "name": "果岭旗杆",
+          "type": "green",
+          "kind": "green",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "flag",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0728325,
+            32.6102475
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/3/green/front",
+        "properties": {
+          "id": "cn0000385/hole/3/green/front",
+          "local_id": "front",
+          "course_id": "cn0000385",
+          "hole": 3,
+          "name": "果岭前缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "front",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0727893,
+            32.6101122
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/3/green/middle",
+        "properties": {
+          "id": "cn0000385/hole/3/green/middle",
+          "local_id": "middle",
+          "course_id": "cn0000385",
+          "hole": 3,
+          "name": "果岭中心",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "middle",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0728339896552,
+            32.610252165517245
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/3/green/back",
+        "properties": {
+          "id": "cn0000385/hole/3/green/back",
+          "local_id": "back",
+          "course_id": "cn0000385",
+          "hole": 3,
+          "name": "果岭后缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "back",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0728757,
+            32.6103828
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/4/tee/black",
+        "properties": {
+          "id": "cn0000385/hole/4/tee/black",
+          "local_id": "black",
+          "course_id": "cn0000385",
+          "hole": 4,
+          "name": "black Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "black",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0736314,
+            32.6111997
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/4/tee/blue",
+        "properties": {
+          "id": "cn0000385/hole/4/tee/blue",
+          "local_id": "blue",
+          "course_id": "cn0000385",
+          "hole": 4,
+          "name": "blue Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "blue",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0734651,
+            32.6110237
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/4/tee/white",
+        "properties": {
+          "id": "cn0000385/hole/4/tee/white",
+          "local_id": "white",
+          "course_id": "cn0000385",
+          "hole": 4,
+          "name": "white Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "white",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.073433,
+            32.6107844
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/4/tee/red",
+        "properties": {
+          "id": "cn0000385/hole/4/tee/red",
+          "local_id": "red",
+          "course_id": "cn0000385",
+          "hole": 4,
+          "name": "red Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "red",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0735188,
+            32.610459
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/4/green/flag",
+        "properties": {
+          "id": "cn0000385/hole/4/green/flag",
+          "local_id": "flag",
+          "course_id": "cn0000385",
+          "hole": 4,
+          "name": "果岭旗杆",
+          "type": "green",
+          "kind": "green",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "flag",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0746183,
+            32.6082624
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/4/green/front",
+        "properties": {
+          "id": "cn0000385/hole/4/green/front",
+          "local_id": "front",
+          "course_id": "cn0000385",
+          "hole": 4,
+          "name": "果岭前缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "front",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0745686,
+            32.6084103
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/4/green/middle",
+        "properties": {
+          "id": "cn0000385/hole/4/green/middle",
+          "local_id": "middle",
+          "course_id": "cn0000385",
+          "hole": 4,
+          "name": "果岭中心",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "middle",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.07462001379312,
+            32.608257300000005
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/4/green/back",
+        "properties": {
+          "id": "cn0000385/hole/4/green/back",
+          "local_id": "back",
+          "course_id": "cn0000385",
+          "hole": 4,
+          "name": "果岭后缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "back",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.074668,
+            32.6081145
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/5/tee/black",
+        "properties": {
+          "id": "cn0000385/hole/5/tee/black",
+          "local_id": "black",
+          "course_id": "cn0000385",
+          "hole": 5,
+          "name": "black Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "black",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0753799,
+            32.6069651
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/5/tee/blue",
+        "properties": {
+          "id": "cn0000385/hole/5/tee/blue",
+          "local_id": "blue",
+          "course_id": "cn0000385",
+          "hole": 5,
+          "name": "blue Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "blue",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0756212,
+            32.6076561
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/5/tee/white",
+        "properties": {
+          "id": "cn0000385/hole/5/tee/white",
+          "local_id": "white",
+          "course_id": "cn0000385",
+          "hole": 5,
+          "name": "white Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "white",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0753959,
+            32.6079454
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/5/tee/red",
+        "properties": {
+          "id": "cn0000385/hole/5/tee/red",
+          "local_id": "red",
+          "course_id": "cn0000385",
+          "hole": 5,
+          "name": "red Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "red",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0753154,
+            32.6083024
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/5/green/flag",
+        "properties": {
+          "id": "cn0000385/hole/5/green/flag",
+          "local_id": "flag",
+          "course_id": "cn0000385",
+          "hole": 5,
+          "name": "果岭旗杆",
+          "type": "green",
+          "kind": "green",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "flag",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0758193,
+            32.610958
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/5/green/front",
+        "properties": {
+          "id": "cn0000385/hole/5/green/front",
+          "local_id": "front",
+          "course_id": "cn0000385",
+          "hole": 5,
+          "name": "果岭前缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "front",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0758024,
+            32.6108049
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/5/green/middle",
+        "properties": {
+          "id": "cn0000385/hole/5/green/middle",
+          "local_id": "middle",
+          "course_id": "cn0000385",
+          "hole": 5,
+          "name": "果岭中心",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "middle",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.07581988275862,
+            32.610963279310354
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/5/green/back",
+        "properties": {
+          "id": "cn0000385/hole/5/green/back",
+          "local_id": "back",
+          "course_id": "cn0000385",
+          "hole": 5,
+          "name": "果岭后缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "back",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0758362,
+            32.6111111
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/6/tee/black",
+        "properties": {
+          "id": "cn0000385/hole/6/tee/black",
+          "local_id": "black",
+          "course_id": "cn0000385",
+          "hole": 6,
+          "name": "black Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "black",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0772887,
+            32.6115438
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/6/tee/blue",
+        "properties": {
+          "id": "cn0000385/hole/6/tee/blue",
+          "local_id": "blue",
+          "course_id": "cn0000385",
+          "hole": 6,
+          "name": "blue Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "blue",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0771547,
+            32.6113452
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/6/tee/white",
+        "properties": {
+          "id": "cn0000385/hole/6/tee/white",
+          "local_id": "white",
+          "course_id": "cn0000385",
+          "hole": 6,
+          "name": "white Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "white",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0770206,
+            32.6111465
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/6/tee/red",
+        "properties": {
+          "id": "cn0000385/hole/6/tee/red",
+          "local_id": "red",
+          "course_id": "cn0000385",
+          "hole": 6,
+          "name": "red Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "red",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0766506,
+            32.610781
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/6/green/flag",
+        "properties": {
+          "id": "cn0000385/hole/6/green/flag",
+          "local_id": "flag",
+          "course_id": "cn0000385",
+          "hole": 6,
+          "name": "果岭旗杆",
+          "type": "green",
+          "kind": "green",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "flag",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0763721,
+            32.6069822
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/6/green/front",
+        "properties": {
+          "id": "cn0000385/hole/6/green/front",
+          "local_id": "front",
+          "course_id": "cn0000385",
+          "hole": 6,
+          "name": "果岭前缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "front",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0764026,
+            32.6071338
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/6/green/middle",
+        "properties": {
+          "id": "cn0000385/hole/6/green/middle",
+          "local_id": "middle",
+          "course_id": "cn0000385",
+          "hole": 6,
+          "name": "果岭中心",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "middle",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.07637104827587,
+            32.60697697241379
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/6/green/back",
+        "properties": {
+          "id": "cn0000385/hole/6/green/back",
+          "local_id": "back",
+          "course_id": "cn0000385",
+          "hole": 6,
+          "name": "果岭后缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "back",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0763416,
+            32.6068306
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/7/tee/black",
+        "properties": {
+          "id": "cn0000385/hole/7/tee/black",
+          "local_id": "black",
+          "course_id": "cn0000385",
+          "hole": 7,
+          "name": "black Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "black",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0759484,
+            32.6067116
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/7/tee/blue",
+        "properties": {
+          "id": "cn0000385/hole/7/tee/blue",
+          "local_id": "blue",
+          "course_id": "cn0000385",
+          "hole": 7,
+          "name": "blue Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "blue",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0757607,
+            32.6068112
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/7/tee/white",
+        "properties": {
+          "id": "cn0000385/hole/7/tee/white",
+          "local_id": "white",
+          "course_id": "cn0000385",
+          "hole": 7,
+          "name": "white Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "white",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0753799,
+            32.6069651
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/7/tee/red",
+        "properties": {
+          "id": "cn0000385/hole/7/tee/red",
+          "local_id": "red",
+          "course_id": "cn0000385",
+          "hole": 7,
+          "name": "red Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "red",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0750796,
+            32.6073991
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/7/green/flag",
+        "properties": {
+          "id": "cn0000385/hole/7/green/flag",
+          "local_id": "flag",
+          "course_id": "cn0000385",
+          "hole": 7,
+          "name": "果岭旗杆",
+          "type": "green",
+          "kind": "green",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "flag",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0718783,
+            32.608139
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/7/green/front",
+        "properties": {
+          "id": "cn0000385/hole/7/green/front",
+          "local_id": "front",
+          "course_id": "cn0000385",
+          "hole": 7,
+          "name": "果岭前缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "front",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0720458,
+            32.6080802
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/7/green/middle",
+        "properties": {
+          "id": "cn0000385/hole/7/green/middle",
+          "local_id": "middle",
+          "course_id": "cn0000385",
+          "hole": 7,
+          "name": "果岭中心",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "middle",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0718725241379,
+            32.60814102758621
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/7/green/back",
+        "properties": {
+          "id": "cn0000385/hole/7/green/back",
+          "local_id": "back",
+          "course_id": "cn0000385",
+          "hole": 7,
+          "name": "果岭后缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "back",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0717108,
+            32.6081978
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/8/tee/black",
+        "properties": {
+          "id": "cn0000385/hole/8/tee/black",
+          "local_id": "black",
+          "course_id": "cn0000385",
+          "hole": 8,
+          "name": "black Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "black",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0704841,
+            32.6092294
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/8/tee/blue",
+        "properties": {
+          "id": "cn0000385/hole/8/tee/blue",
+          "local_id": "blue",
+          "course_id": "cn0000385",
+          "hole": 8,
+          "name": "blue Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "blue",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0704895,
+            32.6094417
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/8/tee/white",
+        "properties": {
+          "id": "cn0000385/hole/8/tee/white",
+          "local_id": "white",
+          "course_id": "cn0000385",
+          "hole": 8,
+          "name": "white Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "white",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0704948,
+            32.6096992
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/8/tee/red",
+        "properties": {
+          "id": "cn0000385/hole/8/tee/red",
+          "local_id": "red",
+          "course_id": "cn0000385",
+          "hole": 8,
+          "name": "red Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "red",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0709076,
+            32.6104259
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/8/green/flag",
+        "properties": {
+          "id": "cn0000385/hole/8/green/flag",
+          "local_id": "flag",
+          "course_id": "cn0000385",
+          "hole": 8,
+          "name": "果岭旗杆",
+          "type": "green",
+          "kind": "green",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "flag",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0715507,
+            32.6137723
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/8/green/front",
+        "properties": {
+          "id": "cn0000385/hole/8/green/front",
+          "local_id": "front",
+          "course_id": "cn0000385",
+          "hole": 8,
+          "name": "果岭前缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "front",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0715153,
+            32.6136215
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/8/green/middle",
+        "properties": {
+          "id": "cn0000385/hole/8/green/middle",
+          "local_id": "middle",
+          "course_id": "cn0000385",
+          "hole": 8,
+          "name": "果岭中心",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "middle",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.07155192068964,
+            32.6137775
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/8/green/back",
+        "properties": {
+          "id": "cn0000385/hole/8/green/back",
+          "local_id": "back",
+          "course_id": "cn0000385",
+          "hole": 8,
+          "name": "果岭后缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "back",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0715861,
+            32.6139231
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/9/tee/black",
+        "properties": {
+          "id": "cn0000385/hole/9/tee/black",
+          "local_id": "black",
+          "course_id": "cn0000385",
+          "hole": 9,
+          "name": "black Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "black",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0706069,
+            32.6149118
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/9/tee/blue",
+        "properties": {
+          "id": "cn0000385/hole/9/tee/blue",
+          "local_id": "blue",
+          "course_id": "cn0000385",
+          "hole": 9,
+          "name": "blue Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "blue",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0709876,
+            32.6150152
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/9/tee/white",
+        "properties": {
+          "id": "cn0000385/hole/9/tee/white",
+          "local_id": "white",
+          "course_id": "cn0000385",
+          "hole": 9,
+          "name": "white Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "white",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0713521,
+            32.6152948
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/9/tee/red",
+        "properties": {
+          "id": "cn0000385/hole/9/tee/red",
+          "local_id": "red",
+          "course_id": "cn0000385",
+          "hole": 9,
+          "name": "red Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "red",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0714969,
+            32.6155295
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/9/green/flag",
+        "properties": {
+          "id": "cn0000385/hole/9/green/flag",
+          "local_id": "flag",
+          "course_id": "cn0000385",
+          "hole": 9,
+          "name": "果岭旗杆",
+          "type": "green",
+          "kind": "green",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "flag",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0712502,
+            32.6163067
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/9/green/front",
+        "properties": {
+          "id": "cn0000385/hole/9/green/front",
+          "local_id": "front",
+          "course_id": "cn0000385",
+          "hole": 9,
+          "name": "果岭前缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "front",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.07119,
+            32.6161761
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/9/green/middle",
+        "properties": {
+          "id": "cn0000385/hole/9/green/middle",
+          "local_id": "middle",
+          "course_id": "cn0000385",
+          "hole": 9,
+          "name": "果岭中心",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "middle",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.07125227586208,
+            32.61631120344828
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/9/green/back",
+        "properties": {
+          "id": "cn0000385/hole/9/green/back",
+          "local_id": "back",
+          "course_id": "cn0000385",
+          "hole": 9,
+          "name": "果岭后缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "back",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0713104,
+            32.6164373
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/10/tee/black",
+        "properties": {
+          "id": "cn0000385/hole/10/tee/black",
+          "local_id": "black",
+          "course_id": "cn0000385",
+          "hole": 10,
+          "name": "black Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "black",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0705745,
+            32.6174684
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/10/tee/blue",
+        "properties": {
+          "id": "cn0000385/hole/10/tee/blue",
+          "local_id": "blue",
+          "course_id": "cn0000385",
+          "hole": 10,
+          "name": "blue Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "blue",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0703386,
+            32.6176493
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/10/tee/white",
+        "properties": {
+          "id": "cn0000385/hole/10/tee/white",
+          "local_id": "white",
+          "course_id": "cn0000385",
+          "hole": 10,
+          "name": "white Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "white",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0701456,
+            32.6178393
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/10/tee/red",
+        "properties": {
+          "id": "cn0000385/hole/10/tee/red",
+          "local_id": "red",
+          "course_id": "cn0000385",
+          "hole": 10,
+          "name": "red Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "red",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0701402,
+            32.6180967
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/10/green/flag",
+        "properties": {
+          "id": "cn0000385/hole/10/green/flag",
+          "local_id": "flag",
+          "course_id": "cn0000385",
+          "hole": 10,
+          "name": "果岭旗杆",
+          "type": "green",
+          "kind": "green",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "flag",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0701882,
+            32.6207164
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/10/green/front",
+        "properties": {
+          "id": "cn0000385/hole/10/green/front",
+          "local_id": "front",
+          "course_id": "cn0000385",
+          "hole": 10,
+          "name": "果岭前缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "front",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0702064,
+            32.6205634
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/10/green/middle",
+        "properties": {
+          "id": "cn0000385/hole/10/green/middle",
+          "local_id": "middle",
+          "course_id": "cn0000385",
+          "hole": 10,
+          "name": "果岭中心",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "middle",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0701875724138,
+            32.620721675862065
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/10/green/back",
+        "properties": {
+          "id": "cn0000385/hole/10/green/back",
+          "local_id": "back",
+          "course_id": "cn0000385",
+          "hole": 10,
+          "name": "果岭后缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "back",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.07017,
+            32.6208694
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/11/tee/black",
+        "properties": {
+          "id": "cn0000385/hole/11/tee/black",
+          "local_id": "black",
+          "course_id": "cn0000385",
+          "hole": 11,
+          "name": "black Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "black",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0695877,
+            32.620812
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/11/tee/blue",
+        "properties": {
+          "id": "cn0000385/hole/11/tee/blue",
+          "local_id": "blue",
+          "course_id": "cn0000385",
+          "hole": 11,
+          "name": "blue Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "blue",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0695502,
+            32.620663
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/11/tee/white",
+        "properties": {
+          "id": "cn0000385/hole/11/tee/white",
+          "local_id": "white",
+          "course_id": "cn0000385",
+          "hole": 11,
+          "name": "white Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "white",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0695073,
+            32.6205366
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/11/tee/red",
+        "properties": {
+          "id": "cn0000385/hole/11/tee/red",
+          "local_id": "red",
+          "course_id": "cn0000385",
+          "hole": 11,
+          "name": "red Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "red",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0694645,
+            32.6202521
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/11/green/flag",
+        "properties": {
+          "id": "cn0000385/hole/11/green/flag",
+          "local_id": "flag",
+          "course_id": "cn0000385",
+          "hole": 11,
+          "name": "果岭旗杆",
+          "type": "green",
+          "kind": "green",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "flag",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0690197,
+            32.6179085
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/11/green/front",
+        "properties": {
+          "id": "cn0000385/hole/11/green/front",
+          "local_id": "front",
+          "course_id": "cn0000385",
+          "hole": 11,
+          "name": "果岭前缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "front",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0690494,
+            32.6180602
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/11/green/middle",
+        "properties": {
+          "id": "cn0000385/hole/11/green/middle",
+          "local_id": "middle",
+          "course_id": "cn0000385",
+          "hole": 11,
+          "name": "果岭中心",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "middle",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.06901867586207,
+            32.61790326896553
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/11/green/back",
+        "properties": {
+          "id": "cn0000385/hole/11/green/back",
+          "local_id": "back",
+          "course_id": "cn0000385",
+          "hole": 11,
+          "name": "果岭后缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "back",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.06899,
+            32.6177568
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/12/tee/black",
+        "properties": {
+          "id": "cn0000385/hole/12/tee/black",
+          "local_id": "black",
+          "course_id": "cn0000385",
+          "hole": 12,
+          "name": "black Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "black",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0685639,
+            32.6192234
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/12/tee/blue",
+        "properties": {
+          "id": "cn0000385/hole/12/tee/blue",
+          "local_id": "blue",
+          "course_id": "cn0000385",
+          "hole": 12,
+          "name": "blue Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "blue",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0685478,
+            32.6193635
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/12/tee/white",
+        "properties": {
+          "id": "cn0000385/hole/12/tee/white",
+          "local_id": "white",
+          "course_id": "cn0000385",
+          "hole": 12,
+          "name": "white Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "white",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0685264,
+            32.6194719
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/12/tee/red",
+        "properties": {
+          "id": "cn0000385/hole/12/tee/red",
+          "local_id": "red",
+          "course_id": "cn0000385",
+          "hole": 12,
+          "name": "red Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "red",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0685103,
+            32.6195623
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/12/green/flag",
+        "properties": {
+          "id": "cn0000385/hole/12/green/flag",
+          "local_id": "flag",
+          "course_id": "cn0000385",
+          "hole": 12,
+          "name": "果岭旗杆",
+          "type": "green",
+          "kind": "green",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "flag",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.068789,
+            32.6205285
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/12/green/front",
+        "properties": {
+          "id": "cn0000385/hole/12/green/front",
+          "local_id": "front",
+          "course_id": "cn0000385",
+          "hole": 12,
+          "name": "果岭前缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "front",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0687651,
+            32.6203898
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/12/green/middle",
+        "properties": {
+          "id": "cn0000385/hole/12/green/middle",
+          "local_id": "middle",
+          "course_id": "cn0000385",
+          "hole": 12,
+          "name": "果岭中心",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "middle",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.06878982413794,
+            32.620533282758615
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/12/green/back",
+        "properties": {
+          "id": "cn0000385/hole/12/green/back",
+          "local_id": "back",
+          "course_id": "cn0000385",
+          "hole": 12,
+          "name": "果岭后缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "back",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0688129,
+            32.6206672
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/13/tee/black",
+        "properties": {
+          "id": "cn0000385/hole/13/tee/black",
+          "local_id": "black",
+          "course_id": "cn0000385",
+          "hole": 13,
+          "name": "black Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "black",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0694645,
+            32.6202521
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/13/tee/blue",
+        "properties": {
+          "id": "cn0000385/hole/13/tee/blue",
+          "local_id": "blue",
+          "course_id": "cn0000385",
+          "hole": 13,
+          "name": "blue Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "blue",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0695073,
+            32.6205366
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/13/tee/white",
+        "properties": {
+          "id": "cn0000385/hole/13/tee/white",
+          "local_id": "white",
+          "course_id": "cn0000385",
+          "hole": 13,
+          "name": "white Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "white",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0695877,
+            32.620812
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/13/tee/red",
+        "properties": {
+          "id": "cn0000385/hole/13/tee/red",
+          "local_id": "red",
+          "course_id": "cn0000385",
+          "hole": 13,
+          "name": "red Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "red",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.069904,
+            32.6213671
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/13/green/flag",
+        "properties": {
+          "id": "cn0000385/hole/13/green/flag",
+          "local_id": "flag",
+          "course_id": "cn0000385",
+          "hole": 13,
+          "name": "果岭旗杆",
+          "type": "green",
+          "kind": "green",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "flag",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0698822,
+            32.6254365
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/13/green/front",
+        "properties": {
+          "id": "cn0000385/hole/13/green/front",
+          "local_id": "front",
+          "course_id": "cn0000385",
+          "hole": 13,
+          "name": "果岭前缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "front",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0698698,
+            32.6252831
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/13/green/middle",
+        "properties": {
+          "id": "cn0000385/hole/13/green/middle",
+          "local_id": "middle",
+          "course_id": "cn0000385",
+          "hole": 13,
+          "name": "果岭中心",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "middle",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.06988262758622,
+            32.62544178965517
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/13/green/back",
+        "properties": {
+          "id": "cn0000385/hole/13/green/back",
+          "local_id": "back",
+          "course_id": "cn0000385",
+          "hole": 13,
+          "name": "果岭后缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "back",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0698946,
+            32.6255899
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/14/tee/black",
+        "properties": {
+          "id": "cn0000385/hole/14/tee/black",
+          "local_id": "black",
+          "course_id": "cn0000385",
+          "hole": 14,
+          "name": "black Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "black",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.069035,
+            32.6260157
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/14/tee/blue",
+        "properties": {
+          "id": "cn0000385/hole/14/tee/blue",
+          "local_id": "blue",
+          "course_id": "cn0000385",
+          "hole": 14,
+          "name": "blue Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "blue",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.069287,
+            32.6260515
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/14/tee/white",
+        "properties": {
+          "id": "cn0000385/hole/14/tee/white",
+          "local_id": "white",
+          "course_id": "cn0000385",
+          "hole": 14,
+          "name": "white Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "white",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0695015,
+            32.6260828
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/14/tee/red",
+        "properties": {
+          "id": "cn0000385/hole/14/tee/red",
+          "local_id": "red",
+          "course_id": "cn0000385",
+          "hole": 14,
+          "name": "red Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "red",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0698446,
+            32.6261456
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/14/green/flag",
+        "properties": {
+          "id": "cn0000385/hole/14/green/flag",
+          "local_id": "flag",
+          "course_id": "cn0000385",
+          "hole": 14,
+          "name": "果岭旗杆",
+          "type": "green",
+          "kind": "green",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "flag",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0702625,
+            32.6287329
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/14/green/front",
+        "properties": {
+          "id": "cn0000385/hole/14/green/front",
+          "local_id": "front",
+          "course_id": "cn0000385",
+          "hole": 14,
+          "name": "果岭前缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "front",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0701976,
+            32.6285893
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/14/green/middle",
+        "properties": {
+          "id": "cn0000385/hole/14/green/middle",
+          "local_id": "middle",
+          "course_id": "cn0000385",
+          "hole": 14,
+          "name": "果岭中心",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "middle",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.07026473793103,
+            32.62873785172414
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/14/green/back",
+        "properties": {
+          "id": "cn0000385/hole/14/green/back",
+          "local_id": "back",
+          "course_id": "cn0000385",
+          "hole": 14,
+          "name": "果岭后缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "back",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0703274,
+            32.6288765
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/15/tee/black",
+        "properties": {
+          "id": "cn0000385/hole/15/tee/black",
+          "local_id": "black",
+          "course_id": "cn0000385",
+          "hole": 15,
+          "name": "black Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "black",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0721926,
+            32.6293719
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/15/tee/blue",
+        "properties": {
+          "id": "cn0000385/hole/15/tee/blue",
+          "local_id": "blue",
+          "course_id": "cn0000385",
+          "hole": 15,
+          "name": "blue Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "blue",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0720908,
+            32.6291552
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/15/tee/white",
+        "properties": {
+          "id": "cn0000385/hole/15/tee/white",
+          "local_id": "white",
+          "course_id": "cn0000385",
+          "hole": 15,
+          "name": "white Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "white",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0721605,
+            32.6289158
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/15/tee/red",
+        "properties": {
+          "id": "cn0000385/hole/15/tee/red",
+          "local_id": "red",
+          "course_id": "cn0000385",
+          "hole": 15,
+          "name": "red Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "red",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0721873,
+            32.6285048
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/15/green/flag",
+        "properties": {
+          "id": "cn0000385/hole/15/green/flag",
+          "local_id": "flag",
+          "course_id": "cn0000385",
+          "hole": 15,
+          "name": "果岭旗杆",
+          "type": "green",
+          "kind": "green",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "flag",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0708793,
+            32.6260088
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/15/green/front",
+        "properties": {
+          "id": "cn0000385/hole/15/green/front",
+          "local_id": "front",
+          "course_id": "cn0000385",
+          "hole": 15,
+          "name": "果岭前缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "front",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0709363,
+            32.6261548
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/15/green/middle",
+        "properties": {
+          "id": "cn0000385/hole/15/green/middle",
+          "local_id": "middle",
+          "course_id": "cn0000385",
+          "hole": 15,
+          "name": "果岭中心",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "middle",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.07087733448274,
+            32.62600376551724
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/15/green/back",
+        "properties": {
+          "id": "cn0000385/hole/15/green/back",
+          "local_id": "back",
+          "course_id": "cn0000385",
+          "hole": 15,
+          "name": "果岭后缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "back",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0708223,
+            32.6258628
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/16/tee/black",
+        "properties": {
+          "id": "cn0000385/hole/16/tee/black",
+          "local_id": "black",
+          "course_id": "cn0000385",
+          "hole": 16,
+          "name": "black Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "black",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0716836,
+            32.6259446
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/16/tee/blue",
+        "properties": {
+          "id": "cn0000385/hole/16/tee/blue",
+          "local_id": "blue",
+          "course_id": "cn0000385",
+          "hole": 16,
+          "name": "blue Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "blue",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0719463,
+            32.6261205
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/16/tee/white",
+        "properties": {
+          "id": "cn0000385/hole/16/tee/white",
+          "local_id": "white",
+          "course_id": "cn0000385",
+          "hole": 16,
+          "name": "white Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "white",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0720642,
+            32.6264726
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/16/tee/red",
+        "properties": {
+          "id": "cn0000385/hole/16/tee/red",
+          "local_id": "red",
+          "course_id": "cn0000385",
+          "hole": 16,
+          "name": "red Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "red",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0722572,
+            32.6267614
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/16/green/flag",
+        "properties": {
+          "id": "cn0000385/hole/16/green/flag",
+          "local_id": "flag",
+          "course_id": "cn0000385",
+          "hole": 16,
+          "name": "果岭旗杆",
+          "type": "green",
+          "kind": "green",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "flag",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.073158,
+            32.6269094
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/16/green/front",
+        "properties": {
+          "id": "cn0000385/hole/16/green/front",
+          "local_id": "front",
+          "course_id": "cn0000385",
+          "hole": 16,
+          "name": "果岭前缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "front",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0730271,
+            32.6268237
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/16/green/middle",
+        "properties": {
+          "id": "cn0000385/hole/16/green/middle",
+          "local_id": "middle",
+          "course_id": "cn0000385",
+          "hole": 16,
+          "name": "果岭中心",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "middle",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.07316251379312,
+            32.626912355172415
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/16/green/back",
+        "properties": {
+          "id": "cn0000385/hole/16/green/back",
+          "local_id": "back",
+          "course_id": "cn0000385",
+          "hole": 16,
+          "name": "果岭后缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "back",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0732889,
+            32.6269951
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/17/tee/black",
+        "properties": {
+          "id": "cn0000385/hole/17/tee/black",
+          "local_id": "black",
+          "course_id": "cn0000385",
+          "hole": 17,
+          "name": "black Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "black",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0740053,
+            32.6261497
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/17/tee/blue",
+        "properties": {
+          "id": "cn0000385/hole/17/tee/blue",
+          "local_id": "blue",
+          "course_id": "cn0000385",
+          "hole": 17,
+          "name": "blue Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "blue",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0737586,
+            32.6262223
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/17/tee/white",
+        "properties": {
+          "id": "cn0000385/hole/17/tee/white",
+          "local_id": "white",
+          "course_id": "cn0000385",
+          "hole": 17,
+          "name": "white Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "white",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0733189,
+            32.6262544
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/17/tee/red",
+        "properties": {
+          "id": "cn0000385/hole/17/tee/red",
+          "local_id": "red",
+          "course_id": "cn0000385",
+          "hole": 17,
+          "name": "red Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "red",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0728632,
+            32.6260968
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/17/green/flag",
+        "properties": {
+          "id": "cn0000385/hole/17/green/flag",
+          "local_id": "flag",
+          "course_id": "cn0000385",
+          "hole": 17,
+          "name": "果岭旗杆",
+          "type": "green",
+          "kind": "green",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "flag",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0708098,
+            32.6235655
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/17/green/front",
+        "properties": {
+          "id": "cn0000385/hole/17/green/front",
+          "local_id": "front",
+          "course_id": "cn0000385",
+          "hole": 17,
+          "name": "果岭前缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "front",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.070941,
+            32.6236716
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/17/green/middle",
+        "properties": {
+          "id": "cn0000385/hole/17/green/middle",
+          "local_id": "middle",
+          "course_id": "cn0000385",
+          "hole": 17,
+          "name": "果岭中心",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "middle",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0708052758621,
+            32.62356184137931
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/17/green/back",
+        "properties": {
+          "id": "cn0000385/hole/17/green/back",
+          "local_id": "back",
+          "course_id": "cn0000385",
+          "hole": 17,
+          "name": "果岭后缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "back",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0706786,
+            32.6234594
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/18/tee/black",
+        "properties": {
+          "id": "cn0000385/hole/18/tee/black",
+          "local_id": "black",
+          "course_id": "cn0000385",
+          "hole": 18,
+          "name": "black Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "black",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.070826,
+            32.6229423
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/18/tee/blue",
+        "properties": {
+          "id": "cn0000385/hole/18/tee/blue",
+          "local_id": "blue",
+          "course_id": "cn0000385",
+          "hole": 18,
+          "name": "blue Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "blue",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0711048,
+            32.622829
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/18/tee/white",
+        "properties": {
+          "id": "cn0000385/hole/18/tee/white",
+          "local_id": "white",
+          "course_id": "cn0000385",
+          "hole": 18,
+          "name": "white Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "white",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0713086,
+            32.6226571
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/18/tee/red",
+        "properties": {
+          "id": "cn0000385/hole/18/tee/red",
+          "local_id": "red",
+          "course_id": "cn0000385",
+          "hole": 18,
+          "name": "red Tee",
+          "type": "tee",
+          "kind": "tee",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "color": "red",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.071582,
+            32.622309
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/18/green/flag",
+        "properties": {
+          "id": "cn0000385/hole/18/green/flag",
+          "local_id": "flag",
+          "course_id": "cn0000385",
+          "hole": 18,
+          "name": "果岭旗杆",
+          "type": "green",
+          "kind": "green",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "flag",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0715609,
+            32.6186822
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/18/green/front",
+        "properties": {
+          "id": "cn0000385/hole/18/green/front",
+          "local_id": "front",
+          "course_id": "cn0000385",
+          "hole": 18,
+          "name": "果岭前缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "front",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0715347,
+            32.6188344
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/18/green/middle",
+        "properties": {
+          "id": "cn0000385/hole/18/green/middle",
+          "local_id": "middle",
+          "course_id": "cn0000385",
+          "hole": 18,
+          "name": "果岭中心",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "middle",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.07156180344826,
+            32.61867695172414
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/18/green/back",
+        "properties": {
+          "id": "cn0000385/hole/18/green/back",
+          "local_id": "back",
+          "course_id": "cn0000385",
+          "hole": 18,
+          "name": "果岭后缘",
+          "type": "green",
+          "kind": "green",
+          "source": "derived_geometry",
+          "accuracy_m": null,
+          "updated_at": null,
+          "registration_quality": "unverified",
+          "registration_version": null,
+          "pixel": null,
+          "range_status": "inside",
+          "role": "back",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            120.0715871,
+            32.61853
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/1/boundary/0",
+        "properties": {
+          "id": "cn0000385/hole/1/boundary/0",
+          "course_id": "cn0000385",
+          "hole": 1,
+          "type": "hole_boundary",
+          "name": "第 1 洞范围",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "registration_quality": "unverified",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                120.0720062,
+                32.6158632
+              ],
+              [
+                120.0720545,
+                32.6156192
+              ],
+              [
+                120.0720063,
+                32.6148423
+              ],
+              [
+                120.0719796,
+                32.6138486
+              ],
+              [
+                120.0719796,
+                32.6135144
+              ],
+              [
+                120.0720065,
+                32.6132117
+              ],
+              [
+                120.0720816,
+                32.6129361
+              ],
+              [
+                120.0721834,
+                32.6127372
+              ],
+              [
+                120.072339,
+                32.612597
+              ],
+              [
+                120.0725374,
+                32.6125335
+              ],
+              [
+                120.0727304,
+                32.6125965
+              ],
+              [
+                120.0728591,
+                32.6127545
+              ],
+              [
+                120.0729341,
+                32.6129893
+              ],
+              [
+                120.073036,
+                32.6132105
+              ],
+              [
+                120.073111,
+                32.6134905
+              ],
+              [
+                120.0731485,
+                32.6138202
+              ],
+              [
+                120.0731485,
+                32.6141544
+              ],
+              [
+                120.0729929,
+                32.6154194
+              ],
+              [
+                120.0729392,
+                32.6156407
+              ],
+              [
+                120.0728212,
+                32.6158577
+              ],
+              [
+                120.0723869,
+                32.6164002
+              ],
+              [
+                120.0721134,
+                32.6163689
+              ],
+              [
+                120.0720008,
+                32.6161116
+              ],
+              [
+                120.0720062,
+                32.6158632
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/2/boundary/0",
+        "properties": {
+          "id": "cn0000385/hole/2/boundary/0",
+          "course_id": "cn0000385",
+          "hole": 2,
+          "type": "hole_boundary",
+          "name": "第 2 洞范围",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "registration_quality": "unverified",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                120.072573,
+                32.6125169
+              ],
+              [
+                120.0724555,
+                32.6126121
+              ],
+              [
+                120.0721176,
+                32.6122898
+              ],
+              [
+                120.0715846,
+                32.6113406
+              ],
+              [
+                120.0715752,
+                32.6112901
+              ],
+              [
+                120.0714592,
+                32.6111107
+              ],
+              [
+                120.0713803,
+                32.6108082
+              ],
+              [
+                120.0712635,
+                32.6106722
+              ],
+              [
+                120.0714424,
+                32.6099538
+              ],
+              [
+                120.0713432,
+                32.6097591
+              ],
+              [
+                120.0713401,
+                32.6096884
+              ],
+              [
+                120.0712668,
+                32.6095926
+              ],
+              [
+                120.0712525,
+                32.6094018
+              ],
+              [
+                120.0711417,
+                32.6092496
+              ],
+              [
+                120.0711043,
+                32.6091632
+              ],
+              [
+                120.0711014,
+                32.6090668
+              ],
+              [
+                120.0711204,
+                32.6090146
+              ],
+              [
+                120.0711755,
+                32.608965
+              ],
+              [
+                120.0712613,
+                32.6089307
+              ],
+              [
+                120.071367,
+                32.6089363
+              ],
+              [
+                120.0714523,
+                32.6090077
+              ],
+              [
+                120.0714975,
+                32.6092036
+              ],
+              [
+                120.0715678,
+                32.6093354
+              ],
+              [
+                120.0715806,
+                32.6095075
+              ],
+              [
+                120.0716578,
+                32.6095984
+              ],
+              [
+                120.0716808,
+                32.6097397
+              ],
+              [
+                120.0721179,
+                32.6099732
+              ],
+              [
+                120.0720819,
+                32.6100328
+              ],
+              [
+                120.0727793,
+                32.6117524
+              ],
+              [
+                120.0727847,
+                32.6119326
+              ],
+              [
+                120.0727167,
+                32.6118814
+              ],
+              [
+                120.0727588,
+                32.6120111
+              ],
+              [
+                120.0727756,
+                32.6122696
+              ],
+              [
+                120.0728523,
+                32.6123452
+              ],
+              [
+                120.072866,
+                32.6124358
+              ],
+              [
+                120.0728203,
+                32.6125045
+              ],
+              [
+                120.0727525,
+                32.6125372
+              ],
+              [
+                120.0726591,
+                32.6125357
+              ],
+              [
+                120.0725929,
+                32.6125008
+              ],
+              [
+                120.072573,
+                32.6125169
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/3/boundary/0",
+        "properties": {
+          "id": "cn0000385/hole/3/boundary/0",
+          "course_id": "cn0000385",
+          "hole": 3,
+          "type": "hole_boundary",
+          "name": "第 3 洞范围",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "registration_quality": "unverified",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                120.0728926,
+                32.6104398
+              ],
+              [
+                120.0727621,
+                32.6104231
+              ],
+              [
+                120.0726747,
+                32.6103451
+              ],
+              [
+                120.0725757,
+                32.6104064
+              ],
+              [
+                120.0725032,
+                32.6103642
+              ],
+              [
+                120.0724322,
+                32.6101286
+              ],
+              [
+                120.0723833,
+                32.6096825
+              ],
+              [
+                120.0723695,
+                32.6097501
+              ],
+              [
+                120.0723298,
+                32.6097966
+              ],
+              [
+                120.0722727,
+                32.6098177
+              ],
+              [
+                120.0722025,
+                32.6098098
+              ],
+              [
+                120.0721432,
+                32.6097618
+              ],
+              [
+                120.0720381,
+                32.6095398
+              ],
+              [
+                120.0720387,
+                32.6094826
+              ],
+              [
+                120.0722444,
+                32.6089233
+              ],
+              [
+                120.0722423,
+                32.6088228
+              ],
+              [
+                120.0722867,
+                32.6087686
+              ],
+              [
+                120.0723562,
+                32.6087383
+              ],
+              [
+                120.0724639,
+                32.6087485
+              ],
+              [
+                120.0725394,
+                32.608814
+              ],
+              [
+                120.0726304,
+                32.6090393
+              ],
+              [
+                120.0726342,
+                32.609141
+              ],
+              [
+                120.0726447,
+                32.6091527
+              ],
+              [
+                120.0727062,
+                32.6091362
+              ],
+              [
+                120.0727794,
+                32.6094392
+              ],
+              [
+                120.072766,
+                32.6094653
+              ],
+              [
+                120.0731592,
+                32.6101066
+              ],
+              [
+                120.0731194,
+                32.6100699
+              ],
+              [
+                120.0729903,
+                32.6101498
+              ],
+              [
+                120.0730268,
+                32.6102478
+              ],
+              [
+                120.0730167,
+                32.6103317
+              ],
+              [
+                120.0729693,
+                32.6104012
+              ],
+              [
+                120.0728926,
+                32.6104398
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/4/boundary/0",
+        "properties": {
+          "id": "cn0000385/hole/4/boundary/0",
+          "course_id": "cn0000385",
+          "hole": 4,
+          "type": "hole_boundary",
+          "name": "第 4 洞范围",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "registration_quality": "unverified",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                120.0733686,
+                32.6110885
+              ],
+              [
+                120.0733428,
+                32.6110368
+              ],
+              [
+                120.0733106,
+                32.6107718
+              ],
+              [
+                120.0734012,
+                32.6104279
+              ],
+              [
+                120.0734671,
+                32.6103648
+              ],
+              [
+                120.0735035,
+                32.6102192
+              ],
+              [
+                120.0737097,
+                32.6089413
+              ],
+              [
+                120.0737701,
+                32.6088989
+              ],
+              [
+                120.0738313,
+                32.6087245
+              ],
+              [
+                120.073826,
+                32.6086182
+              ],
+              [
+                120.0742219,
+                32.6082962
+              ],
+              [
+                120.0744225,
+                32.6082791
+              ],
+              [
+                120.0744538,
+                32.608173
+              ],
+              [
+                120.0745508,
+                32.6080778
+              ],
+              [
+                120.0746384,
+                32.6080534
+              ],
+              [
+                120.0746884,
+                32.6080583
+              ],
+              [
+                120.0747893,
+                32.6081332
+              ],
+              [
+                120.0748141,
+                32.6082458
+              ],
+              [
+                120.075052,
+                32.6082254
+              ],
+              [
+                120.0749287,
+                32.609264
+              ],
+              [
+                120.0747447,
+                32.6095172
+              ],
+              [
+                120.0745084,
+                32.6096968
+              ],
+              [
+                120.0744945,
+                32.6097972
+              ],
+              [
+                120.0738276,
+                32.6106942
+              ],
+              [
+                120.0737963,
+                32.6109194
+              ],
+              [
+                120.0738401,
+                32.6109827
+              ],
+              [
+                120.0738672,
+                32.6111314
+              ],
+              [
+                120.0738458,
+                32.6111948
+              ],
+              [
+                120.0737896,
+                32.611253
+              ],
+              [
+                120.0737883,
+                32.6113152
+              ],
+              [
+                120.0737524,
+                32.6112888
+              ],
+              [
+                120.0736577,
+                32.6113334
+              ],
+              [
+                120.0735511,
+                32.6113172
+              ],
+              [
+                120.0734948,
+                32.6112716
+              ],
+              [
+                120.0734706,
+                32.6111965
+              ],
+              [
+                120.0733686,
+                32.6110885
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/5/boundary/0",
+        "properties": {
+          "id": "cn0000385/hole/5/boundary/0",
+          "course_id": "cn0000385",
+          "hole": 5,
+          "type": "hole_boundary",
+          "name": "第 5 洞范围",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "registration_quality": "unverified",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                120.0758412,
+                32.6111698
+              ],
+              [
+                120.0757552,
+                32.6111545
+              ],
+              [
+                120.0756819,
+                32.6110993
+              ],
+              [
+                120.0756376,
+                32.6110186
+              ],
+              [
+                120.0756294,
+                32.6109163
+              ],
+              [
+                120.0754077,
+                32.6108676
+              ],
+              [
+                120.0753596,
+                32.6107142
+              ],
+              [
+                120.075328,
+                32.6096784
+              ],
+              [
+                120.0752404,
+                32.6095303
+              ],
+              [
+                120.0752244,
+                32.6093024
+              ],
+              [
+                120.0752406,
+                32.6092366
+              ],
+              [
+                120.075312,
+                32.609154
+              ],
+              [
+                120.0752891,
+                32.6084064
+              ],
+              [
+                120.0752172,
+                32.6083652
+              ],
+              [
+                120.0751922,
+                32.6082996
+              ],
+              [
+                120.075239,
+                32.6073272
+              ],
+              [
+                120.0752141,
+                32.6072649
+              ],
+              [
+                120.0752201,
+                32.6069499
+              ],
+              [
+                120.075268,
+                32.6068679
+              ],
+              [
+                120.0753667,
+                32.6068301
+              ],
+              [
+                120.0754714,
+                32.6068536
+              ],
+              [
+                120.075523,
+                32.606903
+              ],
+              [
+                120.0755408,
+                32.6069671
+              ],
+              [
+                120.0756394,
+                32.6069683
+              ],
+              [
+                120.0757055,
+                32.6070405
+              ],
+              [
+                120.0757415,
+                32.6071927
+              ],
+              [
+                120.075935,
+                32.6074536
+              ],
+              [
+                120.0756112,
+                32.6079942
+              ],
+              [
+                120.0759099,
+                32.6095857
+              ],
+              [
+                120.0760465,
+                32.6094509
+              ],
+              [
+                120.0761396,
+                32.6096011
+              ],
+              [
+                120.0760292,
+                32.6110041
+              ],
+              [
+                120.0760092,
+                32.6109997
+              ],
+              [
+                120.0759575,
+                32.6111135
+              ],
+              [
+                120.0758899,
+                32.6111589
+              ],
+              [
+                120.0758412,
+                32.6111698
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/6/boundary/0",
+        "properties": {
+          "id": "cn0000385/hole/6/boundary/0",
+          "course_id": "cn0000385",
+          "hole": 6,
+          "type": "hole_boundary",
+          "name": "第 6 洞范围",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "registration_quality": "unverified",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                120.0765488,
+                32.6108398
+              ],
+              [
+                120.0765277,
+                32.610772
+              ],
+              [
+                120.0765626,
+                32.6107083
+              ],
+              [
+                120.0766376,
+                32.6106777
+              ],
+              [
+                120.0767177,
+                32.6106938
+              ],
+              [
+                120.076251,
+                32.6093566
+              ],
+              [
+                120.0762584,
+                32.6092641
+              ],
+              [
+                120.0762114,
+                32.6089995
+              ],
+              [
+                120.0760051,
+                32.6086377
+              ],
+              [
+                120.0759503,
+                32.6084948
+              ],
+              [
+                120.0759386,
+                32.6083552
+              ],
+              [
+                120.0759573,
+                32.6082365
+              ],
+              [
+                120.0759377,
+                32.6081121
+              ],
+              [
+                120.0759621,
+                32.6079467
+              ],
+              [
+                120.0758077,
+                32.6077873
+              ],
+              [
+                120.0757469,
+                32.6076744
+              ],
+              [
+                120.0757063,
+                32.6072104
+              ],
+              [
+                120.0757207,
+                32.6071733
+              ],
+              [
+                120.0757054,
+                32.6071209
+              ],
+              [
+                120.0761861,
+                32.6070209
+              ],
+              [
+                120.0761972,
+                32.6068738
+              ],
+              [
+                120.0762502,
+                32.6068065
+              ],
+              [
+                120.0763341,
+                32.6067723
+              ],
+              [
+                120.0764162,
+                32.6067815
+              ],
+              [
+                120.076463,
+                32.6068049
+              ],
+              [
+                120.076526,
+                32.6068687
+              ],
+              [
+                120.0765581,
+                32.6069435
+              ],
+              [
+                120.0766623,
+                32.6069218
+              ],
+              [
+                120.0773465,
+                32.6081807
+              ],
+              [
+                120.0773352,
+                32.6082979
+              ],
+              [
+                120.07753,
+                32.6086482
+              ],
+              [
+                120.0775789,
+                32.6088933
+              ],
+              [
+                120.0776277,
+                32.6090145
+              ],
+              [
+                120.0776536,
+                32.6092122
+              ],
+              [
+                120.0772679,
+                32.610445
+              ],
+              [
+                120.0770999,
+                32.6104402
+              ],
+              [
+                120.0772244,
+                32.6106926
+              ],
+              [
+                120.0773108,
+                32.6107871
+              ],
+              [
+                120.0773273,
+                32.6109012
+              ],
+              [
+                120.0775619,
+                32.6113768
+              ],
+              [
+                120.0773908,
+                32.6116485
+              ],
+              [
+                120.0773201,
+                32.6116767
+              ],
+              [
+                120.077242,
+                32.6116735
+              ],
+              [
+                120.0771644,
+                32.6116299
+              ],
+              [
+                120.0771278,
+                32.611544
+              ],
+              [
+                120.0770145,
+                32.6115441
+              ],
+              [
+                120.0769261,
+                32.6112908
+              ],
+              [
+                120.0765488,
+                32.6108398
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/7/boundary/0",
+        "properties": {
+          "id": "cn0000385/hole/7/boundary/0",
+          "course_id": "cn0000385",
+          "hole": 7,
+          "type": "hole_boundary",
+          "name": "第 7 洞范围",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "registration_quality": "unverified",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                120.071646,
+                32.6082191
+              ],
+              [
+                120.0716378,
+                32.6081452
+              ],
+              [
+                120.0716784,
+                32.6080694
+              ],
+              [
+                120.0717564,
+                32.6080097
+              ],
+              [
+                120.0718634,
+                32.6079736
+              ],
+              [
+                120.071844,
+                32.6077561
+              ],
+              [
+                120.0725029,
+                32.6075195
+              ],
+              [
+                120.0726008,
+                32.6075115
+              ],
+              [
+                120.0725309,
+                32.6074806
+              ],
+              [
+                120.0726834,
+                32.6074162
+              ],
+              [
+                120.0747523,
+                32.607109
+              ],
+              [
+                120.0748664,
+                32.6070533
+              ],
+              [
+                120.0750678,
+                32.6069991
+              ],
+              [
+                120.0753412,
+                32.6067626
+              ],
+              [
+                120.0755395,
+                32.6067372
+              ],
+              [
+                120.0757887,
+                32.6065972
+              ],
+              [
+                120.0759873,
+                32.60658
+              ],
+              [
+                120.0760563,
+                32.6066109
+              ],
+              [
+                120.0760998,
+                32.6066656
+              ],
+              [
+                120.0761076,
+                32.6067311
+              ],
+              [
+                120.0760865,
+                32.6067809
+              ],
+              [
+                120.0760313,
+                32.6068276
+              ],
+              [
+                120.0759641,
+                32.6068466
+              ],
+              [
+                120.0759665,
+                32.6069174
+              ],
+              [
+                120.0759244,
+                32.6070136
+              ],
+              [
+                120.0760474,
+                32.6070141
+              ],
+              [
+                120.0759879,
+                32.607086
+              ],
+              [
+                120.0752483,
+                32.6074081
+              ],
+              [
+                120.0751356,
+                32.6074916
+              ],
+              [
+                120.0750417,
+                32.607498
+              ],
+              [
+                120.0739867,
+                32.6079573
+              ],
+              [
+                120.0719211,
+                32.6086176
+              ],
+              [
+                120.0718931,
+                32.6083044
+              ],
+              [
+                120.0717464,
+                32.6082976
+              ],
+              [
+                120.0716725,
+                32.6082553
+              ],
+              [
+                120.071646,
+                32.6082191
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/8/boundary/0",
+        "properties": {
+          "id": "cn0000385/hole/8/boundary/0",
+          "course_id": "cn0000385",
+          "hole": 8,
+          "type": "hole_boundary",
+          "name": "第 8 洞范围",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "registration_quality": "unverified",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                120.0714019,
+                32.6138911
+              ],
+              [
+                120.0713623,
+                32.6138041
+              ],
+              [
+                120.0713592,
+                32.6137128
+              ],
+              [
+                120.0713943,
+                32.6136298
+              ],
+              [
+                120.0714854,
+                32.6135652
+              ],
+              [
+                120.0714707,
+                32.6134511
+              ],
+              [
+                120.0715132,
+                32.6133688
+              ],
+              [
+                120.0715132,
+                32.6133189
+              ],
+              [
+                120.0714126,
+                32.613174
+              ],
+              [
+                120.0713783,
+                32.6129252
+              ],
+              [
+                120.0713035,
+                32.6128145
+              ],
+              [
+                120.0714116,
+                32.6134547
+              ],
+              [
+                120.0709134,
+                32.6133118
+              ],
+              [
+                120.0709049,
+                32.6132874
+              ],
+              [
+                120.070932,
+                32.613272
+              ],
+              [
+                120.0708932,
+                32.6132459
+              ],
+              [
+                120.0708675,
+                32.6130645
+              ],
+              [
+                120.0706746,
+                32.612779
+              ],
+              [
+                120.0705466,
+                32.6103894
+              ],
+              [
+                120.0704846,
+                32.6101995
+              ],
+              [
+                120.0703809,
+                32.6100497
+              ],
+              [
+                120.0703662,
+                32.6099979
+              ],
+              [
+                120.0703842,
+                32.6097452
+              ],
+              [
+                120.0703628,
+                32.6093183
+              ],
+              [
+                120.0703235,
+                32.6092234
+              ],
+              [
+                120.0703646,
+                32.6091389
+              ],
+              [
+                120.07046,
+                32.6090954
+              ],
+              [
+                120.0705378,
+                32.6091016
+              ],
+              [
+                120.0705979,
+                32.6091332
+              ],
+              [
+                120.0706875,
+                32.6090715
+              ],
+              [
+                120.0712307,
+                32.6097744
+              ],
+              [
+                120.071225,
+                32.6098513
+              ],
+              [
+                120.071247,
+                32.6098861
+              ],
+              [
+                120.0708786,
+                32.6099803
+              ],
+              [
+                120.0710606,
+                32.6105104
+              ],
+              [
+                120.0710316,
+                32.6107968
+              ],
+              [
+                120.0710783,
+                32.6112136
+              ],
+              [
+                120.071132,
+                32.6112831
+              ],
+              [
+                120.071273,
+                32.6119556
+              ],
+              [
+                120.0714023,
+                32.6122936
+              ],
+              [
+                120.0713924,
+                32.6123977
+              ],
+              [
+                120.0716819,
+                32.6128277
+              ],
+              [
+                120.0717228,
+                32.6130898
+              ],
+              [
+                120.0718178,
+                32.6132188
+              ],
+              [
+                120.0718349,
+                32.6132796
+              ],
+              [
+                120.0718341,
+                32.6134375
+              ],
+              [
+                120.0718008,
+                32.6135074
+              ],
+              [
+                120.0718112,
+                32.6136184
+              ],
+              [
+                120.0717376,
+                32.6137358
+              ],
+              [
+                120.0717422,
+                32.6138318
+              ],
+              [
+                120.0717044,
+                32.6139281
+              ],
+              [
+                120.0716354,
+                32.6139806
+              ],
+              [
+                120.0715435,
+                32.6139923
+              ],
+              [
+                120.0714594,
+                32.6139592
+              ],
+              [
+                120.0714019,
+                32.6138911
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/9/boundary/0",
+        "properties": {
+          "id": "cn0000385/hole/9/boundary/0",
+          "course_id": "cn0000385",
+          "hole": 9,
+          "type": "hole_boundary",
+          "name": "第 9 洞范围",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "registration_quality": "unverified",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                120.0713346,
+                32.6164924
+              ],
+              [
+                120.0712,
+                32.6164865
+              ],
+              [
+                120.0710955,
+                32.6164066
+              ],
+              [
+                120.0710548,
+                32.6163069
+              ],
+              [
+                120.0708421,
+                32.6162925
+              ],
+              [
+                120.0708155,
+                32.6162444
+              ],
+              [
+                120.0708025,
+                32.6161741
+              ],
+              [
+                120.0708343,
+                32.6161003
+              ],
+              [
+                120.0710326,
+                32.6158726
+              ],
+              [
+                120.0712242,
+                32.6157406
+              ],
+              [
+                120.0712608,
+                32.6158261
+              ],
+              [
+                120.0712994,
+                32.6157236
+              ],
+              [
+                120.0712518,
+                32.6154941
+              ],
+              [
+                120.0706079,
+                32.6150472
+              ],
+              [
+                120.07053,
+                32.6150309
+              ],
+              [
+                120.0704725,
+                32.6149864
+              ],
+              [
+                120.0704467,
+                32.6149242
+              ],
+              [
+                120.0704534,
+                32.6148716
+              ],
+              [
+                120.0704834,
+                32.6148252
+              ],
+              [
+                120.0705465,
+                32.6147863
+              ],
+              [
+                120.0708443,
+                32.6147579
+              ],
+              [
+                120.0709344,
+                32.6147819
+              ],
+              [
+                120.0715396,
+                32.6153222
+              ],
+              [
+                120.0715604,
+                32.6154069
+              ],
+              [
+                120.0716183,
+                32.6155115
+              ],
+              [
+                120.0715981,
+                32.6155887
+              ],
+              [
+                120.0716245,
+                32.6157482
+              ],
+              [
+                120.0715366,
+                32.6159865
+              ],
+              [
+                120.071411,
+                32.6161113
+              ],
+              [
+                120.071411,
+                32.6161774
+              ],
+              [
+                120.0714662,
+                32.6163064
+              ],
+              [
+                120.0714456,
+                32.6163064
+              ],
+              [
+                120.0714441,
+                32.6163735
+              ],
+              [
+                120.0714085,
+                32.6164438
+              ],
+              [
+                120.0713346,
+                32.6164924
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/10/boundary/0",
+        "properties": {
+          "id": "cn0000385/hole/10/boundary/0",
+          "course_id": "cn0000385",
+          "hole": 10,
+          "type": "hole_boundary",
+          "name": "第 10 洞范围",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "registration_quality": "unverified",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                120.0701616,
+                32.6209277
+              ],
+              [
+                120.0700827,
+                32.6208999
+              ],
+              [
+                120.070045,
+                32.6208669
+              ],
+              [
+                120.0700043,
+                32.6207911
+              ],
+              [
+                120.0699968,
+                32.6207087
+              ],
+              [
+                120.0696673,
+                32.6206956
+              ],
+              [
+                120.0699365,
+                32.6192321
+              ],
+              [
+                120.0698084,
+                32.6187039
+              ],
+              [
+                120.0699433,
+                32.6181121
+              ],
+              [
+                120.0700191,
+                32.6179889
+              ],
+              [
+                120.0700333,
+                32.6177966
+              ],
+              [
+                120.0702388,
+                32.6175879
+              ],
+              [
+                120.0702748,
+                32.6173923
+              ],
+              [
+                120.0704257,
+                32.6174132
+              ],
+              [
+                120.0704954,
+                32.6173505
+              ],
+              [
+                120.0705866,
+                32.6173332
+              ],
+              [
+                120.0706608,
+                32.6173539
+              ],
+              [
+                120.0707217,
+                32.6174134
+              ],
+              [
+                120.0707349,
+                32.6174783
+              ],
+              [
+                120.0707093,
+                32.6175421
+              ],
+              [
+                120.0707375,
+                32.6176118
+              ],
+              [
+                120.0706573,
+                32.6179024
+              ],
+              [
+                120.0704474,
+                32.6182111
+              ],
+              [
+                120.0706403,
+                32.6193879
+              ],
+              [
+                120.070784,
+                32.6198244
+              ],
+              [
+                120.0705528,
+                32.6207309
+              ],
+              [
+                120.0703796,
+                32.620724
+              ],
+              [
+                120.0703508,
+                32.6208207
+              ],
+              [
+                120.0702931,
+                32.6208881
+              ],
+              [
+                120.0702119,
+                32.6209251
+              ],
+              [
+                120.0701616,
+                32.6209277
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/11/boundary/0",
+        "properties": {
+          "id": "cn0000385/hole/11/boundary/0",
+          "course_id": "cn0000385",
+          "hole": 11,
+          "type": "hole_boundary",
+          "name": "第 11 洞范围",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "registration_quality": "unverified",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                120.0693962,
+                32.6208893
+              ],
+              [
+                120.0693381,
+                32.6209118
+              ],
+              [
+                120.0692563,
+                32.6208517
+              ],
+              [
+                120.0692126,
+                32.6207824
+              ],
+              [
+                120.0684681,
+                32.6185953
+              ],
+              [
+                120.0684263,
+                32.6183354
+              ],
+              [
+                120.0684211,
+                32.6179164
+              ],
+              [
+                120.0688278,
+                32.617911
+              ],
+              [
+                120.0688305,
+                32.617844
+              ],
+              [
+                120.068867,
+                32.6177639
+              ],
+              [
+                120.0689324,
+                32.6177124
+              ],
+              [
+                120.06898,
+                32.6176987
+              ],
+              [
+                120.0690671,
+                32.6177086
+              ],
+              [
+                120.069143,
+                32.6177575
+              ],
+              [
+                120.0691959,
+                32.617837
+              ],
+              [
+                120.0692116,
+                32.617906
+              ],
+              [
+                120.0693622,
+                32.617904
+              ],
+              [
+                120.0696234,
+                32.618099
+              ],
+              [
+                120.0696305,
+                32.6185259
+              ],
+              [
+                120.0696777,
+                32.6190398
+              ],
+              [
+                120.0696872,
+                32.6206729
+              ],
+              [
+                120.0697484,
+                32.6208179
+              ],
+              [
+                120.0697173,
+                32.6208921
+              ],
+              [
+                120.0696274,
+                32.6209432
+              ],
+              [
+                120.0695195,
+                32.6209348
+              ],
+              [
+                120.0694426,
+                32.6208706
+              ],
+              [
+                120.0693962,
+                32.6208893
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/12/boundary/0",
+        "properties": {
+          "id": "cn0000385/hole/12/boundary/0",
+          "course_id": "cn0000385",
+          "hole": 12,
+          "type": "hole_boundary",
+          "name": "第 12 洞范围",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "registration_quality": "unverified",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                120.0688217,
+                32.6207255
+              ],
+              [
+                120.0686922,
+                32.620694
+              ],
+              [
+                120.0686313,
+                32.6206335
+              ],
+              [
+                120.0686007,
+                32.6205589
+              ],
+              [
+                120.0685264,
+                32.6205531
+              ],
+              [
+                120.0685143,
+                32.6204899
+              ],
+              [
+                120.0685644,
+                32.6203937
+              ],
+              [
+                120.0685452,
+                32.6201558
+              ],
+              [
+                120.0684637,
+                32.6196584
+              ],
+              [
+                120.0684059,
+                32.6196177
+              ],
+              [
+                120.068387,
+                32.6195601
+              ],
+              [
+                120.0684197,
+                32.6193491
+              ],
+              [
+                120.0684091,
+                32.619187
+              ],
+              [
+                120.0684594,
+                32.6191206
+              ],
+              [
+                120.0685449,
+                32.6190889
+              ],
+              [
+                120.0686634,
+                32.6191168
+              ],
+              [
+                120.068721,
+                32.6191941
+              ],
+              [
+                120.0687404,
+                32.6193261
+              ],
+              [
+                120.0687917,
+                32.6194433
+              ],
+              [
+                120.0687964,
+                32.6197145
+              ],
+              [
+                120.0688831,
+                32.6202205
+              ],
+              [
+                120.0689222,
+                32.6203934
+              ],
+              [
+                120.0689791,
+                32.6205049
+              ],
+              [
+                120.0689756,
+                32.6205908
+              ],
+              [
+                120.0689377,
+                32.6206636
+              ],
+              [
+                120.0689014,
+                32.6206961
+              ],
+              [
+                120.0688217,
+                32.6207255
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/13/boundary/0",
+        "properties": {
+          "id": "cn0000385/hole/13/boundary/0",
+          "course_id": "cn0000385",
+          "hole": 13,
+          "type": "hole_boundary",
+          "name": "第 13 洞范围",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "registration_quality": "unverified",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                120.0698979,
+                32.6256486
+              ],
+              [
+                120.0697729,
+                32.625607
+              ],
+              [
+                120.0697167,
+                32.6255382
+              ],
+              [
+                120.0696951,
+                32.6254736
+              ],
+              [
+                120.0695591,
+                32.6255005
+              ],
+              [
+                120.0695465,
+                32.6248226
+              ],
+              [
+                120.06925,
+                32.6238204
+              ],
+              [
+                120.0695087,
+                32.6227839
+              ],
+              [
+                120.0694862,
+                32.6215686
+              ],
+              [
+                120.0693606,
+                32.6215117
+              ],
+              [
+                120.0692558,
+                32.6211785
+              ],
+              [
+                120.0693101,
+                32.621114
+              ],
+              [
+                120.0692557,
+                32.6203883
+              ],
+              [
+                120.0693159,
+                32.6203108
+              ],
+              [
+                120.0693039,
+                32.620245
+              ],
+              [
+                120.0693269,
+                32.6201821
+              ],
+              [
+                120.0693824,
+                32.6201356
+              ],
+              [
+                120.0694573,
+                32.6201167
+              ],
+              [
+                120.0695478,
+                32.6201361
+              ],
+              [
+                120.0696162,
+                32.6202068
+              ],
+              [
+                120.0697315,
+                32.6205999
+              ],
+              [
+                120.0700261,
+                32.6213526
+              ],
+              [
+                120.070001,
+                32.6214311
+              ],
+              [
+                120.0699142,
+                32.6214705
+              ],
+              [
+                120.0699681,
+                32.6222657
+              ],
+              [
+                120.0699138,
+                32.6224878
+              ],
+              [
+                120.0700762,
+                32.6237364
+              ],
+              [
+                120.0702018,
+                32.624489
+              ],
+              [
+                120.0703465,
+                32.6245695
+              ],
+              [
+                120.0705215,
+                32.6252
+              ],
+              [
+                120.0702533,
+                32.6253629
+              ],
+              [
+                120.0700693,
+                32.6253994
+              ],
+              [
+                120.0700731,
+                32.6254716
+              ],
+              [
+                120.0700433,
+                32.6255593
+              ],
+              [
+                120.0699827,
+                32.6256217
+              ],
+              [
+                120.0698979,
+                32.6256486
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/14/boundary/0",
+        "properties": {
+          "id": "cn0000385/hole/14/boundary/0",
+          "course_id": "cn0000385",
+          "hole": 14,
+          "type": "hole_boundary",
+          "name": "第 14 洞范围",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "registration_quality": "unverified",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                120.0703509,
+                32.6289318
+              ],
+              [
+                120.070217,
+                32.6289232
+              ],
+              [
+                120.0701378,
+                32.6288698
+              ],
+              [
+                120.0700882,
+                32.6288004
+              ],
+              [
+                120.0700476,
+                32.6288161
+              ],
+              [
+                120.0693183,
+                32.6280468
+              ],
+              [
+                120.0689786,
+                32.6271278
+              ],
+              [
+                120.0689064,
+                32.62708
+              ],
+              [
+                120.0688796,
+                32.6269175
+              ],
+              [
+                120.0688837,
+                32.6262621
+              ],
+              [
+                120.0689249,
+                32.6261722
+              ],
+              [
+                120.0688748,
+                32.626004
+              ],
+              [
+                120.0689004,
+                32.6259418
+              ],
+              [
+                120.068972,
+                32.6258911
+              ],
+              [
+                120.0690648,
+                32.6258825
+              ],
+              [
+                120.0691575,
+                32.6259277
+              ],
+              [
+                120.0698724,
+                32.6260444
+              ],
+              [
+                120.0699254,
+                32.6260671
+              ],
+              [
+                120.0699595,
+                32.626108
+              ],
+              [
+                120.0699673,
+                32.6261551
+              ],
+              [
+                120.0699477,
+                32.6262023
+              ],
+              [
+                120.0698556,
+                32.626249
+              ],
+              [
+                120.0692566,
+                32.626157
+              ],
+              [
+                120.0693691,
+                32.6264582
+              ],
+              [
+                120.0696025,
+                32.6269674
+              ],
+              [
+                120.0705174,
+                32.6286342
+              ],
+              [
+                120.0704368,
+                32.6286654
+              ],
+              [
+                120.070459,
+                32.6288103
+              ],
+              [
+                120.0704227,
+                32.628885
+              ],
+              [
+                120.0703509,
+                32.6289318
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/15/boundary/0",
+        "properties": {
+          "id": "cn0000385/hole/15/boundary/0",
+          "course_id": "cn0000385",
+          "hole": 15,
+          "type": "hole_boundary",
+          "name": "第 15 洞范围",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "registration_quality": "unverified",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                120.0716121,
+                32.6284804
+              ],
+              [
+                120.0706367,
+                32.626517
+              ],
+              [
+                120.070471,
+                32.6264302
+              ],
+              [
+                120.0703591,
+                32.6262749
+              ],
+              [
+                120.0703385,
+                32.6261528
+              ],
+              [
+                120.0703881,
+                32.6261092
+              ],
+              [
+                120.0706931,
+                32.6260469
+              ],
+              [
+                120.0706805,
+                32.6259698
+              ],
+              [
+                120.0707009,
+                32.6258883
+              ],
+              [
+                120.0707571,
+                32.6258265
+              ],
+              [
+                120.0708018,
+                32.6258067
+              ],
+              [
+                120.0708896,
+                32.6258051
+              ],
+              [
+                120.0709737,
+                32.6258435
+              ],
+              [
+                120.0710655,
+                32.6259708
+              ],
+              [
+                120.0712305,
+                32.6259371
+              ],
+              [
+                120.0721841,
+                32.6280967
+              ],
+              [
+                120.0719429,
+                32.6282141
+              ],
+              [
+                120.0720652,
+                32.6284906
+              ],
+              [
+                120.0721096,
+                32.6284242
+              ],
+              [
+                120.0721871,
+                32.6284009
+              ],
+              [
+                120.0722647,
+                32.6284238
+              ],
+              [
+                120.0723079,
+                32.6284828
+              ],
+              [
+                120.072314,
+                32.629053
+              ],
+              [
+                120.0724426,
+                32.6293437
+              ],
+              [
+                120.0723521,
+                32.6293539
+              ],
+              [
+                120.0723369,
+                32.6294315
+              ],
+              [
+                120.0722731,
+                32.6294891
+              ],
+              [
+                120.072198,
+                32.6295073
+              ],
+              [
+                120.0721361,
+                32.6294988
+              ],
+              [
+                120.0720717,
+                32.6294614
+              ],
+              [
+                120.0720332,
+                32.6293898
+              ],
+              [
+                120.0719569,
+                32.6293891
+              ],
+              [
+                120.0717469,
+                32.6288456
+              ],
+              [
+                120.0717921,
+                32.6288247
+              ],
+              [
+                120.0716121,
+                32.6284804
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/16/boundary/0",
+        "properties": {
+          "id": "cn0000385/hole/16/boundary/0",
+          "course_id": "cn0000385",
+          "hole": 16,
+          "type": "hole_boundary",
+          "name": "第 16 洞范围",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "registration_quality": "unverified",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                120.0733432,
+                32.6270317
+              ],
+              [
+                120.0732272,
+                32.6270853
+              ],
+              [
+                120.0730868,
+                32.6270628
+              ],
+              [
+                120.0730293,
+                32.6271865
+              ],
+              [
+                120.0729004,
+                32.6269703
+              ],
+              [
+                120.072499,
+                32.62682
+              ],
+              [
+                120.0723762,
+                32.6267343
+              ],
+              [
+                120.072372,
+                32.6267991
+              ],
+              [
+                120.0723261,
+                32.6268474
+              ],
+              [
+                120.07225,
+                32.6268651
+              ],
+              [
+                120.0721813,
+                32.6268434
+              ],
+              [
+                120.0716425,
+                32.6260903
+              ],
+              [
+                120.0715429,
+                32.6260105
+              ],
+              [
+                120.0715233,
+                32.6259336
+              ],
+              [
+                120.0715577,
+                32.6258604
+              ],
+              [
+                120.0716654,
+                32.62581
+              ],
+              [
+                120.0717838,
+                32.6258385
+              ],
+              [
+                120.0720566,
+                32.6260217
+              ],
+              [
+                120.0723858,
+                32.6263834
+              ],
+              [
+                120.0726064,
+                32.6265433
+              ],
+              [
+                120.073267,
+                32.6266503
+              ],
+              [
+                120.0732293,
+                32.6267561
+              ],
+              [
+                120.0733131,
+                32.62681
+              ],
+              [
+                120.0733648,
+                32.6268822
+              ],
+              [
+                120.0733767,
+                32.6269618
+              ],
+              [
+                120.0733432,
+                32.6270317
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/17/boundary/0",
+        "properties": {
+          "id": "cn0000385/hole/17/boundary/0",
+          "course_id": "cn0000385",
+          "hole": 17,
+          "type": "hole_boundary",
+          "name": "第 17 洞范围",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "registration_quality": "unverified",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                120.0733192,
+                32.6263582
+              ],
+              [
+                120.0727778,
+                32.6261718
+              ],
+              [
+                120.0727452,
+                32.6261273
+              ],
+              [
+                120.072742,
+                32.6260776
+              ],
+              [
+                120.0727667,
+                32.6260323
+              ],
+              [
+                120.072821,
+                32.6259993
+              ],
+              [
+                120.0726654,
+                32.6259097
+              ],
+              [
+                120.0721775,
+                32.6254722
+              ],
+              [
+                120.0715601,
+                32.624731
+              ],
+              [
+                120.071018,
+                32.6243486
+              ],
+              [
+                120.0705419,
+                32.6241383
+              ],
+              [
+                120.0703164,
+                32.6238442
+              ],
+              [
+                120.0706489,
+                32.6236565
+              ],
+              [
+                120.0705851,
+                32.6235251
+              ],
+              [
+                120.0706019,
+                32.6234512
+              ],
+              [
+                120.0706606,
+                32.6233973
+              ],
+              [
+                120.0707104,
+                32.6233809
+              ],
+              [
+                120.070804,
+                32.6233824
+              ],
+              [
+                120.0709408,
+                32.6234465
+              ],
+              [
+                120.0710069,
+                32.6235208
+              ],
+              [
+                120.0710685,
+                32.6236473
+              ],
+              [
+                120.0721172,
+                32.6244266
+              ],
+              [
+                120.0722324,
+                32.6245326
+              ],
+              [
+                120.0728791,
+                32.6255354
+              ],
+              [
+                120.0731014,
+                32.6257631
+              ],
+              [
+                120.0732439,
+                32.6258469
+              ],
+              [
+                120.0736898,
+                32.625947
+              ],
+              [
+                120.0738573,
+                32.6260037
+              ],
+              [
+                120.0740645,
+                32.6260237
+              ],
+              [
+                120.074128,
+                32.626062
+              ],
+              [
+                120.0741585,
+                32.6261082
+              ],
+              [
+                120.0741636,
+                32.6261739
+              ],
+              [
+                120.0741209,
+                32.6262439
+              ],
+              [
+                120.0740392,
+                32.6262822
+              ],
+              [
+                120.07394,
+                32.6262812
+              ],
+              [
+                120.0738814,
+                32.6263683
+              ],
+              [
+                120.0738092,
+                32.6263174
+              ],
+              [
+                120.0733192,
+                32.6263582
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "cn0000385/hole/18/boundary/0",
+        "properties": {
+          "id": "cn0000385/hole/18/boundary/0",
+          "course_id": "cn0000385",
+          "hole": 18,
+          "type": "hole_boundary",
+          "name": "第 18 洞范围",
+          "source": "existing_course_data",
+          "accuracy_m": null,
+          "registration_quality": "unverified",
+          "coordinate_system": "WGS84 / EPSG:4326"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                120.0706379,
+                32.6228767
+              ],
+              [
+                120.0705708,
+                32.6227396
+              ],
+              [
+                120.0705689,
+                32.6226443
+              ],
+              [
+                120.0710026,
+                32.6220318
+              ],
+              [
+                120.0710419,
+                32.6211247
+              ],
+              [
+                120.0711246,
+                32.6205754
+              ],
+              [
+                120.0714334,
+                32.619003
+              ],
+              [
+                120.0714154,
+                32.6188333
+              ],
+              [
+                120.0713728,
+                32.618748
+              ],
+              [
+                120.0713708,
+                32.6186587
+              ],
+              [
+                120.0714039,
+                32.6185719
+              ],
+              [
+                120.0714652,
+                32.6185067
+              ],
+              [
+                120.0715112,
+                32.6184824
+              ],
+              [
+                120.0715986,
+                32.6184721
+              ],
+              [
+                120.0717103,
+                32.6185351
+              ],
+              [
+                120.0717539,
+                32.6186674
+              ],
+              [
+                120.0722032,
+                32.6186331
+              ],
+              [
+                120.0722548,
+                32.6187273
+              ],
+              [
+                120.0722781,
+                32.6189468
+              ],
+              [
+                120.0722709,
+                32.6190733
+              ],
+              [
+                120.0720482,
+                32.6192104
+              ],
+              [
+                120.0718767,
+                32.6198125
+              ],
+              [
+                120.0719789,
+                32.6203937
+              ],
+              [
+                120.0718697,
+                32.6209841
+              ],
+              [
+                120.0717637,
+                32.6214242
+              ],
+              [
+                120.0715795,
+                32.6218499
+              ],
+              [
+                120.0714845,
+                32.6221256
+              ],
+              [
+                120.0713788,
+                32.6223329
+              ],
+              [
+                120.0715054,
+                32.6222278
+              ],
+              [
+                120.0715807,
+                32.6222052
+              ],
+              [
+                120.0716763,
+                32.6222419
+              ],
+              [
+                120.0717033,
+                32.6223275
+              ],
+              [
+                120.0713969,
+                32.6227295
+              ],
+              [
+                120.071183,
+                32.6229092
+              ],
+              [
+                120.0709722,
+                32.6229981
+              ],
+              [
+                120.0709152,
+                32.6230549
+              ],
+              [
+                120.0708101,
+                32.6230771
+              ],
+              [
+                120.0707238,
+                32.623047
+              ],
+              [
+                120.070672,
+                32.6229816
+              ],
+              [
+                120.0706774,
+                32.6228905
+              ],
+              [
+                120.0706379,
+                32.6228767
+              ]
+            ]
+          ]
+        }
+      }
+    ],
+    "validation_errors": []
+  },
+  "holes": [
+    {
+      "hole": 1,
+      "registration": null,
+      "registration_status": "estimated_default",
+      "cart_route": [
+        [
+          120.0725591,
+          32.6162453
+        ],
+        [
+          120.0726925,
+          32.6159846
+        ],
+        [
+          120.0727515,
+          32.6157092
+        ],
+        [
+          120.0727427,
+          32.6155758
+        ],
+        [
+          120.0727536,
+          32.615294
+        ],
+        [
+          120.0727385,
+          32.6150087
+        ],
+        [
+          120.072725,
+          32.6147473
+        ],
+        [
+          120.0727199,
+          32.6146144
+        ],
+        [
+          120.0727327,
+          32.6144745
+        ],
+        [
+          120.0727658,
+          32.6141957
+        ],
+        [
+          120.0727063,
+          32.6139045
+        ],
+        [
+          120.0726467,
+          32.6138918
+        ],
+        [
+          120.0726041,
+          32.6138577
+        ],
+        [
+          120.0725803,
+          32.613831
+        ],
+        [
+          120.0725741,
+          32.6137924
+        ],
+        [
+          120.0725666,
+          32.613678
+        ],
+        [
+          120.0726182,
+          32.6134017
+        ],
+        [
+          120.0725697,
+          32.613112
+        ],
+        [
+          120.0725563,
+          32.6129402
+        ]
+      ]
+    },
+    {
+      "hole": 2,
+      "registration": null,
+      "registration_status": "estimated_default",
+      "cart_route": []
+    },
+    {
+      "hole": 3,
+      "registration": null,
+      "registration_status": "estimated_default",
+      "cart_route": []
+    },
+    {
+      "hole": 4,
+      "registration": null,
+      "registration_status": "estimated_default",
+      "cart_route": []
+    },
+    {
+      "hole": 5,
+      "registration": null,
+      "registration_status": "estimated_default",
+      "cart_route": []
+    },
+    {
+      "hole": 6,
+      "registration": null,
+      "registration_status": "estimated_default",
+      "cart_route": []
+    },
+    {
+      "hole": 7,
+      "registration": null,
+      "registration_status": "estimated_default",
+      "cart_route": []
+    },
+    {
+      "hole": 8,
+      "registration": null,
+      "registration_status": "estimated_default",
+      "cart_route": []
+    },
+    {
+      "hole": 9,
+      "registration": null,
+      "registration_status": "estimated_default",
+      "cart_route": []
+    },
+    {
+      "hole": 10,
+      "registration": null,
+      "registration_status": "estimated_default",
+      "cart_route": []
+    },
+    {
+      "hole": 11,
+      "registration": null,
+      "registration_status": "estimated_default",
+      "cart_route": []
+    },
+    {
+      "hole": 12,
+      "registration": null,
+      "registration_status": "estimated_default",
+      "cart_route": []
+    },
+    {
+      "hole": 13,
+      "registration": null,
+      "registration_status": "estimated_default",
+      "cart_route": []
+    },
+    {
+      "hole": 14,
+      "registration": null,
+      "registration_status": "estimated_default",
+      "cart_route": []
+    },
+    {
+      "hole": 15,
+      "registration": null,
+      "registration_status": "estimated_default",
+      "cart_route": []
+    },
+    {
+      "hole": 16,
+      "registration": null,
+      "registration_status": "estimated_default",
+      "cart_route": []
+    },
+    {
+      "hole": 17,
+      "registration": null,
+      "registration_status": "estimated_default",
+      "cart_route": []
+    },
+    {
+      "hole": 18,
+      "registration": null,
+      "registration_status": "estimated_default",
+      "cart_route": []
+    }
+  ]
+}

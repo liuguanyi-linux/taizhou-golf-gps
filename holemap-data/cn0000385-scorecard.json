@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "venue_id": "cn0000385",
+  "venue_name": "泰州华侨城云海湿地高尔夫球会",
+  "source": {
+    "kind": "printed_scorecard",
+    "units": "yards",
+    "note": "User-provided scorecard photos, transcribed 2026-07-29. Blue tee alternatives are preserved where two values are printed."
+  },
+  "totals": {
+    "par": 72,
+    "black": 7353,
+    "blue": 6944,
+    "blue_alternative": 6859,
+    "white": 6340,
+    "red": 5560
+  },
+  "holes": [
+    { "n": 1,  "par": 4, "handicap": 8,  "tees": { "black": 423, "blue": 405, "white": 372, "red": 338 } },
+    { "n": 2,  "par": 4, "handicap": 16, "tees": { "black": 421, "blue": 399, "white": 370, "red": 308 } },
+    { "n": 3,  "par": 3, "handicap": 18, "tees": { "black": 191, "blue": 155, "white": 132, "red": 103 } },
+    { "n": 4,  "par": 4, "handicap": 14, "tees": { "black": 394, "blue": 376, "white": 345, "red": 307 } },
+    { "n": 5,  "par": 4, "handicap": 2,  "tees": { "black": 470, "blue": 444, "white": 395, "red": 351 } },
+    { "n": 6,  "par": 5, "handicap": 12, "tees": { "black": 570, "blue": 524, "white": 510, "red": 467 } },
+    { "n": 7,  "par": 4, "handicap": 4,  "tees": { "black": 462, "blue": 443, "white": 346, "red": 317 }, "tee_alternatives": { "blue": 403 } },
+    { "n": 8,  "par": 5, "handicap": 10, "tees": { "black": 585, "blue": 562, "white": 533, "red": 435 } },
+    { "n": 9,  "par": 3, "handicap": 6,  "tees": { "black": 198, "blue": 179, "white": 152, "red": 108 } },
+    { "n": 10, "par": 4, "handicap": 11, "tees": { "black": 412, "blue": 394, "white": 363, "red": 335 } },
+    { "n": 11, "par": 4, "handicap": 17, "tees": { "black": 356, "blue": 338, "white": 319, "red": 289 } },
+    { "n": 12, "par": 3, "handicap": 15, "tees": { "black": 175, "blue": 148, "white": 127, "red": 112 } },
+    { "n": 13, "par": 5, "handicap": 1,  "tees": { "black": 633, "blue": 615, "white": 567, "red": 503 }, "tee_alternatives": { "blue": 589 } },
+    { "n": 14, "par": 4, "handicap": 7,  "tees": { "black": 396, "blue": 384, "white": 328, "red": 280 }, "tee_alternatives": { "blue": 365 } },
+    { "n": 15, "par": 4, "handicap": 13, "tees": { "black": 439, "blue": 410, "white": 388, "red": 340 } },
+    { "n": 16, "par": 3, "handicap": 9,  "tees": { "black": 182, "blue": 164, "white": 145, "red": 112 } },
+    { "n": 17, "par": 4, "handicap": 5,  "tees": { "black": 468, "blue": 450, "white": 419, "red": 371 } },
+    { "n": 18, "par": 5, "handicap": 3,  "tees": { "black": 578, "blue": 554, "white": 529, "red": 484 } }
+  ]
+}

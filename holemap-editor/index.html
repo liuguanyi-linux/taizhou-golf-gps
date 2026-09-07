@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GolfMapTool · 球场编辑器 (后台)</title>
+<link rel="stylesheet" href="lib/leaflet.css">
+<link rel="stylesheet" href="lib/leaflet-geoman.css">
+<script src="lib/leaflet.js"></script>
+<script src="lib/leaflet-geoman.min.js"></script>
+<style>
+  :root{--bg:#1a2016;--pan:#232c1d;--ink:#e9efe1;--mut:#9bae89;--line:#374429;--acc:#8fc457;}
+  *{box-sizing:border-box;} html,body{margin:0;height:100%;font-family:-apple-system,"PingFang SC",Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);overflow:hidden;}
+  #app{display:flex;height:100vh;} #side{width:288px;flex:0 0 288px;background:var(--pan);border-right:1px solid var(--line);overflow:auto;padding:12px;} #map{flex:1;height:100vh;min-width:0;}
+  #virtualDock{display:none;flex:0 0 clamp(410px,42vw,760px);height:100vh;min-width:0;background:#0d140b;border-left:1px solid var(--line);}
+  #app.virtual-open #virtualDock{display:flex;flex-direction:column;}
+  .virtual-dock-head{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:48px;padding:8px 11px;background:#172014;border-bottom:1px solid var(--line);}
+  .virtual-dock-head strong{display:block;font-size:12px}.virtual-dock-head span{display:block;margin-top:2px;color:var(--acc);font-size:9px;}.virtual-dock-head button{width:31px;height:31px;padding:0;}
+  #virtualFrame{display:block;flex:1;width:100%;min-height:0;border:0;background:#efe8d8;}
+  .virtual-state{margin-top:6px;padding:7px 8px;border:1px solid var(--line);border-radius:7px;background:#192116;color:var(--mut);font-size:10px;line-height:1.5;}
+  h1{font-size:15px;margin:0 0 3px;} .sub{color:var(--mut);font-size:11px;margin:0 0 10px;line-height:1.5;}
+  .grp{border-top:1px solid var(--line);padding:9px 0;} .grp h2{font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--mut);margin:0 0 7px;}
+  .row{display:flex;gap:6px;align-items:center;flex-wrap:wrap;} .lbl{font-size:10px;color:var(--mut);}
+  button,select,input,textarea{background:#33402a;color:var(--ink);border:1px solid var(--line);border-radius:7px;padding:6px 8px;font-size:12px;cursor:pointer;font-family:inherit;}
+  select,input,textarea{background:#161d10;cursor:text;} input,select,textarea{width:100%;}
+  button:hover{background:#3f4f33;} button.go{background:var(--acc);color:#1a2113;font-weight:700;width:100%;padding:9px;cursor:pointer;}
+  .srcb{padding:5px 9px;} .srcb.on{background:var(--acc);color:#1a2113;font-weight:700;}
+  .msc{transform:scale(var(--mz,1));}  /* 标记跟随缩放 */
+  .holes{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 2px;}
+  .holes button{width:38px;height:38px;border-radius:9px;border:1px solid var(--line);background:#2a3520;color:var(--ink);font-weight:700;cursor:pointer;padding:0;}
+  .holes button:hover{background:#3f4f33;} .holes button.on{background:var(--acc);color:#16210d;}
+  .wide{width:100%;background:#2a3520;color:var(--ink);border:1px solid var(--line);border-radius:9px;padding:9px;font-size:13px;cursor:pointer;margin-top:6px;} .wide:hover{background:#3f4f33;}
+  .pindot{position:relative;width:16px;height:16px}
+  .pindot .dot{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:9px;height:9px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 3px #0008;transition:width .1s,height .1s}
+  .pindot .lab{position:absolute;left:50%;bottom:15px;transform:translateX(-50%);color:#fff;font-size:11px;font-weight:700;line-height:1.5;padding:1px 7px;border-radius:8px;white-space:nowrap;display:none;box-shadow:0 1px 4px #0009}
+  .pindot:hover .lab{display:block} .pindot:hover .dot{width:13px;height:13px}
+  .types{display:grid;grid-template-columns:1fr 1fr;gap:4px;} .types button{display:flex;align-items:center;gap:5px;font-size:11.5px;}
+  .types button.on{outline:2px solid var(--acc);} .sw{width:12px;height:12px;border-radius:3px;border:1px solid #0006;display:inline-block;}
+  .tees{display:flex;gap:5px;} .tee{flex:1;height:28px;border-radius:6px;border:2px solid var(--line);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:10px;} .tee.on{outline:2px solid var(--acc);}
+  .dist{display:grid;grid-template-columns:auto 1fr;gap:4px 6px;align-items:center;margin-top:4px;} .dist .lbl{text-align:right;}
+  .hint{color:var(--mut);font-size:11px;line-height:1.5;} textarea{height:70px;resize:vertical;}
+  .feat{display:flex;align-items:center;gap:7px;font-size:12px;padding:4px 6px;border-radius:6px;}
+  .feat:hover{background:#1a2113;} .feat .x{margin-left:auto;color:#e87;cursor:pointer;padding:0 5px;font-weight:700;}
+  .leaflet-control-scale-line{background:rgba(0,0,0,.62);color:#e8f0dc;border:2px solid #cfe0bfcc;border-top:none;font-size:11px;padding:1px 6px;box-shadow:0 1px 4px #0008;}
+  #mppBR{position:fixed;right:14px;bottom:14px;background:#000b;color:#cfe0bf;padding:5px 10px;border-radius:7px;font-size:12px;z-index:600;pointer-events:none;}
+  #prog{position:absolute;left:50%;top:14px;transform:translateX(-50%);background:#000c;color:#fff;padding:7px 14px;border-radius:8px;font-size:13px;z-index:1000;display:none;}
+  #toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(18px);background:#1b2415;color:#eaf0e0;border:1px solid var(--line);border-left:4px solid var(--acc);padding:11px 18px;border-radius:10px;font-size:13px;font-weight:600;box-shadow:0 6px 24px #000a;z-index:3000;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;max-width:78%;white-space:pre-line;}
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0);} #toast.ok{border-left-color:#37c26a;} #toast.err{border-left-color:#e0533a;}
+  #magbar{position:fixed;left:calc(50% + 145px);top:14px;transform:translateX(-50%);z-index:2000;display:none;gap:8px;align-items:center;background:#1b2415;border:1px solid var(--line);border-radius:10px;padding:7px 11px;box-shadow:0 4px 16px #0009;}
+  #magbar.show{display:flex;} #magbar span{font-size:12px;color:#cfe6bf;} #magbar button{padding:5px 11px;border-radius:7px;cursor:pointer;font-size:12px;}
+  #magdone{background:#2e7d32;color:#fff;border:none;} #magcancel{background:#3a2420;color:#f0c0b0;border:1px solid #6a3024;}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="side">
+    <h1>⛳ 球场编辑器 <span style="font-size:11px;color:var(--mut)">后台</span></h1>
+    <p class="sub">改的就是前台那份数据。选球场→选洞→图上标要素+填距离→保存到 GreenBook，前台即更新。<a id="frontlink" href="#" target="_blank" rel="noopener" style="color:var(--acc)">前台查看器↗</a></p>
+    <div class="row" style="gap:5px;margin:0 0 9px"><span class="lbl">底图</span>
+      <button class="srcb" data-src="esri">Esri</button><button class="srcb" data-src="google">Google</button><button class="srcb on" data-src="bing">Bing</button><button class="srcb" data-src="amap">高德</button></div>
+
+    <div class="grp" style="border-top:none;padding-top:2px">
+      <h2>① 球场（GreenBook）</h2>
+      <div class="row"><span id="cname" style="flex:1;color:var(--ink);font-weight:700;align-self:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">…</span><button id="load" title="从 GreenBook 重新加载">↻ 重载</button></div>
+    </div>
+    <div class="grp">
+      <h2>② 球洞</h2>
+      <div class="row"><button id="newhole">+ 新洞</button><button id="zoomhole" title="缩放/定位到本洞(不旋转)">🎯 本洞</button></div>
+      <div class="holes" id="holegrid"></div>
+      <button class="wide" id="overview" title="缩放到全场(看整体布局)">🌐 全场全景</button>
+      <div class="dist" style="margin-top:7px"><span class="lbl">Par</span><input type="number" id="par" value="4">
+        <span class="lbl">黑</span><input type="number" id="d_black" placeholder="米"><span class="lbl">金</span><input type="number" id="d_gold" placeholder="米">
+        <span class="lbl">蓝</span><input type="number" id="d_blue" placeholder="米"><span class="lbl">白</span><input type="number" id="d_white" placeholder="米">
+        <span class="lbl">红</span><input type="number" id="d_red" placeholder="米"></div>
+      <div class="lbl" style="margin-top:7px">AI 解读</div>
+      <textarea id="ai" placeholder="球洞说明…(可留空, 之后接 AI 生成)"></textarea>
+    </div>
+    <div class="grp">
+      <h2>③ 标要素（先选再用工具栏画）</h2>
+      <div class="types" id="polytypes"></div>
+      <div class="types" id="linetypes" style="margin-top:4px"></div>
+      <div class="lbl" style="margin-top:7px">发球台 Tee（点）</div>
+      <div class="tees" id="tees"></div>
+      <div class="lbl" style="margin-top:7px">其他点标记</div>
+      <div class="types" id="pttypes" style="margin-top:4px"></div>
+      <div class="lbl" style="margin-top:7px">设备 / GPS 点位</div>
+      <div class="types" id="devicepoints" style="margin-top:4px"></div>
+      <input id="devicePointName" style="width:100%;margin-top:5px" placeholder="点位名称（先输入，再点图放置）">
+      <button class="wide" id="toggleVirtual" type="button">🖼 打开本洞高清虚拟图</button>
+      <div class="virtual-state" id="virtualState">虚拟底图锁定；侧栏中可拖动 Tee、沙坑、水域等标注圆点。</div>
+    </div>
+    <div class="grp">
+      <h2>⛳ 果岭旗（前 / 中 / 后）</h2>
+      <div class="types" id="pintypes"></div>
+      <button id="autopins" style="width:100%;margin-top:6px;background:#2a3520;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:7px;cursor:pointer">↳ 由果岭自动生成 前/中/后</button>
+      <p class="hint" style="margin-top:5px">前=琥珀 · 中=红 · 后=蓝。中钉同时写回旧 <code>flag</code>，前台不受影响。</p>
+    </div>
+    <div class="grp">
+      <h2>🛺 球车路线（本洞）</h2>
+      <div class="row"><button id="setstart" style="flex:1;background:#1f5a2e;color:#cfe6bf;border:1px solid #2e7d32;border-radius:8px;padding:7px;cursor:pointer">🟢 设起点</button><button id="setend" style="flex:1;background:#33402a;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:7px;cursor:pointer">🏁 设终点</button><button id="clearse" title="清除起/终点" style="width:36px;background:#3a2420;color:#f0c0b0;border:1px solid #6a3024;border-radius:8px;padding:7px;cursor:pointer">✕</button></div>
+      <div class="row" style="margin-top:6px"><span class="lbl">速度</span><input type="range" id="cartspeed" min="5" max="40" value="15" style="flex:1"><span id="cartspeedlbl" class="lbl" style="width:50px;text-align:right">15 km/h</span></div>
+      <div class="row" style="margin-top:6px"><button id="cartplay" class="go" style="flex:1;background:#2e7d32;color:#fff">▶ 播放</button><button id="cartstop" style="flex:1;background:#3a2420;color:#f0c0b0;border:1px solid #6a3024;border-radius:8px;padding:9px;cursor:pointer">⏹ 停止</button></div>
+      <p class="hint" style="margin-top:5px">先用线工具画「球车行驶路线（本洞）」。点「设起点/设终点」再点地图（自动吸附到路线）；不设则默认整条路线首→尾。此处的球车只是测试位置，真实球车位置由之后接入的 GPS 坐标驱动。</p>
+    </div>
+    <div class="grp">
+      <h2>本洞要素清单（✕ 删除单个）</h2>
+      <div id="flist"></div>
+      <button id="clearhole" style="width:100%;margin-top:7px;background:#3a2420;color:#f0c0b0;border:1px solid #6a3024;border-radius:8px;padding:8px;cursor:pointer">🗑 一键清空本洞</button>
+    </div>
+    <div class="grp">
+      <h2>④ 保存 / 导出</h2>
+      <button class="go" id="savehole" style="background:#2a3520;color:var(--ink)">✓ 暂存本洞（到内存）</button>
+      <button class="go" id="savesrv" style="margin-top:6px;background:#2e7d32;color:#fff">💾 保存到 GreenBook（前台立即更新）</button>
+      <button id="exportcourse" style="width:100%;margin-top:6px;background:#2a3520;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px;cursor:pointer">⬇ 导出 JSON（备份）</button>
+      <p class="hint" style="margin-top:6px">「保存到 GreenBook」整场写回 <code>gb_geom / gb_hole / gb_yardage</code>（provenance=self）。球场详情页与地图刷新即见。</p>
+    </div>
+    <div class="grp">
+      <h2>⑤ WGS84 坐标检查</h2>
+      <code id="coordinateReadout" style="display:block;line-height:1.5">点击卫星图任意位置，读取经度、纬度</code>
+      <button id="copyCoordinate" style="width:100%;margin-top:6px">复制当前坐标</button>
+      <p class="hint" style="margin-top:5px">所有点、线、面和路线顶点都按 WGS84 保存；可在此确认任意点击位置的真实坐标。</p>
+    </div>
+  </div>
+  <div id="map"></div>
+  <aside id="virtualDock" aria-label="高清虚拟图编辑侧栏">
+    <div class="virtual-dock-head"><div><strong id="virtualDockTitle">第 1 洞 · 高清虚拟图编辑</strong><span>底图锁定 · 标注点可移动</span></div><button id="closeVirtualDock" type="button" title="关闭">✕</button></div>
+    <iframe id="virtualFrame" title="泰州球洞高清虚拟图编辑"></iframe>
+  </aside>
+  <div id="mppBR"></div>
+  <div id="prog"></div>
+  <div id="toast"></div>
+</div>
+<script>
+// 要素类型表(配置化: key=JSON键, multi=可多个, g=geoman几何, 颜色按高尔夫标准)
+const TYPES={
+  holeperim:{zh:'整洞周界',g:'poly',key:'holeperim',color:'#ff4dc4',fill:null,dash:'7 6',w:2},  // 原 #ffffff 与 界外OB 撞色 → 品红
+  teebox:   {zh:'发球区', g:'poly',key:'teebox',  color:'#4f7a35',fill:'#a6d977'},
+  fairway:  {zh:'球道',   g:'poly',key:'fairway', color:'#5f8a2e',fill:'#8fc457'},
+  fringe:   {zh:'果岭裙', g:'poly',key:'fringe',  multi:1,color:'#3f9b46',fill:'#8fd9a0'},
+  green:    {zh:'果岭',   g:'poly',key:'green',   color:'#2e7d32',fill:'#6cc24a'},
+  rough:    {zh:'半长草', g:'poly',key:'rough',   multi:1,color:'#6e8b3d',fill:'#93b25a'},
+  bunker:   {zh:'沙坑',   g:'poly',key:'bunkers', multi:1,color:'#c9b274',fill:'#ece0b3'},
+  waste:    {zh:'废弃区/沙荒',g:'poly',key:'waste',multi:1,color:'#b89b63',fill:'#e3d6ad',dash:'5 5'},
+  water:    {zh:'水域',   g:'poly',key:'water',   multi:1,color:'#3f8dc4',fill:'#6db1e0'},
+  native:   {zh:'原生区/植被',g:'poly',key:'native',multi:1,color:'#46551f',fill:'#69792f'},
+  bridge:   {zh:'桥',     g:'poly',key:'bridges', multi:1,color:'#6b4f2a',fill:'#a37b45'},
+  building: {zh:'会所/建筑',g:'poly',key:'buildings',multi:1,color:'#8a8a8a',fill:'#c9bca6'},
+  range:    {zh:'练习场', g:'poly',key:'ranges', multi:1,color:'#4f7a35',fill:'#b6e08a'},
+  parking:  {zh:'停车场', g:'poly',key:'parkings',multi:1,color:'#7a7a72',fill:'#b4aea2'},
+  centerline:{zh:'中线',  g:'line',key:'centerline',color:'#ffe14d',dash:'4 8'},
+  cartpath: {zh:'球车道', g:'line',key:'cartpaths',multi:1,color:'#cbb985'},
+  path:     {zh:'步道/木栈道',g:'line',key:'paths',multi:1,color:'#d8b98a'},
+  creek:    {zh:'溪流',   g:'line',key:'creeks',  multi:1,color:'#5bb0e6'},
+  ditch:    {zh:'排水沟', g:'line',key:'ditches', multi:1,color:'#8bbcd6',dash:'5 4'},
+  ob:       {zh:'界外OB·白',g:'line',key:'obs',   multi:1,color:'#ffffff',dash:'1 6',w:3},
+  fence:    {zh:'围栏/界墙',g:'line',key:'fences',multi:1,color:'#d0d0d0',dash:'2 4',w:2},
+  hazard:   {zh:'罚杆区·红',g:'line',key:'hazards',multi:1,color:'#e23b3b',dash:'1 6',w:3},
+  hazard_y: {zh:'罚杆区·黄',g:'line',key:'hazards_y',multi:1,color:'#f2c200',dash:'1 6',w:3},
+  tree:     {zh:'树',     g:'marker',key:'trees', multi:1,emoji:'🌲'},
+  rock:     {zh:'岩石',   g:'marker',key:'rocks', multi:1,emoji:'🪨'},
+  dist:     {zh:'距离桩', g:'marker',key:'dists', multi:1,label:1},
+  aim:      {zh:'方向桩', g:'marker',key:'aims',  multi:1,emoji:'🎯'},
+  service:  {zh:'服务点', g:'marker',key:'services',multi:1,emoji:'🚰'},
+  shelter:  {zh:'凉亭/遮阳',g:'marker',key:'shelters',multi:1,emoji:'⛱️'} };
+// 果岭旗(前/中/后)与 球车 不进 TYPES, 单独处理
+const TEES={black:['黑','#222'],gold:['金','#d4af37'],blue:['蓝','#2e6fd6'],white:['白','#fff'],red:['红','#e23b3b']};
+let curType='fairway', curTee='black', curPin='mid', curDevicePointKind='reference', courseData=null, curHole=1, curSrc='bing', ovGroup=null, inOverview=false, cartRouteReady=false, inspectedCoordinate=null;
+const C2L=([lng,lat])=>[lat,lng], L2C=ll=>[ll.lng,ll.lat];
+
+// ---- 影像源(Esri/Google/高德) + GCJ 校正(高德逐瓦片画布合成对齐 WGS) ----
+const rad=d=>d*Math.PI/180, deg=r=>r*180/Math.PI;
+function outOfChina(lng,lat){ return !(73.66<lng&&lng<135.05&&3.86<lat&&lat<53.55); }
+function tLat(x,y){ let r=-100+2*x+3*y+0.2*y*y+0.1*x*y+0.2*Math.sqrt(Math.abs(x)); r+=(20*Math.sin(6*x*Math.PI)+20*Math.sin(2*x*Math.PI))*2/3; r+=(20*Math.sin(y*Math.PI)+40*Math.sin(y/3*Math.PI))*2/3; r+=(160*Math.sin(y/12*Math.PI)+320*Math.sin(y*Math.PI/30))*2/3; return r; }
+function tLng(x,y){ let r=300+x+2*y+0.1*x*x+0.1*x*y+0.1*Math.sqrt(Math.abs(x)); r+=(20*Math.sin(6*x*Math.PI)+20*Math.sin(2*x*Math.PI))*2/3; r+=(20*Math.sin(x*Math.PI)+40*Math.sin(x/3*Math.PI))*2/3; r+=(150*Math.sin(x/12*Math.PI)+300*Math.sin(x/30*Math.PI))*2/3; return r; }
+function _delta(lng,lat){ const a=6378245.0,ee=0.00669342162296594323; let dLat=tLat(lng-105,lat-35),dLng=tLng(lng-105,lat-35); const rl=rad(lat),magic=1-ee*Math.sin(rl)**2,sm=Math.sqrt(magic); dLat=(dLat*180)/((a*(1-ee))/(magic*sm)*Math.PI); dLng=(dLng*180)/(a/sm*Math.cos(rl)*Math.PI); return [dLng,dLat]; }
+function wgs2gcj(lng,lat){ if(outOfChina(lng,lat)) return [lng,lat]; const d=_delta(lng,lat); return [lng+d[0],lat+d[1]]; }
+function num2deg(x,y,z){ const n=2**z; return [x/n*360-180, deg(Math.atan(Math.sinh(Math.PI*(1-2*y/n))))]; }
+function deg2numFrac(lng,lat,z){ const n=2**z; return [(lng+180)/360*n, (1-Math.log(Math.tan(rad(lat))+1/Math.cos(rad(lat)))/Math.PI)/2*n]; }
+const SRC={ amap:(z,x,y)=>`https://wprd0${(x%4)+1}.is.autonavi.com/appmaptile?style=6&x=${x}&y=${y}&z=${z}` };  // webst0X 卫星域名已废弃(无响应/无CORS)→ wprd0X(活, 卫星, 带 access-control-allow-origin)
+function gcjTileCanvas(z,x,y,cb){ const nw=num2deg(x,y,z),se=num2deg(x+1,y+1,z); const g1=wgs2gcj(nw[0],nw[1]),g2=wgs2gcj(se[0],se[1]); const f1=deg2numFrac(g1[0],g1[1],z),f2=deg2numFrac(g2[0],g2[1],z);
+  const cnv=document.createElement('canvas'); cnv.width=256;cnv.height=256; const cx=cnv.getContext('2d'); const sx=f2[0]-f1[0],sy=f2[1]-f1[1];
+  const x0=Math.floor(f1[0]),x1=Math.ceil(f2[0]),y0=Math.floor(f1[1]),y1=Math.ceil(f2[1]); let pend=0,done=0; const fin=()=>{if(done)return;done=1;cb(cnv);};
+  for(let tx=x0;tx<x1;tx++)for(let ty=y0;ty<y1;ty++){ pend++; const im=new Image(); im.crossOrigin='anonymous';
+    im.onload=()=>{ cx.drawImage(im,(tx-f1[0])/sx*256,(ty-f1[1])/sy*256,256/sx,256/sy); if(--pend===0)fin(); };
+    im.onerror=()=>{ if(--pend===0)fin(); }; im.src=SRC.amap(z,tx,ty); }
+  if(pend===0)fin(); }
+const AmapGCJ=L.GridLayer.extend({ createTile:function(coords,done){ const t=document.createElement('canvas'); t.width=256;t.height=256;
+  gcjTileCanvas(coords.z,coords.x,coords.y,(c)=>{ try{t.getContext('2d').drawImage(c,0,0);}catch(e){} done(null,t); }); return t; } });
+function quadkey(z,x,y){ let q=''; for(let i=z;i>0;i--){ let d=0,m=1<<(i-1); if(x&m)d++; if(y&m)d+=2; q+=d; } return q; }
+const BingLayer=L.TileLayer.extend({ getTileUrl:function(c){ return `https://ecn.t${((c.x||0)%4+4)%4}.tiles.virtualearth.net/tiles/a${quadkey(c.z,c.x,c.y)}.jpeg?g=1`; } });
+const baseLayers={
+  esri:L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxNativeZoom:18,maxZoom:21}),
+  google:L.tileLayer('https://mt{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{subdomains:'0123',maxNativeZoom:20,maxZoom:21}),
+  bing:new BingLayer('',{maxNativeZoom:19,maxZoom:21,attribution:'© Microsoft Bing'}),
+  amap:new AmapGCJ({maxNativeZoom:18,maxZoom:21}) };
+const map=L.map('map',{center:[31.7513,119.3253],zoom:16,maxZoom:20,zoomSnap:0.5,zoomDelta:0.5,layers:[baseLayers.bing]});   // Bing 在本球场有 z19 真图，默认作为逐洞描边与 Tee 校准底图
+L.control.scale({position:'bottomleft',metric:true,imperial:false,maxWidth:140}).addTo(map);   // 实际距离比例尺
+map.pm.addControls({position:'topleft',drawCircleMarker:false,drawCircle:false,drawRectangle:false,drawText:false});
+map.pm.setGlobalOptions({snappable:true,snapDistance:16});
+function prog(t){const p=document.getElementById('prog');p.style.display=t?'block':'none';if(t)p.textContent=t;}
+let _tT=null;
+function toast(msg,ok){ const t=document.getElementById('toast'); if(!t)return; t.textContent=msg;
+  t.className='show'+(ok===false?' err':ok===true?' ok':''); clearTimeout(_tT); _tT=setTimeout(()=>t.className='',2900); }
+
+// 果岭旗 标准旗位色: 前=红 中=黄 后=蓝。中钉=黄旗+球洞号(醒目); 前/后=小点, 悬停显 前/后
+const PINI={front:['前','#e8352e'],mid:['中','#f2c200'],back:['后','#2e6fd6']};
+function pinMidIcon(n){const g='fg'+n;return L.divIcon({className:'',iconSize:[44,54],iconAnchor:[11,50],html:`<div style="position:relative;width:44px;height:54px;filter:drop-shadow(0 2px 2.5px rgba(0,0,0,.42))"><svg width="44" height="54" viewBox="0 0 44 54"><defs><linearGradient id="${g}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe14d"/><stop offset="1" stop-color="#eba900"/></linearGradient></defs><line x1="11" y1="5" x2="11" y2="50" stroke="#5b5b5b" stroke-width="2.6" stroke-linecap="round"/><circle cx="11" cy="5" r="2" fill="#d0a800"/><circle cx="11" cy="50" r="3.4" fill="#eba900" stroke="#fff" stroke-width="1.5"/><g><path d="M11,6 Q24,8 36,11 Q25,17 11,23 Z" fill="url(#${g})" stroke="#c2870a" stroke-width="0.8" stroke-linejoin="round"><animate attributeName="d" dur="1.25s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.34;0.67;1" keySplines="0.45 0 0.55 1;0.45 0 0.55 1;0.45 0 0.55 1" values="M11,6 Q24,8 36,11 Q25,17 11,23 Z;M11,6 Q24,5 36,8 Q25,15 11,23 Z;M11,6 Q24,11 36,14 Q25,19 11,23 Z;M11,6 Q24,8 36,11 Q25,17 11,23 Z"/></path><text x="16.5" y="16.6" font-size="11" font-weight="800" fill="#6a4800" text-anchor="middle" font-family="Oswald,Arial,sans-serif">${n}</text></g></svg></div>`});}
+function pinDotIcon(k){const c=PINI[k]||PINI.front;return L.divIcon({className:'',iconSize:[16,16],iconAnchor:[8,8],html:`<div class="pindot" style="pointer-events:auto"><span class="lab" style="background:${c[1]}">${c[0]}</span><span class="dot" style="background:${c[1]}"></span></div>`});}
+function pinIcon(k,n){ return k==='mid'?pinMidIcon(n):pinDotIcon(k); }
+// 距离桩: 黑底白字 码数标签(.msc 跟随缩放)
+function distIcon(y){return L.divIcon({className:'',iconSize:[42,18],iconAnchor:[21,9],html:`<div class="msc" style="transform-origin:50% 50%;background:#000a;color:#fff;border:1px solid #fff;border-radius:10px;padding:1px 6px;font-size:11px;font-weight:700;white-space:nowrap;text-align:center">${y||''}y</div>`});}
+// 球车小图标(SVG, 朝向随行驶方向 rotate; 默认朝右=东)
+function cartIcon(deg){return L.divIcon({className:'',iconSize:[34,24],iconAnchor:[17,12],html:`<div style="width:34px;height:24px;transform:rotate(${deg||0}deg);transform-origin:50% 50%;filter:drop-shadow(0 1px 2px #0009)"><svg viewBox="0 0 34 24" width="34" height="24"><rect x="6" y="3" width="20" height="2.6" rx="1.2" fill="#f0f0f0"/><line x1="7.5" y1="5" x2="7.5" y2="11" stroke="#dcdcdc" stroke-width="1.5"/><line x1="24.5" y1="5" x2="24.5" y2="11" stroke="#dcdcdc" stroke-width="1.5"/><rect x="4" y="10" width="26" height="7" rx="2" fill="#f7f7f5" stroke="#9aa"/><rect x="26" y="11.4" width="4.4" height="4.2" rx="1" fill="#cfe0bf"/><circle cx="10" cy="19" r="3.4" fill="#2a2a2a" stroke="#fff" stroke-width="1"/><circle cx="24" cy="19" r="3.4" fill="#2a2a2a" stroke="#fff" stroke-width="1"/></svg></div>`});}
+// 发球台: 纯原色(去白边)+ 红心基准点 + .msc 跟随缩放
+function teeIcon(c){const col=TEES[c][1];return L.divIcon({className:'',iconSize:[14,14],iconAnchor:[7,7],html:`<div style="width:14px;height:14px;display:flex;align-items:center;justify-content:center"><div class="msc" style="transform-origin:50% 50%;position:relative;width:7px;height:7px;background:${col};border-radius:2px;box-shadow:0 1px 2px rgba(0,0,0,.6)"><i style="position:absolute;left:50%;top:50%;width:2px;height:2px;margin:-1px 0 0 -1px;background:#ff2d2d;border:1px solid #fff;border-radius:50%"></i></div></div>`});}
+function emojiIcon(e){return L.divIcon({className:'',iconSize:[24,24],iconAnchor:[12,12],html:`<div class="msc" style="transform-origin:50% 50%;position:relative;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:18px;text-shadow:0 1px 2px #000,0 0 3px #000">${e}<i style="position:absolute;left:12px;top:12px;width:4px;height:4px;margin:-2px 0 0 -2px;background:#ff2d2d;border:1px solid #fff;border-radius:50%;z-index:2"></i></div>`});}
+function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function newPointId(){return (typeof crypto!=='undefined'&&crypto.randomUUID)?crypto.randomUUID():`point-${Date.now()}-${Math.random().toString(16).slice(2)}`;}
+function devicePointIcon(point){const cart=point?.kind==='cart_test', name=esc(point?.name||(cart?'球车测试位置':'GPS 参考点'));
+  return L.divIcon({className:'',iconSize:[130,30],iconAnchor:[12,15],html:`<div class="msc" style="display:flex;align-items:center;gap:5px;white-space:nowrap;font:700 11px/1.2 system-ui;color:#fff;text-shadow:0 1px 2px #000"><i style="width:16px;height:16px;border-radius:50%;background:${cart?'#147bd1':'#ff9f1c'};border:2px solid #fff;box-shadow:0 1px 3px #0008"></i><b style="background:#142415d9;border:1px solid #ffffff66;border-radius:4px;padding:3px 5px">${cart?'🛺 ': '📍 '}${name}</b></div>`});}
+// 发球台距离 tooltip 只在前台 viewer 显示(后台不显示)
+function styleLayer(l,t){ l._gtype=t;
+  if(t==='pin'){ l._pin=curPin; l.setIcon(pinIcon(curPin, curHole)); return; }               // 果岭旗 前/中/后(中=黄旗+洞号)
+  if(t==='dist'){ const y=prompt('距离桩 码数(yards)','150'); l._dist=(y==null?'':y); l.setIcon(distIcon(l._dist));
+    l.on('dblclick',()=>{ const v=prompt('码数',l._dist); if(v!=null){ l._dist=v; l.setIcon(distIcon(v)); } }); return; }
+  if(t==='tee'){l._tee=curTee; l.setIcon(teeIcon(curTee)); return;}
+  if(t==='devicepoint'){
+    const cart=curDevicePointKind==='cart_test', fallback=cart?'球车测试位置':'GPS 参考点';
+    const name=document.getElementById('devicePointName')?.value;
+    l._devicePoint={id:newPointId(),name:(name||fallback).trim(),kind:curDevicePointKind};
+    l.setIcon(devicePointIcon(l._devicePoint)); if(l.dragging)l.dragging.enable(); return;
+  }
+  if(t==='cartroute'){ if(l.setStyle) l.setStyle({color:'#ff7a3c',weight:3,dashArray:'2 4',fill:false}); return; }
+  const s=TYPES[t]; if(!s)return;
+  if(s.g==='marker'){ if(s.emoji&&l.setIcon) l.setIcon(emojiIcon(s.emoji)); return; }
+  if(!l.setStyle)return; const o={color:s.color,weight:s.w||(s.g==='line'?4:3)};
+  if(s.fill){o.fillColor=s.fill;o.fillOpacity=0.45;}else o.fill=false; if(s.dash)o.dashArray=s.dash; l.setStyle(o); }
+map.on('pm:create',e=>{ styleLayer(e.layer,curType);
+  if(curType==='cartroute'){ map.pm.getGeomanLayers().forEach(l=>{ if(l._gtype==='cartroute'&&l!==e.layer) map.removeLayer(l); }); collectCartRoute(); ensureCart(); }  // 本洞只留一条连续行驶路线
+  renderList(); });
+map.on('pm:remove',()=>renderList());
+
+// 类型按钮
+function mkBtn(key,host){const t=TYPES[key],b=document.createElement('button');b.dataset.t=key;
+  const sw=t.g==='marker'?(t.emoji?t.emoji+' ':(t.label?'📏 ':''))
+    :`<span class="sw" style="background:${t.fill||'transparent'};border:2px solid ${t.color}"></span>`;
+  b.innerHTML=sw+t.zh;host.appendChild(b);
+  b.onclick=()=>{document.querySelectorAll('.types button,.tee').forEach(x=>x.classList.remove('on'));b.classList.add('on');curType=key;
+    map.pm.disableDraw();map.pm.enableDraw(t.g==='marker'?'Marker':t.g==='line'?'Line':'Polygon');};}
+Object.keys(TYPES).filter(k=>TYPES[k].g==='poly').forEach(k=>mkBtn(k,polytypes));
+Object.keys(TYPES).filter(k=>TYPES[k].g==='line').forEach(k=>mkBtn(k,linetypes));
+(function(){ const b=document.createElement('button'); b.dataset.t='cartroute';
+  b.innerHTML='<span class="sw" style="background:#ff7a3c"></span>球车行驶路线(本洞)';
+  b.onclick=()=>{document.querySelectorAll('.types button,.tee').forEach(x=>x.classList.remove('on'));b.classList.add('on');curType='cartroute';map.pm.disableDraw();map.pm.enableDraw('Line');};
+  document.getElementById('linetypes').appendChild(b); })();
+['tree','rock','dist','aim','service','shelter'].forEach(k=>mkBtn(k,pttypes));
+(function(){ const host=document.getElementById('devicepoints');
+  [['cart_test','🛺 球车测试位置'],['reference','📍 GPS 参考点']].forEach(([kind,label])=>{const b=document.createElement('button');b.textContent=label;
+    b.onclick=()=>{document.querySelectorAll('.types button,.tee').forEach(x=>x.classList.remove('on'));b.classList.add('on');curType='devicepoint';curDevicePointKind=kind;map.pm.disableDraw();map.pm.enableDraw('Marker');};host.appendChild(b);});})();
+Object.keys(TEES).forEach(c=>{const d=document.createElement('div');d.className='tee';d.style.background=TEES[c][1];d.style.color=c==='white'?'#333':'#fff';d.textContent=TEES[c][0];
+  d.onclick=()=>{document.querySelectorAll('.types button,.tee').forEach(x=>x.classList.remove('on'));d.classList.add('on');curType='tee';curTee=c;map.pm.disableDraw();map.pm.enableDraw('Marker');};tees.appendChild(d);});
+
+// ===== GreenBook 数据层 (原 GolfMapTool 本地 JSON / serve.py → Golf.CC 后台 API) =====
+const QS=new URLSearchParams(location.search);
+const GB=QS.get('gb')||'cn0000385';
+const CODEX_DRAFT=true; // 独立测试包不写入原项目后台。
+const DRAFT_GEOMETRY_URL='../holemap-data/'+encodeURIComponent(GB)+'-codex.json';
+const API='';
+const TOKEN='';
+const virtualFrame=document.getElementById('virtualFrame');
+let virtualFrameHole=0;
+function isTaizhouCourse(){ return GB==='cn0000385'||/泰州|云海/i.test(courseData?.name||''); }
+function currentHoleData(){ return courseData?.holes?.find(h=>Number(h.n)===Number(curHole)); }
+function sendVirtualOverlays(){
+  const h=currentHoleData();
+  if(!h||!virtualFrame.contentWindow)return;
+  virtualFrame.contentWindow.postMessage({source:'holemap-parent',type:'load-overlays',hole:curHole,overlays:h.virtual_overlays||null},'*');
+}
+function syncVirtualDock(){
+  if(!isTaizhouCourse())return;
+  document.getElementById('virtualDockTitle').textContent=`第 ${curHole} 洞 · 高清虚拟图编辑`;
+  if(virtualFrameHole!==curHole){
+    virtualFrameHole=curHole;
+    virtualFrame.src=`../holemap-hd/index.html?hole=${curHole}&mode=concept&labels=on&embed=1&edit=1&rev=integrated-v11`;
+  }else sendVirtualOverlays();
+}
+function setVirtualDock(open){
+  const allowed=Boolean(open)&&isTaizhouCourse();
+  document.getElementById('app').classList.toggle('virtual-open',allowed);
+  document.getElementById('toggleVirtual').textContent=allowed?'🖼 高清虚拟图已打开':'🖼 打开本洞高清虚拟图';
+  if(allowed)syncVirtualDock();
+  setTimeout(()=>map.invalidateSize(),80);
+}
+document.getElementById('toggleVirtual').onclick=()=>setVirtualDock(!document.getElementById('app').classList.contains('virtual-open'));
+document.getElementById('closeVirtualDock').onclick=()=>setVirtualDock(false);
+window.addEventListener('message',event=>{
+  const msg=event.data;
+  if(msg?.source!=='holemap-hd'||Number(msg.hole)!==Number(curHole))return;
+  if(msg.type==='ready'){ sendVirtualOverlays(); return; }
+  const h=currentHoleData(); if(!h)return;
+  if(msg.type==='overlays-reset')delete h.virtual_overlays;
+  if(msg.type==='overlays-changed'||msg.type==='overlays-save')h.virtual_overlays=msg.overlays;
+  if(msg.type==='overlays-changed')document.getElementById('virtualState').textContent='虚拟图标注已移动；点侧栏“保存标注位置”，再暂存或导出球洞数据。';
+  if(msg.type==='overlays-save'){document.getElementById('virtualState').textContent='虚拟图标注位置已写入第 '+curHole+' 洞数据。';toast('第 '+curHole+' 洞虚拟图标注位置已保存到内存',true);}
+});
+function gbHeaders(extra){ return Object.assign({Authorization:'Bearer '+TOKEN}, extra||{}); }
+// 「前台查看器」链接 → 移植的公开查看器 (带当前 gb + api); 无 gb 则禁用
+(function(){ const fl=document.getElementById('frontlink'); if(!fl)return;
+  if(GB) fl.href='../holemap-viewer/index.html?gb='+encodeURIComponent(GB)+(CODEX_DRAFT?'&draft=codex':'&api='+encodeURIComponent(API));
+  else { fl.style.display='none'; } })();
+if(CODEX_DRAFT){
+  const save=document.getElementById('savesrv');
+  save.textContent='🔒 Codex 草稿不写 GreenBook';
+  save.disabled=true;
+  save.title='界面与 Claude 同源；Codex 仅使用本地 JSON，避免两边互相覆盖';
+}
+
+// 加载球场 / 洞 (从 GreenBook 读整场球洞图 courseData)
+async function loadCourse(){ if(!GB){ toast('缺少 ?gb= 球场ID', false); return; } prog('加载球场…');
+  try{ const r=await fetch(CODEX_DRAFT?DRAFT_GEOMETRY_URL:`${API}/v1/admin/gb/venues/${GB}/holemap`,CODEX_DRAFT?{}:{headers:gbHeaders()});
+    const j=await r.json(); if(!r.ok) throw new Error((j&&j.error&&j.error.message)||('HTTP '+r.status));
+    courseData=CODEX_DRAFT?j:j.data;
+    // 独立的设备路线草稿只在 Codex 本地预览合并；不写入 Claude / GreenBook。
+    if(CODEX_DRAFT){try{const rr=await fetch('../holemap-data/'+encodeURIComponent(GB)+'-device-routes.json',{cache:'no-store'});if(rr.ok){const rd=await rr.json(),byHole=new Map((rd.holes||[]).map(x=>[Number(x.n),x]));courseData.holes=(courseData.holes||[]).map(h=>Object.assign(h,byHole.get(Number(h.n))||{}));}}catch(_){} }
+  }catch(e){ prog(null); toast('读取失败: '+e, false); return; }
+  if(!courseData.holes) courseData.holes=[];
+  if(courseData.center) map.setView([courseData.center[1],courseData.center[0]], courseData.zoom||16);
+  const cn=document.getElementById('cname'); if(cn) cn.textContent=courseData.name||GB;
+  buildHoleGrid();
+  prog(null); loadHole(courseData.holes[0]?courseData.holes[0].n:1); if(isTaizhouCourse())setVirtualDock(true);
+}
+function clearLayers(){ map.pm.getGeomanLayers().forEach(l=>map.removeLayer(l)); }
+function loadHole(n){ curHole=n; if(ovGroup){map.removeLayer(ovGroup);ovGroup=null;} inOverview=false; document.querySelectorAll('#holegrid button').forEach(b=>b.classList.toggle('on',+b.dataset.n===n));
+  clearLayers(); const h=(courseData.holes||[]).find(x=>x.n===n);
+  document.getElementById('par').value=h&&h.par||4;
+  ['black','gold','blue','white','red'].forEach(k=>document.getElementById('d_'+k).value=(h&&h.dist&&h.dist[k])||'');
+  document.getElementById('ai').value=h&&h.ai||'';
+  if(!h) return;
+  const drawFeat=(coords,t)=>{ const s=TYPES[t]; const l=(s.g==='line')?L.polyline(coords.map(C2L)):L.polygon(coords.map(C2L)); l.addTo(map); styleLayer(l,t); };
+  Object.keys(TYPES).forEach(t=>{ const s=TYPES[t]; const v=h[s.key]; if(!v) return;
+    if(s.g==='marker'){
+      if(t==='dist'){ (v||[]).forEach(o=>{ if(!o||!o.pt) return; const l=L.marker(C2L(o.pt)).addTo(map); l._gtype='dist'; l._dist=o.y; l.setIcon(distIcon(o.y));
+        l.on('dblclick',()=>{ const x=prompt('码数',l._dist); if(x!=null){ l._dist=x; l.setIcon(distIcon(x)); } }); }); return; }
+      (v||[]).forEach(pt=>{ if(!pt) return; const l=L.marker(C2L(pt)).addTo(map); styleLayer(l,t); }); return; }
+    if(s.multi){ (v||[]).forEach(c=>{ if(c&&c.length) drawFeat(c,t); }); }
+    else if(v.length) drawFeat(v,t); });
+  const teesObj=h.tees||(h.tee?{black:h.tee}:{});   // 兼容旧数据(只有单 tee)
+  Object.keys(teesObj).forEach(c=>{ if(!teesObj[c])return; const l=L.marker(C2L(teesObj[c]),{draggable:true,autoPan:true}).addTo(map); l._gtype='tee'; l._tee=c; l.setIcon(teeIcon(c)); });   // 可直接拖动微调
+  const pins=h.pins||(h.flag?{mid:h.flag}:{});       // 果岭旗 前/中/后(兼容旧单 flag→中)
+  ['front','mid','back'].forEach(k=>{ if(pins[k]){ const l=L.marker(C2L(pins[k]),{draggable:true,autoPan:true}).addTo(map); l._gtype='pin'; l._pin=k; l.setIcon(pinIcon(k, n)); } });   // 可直接拖动微调
+  // 球车路线属于本洞：与球洞边界、Tee、果岭共用同一套 WGS84 坐标。
+  if(h.cart_route&&h.cart_route.length){const l=L.polyline(h.cart_route.map(C2L),{color:'#ff7a3c',weight:3,dashArray:'2 4'}).addTo(map);l._gtype='cartroute';}
+  (h.device_points||[]).forEach(point=>{if(!point||!Array.isArray(point.coordinate))return;const l=L.marker(C2L(point.coordinate),{draggable:true,autoPan:true}).addTo(map);l._gtype='devicepoint';l._devicePoint={id:point.id||newPointId(),name:point.name||'GPS 参考点',kind:point.kind||'reference'};l.setIcon(devicePointIcon(l._devicePoint));});
+  cartRouteReady=true;   // 本洞车道层状态已建立, collectCartRoute 此后可信地同步(含删除)
+  ensureCart();
+  renderList(); updateMppBR(); if(document.getElementById('app').classList.contains('virtual-open'))syncVirtualDock();
+}
+document.getElementById('load').onclick=()=>loadCourse();
+function buildHoleGrid(){ const host=document.getElementById('holegrid'); if(!host||!courseData)return; host.innerHTML='';
+  courseData.holes.slice().sort((a,b)=>a.n-b.n).forEach(h=>{ const b=document.createElement('button'); b.textContent=h.n; b.dataset.n=h.n; b.classList.toggle('on',h.n===curHole); b.onclick=()=>{ saveHole(true); loadHole(h.n); }; host.appendChild(b); }); }
+function showAll(){ if(!courseData)return;
+  saveHole(true);                                              // 先存当前洞(此时 inOverview 仍 false→真存), 防丢
+  if(ovGroup){map.removeLayer(ovGroup);} ovGroup=L.layerGroup().addTo(map); inOverview=true;
+  clearLayers();                                               // 移除当前洞可编辑图层
+  document.querySelectorAll('#holegrid button').forEach(b=>b.classList.remove('on'));
+  const pts=[];
+  courseData.holes.forEach(h=>{ const peri=h.holeperim, mid=(h.pins&&h.pins.mid)||h.flag;
+    if(peri&&peri.length>=3){ L.polygon(peri.map(C2L),{color:'#ff4dc4',weight:2,dashArray:'5 6',fill:true,fillColor:'#ff4dc4',fillOpacity:0.06,interactive:false}).addTo(ovGroup); peri.forEach(p=>pts.push(p)); }
+    Object.entries(h.tees||{}).forEach(([c,t])=>{ if(t){ const col=(TEES[c]||['','#2e6fd6'])[1];
+      L.circleMarker(C2L(t),{radius:3.5,color:c==='white'?'#555':'#fff',weight:1.2,fillColor:col,fillOpacity:1,interactive:false}).addTo(ovGroup); pts.push(t); } });   // 发球台点按真实梯色(白梯描深边防隐形)
+    if(mid){ const m=L.marker(C2L(mid),{title:'第'+h.n+'洞 · 点击编辑',icon:L.divIcon({className:'',iconSize:[24,24],iconAnchor:[12,12],html:`<div style="width:22px;height:22px;border-radius:50%;background:#f2c200;color:#3a2b00;border:2px solid #fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;box-shadow:0 1px 4px #0008;cursor:pointer">${h.n}</div>`})}).addTo(ovGroup);
+      m.on('click',()=>loadHole(h.n)); pts.push(mid); } });
+  if(courseData.cart_route&&courseData.cart_route.length){ L.polyline(courseData.cart_route.map(C2L),{color:'#ff7a3c',weight:3,dashArray:'2 4',interactive:false}).addTo(ovGroup); courseData.cart_route.forEach(p=>pts.push(p)); }
+  if(pts.length) map.fitBounds(L.latLngBounds(pts.map(C2L)),{padding:[50,50],maxZoom:18});
+  toast('🌐 全场全景：'+courseData.holes.filter(h=>(h.holeperim||[]).length>=3).length+' 洞有周界 · 点黄圈洞号进入编辑'); }
+document.getElementById('overview').onclick=showAll;
+document.getElementById('newhole').onclick=()=>{ saveHole(true); const mx=Math.max(0,...courseData.holes.map(h=>h.n)); const n=mx+1;
+  const blank={n,par:4,dist:{},tees:{},tee:null,flag:null,pins:{front:null,mid:null,back:null},ai:''}; Object.values(TYPES).forEach(s=>{ blank[s.key]=[]; }); courseData.holes.push(blank);
+  buildHoleGrid(); loadHole(n); };
+
+// 收集本洞 → 写回 courseData
+function collectHole(){ const obj={n:curHole,par:+document.getElementById('par').value||4,
+  dist:{}, tees:{}, tee:null, flag:null, pins:{front:null,mid:null,back:null}, device_points:[], ai:document.getElementById('ai').value.trim() };
+  Object.values(TYPES).forEach(s=>{ obj[s.key]=[]; });
+  ['black','gold','blue','white','red'].forEach(k=>{const v=+document.getElementById('d_'+k).value;if(v)obj.dist[k]=v;});
+  map.pm.getGeomanLayers().forEach(l=>{ const t=l._gtype; if(!t||t==='cartroute')return; const s=TYPES[t];
+    if(t==='pin'){ obj.pins[l._pin||'mid']=L2C(l.getLatLng()); return; }                  // 果岭旗 前/中/后
+    if(t==='tee'){obj.tees[l._tee||'black']=L2C(l.getLatLng()); return;}                   // 5 色发球台各存坐标
+    if(t==='devicepoint'){const point=l._devicePoint||{};obj.device_points.push({id:point.id||newPointId(),name:point.name||'GPS 参考点',kind:point.kind||'reference',coordinate:L2C(l.getLatLng())});return;}
+    if(t==='dist'){ obj.dists.push({pt:L2C(l.getLatLng()), y:l._dist||''}); return; }      // 距离桩 带码数
+    if(s&&s.g==='marker'){ obj[s.key].push(L2C(l.getLatLng())); return; }
+    if(s&&l.getLatLngs){ let ll=l.getLatLngs(); if(Array.isArray(ll[0]))ll=ll[0]; const c=ll.map(L2C);
+      if(s.multi) obj[s.key].push(c); else obj[s.key]=c; }});
+  obj.tee=obj.tees.black||obj.tees.gold||obj.tees.blue||obj.tees.white||obj.tees.red||null;  // 默认基准(黑优先)
+  if(!obj.pins.mid && obj.green.length){ const cx=obj.green.reduce((a,p)=>a+p[0],0)/obj.green.length, cy=obj.green.reduce((a,p)=>a+p[1],0)/obj.green.length; obj.pins.mid=[cx,cy]; }  // 中钉缺→果岭形心兜底
+  obj.flag=obj.pins.mid||obj.pins.front||obj.pins.back||null;   // 旧 flag=中钉, 前台 viewer 兼容
+  return obj; }
+function collectCartRoute(){ if(!courseData||!cartRouteReady)return;   // loadHole 还没建立车道层状态 → 不动 cart_route(防加载/竞态误清)
+  const h=currentHoleData();if(!h)return;
+  const ls=map.pm.getGeomanLayers().filter(l=>l._gtype==='cartroute'&&l.getLatLngs);
+  if(ls.length){ let ll=ls[0].getLatLngs(); if(Array.isArray(ll[0]))ll=ll[0]; h.cart_route=ll.map(L2C); }
+  else h.cart_route=[]; }   // 已就绪且车道层不在 = 用户删了 → 持久化删除
+function saveHole(silent){ if(!courseData||inOverview)return; collectCartRoute(); const obj=collectHole();
+  const i=courseData.holes.findIndex(h=>h.n===curHole);
+  if(i>=0)courseData.holes[i]=Object.assign({},courseData.holes[i],obj);   // 合并: 编辑器不认识的字段(scan_meta 等)保活, 认识的全量覆盖
+  else courseData.holes.push(obj);
+  // 本机 GPS 预览立即读取同一份草稿；真正交付仍以导出的 JSON / GeoJSON 为准。
+  if(CODEX_DRAFT){try{const h=currentHoleData();localStorage.setItem('golfmap.gps-draft.'+GB+'.hole-'+curHole,JSON.stringify({hole_data:h}));}catch(_){}}
+  if(!silent) toast('第 '+curHole+' 洞已暂存：GPS 预览会立即读取；交付设备请导出 JSON / GeoJSON。'); }
+document.getElementById('savehole').onclick=()=>saveHole(false);
+document.getElementById('savesrv').onclick=async()=>{ if(!courseData){toast('先加载球场');return;} if(!GB){toast('缺少球场ID',false);return;} saveHole(true); courseData.holes.sort((a,b)=>a.n-b.n);
+  if(CODEX_DRAFT){toast('Codex 草稿只允许导出 JSON，不写 GreenBook',false);return;}
+  prog('保存中…');
+  try{ const r=await fetch(`${API}/v1/admin/gb/venues/${GB}/holemap`,{method:'POST',headers:gbHeaders({'Content-Type':'application/json'}),body:JSON.stringify(courseData)});
+    const j=await r.json(); prog(null);
+    if(r.ok&&j.data&&j.data.ok) toast('✅ 已保存到 GreenBook（'+(j.data.holes||0)+' 洞 / '+(j.data.geom||0)+' 要素）。前台刷新即见。', true);
+    else toast('保存失败: '+((j.error&&j.error.message)||r.status), false); }
+  catch(e){ prog(null); toast('保存失败: '+e, false); } };
+document.getElementById('exportcourse').onclick=()=>{ if(!courseData){toast('先加载球场');return;} saveHole(true);
+  courseData.holes.sort((a,b)=>a.n-b.n);
+  const blob=new Blob([JSON.stringify(courseData,null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=courseData.slug+'.json';document.body.appendChild(a);a.click();a.remove();
+  toast('已导出 '+courseData.slug+'.json —— 覆盖到 data/courses/ 即可，前台刷新可见。'); };
+function renderList(){ const host=document.getElementById('flist'); if(!host)return; host.innerHTML=''; const cnt={};
+  map.pm.getGeomanLayers().forEach(l=>{ const t=l._gtype; if(!t)return; cnt[t]=(cnt[t]||0)+1;
+    let zh, color;
+    if(t==='tee'){ zh='发球台·'+(TEES[l._tee||'black'][0]); color=TEES[l._tee||'black'][1]; }
+    else if(t==='pin'){ const p=PINI[l._pin||'mid']; zh='果岭旗·'+p[0]; color=p[1]; }
+    else if(t==='dist'){ zh='距离桩 '+(l._dist||'')+'y'; color='#222'; }
+    else if(t==='cartroute'){ zh='球车行驶路线（本洞）'; color='#ff7a3c'; }
+    else if(t==='devicepoint'){ zh=(l._devicePoint?.kind==='cart_test'?'球车测试位置：':'GPS 参考点：')+(l._devicePoint?.name||'未命名'); color=l._devicePoint?.kind==='cart_test'?'#147bd1':'#ff9f1c'; }
+    else { zh=TYPES[t]?TYPES[t].zh:t; color=(TYPES[t]&&(TYPES[t].fill||TYPES[t].color))||'#fff'; }
+    const label=(TYPES[t]&&TYPES[t].multi)?zh+' #'+cnt[t]:zh;
+    const d=document.createElement('div'); d.className='feat'; d.innerHTML=`<span class="sw" style="background:${color}"></span>${label}<span class="x">✕</span>`;
+    d.querySelector('.x').onclick=()=>{ map.removeLayer(l); renderList(); };
+    host.appendChild(d); }); }
+document.getElementById('clearhole').onclick=()=>{ if(confirm('清空本洞所有标注?（含本洞球车路线）')){ map.pm.getGeomanLayers().forEach(l=>map.removeLayer(l)); const h=currentHoleData();if(h)h.cart_route=[]; renderList(); } };
+function updateMppBR(){ const z=map.getZoom(), lat=map.getCenter().lat, m=156543.03392*Math.cos(lat*Math.PI/180)/Math.pow(2,z); const el=document.getElementById('mppBR'); if(el) el.textContent=m.toFixed(2)+' m/px · z'+z.toFixed(1); }
+map.on('zoomend moveend',updateMppBR); updateMppBR();
+function updMz(){ document.documentElement.style.setProperty('--mz', Math.max(.4,Math.min(1.5,Math.pow(2,map.getZoom()-17))).toFixed(3)); }
+map.on('zoom zoomend',updMz); updMz();
+function setSrc(s){ curSrc=s; Object.values(baseLayers).forEach(l=>{ if(map.hasLayer(l))map.removeLayer(l); }); const l=baseLayers[s]; l.addTo(map);
+  if(l.bringToBack) l.bringToBack(); else if(l.eachLayer) l.eachLayer(x=>{ if(x.bringToBack) x.bringToBack(); });
+  document.querySelectorAll('.srcb').forEach(b=>b.classList.toggle('on',b.dataset.src===s)); }
+document.querySelectorAll('.srcb').forEach(b=>b.onclick=()=>setSrc(b.dataset.src));
+function zoomToHole(){ if(!courseData)return; const h=courseData.holes.find(x=>x.n===curHole);
+  const mid=h&&((h.pins&&h.pins.mid)||h.flag); let pts=h?[].concat(h.holeperim||[],h.fairway||[],h.centerline||[],h.tee?[h.tee]:[],mid?[mid]:[]):[];
+  if(pts.length){ map.fitBounds(L.latLngBounds(pts.map(C2L)),{padding:[40,40],maxZoom:18.5}); return; }
+  const b=L.latLngBounds([]); map.pm.getGeomanLayers().forEach(l=>{ if(l._gtype==='cartroute')return; if(l.getBounds)b.extend(l.getBounds()); else if(l.getLatLng)b.extend(l.getLatLng()); }); if(b.isValid())map.fitBounds(b,{padding:[40,40],maxZoom:18.5}); }
+document.getElementById('zoomhole').onclick=zoomToHole;
+
+// ===== 果岭旗 前/中/后 三钉 =====
+[['front','果岭最前'],['mid','果岭中间'],['back','果岭最后']].forEach(([k,zh])=>{ const b=document.createElement('button'); b.dataset.pin=k;
+  b.innerHTML=`<span class="sw" style="background:${PINI[k][1]}"></span>${zh}`;
+  b.onclick=()=>{ document.querySelectorAll('.types button,.tee').forEach(x=>x.classList.remove('on')); b.classList.add('on'); curType='pin'; curPin=k; map.pm.disableDraw(); map.pm.enableDraw('Marker'); };
+  document.getElementById('pintypes').appendChild(b); });
+function autoPins(){ if(!courseData)return; saveHole(true); const h=courseData.holes.find(x=>x.n===curHole);
+  if(!h||!(h.green&&h.green.length>=3)){ toast('本洞还没画果岭(≥3点)，无法自动生成 前/中/后'); return; }
+  const g=h.green, cx=g.reduce((a,p)=>a+p[0],0)/g.length, cy=g.reduce((a,p)=>a+p[1],0)/g.length;
+  // 打球线方向: 优先中线末段(狗腿洞真实进攻向), 否则 蓝Tee(退黑/任意梯)→果岭中心
+  const cl=h.centerline;
+  const from=(cl&&cl.length>=2)?cl[cl.length-2]:((h.tees&&h.tees.blue)||(h.tees&&h.tees.black)||h.tee||Object.values(h.tees||{}).filter(Boolean)[0]||(cl&&cl[0]));
+  let front=[cx,cy], back=[cx,cy];
+  if(from){
+    const ky=110574, kx=111320*Math.cos(cy*Math.PI/180);   // 经纬→米
+    let dx=(cx-from[0])*kx, dy=(cy-from[1])*ky; const L0=Math.hypot(dx,dy)||1; dx/=L0; dy/=L0;   // 单位向量 from→中心(=朝果岭后)
+    let tF=0, tB=0;   // 沿打球线签名距离(米): 负=tee侧(前), 正=远侧(后)
+    for(let i=0;i<g.length;i++){ const a=g[i], b=g[(i+1)%g.length];
+      const arx=(a[0]-cx)*kx, ary=(a[1]-cy)*ky, brx=(b[0]-cx)*kx, bry=(b[1]-cy)*ky;
+      const ay=-arx*dy+ary*dx, by=-brx*dy+bry*dx;   // 各点到打球线的侧向距离
+      if((ay>0)!==(by>0)){ const ax=arx*dx+ary*dy, bx=brx*dx+bry*dy; const t=ax+(bx-ax)*(0-ay)/(by-ay);   // 该果岭边与打球线的交点(沿线距离)
+        if(t>tB)tB=t; if(t<tF)tF=t; } }
+    front=[cx+dx*tF/kx, cy+dy*tF/ky];   // 前缘正中(tee侧)
+    back =[cx+dx*tB/kx, cy+dy*tB/ky];   // 后缘正中(远侧)
+  }
+  h.pins={front,mid:[cx,cy],back}; h.flag=h.pins.mid; loadHole(curHole);
+  toast('已按 打球线×果岭边界 生成 前缘/中心/后缘 三钉，可直接拖动微调'); }
+document.getElementById('autopins').onclick=autoPins;
+
+// ===== 球车模拟（沿 全场 cart_route, 可设 起点/终点, 速度实时可调）=====
+let cartMarker=null, cartAnim=null, startMarker=null, endMarker=null, armSE=null;
+function cartRouteLL(){ return ((currentHoleData()?.cart_route)||[]).map(C2L); }
+function routeMetrics(){ const ll=cartRouteLL(); const seg=[]; let tot=0; for(let i=0;i<ll.length-1;i++){ const s=map.distance(ll[i],ll[i+1]); seg.push(s); tot+=s; } return {ll,seg,tot}; }
+function snapToRoute(latlng){ const {ll,seg}=routeMetrics(); if(ll.length<2) return null;
+  const p=map.latLngToContainerPoint(latlng); let best=1e18,bestll=null,bestd=0,cum=0;
+  for(let i=0;i<ll.length-1;i++){ const a=map.latLngToContainerPoint(ll[i]),b=map.latLngToContainerPoint(ll[i+1]);
+    const abx=b.x-a.x,aby=b.y-a.y,len2=abx*abx+aby*aby||1; let t=((p.x-a.x)*abx+(p.y-a.y)*aby)/len2; t=Math.max(0,Math.min(1,t));
+    const px=a.x+abx*t,py=a.y+aby*t,dd=(p.x-px)**2+(p.y-py)**2;
+    if(dd<best){ best=dd; bestll=map.containerPointToLatLng(L.point(px,py)); bestd=cum+(seg[i]||0)*t; }
+    cum+=seg[i]||0; }
+  return {ll:bestll, d:bestd}; }
+function posAtDist(d){ const {ll,seg}=routeMetrics(); if(ll.length<2) return null; let acc=0,i=0;
+  while(i<seg.length-1 && acc+seg[i]<d){ acc+=seg[i]; i++; }
+  const f=seg[i]?(d-acc)/seg[i]:0,a=ll[i],b=ll[i+1]; if(!a||!b) return null;
+  const pa=map.latLngToContainerPoint(a),pb=map.latLngToContainerPoint(b),deg=Math.atan2(pb.y-pa.y,pb.x-pa.x)*180/Math.PI;
+  return { ll:[a[0]+(b[0]-a[0])*f, a[1]+(b[1]-a[1])*f], deg }; }   // ll[i] 是 [lat,lng] 数组, 用下标(非 .lat/.lng)
+function seIcon(isStart){ return L.divIcon({className:'',iconSize:[22,22],iconAnchor:[11,11],html:`<div style="width:20px;height:20px;border-radius:50%;background:${isStart?'#27c24c':'#222'};color:#fff;border:2px solid #fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;box-shadow:0 1px 4px #0008">${isStart?'起':'终'}</div>`}); }
+function startD(){ const h=currentHoleData();if(h&&h.cart_start){ const s=snapToRoute(L.latLng(h.cart_start[1],h.cart_start[0])); return s?s.d:0; } return 0; }
+function endD(){ const {tot}=routeMetrics(),h=currentHoleData(); if(h&&h.cart_end){ const s=snapToRoute(L.latLng(h.cart_end[1],h.cart_end[0])); return s?s.d:tot; } return tot; }
+function ensureCart(){ const {ll}=routeMetrics();
+  if(ll.length<1){ [cartMarker,startMarker,endMarker].forEach(m=>{ if(m)map.removeLayer(m); }); cartMarker=startMarker=endMarker=null; return; }
+  const h=currentHoleData();
+  if(h?.cart_start){ const a=C2L(h.cart_start); if(!startMarker){startMarker=L.marker(a,{icon:seIcon(true),pmIgnore:true,zIndexOffset:1100}).addTo(map);} else startMarker.setLatLng(a); }
+  else if(startMarker){ map.removeLayer(startMarker); startMarker=null; }
+  if(h?.cart_end){ const b=C2L(h.cart_end); if(!endMarker){endMarker=L.marker(b,{icon:seIcon(false),pmIgnore:true,zIndexOffset:1100}).addTo(map);} else endMarker.setLatLng(b); }
+  else if(endMarker){ map.removeLayer(endMarker); endMarker=null; }
+  const sp=posAtDist(startD());
+  if(!cartMarker){ cartMarker=L.marker(sp?sp.ll:ll[0],{icon:cartIcon(0),pmIgnore:true,zIndexOffset:1200}).addTo(map); cartMarker.on('click',playCart); }
+  else if(!cartAnim){ cartMarker.setLatLng(sp?sp.ll:ll[0]); } }
+function playCart(){ const {ll}=routeMetrics(); if(ll.length<2){ toast('先用线工具画『球车路线(全场)』'); return; }
+  stopCart(false); ensureCart();
+  const sD=startD(), eD=endD(), dir=(eD>=sD)?1:-1; let d=sD, last=null;
+  function step(ts){ if(last==null)last=ts; const dt=Math.min(0.1,(ts-last)/1000); last=ts;
+    const mps=((+document.getElementById('cartspeed').value)||15)/3.6; d+=dir*mps*dt;
+    const fin=dir>0?(d>=eD):(d<=eD); const pos=posAtDist(fin?eD:d);
+    if(pos){ cartMarker.setLatLng(pos.ll); cartMarker.setIcon(cartIcon(dir>0?pos.deg:pos.deg+180)); }
+    if(fin){ cartAnim=null; return; } cartAnim=requestAnimationFrame(step); }
+  cartAnim=requestAnimationFrame(step); }
+function stopCart(reset){ if(cartAnim){ cancelAnimationFrame(cartAnim); cartAnim=null; }
+  if(reset!==false && cartMarker){ const sp=posAtDist(startD()); if(sp){ cartMarker.setLatLng(sp.ll); cartMarker.setIcon(cartIcon(0)); } } }
+document.getElementById('cartplay').onclick=playCart;
+document.getElementById('cartstop').onclick=()=>stopCart(true);
+document.getElementById('cartspeed').oninput=e=>{ document.getElementById('cartspeedlbl').textContent=e.target.value+' km/h'; };
+document.getElementById('setstart').onclick=()=>{ if(cartRouteLL().length<2){toast('先画 球车行驶路线（本洞）');return;} armSE='start'; map.pm.disableDraw(); toast('点地图设【起点】(自动吸附到路线)'); };
+document.getElementById('setend').onclick=()=>{ if(cartRouteLL().length<2){toast('先画 球车行驶路线（本洞）');return;} armSE='end'; map.pm.disableDraw(); toast('点地图设【终点】(自动吸附到路线)'); };
+document.getElementById('clearse').onclick=()=>{ const h=currentHoleData();if(h){ h.cart_start=null; h.cart_end=null; } ensureCart(); toast('已清除起/终点(恢复整条路线 首→尾)'); };
+function inspectCoordinate(latlng){inspectedCoordinate=[latlng.lng,latlng.lat];document.getElementById('coordinateReadout').textContent=`WGS84  ${latlng.lng.toFixed(7)}, ${latlng.lat.toFixed(7)}`;}
+document.getElementById('copyCoordinate').onclick=async()=>{if(!inspectedCoordinate){toast('先点击卫星图中的位置',false);return;}const text=inspectedCoordinate.map(v=>v.toFixed(7)).join(', ');try{await navigator.clipboard.writeText(text);toast('已复制 WGS84 坐标',true);}catch(_){toast(text);}};
+map.on('click',e=>{ inspectCoordinate(e.latlng); if(!armSE||!courseData) return; const which=armSE; armSE=null; const s=snapToRoute(e.latlng); if(!s) return;
+  const h=currentHoleData();if(!h)return;const pt=[s.ll.lng, s.ll.lat]; if(which==='start') h.cart_start=pt; else h.cart_end=pt; ensureCart(); toast('已设【'+(which==='start'?'起点':'终点')+'】，记得保存'); });
+
+document.querySelector('#polytypes button').classList.add('on');
+loadCourse();
+</script>
+</body>
+</html>

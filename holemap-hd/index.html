@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>泰州云海 · 高清球洞图审校</title>
+  <link rel="stylesheet" href="hd.css?v=21">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">TAIZHOU YUNHAI · HD HOLEMAP</p>
+        <h1>真实范围 × 高清材质</h1>
+        <p class="lede">专业路线图决定球洞范围，卫星影像决定真实要素，模型只生成草地、树冠和沙坑材质。</p>
+      </div>
+      <div class="status-stack" aria-label="当前审校状态">
+        <span>几何锁定</span>
+        <strong id="statusCopy">第 1 洞 · 高清材质样板</strong>
+      </div>
+    </header>
+
+    <nav class="hole-nav" id="holeNav" aria-label="选择球洞"></nav>
+
+    <section class="compare-toolbar" aria-label="查看模式">
+      <div class="mode-switch" role="tablist">
+        <button type="button" id="sourceMode" role="tab" aria-selected="false">卫星增强基线</button>
+        <button type="button" id="conceptMode" class="selected" role="tab" aria-selected="true">高清材质样板</button>
+        <button type="button" id="compareMode" role="tab" aria-selected="false">左右对照</button>
+      </div>
+      <div class="toolbar-actions">
+        <button class="annotation-toggle" id="annotationToggle" type="button" aria-pressed="true">标识：开</button>
+        <button class="export-button" id="exportAnnotated" type="button">导出带标识高清 PNG</button>
+      </div>
+      <p id="modeNote">第 1 洞模型样板：仅评估画质，不回写任何坐标或边界。</p>
+    </section>
+
+    <section class="embed-editor-bar" id="embedEditorBar" hidden>
+      <div>
+        <strong id="embedHoleTitle">第 1 洞 · 高清虚拟图</strong>
+        <span><i></i>滚轮缩放 · 拖动空白处移动视野 · 拖动圆点编辑</span>
+      </div>
+      <p id="overlayEditStatus">拖动 Tee、沙坑、水域、果岭等圆点调整位置</p>
+      <div class="embed-actions">
+        <button type="button" id="resetOverlayPositions">恢复默认</button>
+        <button type="button" id="saveOverlayPositions">保存标注位置</button>
+      </div>
+    </section>
+
+    <section class="stage" id="stage">
+      <figure class="map-frame source-frame" id="sourceFrame" hidden>
+        <figcaption><b>准确几何基线</b><span>专业路线图配准 + 真实卫星增强</span></figcaption>
+        <img id="sourceImage" src="assets/satellite-hd-h1.jpg" alt="第 1 洞卫星增强基线">
+      </figure>
+      <figure class="map-frame concept-frame" id="conceptFrame">
+        <figcaption><b>高清材质样板</b><span>模型只负责材质，最终版会重新套入锁定几何</span></figcaption>
+        <div class="concept-body">
+          <div class="concept-canvas" id="conceptCanvas">
+            <img id="conceptImage" src="assets/hole-01-hd-concept-v1.png" alt="第 1 洞高清虚拟图材质样板">
+            <svg class="annotation-overlay" id="annotationOverlay" viewBox="0 0 886 1775" role="img" aria-label="第 1 洞功能标识">
+              <defs>
+                <filter id="labelShadow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#071006" flood-opacity=".42"/>
+                </filter>
+              </defs>
+
+              <g class="map-title">
+                <text x="42" y="54">TAIZHOU YUNHAI WETLAND GOLF</text>
+                <text class="hole-title" x="42" y="91">第 1 洞 · PAR 4</text>
+                <g class="distance-row" transform="translate(595 48)">
+                  <circle cx="0" cy="0" r="7" fill="#1d1d1b" stroke="#fff" stroke-width="2"/><text x="14" y="5">387 m</text>
+                  <circle cx="76" cy="0" r="7" fill="#2d69cf" stroke="#fff" stroke-width="2"/><text x="90" y="5">370 m</text>
+                  <circle cx="0" cy="27" r="7" fill="#f8f7ef" stroke="#77806d" stroke-width="2"/><text x="14" y="32">340 m</text>
+                  <circle cx="76" cy="27" r="7" fill="#df4242" stroke="#fff" stroke-width="2"/><text x="90" y="32">309 m</text>
+                </g>
+              </g>
+
+              <g class="centerline" aria-label="第1洞球洞中线">
+                <path d="M650 1591 C604 1458 557 1328 517 1187 C468 1019 442 847 454 676 C464 512 480 338 488 193"/>
+              </g>
+
+              <g class="green-flag" aria-label="第1洞果岭旗">
+                <path d="M488 193 V112 L548 132 L488 155 Z" fill="#d93b31" stroke="#9e261e" stroke-width="2"/>
+                <text x="506" y="140" fill="#fff" font-size="22">1</text>
+                <circle cx="488" cy="193" r="8" fill="#f3a421" stroke="#fff" stroke-width="2"/>
+              </g>
+
+              <g class="callout left" data-feature="green">
+                <path d="M188 195 H392 L482 193"/><circle cx="488" cy="193" r="5"/>
+                <rect x="26" y="165" width="162" height="60"/><text x="45" y="190">GREEN</text><text class="zh" x="45" y="211">果岭 · 果岭旗</text>
+              </g>
+              <g class="callout right" data-feature="bunker">
+                <path d="M700 306 H586 L526 323"/><circle cx="520" cy="323" r="5"/>
+                <rect x="700" y="276" width="160" height="60"/><text x="719" y="301">BUNKER</text><text class="zh" x="719" y="322">沙坑</text>
+              </g>
+              <g class="callout right" data-feature="fairway">
+                <path d="M700 690 H575 L476 724"/><circle cx="468" cy="727" r="5"/>
+                <rect x="700" y="660" width="160" height="60"/><text x="719" y="685">FAIRWAY</text><text class="zh" x="719" y="706">球道</text>
+              </g>
+              <g class="callout left" data-feature="cartpath">
+                <path d="M188 824 H244 L286 842"/><circle cx="293" cy="845" r="5"/>
+                <rect x="26" y="794" width="162" height="60"/><text x="45" y="819">CART PATH</text><text class="zh" x="45" y="840">球车道</text>
+              </g>
+              <g class="callout left" data-feature="trees">
+                <path d="M188 977 H248 L307 928"/><circle cx="313" cy="923" r="5"/>
+                <rect x="26" y="947" width="162" height="60"/><text x="45" y="972">TREE BELT</text><text class="zh" x="45" y="993">树带 · 长草区</text>
+              </g>
+              <g class="callout right" data-feature="water">
+                <path d="M700 1005 H680 L663 936"/><circle cx="661" cy="928" r="5"/>
+                <rect x="700" y="975" width="160" height="60"/><text x="719" y="1000">WATER</text><text class="zh" x="719" y="1021">洞内临水区</text>
+              </g>
+              <g class="callout left" data-feature="teebox">
+                <path d="M188 1453 H415 L565 1390"/><circle cx="575" cy="1385" r="5"/>
+                <rect x="26" y="1423" width="162" height="60"/><text x="45" y="1448">TEE BOX</text><text class="zh" x="45" y="1469">发球区</text>
+              </g>
+
+              <g class="distance-arcs" aria-label="距果岭参考线">
+                <path d="M338 606 Q486 654 618 610"/>
+                <rect x="566" y="581" width="78" height="34" rx="17"/><text x="584" y="604">100 m</text>
+                <path d="M315 783 Q476 841 637 796"/>
+                <rect x="578" y="765" width="78" height="34" rx="17"/><text x="596" y="788">150 m</text>
+                <path d="M298 957 Q464 1018 628 979"/>
+                <rect x="568" y="948" width="78" height="34" rx="17"/><text x="586" y="971">200 m</text>
+              </g>
+
+              <g class="tee-label red-tee" data-tee="红">
+                <path d="M457 1165 H380"/><circle class="tee-marker" cx="465" cy="1165" r="6" fill="#df4242"/><rect x="274" y="1145" width="106" height="40"/><text x="289" y="1171">红 Tee 309 m</text>
+              </g>
+              <g class="tee-label white-tee" data-tee="白">
+                <path d="M514 1282 H406"/><circle class="tee-marker" cx="522" cy="1282" r="6" fill="#f8f7ef"/><rect x="300" y="1262" width="106" height="40"/><text x="315" y="1288">白 Tee 340 m</text>
+              </g>
+              <g class="tee-label blue-tee" data-tee="蓝">
+                <path d="M583 1385 H660"/><circle class="tee-marker" cx="575" cy="1385" r="6" fill="#2d69cf"/><rect x="660" y="1365" width="106" height="40"/><text x="675" y="1391">蓝 Tee 370 m</text>
+              </g>
+              <g class="tee-label black-tee" data-tee="黑">
+                <path d="M642 1591 H535"/><circle class="tee-marker" cx="650" cy="1591" r="6" fill="#1d1d1b"/><rect x="429" y="1571" width="106" height="40"/><text x="444" y="1597">黑 Tee 387 m</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="pending" id="pending" hidden>
+          <strong>该洞尚未进入材质合成</strong>
+          <span>先看卫星增强基线；第 1 洞审校通过后再批量生成。</span>
+        </div>
+      </figure>
+    </section>
+
+    <footer class="audit-strip">
+      <div><span>范围</span><strong>专业路线图 + 约 27 m 长草缓冲</strong></div>
+      <div><span>要素</span><strong>卫星原位，不由模型发明</strong></div>
+      <div><span>树木</span><strong>连续树带，不使用圆点图标</strong></div>
+      <div><span>Tee / 旗位</span><strong>锁定真实坐标，远 → 近排序</strong></div>
+    </footer>
+  </main>
+  <script src="hd.js?v=21"></script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>泰州云海湿地高尔夫 球车 GPS</title>
+  <link rel="stylesheet" href="./gps.css?v=device-v15">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">TAIZHOU YUNHAI WETLAND GOLF</p>
+        <h1 id="pageTitle">第 1 洞 球车 GPS</h1>
+        <p class="subhead">WGS84 / GeoJSON 数据实时驱动定位、距离和球洞区域判断</p>
+      </div>
+      <div class="status-pill" id="sourceStatus">正在加载球洞数据…</div>
+    </header>
+
+    <section class="workspace">
+      <aside class="control-panel">
+        <p style="margin:10px 12px;color:#f1d994;font-size:12px">图片定位待现场校准；GPS 精度与图片配准误差是两回事。蓝色命名球车点来自编辑或导入，模拟球车仅作演示。</p>
+        <div class="panel-block hero-block">
+          <span class="hole-number" id="holeNumber">01</span>
+          <div><strong id="holePar">PAR 4</strong><small id="holeDistance">黑 Tee 387 m</small></div>
+        </div>
+
+        <div class="panel-block hole-selector">
+          <h2>球洞切换</h2>
+          <div class="hole-grid" id="holeNav" aria-label="选择球洞"></div>
+        </div>
+
+        <div class="panel-block current-card">
+          <div class="label-row"><span>当前位置</span><strong id="zoneValue">等待定位</strong></div>
+          <div class="primary-distance"><span id="distanceLabel">沿球车路线到果岭</span><strong id="distanceValue">-</strong></div>
+          <div class="primary-distance secondary-distance"><span id="referencePointLabel">距指定点</span><strong id="referencePointValue">-</strong></div>
+          <dl class="device-metrics">
+            <div><dt>果岭前</dt><dd id="greenFrontValue">-</dd></div>
+            <div><dt>果岭中</dt><dd id="greenMiddleValue">-</dd></div>
+            <div><dt>果岭后</dt><dd id="greenBackValue">-</dd></div>
+            <div><dt>最近沙坑</dt><dd id="bunkerValue">-</dd></div>
+            <div><dt>最近水域</dt><dd id="waterValue">-</dd></div>
+            <div><dt>路线 / 参考进度</dt><dd id="progressValue">-</dd></div>
+            <div><dt>GPS 精度</dt><dd id="accuracyValue">模拟</dd></div>
+            <div><dt>速度</dt><dd id="speedValue">0 km/h</dd></div>
+            <div><dt>方向</dt><dd id="headingValue">-</dd></div>
+          </dl>
+          <code id="coordinateValue">120.072280, 32.616211</code>
+        </div>
+
+        <div class="panel-block controls">
+          <h2>位置输入</h2>
+          <div class="button-grid">
+            <button class="primary" id="playButton">▶ 模拟球车行驶</button>
+            <button id="resetButton">↺ 重置</button>
+            <button id="gpsButton">◎ 使用实时 GPS</button>
+            <button id="stopGpsButton" disabled>停止定位</button>
+          </div>
+          <label class="range-label" for="routeRange"><span>路线位置</span><output id="routeOutput">0%</output></label>
+          <input id="routeRange" type="range" min="0" max="1000" value="0">
+          <label class="range-label" for="targetSelect"><span>实时距离目标</span></label>
+          <select id="targetSelect" aria-label="选择实时距离目标"></select>
+        </div>
+
+        <div class="panel-block">
+          <h2>数据图层</h2>
+          <label class="toggle scene-toggle"><input type="checkbox" id="vectorToggle"><span>使用矢量校验底图</span></label>
+          <label class="toggle"><input type="checkbox" id="trailToggle" checked><span>移动轨迹</span></label>
+          <label class="toggle"><input type="checkbox" id="anchorToggle" checked><span>四级 Tee / 果岭锚点</span></label>
+          <label class="toggle"><input type="checkbox" id="routeToggle" checked><span id="routeToggleText">球车行驶路线</span></label>
+          <label class="toggle"><input type="checkbox" id="accuracyToggle" checked><span>GPS 精度圈</span></label>
+        </div>
+
+        <div class="panel-block legend">
+          <h2>当前位置会自动匹配</h2>
+          <div class="legend-grid">
+            <span><i class="green"></i>果岭</span><span><i class="fairway"></i>球道</span>
+            <span><i class="sand"></i>沙坑</span><span><i class="water"></i>水域</span>
+            <span><i class="tee"></i>发球区</span><span><i class="rough"></i>长草区</span>
+          </div>
+        </div>
+
+        <div class="panel-block export-block">
+          <h2>底层交付数据</h2>
+          <p>球洞边界、球道、果岭、障碍区、球车道、Tee、旗杆、果岭前中后点和编辑的 GPS 参考点均使用 WGS84 坐标。</p>
+          <button id="exportButton">下载 1 号洞 GeoJSON</button>
+          <button id="exportCourseButton">下载 18 洞设备数据包</button>
+        </div>
+      </aside>
+
+      <section class="map-stage" id="mapStage" aria-label="由底层坐标生成的球洞虚拟图与 GPS 图层">
+        <div class="map-frame" id="mapFrame">
+          <iframe id="virtualMap" class="virtual-map" title="高清虚拟球洞实时定位场景"></iframe>
+          <svg id="dataMap" class="data-map" viewBox="0 0 900 1400" role="img" aria-label="由 WGS84 底层数据生成的球洞校验图" hidden>
+            <defs>
+              <pattern id="roughGrass" width="34" height="34" patternUnits="userSpaceOnUse">
+                <rect width="34" height="34" fill="#163d25"/>
+                <circle cx="7" cy="9" r="2.2" fill="#2f6a35" opacity=".72"/>
+                <circle cx="23" cy="6" r="1.8" fill="#4b7d3d" opacity=".52"/>
+                <path d="M4 28l4-8m13 10 3-9m6 6 2-6" stroke="#5f8d49" stroke-width="1.4" opacity=".45"/>
+              </pattern>
+              <pattern id="fairwayStripes" width="48" height="48" patternUnits="userSpaceOnUse" patternTransform="rotate(8)">
+                <rect width="24" height="48" fill="#6fa842"/>
+                <rect x="24" width="24" height="48" fill="#78b44a"/>
+                <path d="M0 47h48" stroke="#4c8734" stroke-width="1" opacity=".35"/>
+              </pattern>
+              <pattern id="greenMow" width="30" height="30" patternUnits="userSpaceOnUse" patternTransform="rotate(-12)">
+                <rect width="15" height="30" fill="#83ca59"/>
+                <rect x="15" width="15" height="30" fill="#91d466"/>
+              </pattern>
+              <pattern id="sandContours" width="34" height="22" patternUnits="userSpaceOnUse">
+                <rect width="34" height="22" fill="#ead29b"/>
+                <path d="M-4 17C5 8 13 8 21 17S37 26 44 17M-5 9C3 1 11 1 19 9S35 17 42 9" fill="none" stroke="#c5a665" stroke-width="1.4" opacity=".62"/>
+              </pattern>
+              <pattern id="waterWaves" width="42" height="26" patternUnits="userSpaceOnUse">
+                <rect width="42" height="26" fill="#2f719b"/>
+                <path d="M-8 8Q2 1 12 8T32 8T52 8M-8 19Q2 12 12 19T32 19T52 19" fill="none" stroke="#73b8d7" stroke-width="2" opacity=".45"/>
+              </pattern>
+              <filter id="courseShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#071008" flood-opacity=".45"/>
+              </filter>
+              <clipPath id="holeClip"><path id="holeClipPath" d=""/></clipPath>
+            </defs>
+            <rect id="mapPaper" class="map-paper" x="0" y="0" width="900" height="1400"/>
+            <g id="courseLayers"></g>
+            <path id="centerRoute" class="center-route" d=""/>
+            <g id="teeAnchors" class="anchor-layer"></g>
+            <polyline id="trailLine" class="trail-line" points=""/>
+            <g id="accuracyRing" class="accuracy-ring"><circle r="32"/></g>
+            <g id="playerMarker" class="player-marker">
+              <circle class="pulse" r="28"/>
+              <circle class="halo" r="16"/>
+              <circle class="dot" r="8"/>
+            </g>
+          </svg>
+          <div class="zone-badge" id="zoneBadge">等待定位</div>
+          <div class="north-badge">果岭 ↑</div>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="./gps-core.js?v=device-v6"></script>
+  <script src="./geojson.js?v=device-v4"></script>
+  <script src="./vector-renderer.js?v=device-v2"></script>
+  <script src="./registration.js?v=1"></script>
+  <script src="./point-workspace.js?v=1"></script>
+  <script src="./gps.js?v=device-v16"></script>
+</body>
+</html>

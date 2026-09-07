@@ -1,0 +1,547 @@
+{
+  "algorithm": "SHA-256",
+  "generated_at": "2026-09-07T15:43:29.769Z",
+  "excludes": [
+    ".git",
+    "hidden files",
+    "manifest itself",
+    "ZIP artifacts"
+  ],
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 682,
+      "sha256": "7fdd71c55d5fd2b545d08ff93078a15f536aedc7a1b63a352863075a2c16192f"
+    },
+    {
+      "path": "NOTICE.md",
+      "bytes": 1754,
+      "sha256": "2fae31346dcfbe090f84803c907634c34338b6dbb96e4eeca83f8257e75aad2f"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3802,
+      "sha256": "2969f27ed7ee7d1fe34f32c51ef6305750672238374026c5662ca6b976c96c36"
+    },
+    {
+      "path": "docs/DISTRIBUTION.html",
+      "bytes": 3935,
+      "sha256": "3a5fe279ff89ea51d56c978435213c5948fb3afb8dc1e1d0347af7682a1f0b6c"
+    },
+    {
+      "path": "docs/DISTRIBUTION.md",
+      "bytes": 2668,
+      "sha256": "0ab737a3a7f463f3fedb6cb62a6a75b24b320ff2732027bcaa67e7cbe419c91c"
+    },
+    {
+      "path": "docs/QUICKSTART.html",
+      "bytes": 4129,
+      "sha256": "75b538602145c70b2e43712326c9725a3f6855b744ef6e50b10467dde6ac5883"
+    },
+    {
+      "path": "docs/QUICKSTART.md",
+      "bytes": 2888,
+      "sha256": "abca83f4a7df663e6576646f916bca8e40ddda6530e48133064747f5bf9bf2bb"
+    },
+    {
+      "path": "docs/RELEASE-2026-09-07.md",
+      "bytes": 2446,
+      "sha256": "5a7a5ce741540dfbdc25c8898d34135d25c3ba4f4fa1d6a54dfabc22778236f0"
+    },
+    {
+      "path": "docs/TECHNICAL.md",
+      "bytes": 40165,
+      "sha256": "395d28a8c5027180f24ddb131089b43b2a2e1b64dcd96d0df49518ac67315a79"
+    },
+    {
+      "path": "docs/index.html",
+      "bytes": 49273,
+      "sha256": "97ea728bd24a8110bb20244c32a3fb6ad31d87ead593cf9b0b436ae53e352138"
+    },
+    {
+      "path": "downloads/cn0000385-baseline-test-package.json",
+      "bytes": 190048,
+      "sha256": "b938dfeec69d8de073a504c2a164c1ec916f673aa874aa0e443e7d6293b2b8c9"
+    },
+    {
+      "path": "downloads/cn0000385-geometry.geojson",
+      "bytes": 953990,
+      "sha256": "82f46963c1ba3e83369a1eb5b02aad8d658e0f58d60e0e8bfbecdb1ef7db03ec"
+    },
+    {
+      "path": "downloads/cn0000385-points.geojson",
+      "bytes": 171702,
+      "sha256": "ffa8e6b3cd059d587a43ba0455bdd28e7ad2826c6da126fa3af87222ac228f33"
+    },
+    {
+      "path": "downloads/data-inventory.json",
+      "bytes": 9931,
+      "sha256": "ea6999e168446b5615565c13840e2ed866a4587e6c96e57a8956655e5e19c88d"
+    },
+    {
+      "path": "downloads/registration-audit.json",
+      "bytes": 6880,
+      "sha256": "717234165ef9c5586a4212efd72f83e94cc2dadd8b9aaf96811663d9071b1580"
+    },
+    {
+      "path": "holemap-data/cn0000385-codex.json",
+      "bytes": 589656,
+      "sha256": "d0abac74ebd9018fdfbcc1238a3904e219be541ec81246a44fc0d8023fde1448"
+    },
+    {
+      "path": "holemap-data/cn0000385-device-routes.json",
+      "bytes": 1537,
+      "sha256": "c7594e830e4ab6971750cc758929b53b97ff84886a0bfff59c91822b82cb555f"
+    },
+    {
+      "path": "holemap-data/cn0000385-scorecard.json",
+      "bytes": 2533,
+      "sha256": "67b8025e97328d8d3865d7508859b43440037bfac8b4f88981bd766c9b953042"
+    },
+    {
+      "path": "holemap-editor/index.html",
+      "bytes": 56238,
+      "sha256": "a8e865e6ed56db950ec3e825d9d5c42417ce0f7a878c8b396077c94461b4df80"
+    },
+    {
+      "path": "holemap-editor/lib/images/layers-2x.png",
+      "bytes": 1259,
+      "sha256": "066daca850d8ffbef007af00b06eac0015728dee279c51f3cb6c716df7c42edf"
+    },
+    {
+      "path": "holemap-editor/lib/images/layers.png",
+      "bytes": 696,
+      "sha256": "1dbbe9d028e292f36fcba8f8b3a28d5e8932754fc2215b9ac69e4cdecf5107c6"
+    },
+    {
+      "path": "holemap-editor/lib/images/marker-icon-2x.png",
+      "bytes": 2464,
+      "sha256": "00179c4c1ee830d3a108412ae0d294f55776cfeb085c60129a39aa6fc4ae2528"
+    },
+    {
+      "path": "holemap-editor/lib/images/marker-icon.png",
+      "bytes": 1466,
+      "sha256": "574c3a5cca85f4114085b6841596d62f00d7c892c7b03f28cbfa301deb1dc437"
+    },
+    {
+      "path": "holemap-editor/lib/images/marker-shadow.png",
+      "bytes": 618,
+      "sha256": "264f5c640339f042dd729062cfc04c17f8ea0f29882b538e3848ed8f10edb4da"
+    },
+    {
+      "path": "holemap-editor/lib/leaflet-geoman.css",
+      "bytes": 24126,
+      "sha256": "13e1aa16cf38534fbff7545b74b64c3e84ca171820d882c308c69b76884a4be2"
+    },
+    {
+      "path": "holemap-editor/lib/leaflet-geoman.min.js",
+      "bytes": 284975,
+      "sha256": "a57ef4f87153a2fc0cb7a12bf43e1a4e282a01336af02cff6d8f198f70c7eba8"
+    },
+    {
+      "path": "holemap-editor/lib/leaflet.css",
+      "bytes": 14806,
+      "sha256": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6"
+    },
+    {
+      "path": "holemap-editor/lib/leaflet.js",
+      "bytes": 147552,
+      "sha256": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a"
+    },
+    {
+      "path": "holemap-gps/geojson.js",
+      "bytes": 6836,
+      "sha256": "d001293322285e72248aa9ddde501a4e1eac64b05249ef18f92177dcb557d691"
+    },
+    {
+      "path": "holemap-gps/gps-core.js",
+      "bytes": 13621,
+      "sha256": "68ae2082c81f6d9d39f7b196deff3543266f2584edefa402b3855377966384fb"
+    },
+    {
+      "path": "holemap-gps/gps.css",
+      "bytes": 10913,
+      "sha256": "1bfeff02b5a5f06fa8838b2b83fa3c5f4d0e0b63165354a5c7ac84405669a904"
+    },
+    {
+      "path": "holemap-gps/gps.js",
+      "bytes": 28245,
+      "sha256": "af26c37acd03157fc91ce354e662c8bd0ca8ac8217b42488c7f63e7edbf2cdac"
+    },
+    {
+      "path": "holemap-gps/index.html",
+      "bytes": 8587,
+      "sha256": "93477c66b76183ebc670df396b02222d4b9b6ce1fa4de7bbe79c11186bc2a1e6"
+    },
+    {
+      "path": "holemap-gps/point-workspace.js",
+      "bytes": 20037,
+      "sha256": "b28bd7832beb69a7af530ad1b06ef6d0b0a647a82a36c63a7bc365716612f0c5"
+    },
+    {
+      "path": "holemap-gps/registration.js",
+      "bytes": 12071,
+      "sha256": "7271e1ede3d2147eb473a828dda2035b5a5786afb54ac331f5c675d327ff2362"
+    },
+    {
+      "path": "holemap-gps/vector-renderer.js",
+      "bytes": 8587,
+      "sha256": "0c237a7e9a4a2df40fae19c3d29c16c17d495194338982d624e750b0cc4aa0ef"
+    },
+    {
+      "path": "holemap-hd/assets/hole-01-annotated-preview.png",
+      "bytes": 273389,
+      "sha256": "8fb773d043ad66217198b019c2a44708a0f6b7c1fe6236a433362b76f00e3cd1"
+    },
+    {
+      "path": "holemap-hd/assets/hole-01-hd-concept-v1.png",
+      "bytes": 2267166,
+      "sha256": "978cc9d1a2cb801c761683f3523c5d208bca995e637056ba299c4dd512da00bc"
+    },
+    {
+      "path": "holemap-hd/assets/hole-02-hd-concept-v1.png",
+      "bytes": 2167767,
+      "sha256": "8321d8c47af775df2d7b150029fd699493a296398a41b7cdabb81846d788e21b"
+    },
+    {
+      "path": "holemap-hd/assets/hole-03-hd-concept-v1.png",
+      "bytes": 1995505,
+      "sha256": "974059885bf3bf3da48c6a9f1557dcfac0a695547b85e9a5e1ed637790384fa4"
+    },
+    {
+      "path": "holemap-hd/assets/hole-04-hd-concept-v1.png",
+      "bytes": 2069818,
+      "sha256": "075b472c4298c7a9c620fa8d384f30c3d4a953e393b3b8f8865b674d6fb444b2"
+    },
+    {
+      "path": "holemap-hd/assets/hole-05-hd-concept-v1.png",
+      "bytes": 1937134,
+      "sha256": "2c77df5b162112e98a7771141b21146b69cb8d376e566f54b1e17da4b13b6dcc"
+    },
+    {
+      "path": "holemap-hd/assets/hole-06-hd-concept-v1.png",
+      "bytes": 2012266,
+      "sha256": "afa80fe8a71d5f645608dd1304999a2928ffd73c88f77f15f1a65a1aa024dce9"
+    },
+    {
+      "path": "holemap-hd/assets/hole-07-hd-concept-v1.png",
+      "bytes": 2073818,
+      "sha256": "ec37e5ac6580292e512332997aa300c6a991315c571e6606b9df0dfb0d4eb0a1"
+    },
+    {
+      "path": "holemap-hd/assets/hole-08-hd-concept-v1.png",
+      "bytes": 1944042,
+      "sha256": "d32c231307a1b5471c0d546253d46e2c8713c0fef8ee808b5ccef7a7da187a99"
+    },
+    {
+      "path": "holemap-hd/assets/hole-09-hd-concept-v1.png",
+      "bytes": 2129061,
+      "sha256": "e771d75dfc50eba5d4367f25ce0e1828ee1fe3934d27d1695b1b1705183ade01"
+    },
+    {
+      "path": "holemap-hd/assets/hole-10-hd-concept-v1.png",
+      "bytes": 2328565,
+      "sha256": "e0ac89def24318cac5e7cd1fbfe98c7e37fad7c229c2bceb4d59fc030d04e030"
+    },
+    {
+      "path": "holemap-hd/assets/hole-10-hd-concept-v2.png",
+      "bytes": 1016918,
+      "sha256": "515608b3ae73f98a84861509ea49a8486ee005d5e809d080ba423dab68c59758"
+    },
+    {
+      "path": "holemap-hd/assets/hole-11-hd-concept-v1.png",
+      "bytes": 2487844,
+      "sha256": "94471176db0889a7f0e7f8b82e75dc0ecd4959ecb9f5de4a58cd05aa984bb501"
+    },
+    {
+      "path": "holemap-hd/assets/hole-11-hd-concept-v2.png",
+      "bytes": 556660,
+      "sha256": "8c7d6b6b2b783c8bac8792beb3afaa7daf5b7479352b291932503244ca034b5f"
+    },
+    {
+      "path": "holemap-hd/assets/hole-12-hd-concept-v1.png",
+      "bytes": 2431645,
+      "sha256": "d8d0e3e2616872eb6c8c2bda8daa1a9fe67b93cd7a9a267d05a02704af04c475"
+    },
+    {
+      "path": "holemap-hd/assets/hole-12-hd-concept-v2.png",
+      "bytes": 664681,
+      "sha256": "d3b3bd27c51ed09c34f3fb50a6d543407ef8ae823a7fe6a7fae4adc38458f942"
+    },
+    {
+      "path": "holemap-hd/assets/hole-13-hd-concept-v1.png",
+      "bytes": 2613741,
+      "sha256": "00bfc5daa59f3aa15ed2172500787ed74b4755a6f51480808fd122300ea81a23"
+    },
+    {
+      "path": "holemap-hd/assets/hole-13-hd-concept-v2.png",
+      "bytes": 1356446,
+      "sha256": "bd7633eb301f41d937f34126b749a27e712e9fa78d260352c3e724af32b29cfd"
+    },
+    {
+      "path": "holemap-hd/assets/hole-14-hd-concept-v1.png",
+      "bytes": 2398788,
+      "sha256": "c6d37809645c7ddc9b13ab2453034f349c195584df8daf5b3de83e8852fd2c86"
+    },
+    {
+      "path": "holemap-hd/assets/hole-14-hd-concept-v2.png",
+      "bytes": 833391,
+      "sha256": "fe8e4349c55a6a17c40f0db0c241a0f40cf92de6e513634c169446fe47fb2e1b"
+    },
+    {
+      "path": "holemap-hd/assets/hole-15-hd-concept-v1.png",
+      "bytes": 2164261,
+      "sha256": "865e89dfbd861977a7b7eec21817e3a1fa9a879f2047622235fcbac95ca46fa9"
+    },
+    {
+      "path": "holemap-hd/assets/hole-15-hd-concept-v2.png",
+      "bytes": 745894,
+      "sha256": "20d61f0adc425918c8a6272602c6a3a262461cf5a6ca928f7a51ed5828a5eaa7"
+    },
+    {
+      "path": "holemap-hd/assets/hole-16-hd-concept-v1.png",
+      "bytes": 2347187,
+      "sha256": "b23faca3be9ffa75602c676d73382ab2c7ad20238c6e6901d1e09f873c5c1adf"
+    },
+    {
+      "path": "holemap-hd/assets/hole-16-hd-concept-v2.png",
+      "bytes": 914343,
+      "sha256": "a1bd8da5d569e040c305287cd49a34e9b2ae3846eae5174398b34424eb0e8677"
+    },
+    {
+      "path": "holemap-hd/assets/hole-17-hd-concept-v1.png",
+      "bytes": 2782666,
+      "sha256": "8c874a0a7a67932650a83fd0e53dc248da37a548585af5e916e513c464b32c5b"
+    },
+    {
+      "path": "holemap-hd/assets/hole-17-hd-concept-v2.png",
+      "bytes": 1561676,
+      "sha256": "770d23311fec1168894b9735d6a2f94dba8a523aace3637d7e5aaba252fa5768"
+    },
+    {
+      "path": "holemap-hd/assets/hole-18-hd-concept-v1.png",
+      "bytes": 2485065,
+      "sha256": "1ec828aafa72ac57460e9e54976eb5fee5a89e459d57476693f9290bd496c058"
+    },
+    {
+      "path": "holemap-hd/assets/hole-18-hd-concept-v2.png",
+      "bytes": 1675077,
+      "sha256": "76499f634b972b839ca7867270b7370b9c23fc8f752ca42c76f424c509e53ee5"
+    },
+    {
+      "path": "holemap-hd/assets/satellite-hd-h1.jpg",
+      "bytes": 735537,
+      "sha256": "522bc971343b22b3df349005cad63e1b000dd5ac288922d48817b9fe61e98f34"
+    },
+    {
+      "path": "holemap-hd/assets/satellite-hd-h10.jpg",
+      "bytes": 602799,
+      "sha256": "114887da87d6ea7c9042fe0e4679db793ecc7cd2fa737a27c7be6b9962a77436"
+    },
+    {
+      "path": "holemap-hd/assets/satellite-hd-h11.jpg",
+      "bytes": 645807,
+      "sha256": "f0b226149a2eac872b0e93af07ca0c3da145451d09112cc52f22826246780a19"
+    },
+    {
+      "path": "holemap-hd/assets/satellite-hd-h12.jpg",
+      "bytes": 691311,
+      "sha256": "8908f2e189cced840ddd60637d5917b69018d76655ed82328a152251ce3be738"
+    },
+    {
+      "path": "holemap-hd/assets/satellite-hd-h13.jpg",
+      "bytes": 994987,
+      "sha256": "88284b567a007133ec3299875216b76159a0df1f4aeff7c5294f15426f762cde"
+    },
+    {
+      "path": "holemap-hd/assets/satellite-hd-h14.jpg",
+      "bytes": 762047,
+      "sha256": "44a88365324be1e31de6491c2a5ca66d4325e9a336a5bff5e829d728247e0778"
+    },
+    {
+      "path": "holemap-hd/assets/satellite-hd-h15.jpg",
+      "bytes": 813181,
+      "sha256": "6cd35d6879c667a184c782080d36b24aa42b7fa7442932fd1ff4a7148a7eceb4"
+    },
+    {
+      "path": "holemap-hd/assets/satellite-hd-h16.jpg",
+      "bytes": 381540,
+      "sha256": "a26123e10d464a1e4dd4431985f19ce75e349f8b7da0d223452e1d43b9f58426"
+    },
+    {
+      "path": "holemap-hd/assets/satellite-hd-h17.jpg",
+      "bytes": 695698,
+      "sha256": "91cb76a388c7ff8e36388afbda91b3ee78b2194c1599b914b03370d92adbd6e6"
+    },
+    {
+      "path": "holemap-hd/assets/satellite-hd-h18.jpg",
+      "bytes": 780557,
+      "sha256": "d474aa4118abee2c3402da150fa18ba5ee9815f2059a7937b423060650afff2e"
+    },
+    {
+      "path": "holemap-hd/assets/satellite-hd-h2.jpg",
+      "bytes": 791839,
+      "sha256": "0a525f34de32fda0235d67a7ae4c62ed8f2d092eb36ea3c479287eb00775c7ad"
+    },
+    {
+      "path": "holemap-hd/assets/satellite-hd-h3.jpg",
+      "bytes": 373266,
+      "sha256": "b08924702354b1dafad63aeda6f10b656c7e624066a3762b6e785fa23bec00ae"
+    },
+    {
+      "path": "holemap-hd/assets/satellite-hd-h4.jpg",
+      "bytes": 653139,
+      "sha256": "25a18e1f33fd7b81561aa0748389f405ea9d631769b4c32dfad2f14452d588d2"
+    },
+    {
+      "path": "holemap-hd/assets/satellite-hd-h5.jpg",
+      "bytes": 777156,
+      "sha256": "554fa9399b0f9f75574f71c0f0de716608d2ae841f4c72764b5f327bc104b2a0"
+    },
+    {
+      "path": "holemap-hd/assets/satellite-hd-h6.jpg",
+      "bytes": 918435,
+      "sha256": "92e61f536fb3d58929910a3a28285114958d228a50f4b36ff1cb0a70d2a4773c"
+    },
+    {
+      "path": "holemap-hd/assets/satellite-hd-h7.jpg",
+      "bytes": 806603,
+      "sha256": "d94cc230c95708873977ea69f7ca46b9ff5b47194b7396b0a6198c1c7480334d"
+    },
+    {
+      "path": "holemap-hd/assets/satellite-hd-h8.jpg",
+      "bytes": 1283928,
+      "sha256": "3f8bf0c8a15b13702e8daf642615819715c44fa08adfbdacf1ceeff7aab03a16"
+    },
+    {
+      "path": "holemap-hd/assets/satellite-hd-h9.jpg",
+      "bytes": 408787,
+      "sha256": "ec87ebf1ec9e7f60cc39038ce5bb2a2e309df3633a8c423485558b3717915191"
+    },
+    {
+      "path": "holemap-hd/hd.css",
+      "bytes": 13957,
+      "sha256": "8251239f13627cc441492ed4a6f4f85a3a13ff85341b4b3fd24f98bd907c0b00"
+    },
+    {
+      "path": "holemap-hd/hd.js",
+      "bytes": 85453,
+      "sha256": "083f8d27b308b21ce8dcdb69fa2f672e1760c152706aabf880bea12ca4c3c3ac"
+    },
+    {
+      "path": "holemap-hd/index.html",
+      "bytes": 9505,
+      "sha256": "ea00ceba5d54523dc1d4b9992eacf056a5c0753f1f203cf2287a4ada28b2c814"
+    },
+    {
+      "path": "holemap-viewer/index.html",
+      "bytes": 120887,
+      "sha256": "a692f662b96cc3122a33ce74c6c7d34a330adbf5a7f9a61fa30db8b11058bb15"
+    },
+    {
+      "path": "holemap-viewer/lib/images/layers-2x.png",
+      "bytes": 1259,
+      "sha256": "066daca850d8ffbef007af00b06eac0015728dee279c51f3cb6c716df7c42edf"
+    },
+    {
+      "path": "holemap-viewer/lib/images/layers.png",
+      "bytes": 696,
+      "sha256": "1dbbe9d028e292f36fcba8f8b3a28d5e8932754fc2215b9ac69e4cdecf5107c6"
+    },
+    {
+      "path": "holemap-viewer/lib/images/marker-icon-2x.png",
+      "bytes": 2464,
+      "sha256": "00179c4c1ee830d3a108412ae0d294f55776cfeb085c60129a39aa6fc4ae2528"
+    },
+    {
+      "path": "holemap-viewer/lib/images/marker-icon.png",
+      "bytes": 1466,
+      "sha256": "574c3a5cca85f4114085b6841596d62f00d7c892c7b03f28cbfa301deb1dc437"
+    },
+    {
+      "path": "holemap-viewer/lib/images/marker-shadow.png",
+      "bytes": 618,
+      "sha256": "264f5c640339f042dd729062cfc04c17f8ea0f29882b538e3848ed8f10edb4da"
+    },
+    {
+      "path": "holemap-viewer/lib/leaflet-rotate.js",
+      "bytes": 21644,
+      "sha256": "4dae04e684466dc24346a99fa7aa9bccaeee0ef690c91d320ce18fe818b5360f"
+    },
+    {
+      "path": "holemap-viewer/lib/leaflet.css",
+      "bytes": 14806,
+      "sha256": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6"
+    },
+    {
+      "path": "holemap-viewer/lib/leaflet.js",
+      "bytes": 147552,
+      "sha256": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a"
+    },
+    {
+      "path": "holemap-viewer/map-provider-config.js",
+      "bytes": 876,
+      "sha256": "65d39ae77f6514dd260707d39a80d624c7a26161d592c463da553da2f416aa39"
+    },
+    {
+      "path": "holemap-viewer/point-workspace-ui.css",
+      "bytes": 4324,
+      "sha256": "e4959662458d796d6eff461cf2b7ea11b82c91653351ba4d81eaade1d99c1e5c"
+    },
+    {
+      "path": "holemap-viewer/point-workspace-ui.js",
+      "bytes": 26890,
+      "sha256": "a75c148b55c1fb0d6b0281c02834307c13a1d809079b4fa4dae6b0ef49ae6f2b"
+    },
+    {
+      "path": "index.html",
+      "bytes": 3818,
+      "sha256": "09fd61d2efa9f761fab9463e50dcbe24b96153f00d7ef8b90a4f2574d41281ad"
+    },
+    {
+      "path": "scripts/build-delivery.cjs",
+      "bytes": 7004,
+      "sha256": "7c7b4af54a54220bc5cec49b7912ebd166a19a454659e7e0e97e10f8a05ed7f3"
+    },
+    {
+      "path": "scripts/check.cjs",
+      "bytes": 1918,
+      "sha256": "47492ff6fb59b7485e4618608b9ef4f3c31b312658b769dc5e2bbab23721fa00"
+    },
+    {
+      "path": "scripts/serve.cjs",
+      "bytes": 2317,
+      "sha256": "5473b2884d741f74a79658041ba63c62dae8b85f929a25639cfa84ef0aca36ad"
+    },
+    {
+      "path": "scripts/verify-manifest.cjs",
+      "bytes": 630,
+      "sha256": "c2c181171df58b30f8cd9f32e4733fc561f68e6b14f169f6b4a74bf6d5bc0839"
+    },
+    {
+      "path": "start.bat",
+      "bytes": 53,
+      "sha256": "b23a82c1cf58d3022cbb557bebaee85997065f8dd0f5c6e2f8f8335577d93074"
+    },
+    {
+      "path": "start.command",
+      "bytes": 68,
+      "sha256": "755664fdde90d84075d552059032d35e25d4a80e1883b1feed4631584fdcf1b9"
+    },
+    {
+      "path": "tests/golf-point-workspace-test.cjs",
+      "bytes": 7531,
+      "sha256": "28a9e3aecafea6d716e1e2f8910bdd6e5417dc39c145eef13448046c849676cd"
+    },
+    {
+      "path": "tests/golf-registration-audit.cjs",
+      "bytes": 2270,
+      "sha256": "617cc4d03419892c0db993c6ad81b51aaef24388e4be63c6d46fc2e044ba0b70"
+    },
+    {
+      "path": "tests/golf-registration-regression.cjs",
+      "bytes": 3714,
+      "sha256": "7037b6c8189527c9eb556bd56e1db3fb707667bd97a64de87c839bb62cb6d268"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+#pointWorkspace{display:none;flex:0 0 320px;width:320px;height:100vh;overflow-y:auto;padding:18px 16px;background:#172313;color:#e6eddc;border-right:1px solid #435637;box-sizing:border-box;font:13px/1.5 system-ui}
+#app.point-workspace-open #pointWorkspace{display:block}#app.point-workspace-open #side{display:none}
+#pointWorkspace h2{font-size:20px;margin:5px 0 15px}#pointWorkspace h3{font-size:15px;margin:12px 0 8px}#pointWorkspace small{font-size:10px;color:#9fbd87;letter-spacing:1px}
+#pointWorkspace label{display:block;margin:9px 0;color:#becbb1}#pointWorkspace input,#pointWorkspace select,#pointWorkspace textarea{display:block;box-sizing:border-box;width:100%;margin-top:5px;background:#101b0e;color:#e8efdf;border:1px solid #526246;border-radius:6px;padding:9px;font:inherit;min-width:0}
+#pointWorkspace button{background:#293b21;color:#e7efdd;border:1px solid #536548;border-radius:7px;padding:10px;cursor:pointer;font:inherit;min-height:38px}
+#pointWorkspace section>button{width:100%;margin:4px 0}#pointWorkspace button:disabled{opacity:.45;cursor:default}
+#pointWorkspace .pw-primary{background:#a7d861;color:#14220d;font-weight:700}#pointWorkspace .pw-row{display:flex;gap:7px}#pointWorkspace .pw-row>label{flex:1;min-width:0}
+#pointWorkspace nav{display:flex;gap:3px;position:sticky;top:-18px;background:#172313;padding:8px 0;z-index:2}#pointWorkspace nav button{flex:1;padding:8px 3px;font-size:12px}#pointWorkspace nav button.active{background:#a7d861;color:#14220d}
+#pwNotice{padding:10px;border-left:3px solid #e8bf65;background:#26321c;color:#f1d994;overflow-wrap:anywhere;font-size:12px}
+#pointWorkspace .pw-help{font-size:12px;color:#aebb9f;margin:9px 0;overflow-wrap:anywhere}#pointWorkspace hr{border:0;border-top:1px solid #405336;margin:16px 0}
+#pointWorkspace .pw-targets{max-height:185px;overflow-y:auto;border:1px solid #3c5031;border-radius:6px;padding:5px 8px}
+#pointWorkspace .pw-check{display:flex;align-items:center;gap:6px;font-size:12px}#pointWorkspace .pw-check input{display:inline;width:15px;height:15px;margin:0;flex-shrink:0}
+#pointWorkspace .pw-distance{display:flex;justify-content:space-between;gap:7px;border-bottom:1px solid #3b4b31;padding:10px 0}#pointWorkspace .pw-distance strong{white-space:nowrap;color:#bfe987;font-size:16px}
+#pointWorkspace .pw-control{display:flex;align-items:center;gap:6px;border-bottom:1px solid #3b4b31;padding:7px 0;font-size:11px}#pointWorkspace .pw-control span{flex:1}#pointWorkspace .pw-control small{display:block;font-size:10px;letter-spacing:0}
+#pointWorkspace [hidden]{display:none!important}
+#app.point-workspace-open.calibration-open #mapStage{display:block;flex:1 1 38%;min-width:240px;height:100vh;order:2}
+#app.point-workspace-open.calibration-open #virtualDock{flex:1 1 62%;order:1}
+#app.point-workspace-open.calibration-open #pointWorkspace{order:0}
+@media(max-width:900px){#pointWorkspace{flex-basis:280px;width:280px;padding:12px}#app.point-workspace-open #virtualDock{position:relative;inset:auto;min-width:0;flex:1;height:100vh}#app.point-workspace-open #sideToggle{display:none}#app.point-workspace-open.calibration-open{flex-wrap:wrap}#app.point-workspace-open.calibration-open #pointWorkspace{height:100vh}#app.point-workspace-open.calibration-open #mapStage{min-width:240px}}
+#app.point-workspace-open #placeCartPosition{display:none}
+#app.point-workspace-open .gps-copy{display:none}
+#app.point-workspace-open #gpsMetrics{display:none}
+#pwToolsToggle,#pwToolsClose{display:none}
+@media(max-width:700px){
+  #app.point-workspace-open #pointWorkspace{display:none;position:absolute;left:0;top:0;width:min(340px,90vw);height:100vh;z-index:1600;box-shadow:10px 0 30px #0009}
+  #app.point-workspace-open.tools-expanded #pointWorkspace{display:block}
+  #app.point-workspace-open #pwToolsToggle,#app.point-workspace-open #pwToolsClose{display:inline-block}
+  #pwToolsClose{width:100%;margin-bottom:12px}
+  #app.point-workspace-open .virtual-head-actions{flex-wrap:wrap}
+  #app.point-workspace-open #virtualDock{width:100%;flex:1 1 auto}
+  #app.point-workspace-open.calibration-open{flex-direction:column;flex-wrap:nowrap}
+  #app.point-workspace-open.calibration-open #virtualDock{height:58vh;flex:0 0 58vh;min-height:0}
+  #app.point-workspace-open.calibration-open #mapStage{width:100%;height:42vh;flex:0 0 42vh;min-height:0}
+}

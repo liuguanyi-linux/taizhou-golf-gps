@@ -1,0 +1,262 @@
+{
+  "method": "Existing teePadCalibration image pixels + actual green-flag SVG circle + existing WGS84, fitted pixel-to-local-metre affine. Training residual only; not field accuracy.",
+  "results": [
+    {
+      "hole": 1,
+      "valid": true,
+      "rms_m": 8.72,
+      "max_m": 13.52,
+      "pixel_eigen_ratio": 0.010839858131835392,
+      "geo_eigen_ratio": 0.009299616263971274,
+      "hull_image_percent": 6.03,
+      "warnings": [
+        "large_control_residual",
+        "estimated_or_unknown_control_sources",
+        "no_independent_checkpoints"
+      ],
+      "reason": null
+    },
+    {
+      "hole": 2,
+      "valid": true,
+      "rms_m": 1.39,
+      "max_m": 2.4,
+      "pixel_eigen_ratio": 0.009076774101273973,
+      "geo_eigen_ratio": 0.007919095810510065,
+      "hull_image_percent": 3.82,
+      "warnings": [
+        "estimated_or_unknown_control_sources",
+        "no_independent_checkpoints"
+      ],
+      "reason": null
+    },
+    {
+      "hole": 3,
+      "valid": true,
+      "rms_m": 4.68,
+      "max_m": 7.64,
+      "pixel_eigen_ratio": 0.05152446719976766,
+      "geo_eigen_ratio": 0.10831556159954295,
+      "hull_image_percent": 5.11,
+      "warnings": [
+        "estimated_or_unknown_control_sources",
+        "no_independent_checkpoints"
+      ],
+      "reason": null
+    },
+    {
+      "hole": 4,
+      "valid": true,
+      "rms_m": 1.47,
+      "max_m": 2.24,
+      "pixel_eigen_ratio": 0.007935647376153251,
+      "geo_eigen_ratio": 0.010502387020054758,
+      "hull_image_percent": 3.97,
+      "warnings": [
+        "estimated_or_unknown_control_sources",
+        "no_independent_checkpoints"
+      ],
+      "reason": null
+    },
+    {
+      "hole": 5,
+      "valid": true,
+      "rms_m": 15.51,
+      "max_m": 26.65,
+      "pixel_eigen_ratio": 0.013941377437065354,
+      "geo_eigen_ratio": 0.005745867606125442,
+      "hull_image_percent": 4.47,
+      "warnings": [
+        "large_control_residual",
+        "estimated_or_unknown_control_sources",
+        "no_independent_checkpoints"
+      ],
+      "reason": null
+    },
+    {
+      "hole": 6,
+      "valid": true,
+      "rms_m": 7.17,
+      "max_m": 12.16,
+      "pixel_eigen_ratio": 0.0033364243962748326,
+      "geo_eigen_ratio": 0.006979906734143535,
+      "hull_image_percent": 2.79,
+      "warnings": [
+        "large_control_residual",
+        "estimated_or_unknown_control_sources",
+        "no_independent_checkpoints"
+      ],
+      "reason": null
+    },
+    {
+      "hole": 7,
+      "valid": true,
+      "rms_m": 18.53,
+      "max_m": 29.6,
+      "pixel_eigen_ratio": 0.00032735824422106756,
+      "geo_eigen_ratio": 0.009636076701014124,
+      "hull_image_percent": 0.83,
+      "warnings": [
+        "narrow_control_coverage",
+        "large_control_residual",
+        "estimated_or_unknown_control_sources",
+        "no_independent_checkpoints"
+      ],
+      "reason": null
+    },
+    {
+      "hole": 8,
+      "valid": true,
+      "rms_m": 20.88,
+      "max_m": 30.74,
+      "pixel_eigen_ratio": 0.0014529425322727487,
+      "geo_eigen_ratio": 0.0014631580332606995,
+      "hull_image_percent": 2.28,
+      "warnings": [
+        "large_control_residual",
+        "estimated_or_unknown_control_sources",
+        "no_independent_checkpoints"
+      ],
+      "reason": null
+    },
+    {
+      "hole": 9,
+      "valid": true,
+      "rms_m": 3.67,
+      "max_m": 4.96,
+      "pixel_eigen_ratio": 0.12727145048034771,
+      "geo_eigen_ratio": 0.15640749216654373,
+      "hull_image_percent": 5.34,
+      "warnings": [
+        "estimated_or_unknown_control_sources",
+        "no_independent_checkpoints"
+      ],
+      "reason": null
+    },
+    {
+      "hole": 10,
+      "valid": true,
+      "rms_m": 2.52,
+      "max_m": 4.25,
+      "pixel_eigen_ratio": 0.009236133398723324,
+      "geo_eigen_ratio": 0.011134483928208285,
+      "hull_image_percent": 3.57,
+      "warnings": [
+        "estimated_or_unknown_control_sources",
+        "no_independent_checkpoints"
+      ],
+      "reason": null
+    },
+    {
+      "hole": 11,
+      "valid": false,
+      "rms_m": null,
+      "max_m": null,
+      "pixel_eigen_ratio": 0.000025541272180857003,
+      "geo_eigen_ratio": 0.000047792508727799455,
+      "hull_image_percent": 0,
+      "warnings": [],
+      "reason": "collinear_or_poorly_spread_controls"
+    },
+    {
+      "hole": 12,
+      "valid": true,
+      "rms_m": 2.73,
+      "max_m": 4.06,
+      "pixel_eigen_ratio": 0.009962634010188147,
+      "geo_eigen_ratio": 0.005614268320585373,
+      "hull_image_percent": 0.73,
+      "warnings": [
+        "estimated_or_unknown_control_sources",
+        "no_independent_checkpoints"
+      ],
+      "reason": null
+    },
+    {
+      "hole": 13,
+      "valid": true,
+      "rms_m": 5.7,
+      "max_m": 8.69,
+      "pixel_eigen_ratio": 0.06626014065381015,
+      "geo_eigen_ratio": 0.0033598550737879477,
+      "hull_image_percent": 13.37,
+      "warnings": [
+        "estimated_or_unknown_control_sources",
+        "no_independent_checkpoints"
+      ],
+      "reason": null
+    },
+    {
+      "hole": 14,
+      "valid": true,
+      "rms_m": 2.84,
+      "max_m": 3.6,
+      "pixel_eigen_ratio": 0.02540238440811902,
+      "geo_eigen_ratio": 0.034396777340798955,
+      "hull_image_percent": 4.84,
+      "warnings": [
+        "estimated_or_unknown_control_sources",
+        "no_independent_checkpoints"
+      ],
+      "reason": null
+    },
+    {
+      "hole": 15,
+      "valid": true,
+      "rms_m": 8.55,
+      "max_m": 11.68,
+      "pixel_eigen_ratio": 0.004056261170584492,
+      "geo_eigen_ratio": 0.00676416921099842,
+      "hull_image_percent": 1.64,
+      "warnings": [
+        "large_control_residual",
+        "estimated_or_unknown_control_sources",
+        "no_independent_checkpoints"
+      ],
+      "reason": null
+    },
+    {
+      "hole": 16,
+      "valid": true,
+      "rms_m": 4.94,
+      "max_m": 8.54,
+      "pixel_eigen_ratio": 0.06153398990203294,
+      "geo_eigen_ratio": 0.06949033360804957,
+      "hull_image_percent": 3.21,
+      "warnings": [
+        "estimated_or_unknown_control_sources",
+        "no_independent_checkpoints"
+      ],
+      "reason": null
+    },
+    {
+      "hole": 17,
+      "valid": true,
+      "rms_m": 6.35,
+      "max_m": 11.87,
+      "pixel_eigen_ratio": 0.022913430039801747,
+      "geo_eigen_ratio": 0.028464662452723655,
+      "hull_image_percent": 7.43,
+      "warnings": [
+        "large_control_residual",
+        "estimated_or_unknown_control_sources",
+        "no_independent_checkpoints"
+      ],
+      "reason": null
+    },
+    {
+      "hole": 18,
+      "valid": true,
+      "rms_m": 5.6,
+      "max_m": 9.45,
+      "pixel_eigen_ratio": 0.014477508069397403,
+      "geo_eigen_ratio": 0.013960173447449011,
+      "hull_image_percent": 6.98,
+      "warnings": [
+        "estimated_or_unknown_control_sources",
+        "no_independent_checkpoints"
+      ],
+      "reason": null
+    }
+  ]
+}
