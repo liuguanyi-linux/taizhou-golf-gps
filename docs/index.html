@@ -1,10 +1,10 @@
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>泰州 GPS 技术文档</title><style>body{max-width:1000px;margin:32px auto;padding:0 22px;color:#202d1b;background:#fafaf5;font:16px/1.8 system-ui,sans-serif}a{color:#426b24}nav{display:flex;gap:20px;flex-wrap:wrap}h1,h2,h3{line-height:1.35;margin-top:2em}code{background:#e9eddf;padding:2px 4px;border-radius:4px}pre{background:#e9eddf;padding:18px;overflow:auto;line-height:1.6}pre code{padding:0}.table{overflow:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:10px;border:1px solid #ced6c6;text-align:left}th{background:#e9eddf}@media print{nav{display:none}pre{white-space:pre-wrap}.table{overflow:visible}h2,h3{break-after:avoid}}</style></head><body><nav><a href="../index.html">返回交付首页</a><a href="index.html">技术文档</a><a href="QUICKSTART.html">操作指南</a><a href="DISTRIBUTION.html">私有分发</a><a href="TECHNICAL.md" download>下载 Markdown 原文</a></nav><h1>高尔夫虚拟图与 GPS 点位工作台技术文档</h1>
-<p>版本日期：2026-09-07。</p>
+<p>实现基线日期：2026-09-07；公开分发更新：2026-09-08。</p>
 <p>适用球场标识：<code>cn0000385</code>。</p>
 <p>适用范围：18 洞虚拟图、同页编辑、坐标校准、点位测距、GPS 预览与数据交换。</p>
-<p>分发方式：私人 GitHub 仓库或受控文件包，供获授权的朋友下载并在本地运行。</p>
+<p>分发方式：公开 GitHub 仓库、公开下载包和 GitHub Pages 在线页面，无需登录。</p>
 <p>本文根据现有前端源代码、静态数据及 2026-09-07 验收记录编写。</p>
-<p>本文不表示已经建立公开网站、启用 GitHub Pages、连接客户车载设备或完成现场测量验收。</p>
+<p>在线入口为 https://liuguanyi-linux.github.io/taizhou-golf-gps/ 。公开部署不表示已连接客户车载设备或完成现场测量验收。</p>
 <p>分发包的具体文件布局、启动脚本与版本标识以包内 README 和清单为准。本次独立版已完成静态适配：默认 cn0000385、直接读取包内 JSON、禁止业务后台写入并移除本机地图配置引用。推荐运行 <code>node scripts/serve.cjs</code>，使用 127.0.0.1:3034；下文第 5 节保留源版加载逻辑用于说明差异。</p>
 <p>本文不包含个人目录、访问凭据或设备真实行踪。</p>
 <h2>1. 产品能力与使用边界</h2>
@@ -75,11 +75,11 @@
 <p>设备预览同样嵌入主页面，其内部还使用高清图 iframe。</p>
 <p>用户更新命名球车后，主页面把新的球洞数据传给已经打开的设备预览。</p>
 <p>客户集成应使用 <code>window.GolfDevicePoints</code>，不要依赖内部 DOM 结构或未稳定化的消息类型。</p>
-<h2>4. 私有分发与本地运行</h2>
-<p>私人仓库用于限制谁可以读取源代码及数据包；本次不需要公开 Pages。</p>
-<p>获授权的朋友需要先获得仓库访问权限，再克隆仓库或下载 ZIP。</p>
-<p>朋友取得文件后，可在自己的电脑启动静态服务查看页面。</p>
-<p>私人仓库的权限不构成文件下载后的复制控制，也不会给本地服务自动增加登录认证。</p>
+<h2>4. 在线使用与本地运行</h2>
+<p>2026-09-08 起，直接打开 GitHub Pages 在线入口即可使用，无需获取仓库访问权限。</p>
+<p>仓库源码、Release 数据和图片均公开可下载。此前 2026-09-07 发布记录中的“私有”是当时状态，不再代表当前访问限制。</p>
+<p>也可下载后在自己的电脑启动静态服务。网页编辑只保存到当前浏览器，不会公开写回仓库。</p>
+<p>公开下载不提供副本追回或访问控制；不要提交含个人行踪的真实车辆记录到公开仓库。</p>
 <p>优先使用分发包 README 提供的启动方式。</p>
 <p>如果分发包没有启动脚本，可在包含上述四个同级目录的“静态根目录”执行：</p>
 <pre><code>python3 -m http.server 8765 --bind 127.0.0.1</code></pre>
@@ -103,15 +103,15 @@
 <p>随后 viewer 载入每洞设备路线，再恢复当前浏览器草稿；用户草稿拥有最后覆盖优先级。</p>
 <p>独立 GPS 页直接读取静态主数据及设备路线文件，再恢复同名浏览器草稿。</p>
 <p>因此，接入正式 API 的 viewer 与独立 GPS 页可能使用不同基线；演示包应明确统一数据来源。</p>
-<p>适合私人分发的静态版本应直接使用包内 JSON，并在 README 说明这一适配。</p>
+<p>当前公开静态版本已直接使用包内 JSON，并在 README 说明这一适配。</p>
 <p>如果保留源版加载逻辑，使用 <code>draft=codex</code> 会先经历一次不存在的 API 请求，再加载本地数据。</p>
 <p>静态服务器应对真正不存在的文件返回 404，不能把 HTML 首页当作 JSON 返回。</p>
 <p>应保留四个运行目录的相对关系，检查 iframe、样式、PNG、脚本和 JSON 的相对地址。</p>
 <p>原始 viewer 引用的可选 <code>map-provider-config.local.js</code> 不属于应分发的个人配置。</p>
 <p>分发时应移除该引用，或提供经过检查且不含凭据的空配置；不能复制个人配置充当默认值。</p>
-<p>未来若改为在线托管，需要另外决定身份验证、授权名单、数据源和定位权限策略。</p>
-<p>未来即使仓库保持私有，部署平台也必须另行确认网站访问控制，不能从仓库私有推定网站私有。</p>
-<p>当前文档的本地运行流程不要求开通公开托管或建立业务后端。</p>
+<p>当前 GitHub Pages 是公开静态托管，没有登录或授权名单，也没有业务后端。</p>
+<p>浏览器真实定位仍需用户授予位置权限，网络设备接入仍需客户实现。</p>
+<p>如以后恢复朋友专用访问，须另外配置网站访问控制，不能只改变仓库可见性。</p>
 <h2>6. 单页操作说明</h2>
 <ul>
 <li>打开 viewer，选择球洞，然后选择“虚拟图”。</li>

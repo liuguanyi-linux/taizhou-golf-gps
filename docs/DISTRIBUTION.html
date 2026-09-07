@@ -1,14 +1,14 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>泰州 GPS 技术文档</title><style>body{max-width:1000px;margin:32px auto;padding:0 22px;color:#202d1b;background:#fafaf5;font:16px/1.8 system-ui,sans-serif}a{color:#426b24}nav{display:flex;gap:20px;flex-wrap:wrap}h1,h2,h3{line-height:1.35;margin-top:2em}code{background:#e9eddf;padding:2px 4px;border-radius:4px}pre{background:#e9eddf;padding:18px;overflow:auto;line-height:1.6}pre code{padding:0}.table{overflow:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:10px;border:1px solid #ced6c6;text-align:left}th{background:#e9eddf}@media print{nav{display:none}pre{white-space:pre-wrap}.table{overflow:visible}h2,h3{break-after:avoid}}</style></head><body><nav><a href="../index.html">返回交付首页</a><a href="index.html">技术文档</a><a href="QUICKSTART.html">操作指南</a><a href="DISTRIBUTION.html">私有分发</a><a href="TECHNICAL.md" download>下载 Markdown 原文</a></nav><h1>私有分发和访问方式</h1>
-<p>本次目标仓库：<code>liuguanyi-linux/taizhou-golf-gps</code>。只上传虚拟图 / GPS 相关交付包，不推送朋友原仓库。仓库保持 private；Release 与源码同样需要已获授权的 GitHub 账号。</p>
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>泰州 GPS 技术文档</title><style>body{max-width:1000px;margin:32px auto;padding:0 22px;color:#202d1b;background:#fafaf5;font:16px/1.8 system-ui,sans-serif}a{color:#426b24}nav{display:flex;gap:20px;flex-wrap:wrap}h1,h2,h3{line-height:1.35;margin-top:2em}code{background:#e9eddf;padding:2px 4px;border-radius:4px}pre{background:#e9eddf;padding:18px;overflow:auto;line-height:1.6}pre code{padding:0}.table{overflow:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:10px;border:1px solid #ced6c6;text-align:left}th{background:#e9eddf}@media print{nav{display:none}pre{white-space:pre-wrap}.table{overflow:visible}h2,h3{break-after:avoid}}</style></head><body><nav><a href="../index.html">返回交付首页</a><a href="index.html">技术文档</a><a href="QUICKSTART.html">操作指南</a><a href="DISTRIBUTION.html">私有分发</a><a href="TECHNICAL.md" download>下载 Markdown 原文</a></nav><h1>公开分发和访问方式</h1>
+<p>更新日期：2026-09-08。按拥有者要求，<code>liuguanyi-linux/taizhou-golf-gps</code> 改为公开，提供在线网页、源码、图片、技术文档和完整下载包。只发布虚拟图 / GPS 相关独立包，不推送朋友原仓库。</p>
 <h2>如何交给朋友</h2>
-<p>仓库拥有者在 Settings → Collaborators 中核实并邀请朋友 GitHub 账号；朋友接受邀请后可阅读文档、下载 Release 完整 ZIP，再在自己电脑上运行。不知道账号时不应邀请推测的用户。</p>
-<p>注意：个人账号仓库的协作者通常同时具备读写权限，并不等于“只读观看”。如仅允许观看和下载，可自行将 ZIP 私下发送朋友；若需要严格只读账号控制，需要组织仓库或另行设计访问方式。<a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/permission-levels-for-a-personal-account-repository" rel="noreferrer">GitHub 权限说明</a></p>
-<h2>私有仓库不等于私有网页</h2>
-<p>本次<strong>不启用 GitHub Pages</strong>，不发布公共匿名网址。常规 Pages 不能因为仓库 private 就当成访问受限网站；GitHub 的私有 Pages 有组织/Enterprise 等条件。<a href="https://docs.github.com/en/enterprise-cloud@latest/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site" rel="noreferrer">GitHub 私有 Pages 说明</a></p>
-<p>因此仓库地址是受权限控制的代码/文档/下载入口，不是在线运行的球洞地图。希望朋友不安装直接在线操作时，需另外确定带登录和朋友名单控制的 HTTPS 托管服务，不能只给页面加一个前端密码，也不能把一个没人知道的公网链接当成私有。</p>
+<p>直接发送在线地址 https://liuguanyi-linux.github.io/taizhou-golf-gps/ 即可，不需要朋友的 GitHub 账号。仓库和 Releases 的全部文件也可匿名查看、下载。</p>
+<p>访客可以操作自己的网页草稿，但没有仓库写权限，不能覆盖你的源文件或其他访客的数据。网站没有多人同步服务器，编辑结果需通过“设备数据”导出后另行分享。公开访问不是授予第三方内容的其他许可，LICENSE / NOTICE 保留。</p>
+<h2>当前公开范围</h2>
+<p>GitHub Pages 从 <code>codex/delivery</code> 分支根目录发布静态文件，使用 HTTPS。仓库代码、当前与历史 Release、数据、图片、文档均公开；不包含本机密钥或个人浏览器草稿。旧版下载包内“私有”的文字属于历史交付状态，不能视为当前访问限制。</p>
+<p>如以后恢复私人分享，须分别处理仓库和在线网站访问控制；不能把前端密码或隐蔽 URL 当成真正私有。已经被下载的副本不能追回。</p>
 <h2>本机和现场测试</h2>
 <p>启动器只监听 127.0.0.1:3034，不暴露到局域网或公网。无后端账户服务、自动云保存或定位上传。外部底图请求仍会访问各提供商，离线时用已打包虚拟图和数据验证。</p>
-<p>手机/球车现场 GPS 需要安全上下文、位置权限和真实设备信号。本机 localhost 测试不能替代现场验证；用手机访问电脑 HTTP 局域网地址也不能保证定位授权可用。先确定 HTTPS 与访问保护，再开展跨设备现场测试。</p>
+<p>在线页面使用 HTTPS；手机/球车现场 GPS 仍需位置权限和真实设备信号。本机 localhost 测试不能替代现场验证。浏览器只能读取当前设备位置，多车实时接入需要客户的数据服务；不会自动发现其他球车。</p>
 <h2>发布复现</h2>
 <p>运行 <code>node scripts/check.cjs</code>，确认通过后运行 <code>node scripts/build-delivery.cjs</code> 生成基线导出、图片清单与 SHA-256。完整 ZIP 应从仓库干净快照生成，排除 <code>.git</code>、本机密钥和依赖缓存。Release 记录版本与对应提交，并附 ZIP 哈希。</p>
-<p>删除好友访问不能追回其已经下载的文件。此包不构成对第三方源码或影像的开放授权；请同时保留 LICENSE / NOTICE。</p></body></html>
+<p>不要把包含个人行踪的真实车辆快照提交到公开仓库。此包不构成对第三方源码或影像的额外开放授权；请同时保留 LICENSE / NOTICE。</p></body></html>

@@ -1,6 +1,10 @@
 # 泰州云海湿地 · 虚拟图与 GPS 点位工作台
 
-私有测试交付版 · 2026-09-07 · 球场 `cn0000385` · 18 洞
+公开测试版 · 2026-09-08 · 球场 `cn0000385` · 18 洞
+
+直接打开：[在线球洞工作台](https://liuguanyi-linux.github.io/taizhou-golf-gps/holemap-viewer/index.html?gb=cn0000385&draft=codex) · [网站首页与文档](https://liuguanyi-linux.github.io/taizhou-golf-gps/) · [完整版本下载](https://github.com/liuguanyi-linux/taizhou-golf-gps/releases)
+
+无需 GitHub 账号即可在线查看、标点、测距和下载。编辑保存在各自浏览器，不能修改仓库基线，也不会自动同步给其他人。
 
 本仓库只整理虚拟图、任意点标记、多球车测距、图像坐标校准、设备数据接入和必要页面依赖。不是原 Golf.CC 全站，也不连接朋友项目的后台。
 
@@ -8,7 +12,9 @@
 
 ## 朋友怎么打开
 
-1. 登录已获授权的 GitHub 账号，在本仓库的 [Releases](https://github.com/liuguanyi-linux/taizhou-golf-gps/releases) 下载完整 ZIP 并解压。
+以下是可选的本地运行方法；在线使用直接点击上方链接即可。
+
+1. 在本仓库的 [Releases](https://github.com/liuguanyi-linux/taizhou-golf-gps/releases) 下载完整 ZIP 并解压，不需要登录。
 2. 安装 Node.js（本次在 Node 25.8.2 验证，启动器仅使用内置模块），进入解压目录。
 3. 运行 `node scripts/serve.cjs`。终端显示地址后，在本机打开 `http://127.0.0.1:3034/`。
 4. 点击“打开球洞工作台”→“虚拟图”→“编辑本洞”，进入标点、校准、设备数据。设备预览仍在同一工作页面。
@@ -21,7 +27,7 @@ Mac 可运行 `bash start.command`；Windows 可双击 `start.bat`。这两个�
 
 - [完整技术文档](docs/TECHNICAL.md)：架构、坐标换算、精度限制、数据协议、API、测试和接入步骤。
 - [朋友操作指南](docs/QUICKSTART.md)：从放点到导出、模拟与实际 GPS 的区别。
-- [分发与权限说明](docs/DISTRIBUTION.md)：私有仓库、下载、授权访问和网页部署边界。
+- [分发与权限说明](docs/DISTRIBUTION.md)：公开网页、下载、数据保存和访问边界。
 - [当前数据清单](downloads/data-inventory.json)：18 洞图片尺寸、数据数量与 SHA-256。
 - [默认配准审计](downloads/registration-audit.json)：估算控制点的拟合残差，不是现场精度。
 - [基线点位测试包](downloads/cn0000385-baseline-test-package.json) / [点位 GeoJSON](downloads/cn0000385-points.geojson) / [全几何 GeoJSON](downloads/cn0000385-geometry.geojson)。
@@ -38,6 +44,6 @@ Mac 可运行 `bash start.command`；Windows 可双击 `start.bat`。这两个�
 
 ## 隐私与来源
 
-此仓库为私有；未启用 GitHub Pages，未创建公共网站。Release 下载继承仓库访问权限。邀请前请核实账号；个人仓库的协作者权限并非仅网页观看权限。
+按拥有者 2026-09-08 的要求，仓库和全部 Release 改为公开，并使用 GitHub Pages 提供 HTTPS 在线页面。任何人可查看、下载当前内容和历史发布包；网站没有登录门槛。访客不因此获得仓库写入权限。本地浏览器旧草稿不会迁移到新网站域名，请先导出备份。
 
-原项目版权说明保存在 [LICENSE](LICENSE)，必要依赖与本次整理范围见 [来源说明](NOTICE.md)。本仓库不新增开源许可，不因私人分享改变原有权利归属。未包含原项目后端、账号、支付、微信配置、环境变量或本机地图密钥。
+原项目版权说明保存在 [LICENSE](LICENSE)，必要依赖与本次整理范围见 [来源说明](NOTICE.md)。公开访问不改变原有权利归属，本次不新增开源许可。未包含原项目后端、账号、支付、微信配置、环境变量或本机地图密钥。

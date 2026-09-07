@@ -1,27 +1,27 @@
-# 私有分发和访问方式
+# 公开分发和访问方式
 
-本次目标仓库：`liuguanyi-linux/taizhou-golf-gps`。只上传虚拟图 / GPS 相关交付包，不推送朋友原仓库。仓库保持 private；Release 与源码同样需要已获授权的 GitHub 账号。
+更新日期：2026-09-08。按拥有者要求，`liuguanyi-linux/taizhou-golf-gps` 改为公开，提供在线网页、源码、图片、技术文档和完整下载包。只发布虚拟图 / GPS 相关独立包，不推送朋友原仓库。
 
 ## 如何交给朋友
 
-仓库拥有者在 Settings → Collaborators 中核实并邀请朋友 GitHub 账号；朋友接受邀请后可阅读文档、下载 Release 完整 ZIP，再在自己电脑上运行。不知道账号时不应邀请推测的用户。
+直接发送在线地址 https://liuguanyi-linux.github.io/taizhou-golf-gps/ 即可，不需要朋友的 GitHub 账号。仓库和 Releases 的全部文件也可匿名查看、下载。
 
-注意：个人账号仓库的协作者通常同时具备读写权限，并不等于“只读观看”。如仅允许观看和下载，可自行将 ZIP 私下发送朋友；若需要严格只读账号控制，需要组织仓库或另行设计访问方式。[GitHub 权限说明](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/permission-levels-for-a-personal-account-repository)
+访客可以操作自己的网页草稿，但没有仓库写权限，不能覆盖你的源文件或其他访客的数据。网站没有多人同步服务器，编辑结果需通过“设备数据”导出后另行分享。公开访问不是授予第三方内容的其他许可，LICENSE / NOTICE 保留。
 
-## 私有仓库不等于私有网页
+## 当前公开范围
 
-本次**不启用 GitHub Pages**，不发布公共匿名网址。常规 Pages 不能因为仓库 private 就当成访问受限网站；GitHub 的私有 Pages 有组织/Enterprise 等条件。[GitHub 私有 Pages 说明](https://docs.github.com/en/enterprise-cloud@latest/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)
+GitHub Pages 从 `codex/delivery` 分支根目录发布静态文件，使用 HTTPS。仓库代码、当前与历史 Release、数据、图片、文档均公开；不包含本机密钥或个人浏览器草稿。旧版下载包内“私有”的文字属于历史交付状态，不能视为当前访问限制。
 
-因此仓库地址是受权限控制的代码/文档/下载入口，不是在线运行的球洞地图。希望朋友不安装直接在线操作时，需另外确定带登录和朋友名单控制的 HTTPS 托管服务，不能只给页面加一个前端密码，也不能把一个没人知道的公网链接当成私有。
+如以后恢复私人分享，须分别处理仓库和在线网站访问控制；不能把前端密码或隐蔽 URL 当成真正私有。已经被下载的副本不能追回。
 
 ## 本机和现场测试
 
 启动器只监听 127.0.0.1:3034，不暴露到局域网或公网。无后端账户服务、自动云保存或定位上传。外部底图请求仍会访问各提供商，离线时用已打包虚拟图和数据验证。
 
-手机/球车现场 GPS 需要安全上下文、位置权限和真实设备信号。本机 localhost 测试不能替代现场验证；用手机访问电脑 HTTP 局域网地址也不能保证定位授权可用。先确定 HTTPS 与访问保护，再开展跨设备现场测试。
+在线页面使用 HTTPS；手机/球车现场 GPS 仍需位置权限和真实设备信号。本机 localhost 测试不能替代现场验证。浏览器只能读取当前设备位置，多车实时接入需要客户的数据服务；不会自动发现其他球车。
 
 ## 发布复现
 
 运行 `node scripts/check.cjs`，确认通过后运行 `node scripts/build-delivery.cjs` 生成基线导出、图片清单与 SHA-256。完整 ZIP 应从仓库干净快照生成，排除 `.git`、本机密钥和依赖缓存。Release 记录版本与对应提交，并附 ZIP 哈希。
 
-删除好友访问不能追回其已经下载的文件。此包不构成对第三方源码或影像的开放授权；请同时保留 LICENSE / NOTICE。
+不要把包含个人行踪的真实车辆快照提交到公开仓库。此包不构成对第三方源码或影像的额外开放授权；请同时保留 LICENSE / NOTICE。

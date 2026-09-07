@@ -1,6 +1,6 @@
 {
   "algorithm": "SHA-256",
-  "generated_at": "2026-09-07T15:43:29.769Z",
+  "generated_at": "2026-09-07T16:23:00.609Z",
   "excludes": [
     ".git",
     "hidden files",
@@ -20,28 +20,28 @@
     },
     {
       "path": "README.md",
-      "bytes": 3802,
-      "sha256": "2969f27ed7ee7d1fe34f32c51ef6305750672238374026c5662ca6b976c96c36"
+      "bytes": 4460,
+      "sha256": "77471bb2fc6b63caaf5db56c3b845926b55de63a60b99a7a4c6fe5d3c1b4bad3"
     },
     {
       "path": "docs/DISTRIBUTION.html",
-      "bytes": 3935,
-      "sha256": "3a5fe279ff89ea51d56c978435213c5948fb3afb8dc1e1d0347af7682a1f0b6c"
+      "bytes": 3505,
+      "sha256": "18cbd84e091c48f6d33d1f0abf80f94b2fe6ab38349f91f4a62ccecde792211f"
     },
     {
       "path": "docs/DISTRIBUTION.md",
-      "bytes": 2668,
-      "sha256": "0ab737a3a7f463f3fedb6cb62a6a75b24b320ff2732027bcaa67e7cbe419c91c"
+      "bytes": 2296,
+      "sha256": "452be8516f2a44a6490ae2ed8239f3cc64fd80abfc841a34d4a761cc5f176383"
     },
     {
       "path": "docs/QUICKSTART.html",
-      "bytes": 4129,
-      "sha256": "75b538602145c70b2e43712326c9725a3f6855b744ef6e50b10467dde6ac5883"
+      "bytes": 4218,
+      "sha256": "1ceaceaeee7e0c8c5a12b76d7c677fa978d2bde1dbd9d6a66ed689247c4603b3"
     },
     {
       "path": "docs/QUICKSTART.md",
-      "bytes": 2888,
-      "sha256": "abca83f4a7df663e6576646f916bca8e40ddda6530e48133064747f5bf9bf2bb"
+      "bytes": 2977,
+      "sha256": "37071ba484e71dfd099504b82e1c23d77156d85986ec874a2b79695f603c573c"
     },
     {
       "path": "docs/RELEASE-2026-09-07.md",
@@ -49,24 +49,29 @@
       "sha256": "5a7a5ce741540dfbdc25c8898d34135d25c3ba4f4fa1d6a54dfabc22778236f0"
     },
     {
+      "path": "docs/RELEASE-2026-09-08.md",
+      "bytes": 1046,
+      "sha256": "7f87f768606dad6491911f7c5a1141199bd565f86cf0787217849bf435fe2efd"
+    },
+    {
       "path": "docs/TECHNICAL.md",
-      "bytes": 40165,
-      "sha256": "395d28a8c5027180f24ddb131089b43b2a2e1b64dcd96d0df49518ac67315a79"
+      "bytes": 40326,
+      "sha256": "2c0d270464569a53f0cfbf076c6fb9c83a58a96e99a2822b441b13b80294621e"
     },
     {
       "path": "docs/index.html",
-      "bytes": 49273,
-      "sha256": "97ea728bd24a8110bb20244c32a3fb6ad31d87ead593cf9b0b436ae53e352138"
+      "bytes": 49434,
+      "sha256": "7a82eb58055ea6327b78e2dd0a88681d0f1f4faf54ba6c9a629eb67754f69426"
     },
     {
       "path": "downloads/cn0000385-baseline-test-package.json",
       "bytes": 190048,
-      "sha256": "b938dfeec69d8de073a504c2a164c1ec916f673aa874aa0e443e7d6293b2b8c9"
+      "sha256": "d276c086e620d375e3f33efab38870323e6f55568f4def92b7a038e8c4e9cf0d"
     },
     {
       "path": "downloads/cn0000385-geometry.geojson",
       "bytes": 953990,
-      "sha256": "82f46963c1ba3e83369a1eb5b02aad8d658e0f58d60e0e8bfbecdb1ef7db03ec"
+      "sha256": "c9b44d0c21ad4bdb7cff24e8c6cac74abe8e663f740d99e6ae3887f30249fce7"
     },
     {
       "path": "downloads/cn0000385-points.geojson",
@@ -76,7 +81,7 @@
     {
       "path": "downloads/data-inventory.json",
       "bytes": 9931,
-      "sha256": "ea6999e168446b5615565c13840e2ed866a4587e6c96e57a8956655e5e19c88d"
+      "sha256": "3c0829b1c523a3bec9e5d3f28b90c22afbd04fe2ec18eff87710282e877f4928"
     },
     {
       "path": "downloads/registration-audit.json",
@@ -495,8 +500,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 3818,
-      "sha256": "09fd61d2efa9f761fab9463e50dcbe24b96153f00d7ef8b90a4f2574d41281ad"
+      "bytes": 3804,
+      "sha256": "ad2e178c0d943ef6f55f8ae9db028da3c1ec3f64ca64565b294d599ca010c591"
     },
     {
       "path": "scripts/build-delivery.cjs",
