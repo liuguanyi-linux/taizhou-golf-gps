@@ -11,3 +11,11 @@
 独立包适配：查看器与旧几何编辑器默认球场设为 cn0000385，强制本地草稿读取；不再尝试原项目业务后台，不载入 map-provider-config.local.js。其余地图 / GPS 实现与提取时原文件保持一致。完整校验清单由 scripts/build-delivery.cjs 生成。
 
 禁止将本测试包中的默认估算坐标、残差、模拟路线当作经过测量验收的安全导航依据。外部账号获得下载文件后可保留副本，移除仓库访问权限不能追回已经下载的副本。
+
+## 金沙湾独立新增模块（2026-09-10）
+
+`kingswan/` 是本次新增的静态编辑工作台，不含朋友项目的后台。随包包括 18 张生成式虚拟底图视觉草稿和转录的记分卡数值；它们不是测绘影像，不应据此声称地理形状或坐标准确。制作参考原图和个人照片不在本次新增分发范围。
+
+新增模块使用 Leaflet 1.9.4，BSD 许可全文见 `kingswan/vendor/LICENSE-Leaflet.txt`。全场参考范围来自 OpenStreetMap way 775530696，© OpenStreetMap contributors，ODbL 1.0；保留在 baseline 中的来源信息和页面署名。在线 Esri 影像仅通过署名瓦片服务显示，没有打包瓦片或赋予额外再分发权。
+
+金沙湾文档见 `kingswan/TECHNICAL.md`；独立几何与 18 张资源测试可运行 `node --test kingswan/tests/geometry.cjs`。几何配准、控制点与实时位置均未通过现场精度验收。

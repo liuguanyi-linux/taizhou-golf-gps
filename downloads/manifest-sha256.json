@@ -1,6 +1,6 @@
 {
   "algorithm": "SHA-256",
-  "generated_at": "2026-09-07T16:24:17.879Z",
+  "generated_at": "2026-09-10T02:29:31.928Z",
   "excludes": [
     ".git",
     "hidden files",
@@ -15,13 +15,13 @@
     },
     {
       "path": "NOTICE.md",
-      "bytes": 1754,
-      "sha256": "2fae31346dcfbe090f84803c907634c34338b6dbb96e4eeca83f8257e75aad2f"
+      "bytes": 2670,
+      "sha256": "9343b8d4f196ab0894fa623953f9b8fca7a1956a67144042dfb00bd52b47933c"
     },
     {
       "path": "README.md",
-      "bytes": 4460,
-      "sha256": "77471bb2fc6b63caaf5db56c3b845926b55de63a60b99a7a4c6fe5d3c1b4bad3"
+      "bytes": 5559,
+      "sha256": "bc5a1ada2d9b2454c41422d7494088241207c22f9a27dcf877085e30a9390447"
     },
     {
       "path": "docs/DISTRIBUTION.html",
@@ -500,8 +500,168 @@
     },
     {
       "path": "index.html",
-      "bytes": 3804,
-      "sha256": "ad2e178c0d943ef6f55f8ae9db028da3c1ec3f64ca64565b294d599ca010c591"
+      "bytes": 4325,
+      "sha256": "1c83250f7749c759b5972427e9939fee437952f0533cd2d70a5d95564958c41b"
+    },
+    {
+      "path": "kingswan/QA.md",
+      "bytes": 4613,
+      "sha256": "e4b59682e25cc737ea29c06ada854db5e558d7b65e4be61a485a0c428798bee6"
+    },
+    {
+      "path": "kingswan/TECHNICAL.md",
+      "bytes": 9930,
+      "sha256": "7654057d804554f78f83e662289ebe2bfffa73851383ed62ebcce8e65924161f"
+    },
+    {
+      "path": "kingswan/assets/hole-01-v1.png",
+      "bytes": 1880713,
+      "sha256": "546c2fb5a6789566b9237d9c9e44ae5cd1ba3fa644e59267bee35b4c492eb05d"
+    },
+    {
+      "path": "kingswan/assets/hole-02-v1.png",
+      "bytes": 2016023,
+      "sha256": "e81374484a2baf2fb146c9038b051797eda9fa7d8a0edefbd3e23e5f967b542c"
+    },
+    {
+      "path": "kingswan/assets/hole-03-v1.png",
+      "bytes": 1962032,
+      "sha256": "2272385992f13dedbe5d446ab6932328ef2ed4f42a7fd3a018190d6ffeedcf76"
+    },
+    {
+      "path": "kingswan/assets/hole-04-v1.png",
+      "bytes": 2059278,
+      "sha256": "b0d2bf36eb0e910974653edee553490367271a040545de43d7d83a2b85ef4b9f"
+    },
+    {
+      "path": "kingswan/assets/hole-05-v1.png",
+      "bytes": 1700232,
+      "sha256": "24a0cfc8bacb01e3229a274e928dc906c7e03763c7ffeb157e660ac5e36bdcdf"
+    },
+    {
+      "path": "kingswan/assets/hole-06-v1.png",
+      "bytes": 1903851,
+      "sha256": "e4ad43f96db45ffea668d517bb2dc5e6c38a28b487e62f01600e9743bead3213"
+    },
+    {
+      "path": "kingswan/assets/hole-07-v1.png",
+      "bytes": 2318523,
+      "sha256": "6114f88f863bfecf05a6b25e34ea9ce952147448f0fa6f6135b7b639a7719a26"
+    },
+    {
+      "path": "kingswan/assets/hole-08-v1.png",
+      "bytes": 2132025,
+      "sha256": "6d6562afb75afc8815a2a37317df9cb50013ba8bf2b60db0309e2dcd045f9991"
+    },
+    {
+      "path": "kingswan/assets/hole-09-v1.png",
+      "bytes": 2531677,
+      "sha256": "9227c69bd91764bef56c046eea64e38fd816f38e390804e381245ad4659fc440"
+    },
+    {
+      "path": "kingswan/assets/hole-10-v1.png",
+      "bytes": 2053902,
+      "sha256": "f02001dcbf920d24c65f76a56efe1e5ec7d631c56d30aec26f260c3510d68bbb"
+    },
+    {
+      "path": "kingswan/assets/hole-11-v1.png",
+      "bytes": 2232384,
+      "sha256": "95d8dead61002ff237b7c4187db5571d0ea01e4644038df2aca336e9fef888ee"
+    },
+    {
+      "path": "kingswan/assets/hole-12-v1.png",
+      "bytes": 2361033,
+      "sha256": "c4535531d13363e0e28764b519bbc02f9f3d5507fa74f4a29ea4192ae86a9d2e"
+    },
+    {
+      "path": "kingswan/assets/hole-13-v1.png",
+      "bytes": 1680526,
+      "sha256": "89e25735ac87f2fda539a03becaf86e2e7b7947f2aa460613c10955462bbd952"
+    },
+    {
+      "path": "kingswan/assets/hole-14-v1.png",
+      "bytes": 2356375,
+      "sha256": "64b6cc993e42571eccc6902143ff3ec2a37fea9e9ec879d5efd01f76cb8aa235"
+    },
+    {
+      "path": "kingswan/assets/hole-15-v1.png",
+      "bytes": 2430490,
+      "sha256": "031bf5a34f93b1434ef288e6a5df02e9111f1072adb78d8bc57e211ab444aac9"
+    },
+    {
+      "path": "kingswan/assets/hole-16-v1.png",
+      "bytes": 2721882,
+      "sha256": "76b558f144bcf965c8ff1393e13b7cd30928f134423e6cbf992cf21cc216d6bb"
+    },
+    {
+      "path": "kingswan/assets/hole-17-v1.png",
+      "bytes": 2227421,
+      "sha256": "c555569236e701f43cdd783b8744587b3c7afc721ea8c58d780218f7c7bbe89f"
+    },
+    {
+      "path": "kingswan/assets/hole-18-v1.png",
+      "bytes": 2027579,
+      "sha256": "6cc234d9d579b31a4b1ff8df8d2d8b0a0ffb7434a390f75815cea31e8cd8e641"
+    },
+    {
+      "path": "kingswan/baseline.js",
+      "bytes": 9986,
+      "sha256": "d1984af6145db4cc532ef176da55a238f3d6e4c05bd7de7a5c151254941002ac"
+    },
+    {
+      "path": "kingswan/geo.js",
+      "bytes": 8416,
+      "sha256": "a2aeab5bb93b046940cefe9c9eacb407cc247e0a94ddd1eac61f2a10da462967"
+    },
+    {
+      "path": "kingswan/index.html",
+      "bytes": 6013,
+      "sha256": "5d063c514824ed63c1fd75ee70f92ff10ae60fa7ae4125f707356381e21123ba"
+    },
+    {
+      "path": "kingswan/tests/geometry.cjs",
+      "bytes": 6149,
+      "sha256": "6291bdc1bd6eedf681550189313d9f4551e5d896003702d21fed080ed100d521"
+    },
+    {
+      "path": "kingswan/vendor/LICENSE-Leaflet.txt",
+      "bytes": 1369,
+      "sha256": "bbc959aaef7488b38942e7f05cfd1244351f8bce54261951ea17dd7cf60f894b"
+    },
+    {
+      "path": "kingswan/vendor/images/marker-icon-2x.png",
+      "bytes": 2464,
+      "sha256": "00179c4c1ee830d3a108412ae0d294f55776cfeb085c60129a39aa6fc4ae2528"
+    },
+    {
+      "path": "kingswan/vendor/images/marker-icon.png",
+      "bytes": 1466,
+      "sha256": "574c3a5cca85f4114085b6841596d62f00d7c892c7b03f28cbfa301deb1dc437"
+    },
+    {
+      "path": "kingswan/vendor/images/marker-shadow.png",
+      "bytes": 618,
+      "sha256": "264f5c640339f042dd729062cfc04c17f8ea0f29882b538e3848ed8f10edb4da"
+    },
+    {
+      "path": "kingswan/vendor/leaflet.css",
+      "bytes": 14806,
+      "sha256": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6"
+    },
+    {
+      "path": "kingswan/vendor/leaflet.js",
+      "bytes": 147552,
+      "sha256": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a"
+    },
+    {
+      "path": "kingswan/workspace.css",
+      "bytes": 3995,
+      "sha256": "a025ce6ab75039794dae9b08f18a2d02a49b019733ba3255b8af1c0b94b57456"
+    },
+    {
+      "path": "kingswan/workspace.js",
+      "bytes": 27420,
+      "sha256": "90d786f4415edadb4586a2b8813613c18d32e835e965e240113afb768654a803"
     },
     {
       "path": "scripts/build-delivery.cjs",
@@ -512,6 +672,11 @@
       "path": "scripts/check.cjs",
       "bytes": 1918,
       "sha256": "47492ff6fb59b7485e4618608b9ef4f3c31b312658b769dc5e2bbab23721fa00"
+    },
+    {
+      "path": "scripts/refresh-manifest.cjs",
+      "bytes": 1045,
+      "sha256": "7e3c504081154ec5064b0c0fb504a2dbda07c97d70037b5617a6ab8558776f23"
     },
     {
       "path": "scripts/serve.cjs",
