@@ -1,13 +1,24 @@
-/* Local-only static preview. No telemetry upload, backend proxy, or directory listing. */
+/* Local-only preview, with a scoped public GreenBook read-only bridge. */
 const http = require('node:http');
 const fs = require('node:fs');
 const path = require('node:path');
+const greenbook = require('./greenbook-readonly.cjs');
+const osm = require('./osm-readonly.cjs');
+const recognition = require('./recognition-local.cjs');
+const {Readable}=require('node:stream');
 const root = path.resolve(__dirname, '..');
 const types = {'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json; charset=utf-8','.geojson':'application/geo+json; charset=utf-8','.png':'image/png','.jpg':'image/jpeg','.svg':'image/svg+xml','.md':'text/plain; charset=utf-8','.txt':'text/plain; charset=utf-8','.ico':'image/x-icon'};
-const server = http.createServer((req,res) => {
+const server = http.createServer(async (req,res) => {
   res.setHeader('X-Content-Type-Options','nosniff');
   res.setHeader('Referrer-Policy','strict-origin-when-cross-origin');
   res.setHeader('Cache-Control','no-cache');
+  let url;try{url=new URL(req.url,'http://127.0.0.1');}catch(_){res.writeHead(400);return res.end();}
+  if(url.pathname==='/recognition/local'){
+    const abort=new AbortController();res.on('close',()=>abort.abort());
+    try{const request=new Request('http://'+req.headers.host+req.url,{method:req.method,headers:req.headers,signal:abort.signal,...(!['GET','HEAD'].includes(req.method)?{body:Readable.toWeb(req),duplex:'half'}:{})});const result=await recognition.response(request);res.writeHead(result.status,Object.fromEntries(result.headers));Readable.fromWeb(result.body).on('error',()=>res.destroy()).pipe(res);}catch(_){if(!res.headersSent)res.writeHead(500);res.end();}return;
+  }
+  if(await greenbook.handle(req,res,url))return;
+  if(await osm.handle(req,res,url))return;
   if (!['GET','HEAD'].includes(req.method)) { res.writeHead(405); return res.end(); }
   let pathname;
   try { pathname=decodeURIComponent(new URL(req.url,'http://127.0.0.1').pathname); }

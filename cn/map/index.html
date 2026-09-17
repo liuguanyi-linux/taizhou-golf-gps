@@ -1,0 +1,12 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>球场地图 · Codex 独立编辑</title>
+<link rel="stylesheet" href="../../holemap-editor/lib/leaflet.css"><link rel="stylesheet" href="../../course-workspace/catalog.css">
+<script src="../../holemap-editor/lib/leaflet.js"></script><script src="../../course-workspace/store.js"></script><script src="../../course-workspace/projects.js"></script><script src="../../course-workspace/greenbook.js"></script></head><body>
+<header><strong>球场项目工具 <span>地图 · 虚拟图 · GPS</span></strong><a href="../../docs/GENERIC-TOOL.html">工具使用说明</a><a href="../../">资料与下载</a></header>
+<main><aside><h1>选择球场</h1><p>原站检索 → 读取球洞数据 → 独立编辑</p><label>球场名称<input id="query" placeholder="钟山、南京、金沙湾，支持部分关键词"></label><button id="search-source">检索原网站球场库</button><p id="source-state" role="status">正在连接原网站球场库…</p><div id="source-results"></div><h2 style="font-size:16px">本机项目与内置资料</h2><div id="courses"></div><details><summary>原站找不到？使用外部地名定位</summary><button id="search-world">在线定位其他球场</button><p>只查 OpenStreetMap 地名，不含原站逐洞数据。仅点击此按钮才发送查询。</p><div id="search-results"></div></details>
+<details><summary>添加其他球场 / 导入已有划分</summary><p>导入原编辑器导出的球场 JSON，可保留逐洞点线面。新建位置只建立场地，不会虚构 18 洞坐标。</p>
+<label>导入项目包 / JSON / GeoJSON<input id="import" type="file" accept=".json,.geojson,application/json,application/geo+json"></label><details><summary>粘贴项目 JSON 导入</summary><textarea id="import-text" aria-label="项目 JSON" style="width:100%;height:160px"></textarea><button id="import-text-button">导入为新项目</button></details>
+<label>球场名<input id="newname" placeholder="输入球场名称"></label><label>WGS84 经度<input id="lng" type="number" step="any"></label><label>WGS84 纬度<input id="lat" type="number" step="any"></label>
+<label>球洞数量<input id="hole-count" type="number" min="1" max="72" value="18"></label><button id="pick">在地图上选场地位置</button><button id="create">新建球场项目并编辑</button></details>
+<p id="status" role="status">本机草稿不写入朋友的 GreenBook 后台。</p></aside><section id="course-map" aria-label="球场选择地图"></section>
+<section id="detail" hidden><button id="close" aria-label="关闭球场详情">×</button><small>COURSE</small><h2 id="name"></h2><p id="quality"></p><h3>球洞图</h3><p>选择洞号，进入实景／虚拟地图／GPS 同页编辑。</p><div id="holes"></div><button id="edit">编辑球洞图 →</button></section></main>
+<script src="../../course-workspace/catalog.js"></script></body></html>

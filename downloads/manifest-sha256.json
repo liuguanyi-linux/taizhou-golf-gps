@@ -1,6 +1,6 @@
 {
   "algorithm": "SHA-256",
-  "generated_at": "2026-09-10T02:29:31.928Z",
+  "generated_at": "2026-09-17T03:23:14.655Z",
   "excludes": [
     ".git",
     "hidden files",
@@ -15,13 +15,148 @@
     },
     {
       "path": "NOTICE.md",
-      "bytes": 2670,
-      "sha256": "9343b8d4f196ab0894fa623953f9b8fca7a1956a67144042dfb00bd52b47933c"
+      "bytes": 3383,
+      "sha256": "02169e79435e4abb2fa3bf1b7ebcfed1e44ae7ab20349ec4c7fa928244520278"
     },
     {
       "path": "README.md",
-      "bytes": 5559,
-      "sha256": "bc5a1ada2d9b2454c41422d7494088241207c22f9a27dcf877085e30a9390447"
+      "bytes": 12656,
+      "sha256": "8392889a91ca8df36ed62f3ffda6da0178a10396fb3a639aa149d10db3e8c2fb"
+    },
+    {
+      "path": "cn/map/index.html",
+      "bytes": 3009,
+      "sha256": "abdf28a96281b3c574816e7401fd413f7fc248d1de74a98888b4cce6569e1b31"
+    },
+    {
+      "path": "course-workspace/assets/README.md",
+      "bytes": 1378,
+      "sha256": "60167d3f94f3275ea2854d4da97e3bcea6c835f6fa19ed39768f660b599e8efc"
+    },
+    {
+      "path": "course-workspace/assets/turf-material-v1.png",
+      "bytes": 4020979,
+      "sha256": "a60567c66a42b2bb52a53b0ef6b12569df31879a5d2d021c75fdddffa0411894"
+    },
+    {
+      "path": "course-workspace/catalog.css",
+      "bytes": 2632,
+      "sha256": "74c63535bc81ab2b647ed8173afd8e1594b9fda1652ec78a69579455b6fe38c3"
+    },
+    {
+      "path": "course-workspace/catalog.js",
+      "bytes": 10581,
+      "sha256": "89cbce26d26d38fd584d198782531d862e8a48e50804205dc53c74034e02664c"
+    },
+    {
+      "path": "course-workspace/catalog.json",
+      "bytes": 3394,
+      "sha256": "702729a09322ffa10bf00fabc2a66fe184d7152edbf353766053b88f20337ed3"
+    },
+    {
+      "path": "course-workspace/course-recognition.js",
+      "bytes": 8047,
+      "sha256": "0eda61d2e7b9d0014846c9243937c539639979e70efc76fc3d4657b03029b7b4"
+    },
+    {
+      "path": "course-workspace/editor.css",
+      "bytes": 7622,
+      "sha256": "33d26c542ccc284db543377a0347b70358f582c050d44842eac3f1f7e257347f"
+    },
+    {
+      "path": "course-workspace/editor.js",
+      "bytes": 30925,
+      "sha256": "f79555f65118ee04299d51fabace00ebfc8007bb6399d5cdcfb6b4962deacd36"
+    },
+    {
+      "path": "course-workspace/field-audit.js",
+      "bytes": 3574,
+      "sha256": "0b985bd4d9964e95cddb21beaab917d6f8f3bd129caaaf5d843efce6d27ebe3f"
+    },
+    {
+      "path": "course-workspace/generation-ui.js",
+      "bytes": 17980,
+      "sha256": "04cba1964ff0453eb5fd5c2a0b76045732d41c93e4a531d454b94250a67d9320"
+    },
+    {
+      "path": "course-workspace/generator.js",
+      "bytes": 6106,
+      "sha256": "6044fa7f44bbb1328bbe4380a09690394f8db9f03cd29b661b317bea6121f535"
+    },
+    {
+      "path": "course-workspace/greenbook.js",
+      "bytes": 4232,
+      "sha256": "87149e4f3ea741002235da2c49fb10ba5a91a98a68aa4fc62a56bea57cc8b6fb"
+    },
+    {
+      "path": "course-workspace/hd-map.js",
+      "bytes": 10628,
+      "sha256": "0f0d785dfd0fa5394562a154435c32695c2d59202910fc8afde342d7946c71bd"
+    },
+    {
+      "path": "course-workspace/image-editor.js",
+      "bytes": 16752,
+      "sha256": "7ff3db5168240631f98cbfd8945f89b713f1ddc606fa6e304875ad7967200b32"
+    },
+    {
+      "path": "course-workspace/image-trace-ui.js",
+      "bytes": 8837,
+      "sha256": "8d96d38ecdeb40758d5e641d0a8fc551d7c82def216bbaf354fcda474829c9a4"
+    },
+    {
+      "path": "course-workspace/image-trace.js",
+      "bytes": 5480,
+      "sha256": "9b23a47cad5223afec5cd506c8ffb126b6a3f49106d0e69d38aba148c2be0b4b"
+    },
+    {
+      "path": "course-workspace/model-recognition-ui.js",
+      "bytes": 7891,
+      "sha256": "8cca43da06f7879d95082d3edd029e4f37324ed80fd16cff8176b9c27b8b5d07"
+    },
+    {
+      "path": "course-workspace/production-ui.js",
+      "bytes": 9678,
+      "sha256": "e477b78dc9f921b1d0c30f2e3aeda9cc058dc42549fb0176b35a1b2c2f22694d"
+    },
+    {
+      "path": "course-workspace/projects.css",
+      "bytes": 2948,
+      "sha256": "ce643249f9d07d59c28cff52542686ea686b5398cad4ec03f59eab1d92968996"
+    },
+    {
+      "path": "course-workspace/projects.js",
+      "bytes": 8712,
+      "sha256": "3b8dd1544fade56b495f0ee6dbd906dff7ad10f09cda8fdf0aa9c87f5af3582f"
+    },
+    {
+      "path": "course-workspace/satellite-capture.js",
+      "bytes": 2283,
+      "sha256": "23a35fa89f22f57fda94603c8c4fa0c882ad56705123ad18e0afb2fca0b0425d"
+    },
+    {
+      "path": "course-workspace/store.js",
+      "bytes": 6788,
+      "sha256": "329382b8c48676f5ffa70a8023111a17ec18b412cd4a2255849aaa632a0138a6"
+    },
+    {
+      "path": "course-workspace/website-ui.js",
+      "bytes": 5138,
+      "sha256": "d2adfd6f68e33b2419682e0ceb72d681095e698821d42bec3e0105b55c8aaca5"
+    },
+    {
+      "path": "course-workspace/website.js",
+      "bytes": 4542,
+      "sha256": "e78ee56043bb5b3f9916ed625b24cb912a6913c409019c781036f406b1ff24ab"
+    },
+    {
+      "path": "course-workspace/workflow-ui.js",
+      "bytes": 6471,
+      "sha256": "ed24020e1d45a1931e31af35997af450254adb259566c994e114985601342a5c"
+    },
+    {
+      "path": "course-workspace/workflow.js",
+      "bytes": 3110,
+      "sha256": "777b9a796bee03840c47b216f061cd599942723479fa95823d9a63c0e44e9e30"
     },
     {
       "path": "docs/DISTRIBUTION.html",
@@ -32,6 +167,46 @@
       "path": "docs/DISTRIBUTION.md",
       "bytes": 2296,
       "sha256": "452be8516f2a44a6490ae2ed8239f3cc64fd80abfc841a34d4a761cc5f176383"
+    },
+    {
+      "path": "docs/GENERATION-EMPTY-STATE-FIX.md",
+      "bytes": 3912,
+      "sha256": "762f10b542618666ab5ff284d7801b5d31020634c8c4375108358c52654026e5"
+    },
+    {
+      "path": "docs/GENERIC-TOOL.html",
+      "bytes": 4608,
+      "sha256": "b56217abec7dba05661dd8d8f807acca32b2c643e9fd6e1975170f9af2201c83"
+    },
+    {
+      "path": "docs/GENERIC-TOOL.md",
+      "bytes": 9686,
+      "sha256": "ee3c4da1a169b2a257770ecaea28e861021bc8c1b323e3a2b861e1567e1cfed8"
+    },
+    {
+      "path": "docs/GREENBOOK-CONNECTION.md",
+      "bytes": 4500,
+      "sha256": "f98b7fd5fe8556411081ea078858529d539376ad797f47944abd01a7e8e6c177"
+    },
+    {
+      "path": "docs/HD-AND-FIELD-ACCURACY.md",
+      "bytes": 5285,
+      "sha256": "3828b662053f40238c93da22a097d5c2a892f91144baaa1bb30db3e18ddcde0b"
+    },
+    {
+      "path": "docs/LOCAL-IMAGE-RECOGNITION.md",
+      "bytes": 8433,
+      "sha256": "a8f51efd7b50633f6f111483e1ef9de7699cebe9114f644860a39c63bdd0f795"
+    },
+    {
+      "path": "docs/LOCAL-WEBSITE-INTEGRATION.md",
+      "bytes": 14750,
+      "sha256": "524a02b62804f81857094938c31033fe0edbf82acfb2149162b59b59d3695809"
+    },
+    {
+      "path": "docs/MAP-GENERATION.md",
+      "bytes": 6452,
+      "sha256": "790c7fb2f3cede3cfa4e376979d19cb785da040f11d08d8682613e327641b875"
     },
     {
       "path": "docs/QUICKSTART.html",
@@ -54,24 +229,59 @@
       "sha256": "7f87f768606dad6491911f7c5a1141199bd565f86cf0787217849bf435fe2efd"
     },
     {
+      "path": "docs/RELEASE-2026-09-17.md",
+      "bytes": 2763,
+      "sha256": "f9eee9b056945ec2a13148d32112fb903bf225845aeabf50eb5f1a169dd59f88"
+    },
+    {
+      "path": "docs/SATELLITE-ASSISTED-TRACE.md",
+      "bytes": 4642,
+      "sha256": "e3b0c70b8b829e3a256c45b8c63f859c1dd2f4bd66cd3590174f84573153e4aa"
+    },
+    {
+      "path": "docs/SIMPLE-HD-EDITOR.md",
+      "bytes": 3169,
+      "sha256": "818dce30f231df4d0124f849152ab42b5be74080723af1eedddafe4ade896716"
+    },
+    {
       "path": "docs/TECHNICAL.md",
-      "bytes": 40326,
-      "sha256": "2c0d270464569a53f0cfbf076c6fb9c83a58a96e99a2822b441b13b80294621e"
+      "bytes": 43098,
+      "sha256": "3678f4b1ed63527df9435fce27b4cf3259f9e41fc307213614a62aef76c2ebaa"
+    },
+    {
+      "path": "docs/UPDATE-2026-09-11.html",
+      "bytes": 2214,
+      "sha256": "8330d97598f3ba30b548c5407810658e906dfb6ab31909d2b2b1e4fa1978f912"
+    },
+    {
+      "path": "docs/UPDATE-2026-09-11.md",
+      "bytes": 7764,
+      "sha256": "a26dceb9367d6791601c58f4f9b1d71f40b2248a6ac4018cda402f95dc0e72f2"
+    },
+    {
+      "path": "docs/WHOLE-COURSE-RECOGNITION.md",
+      "bytes": 7659,
+      "sha256": "2320366625ee5e7173cb96d250a499e3e8be39d4baa9b98412a5b7098e6fd06a"
+    },
+    {
+      "path": "docs/WORKFLOW-AND-DELIVERY.md",
+      "bytes": 4628,
+      "sha256": "15fa574d0781952045f7fd305d62c81cd42b3bc5869146a08751fc1881710e76"
     },
     {
       "path": "docs/index.html",
-      "bytes": 49437,
-      "sha256": "0c2776a27ce1374d3b1abd6b8aa3b94234316619741c2f9422e7f20e8bf977c1"
+      "bytes": 52838,
+      "sha256": "6faf6883a640c929f246ea2f8096e5f029bbf33a1b4402ce77b7216e12172265"
     },
     {
       "path": "downloads/cn0000385-baseline-test-package.json",
       "bytes": 190048,
-      "sha256": "3cf416e4bf3502ec97d1396e2cd095dfd5800d65cac27ec807c0a11455281f9d"
+      "sha256": "383bdad2cf1f8e46b04fcf458e266d84bd3e08f14a273f39a5f4dc76cf8da01b"
     },
     {
       "path": "downloads/cn0000385-geometry.geojson",
       "bytes": 953990,
-      "sha256": "87f686c87e8c30a5114246bd4ad260b3c9e8a351bbe914497685af9c28ca0501"
+      "sha256": "4a3cd7a7c4f81851fbb2c15e5687022c1f006754e99c5b6f1475a44cae8e265a"
     },
     {
       "path": "downloads/cn0000385-points.geojson",
@@ -81,7 +291,7 @@
     {
       "path": "downloads/data-inventory.json",
       "bytes": 9931,
-      "sha256": "ababb30baba329f44a06402f0e682fabd88e8b30fedbead3c4082dc76ad5ed19"
+      "sha256": "d1f75755e622183793335abb76ca96efe6ffdd7f62d68ff56dd20ae6bddfc5ff"
     },
     {
       "path": "downloads/registration-audit.json",
@@ -105,8 +315,8 @@
     },
     {
       "path": "holemap-editor/index.html",
-      "bytes": 56238,
-      "sha256": "a8e865e6ed56db950ec3e825d9d5c42417ce0f7a878c8b396077c94461b4df80"
+      "bytes": 59113,
+      "sha256": "66412493d0121c842950974a789cb957a52020c7d875406a6219eece4eccf2bf"
     },
     {
       "path": "holemap-editor/lib/images/layers-2x.png",
@@ -180,13 +390,13 @@
     },
     {
       "path": "holemap-gps/point-workspace.js",
-      "bytes": 20037,
-      "sha256": "b28bd7832beb69a7af530ad1b06ef6d0b0a647a82a36c63a7bc365716612f0c5"
+      "bytes": 20204,
+      "sha256": "99cd492d76979ae2e1e40dd806d54953b482aa9aea67b6db89a928321c46fa8d"
     },
     {
       "path": "holemap-gps/registration.js",
-      "bytes": 12071,
-      "sha256": "7271e1ede3d2147eb473a828dda2035b5a5786afb54ac331f5c675d327ff2362"
+      "bytes": 12092,
+      "sha256": "e7ae3321935febe7a85fdcd69a0e342d943d6b02a364c84ba97bfba3bfcbd0e4"
     },
     {
       "path": "holemap-gps/vector-renderer.js",
@@ -440,8 +650,8 @@
     },
     {
       "path": "holemap-viewer/index.html",
-      "bytes": 120887,
-      "sha256": "a692f662b96cc3122a33ce74c6c7d34a330adbf5a7f9a61fa30db8b11058bb15"
+      "bytes": 120938,
+      "sha256": "4a80b39df5efe68de4be5ee695f2a2ababf839568aa4eecf8172a14fd1b4ae56"
     },
     {
       "path": "holemap-viewer/lib/images/layers-2x.png",
@@ -500,8 +710,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 4325,
-      "sha256": "1c83250f7749c759b5972427e9939fee437952f0533cd2d70a5d95564958c41b"
+      "bytes": 4664,
+      "sha256": "ff727da2d51ddd179e3e4a573db925bb9e0ca09ff4762af7b857580a20cdb0fa"
     },
     {
       "path": "kingswan/QA.md",
@@ -665,23 +875,63 @@
     },
     {
       "path": "scripts/build-delivery.cjs",
-      "bytes": 7046,
-      "sha256": "343e58cb0108c86dc4ea36ec0549c2b29c12ea808b198d16dc3b63234007cd1e"
+      "bytes": 7095,
+      "sha256": "d0701004926f18f83e3a7f10f422db0ff043f6fbf3291ed081e5c3cb2d1c3c9a"
     },
     {
       "path": "scripts/check.cjs",
-      "bytes": 1918,
-      "sha256": "47492ff6fb59b7485e4618608b9ef4f3c31b312658b769dc5e2bbab23721fa00"
+      "bytes": 2301,
+      "sha256": "6c8317aa34860bdb8ca5ba7e77a728772e1e425ade2508aa81d3e952c69fbd5b"
+    },
+    {
+      "path": "scripts/greenbook-readonly.cjs",
+      "bytes": 2419,
+      "sha256": "bebe810620590ae7cd23849fd5499fc7d45fab8688c41f9f9c1352baa0584b68"
+    },
+    {
+      "path": "scripts/install-local-website.cjs",
+      "bytes": 3394,
+      "sha256": "5ab6bd9554099cd8f62d706ade43b928ec5f719f8bf83184e46f36c68a720c60"
+    },
+    {
+      "path": "scripts/map-transport.cjs",
+      "bytes": 2185,
+      "sha256": "bf49debe3677cccda224f655e1f134ead8b1130a53ff51917723f2efe9c0b938"
+    },
+    {
+      "path": "scripts/osm-readonly.cjs",
+      "bytes": 3868,
+      "sha256": "229684a7025a5bc50dba8f1b2deae5588b69d6c479e40d40f24d0ca448ffe890"
+    },
+    {
+      "path": "scripts/recognition-local.cjs",
+      "bytes": 5479,
+      "sha256": "26d0a3fa1a8399380992d54714f83e38f72be1d2d2fc6170cf8350fed77e73ba"
+    },
+    {
+      "path": "scripts/recognition-next-route.ts",
+      "bytes": 441,
+      "sha256": "fe39f83dc60c7605fc519a51b4f9a29002201cdca0220d1e0b6f20d92a3d1d16"
+    },
+    {
+      "path": "scripts/recognition-requirements.txt",
+      "bytes": 96,
+      "sha256": "689708169c68606d87ead342b7a8929dc77d94092a1caa3d69c7c089e398822b"
+    },
+    {
+      "path": "scripts/recognition-worker.py",
+      "bytes": 8122,
+      "sha256": "0a8816e548c7076208af3aaf6ac18bc803385c81a1e0053c5f2a948cf09591b8"
     },
     {
       "path": "scripts/refresh-manifest.cjs",
-      "bytes": 1045,
-      "sha256": "7e3c504081154ec5064b0c0fb504a2dbda07c97d70037b5617a6ab8558776f23"
+      "bytes": 1094,
+      "sha256": "fddbf255802b43fc80cfdf555e376c6d9b29864a25ddcf7e727854df24e73848"
     },
     {
       "path": "scripts/serve.cjs",
-      "bytes": 2317,
-      "sha256": "5473b2884d741f74a79658041ba63c62dae8b85f929a25639cfa84ef0aca36ad"
+      "bytes": 3283,
+      "sha256": "489d8345aaa54b2b702b19d796c69f4ec1cfb0e6102e3002c6bfa8fe9e536da8"
     },
     {
       "path": "scripts/verify-manifest.cjs",
@@ -699,6 +949,26 @@
       "sha256": "755664fdde90d84075d552059032d35e25d4a80e1883b1feed4631584fdcf1b9"
     },
     {
+      "path": "tests/course-recognition-test.cjs",
+      "bytes": 5436,
+      "sha256": "dcdfbb28b9c2aa87d83079394301fc4e6ec6450cc9ddeace487c288702bde697"
+    },
+    {
+      "path": "tests/course-workspace-test.cjs",
+      "bytes": 2732,
+      "sha256": "0478f50d13016812c39d7be7d0a0d38fb890892d06474faf132618bcb62086ba"
+    },
+    {
+      "path": "tests/generation-ui-test.cjs",
+      "bytes": 7814,
+      "sha256": "20f7af7833523036196d9e0adf5c19193c8ed0dcabfabb6c00f2aaade09ab923"
+    },
+    {
+      "path": "tests/generic-project-test.cjs",
+      "bytes": 5169,
+      "sha256": "a824446380a7b104bd13de953aef8adfb389deb52e3143b54f18c9a5c1e42ad9"
+    },
+    {
       "path": "tests/golf-point-workspace-test.cjs",
       "bytes": 7531,
       "sha256": "28a9e3aecafea6d716e1e2f8910bdd6e5417dc39c145eef13448046c849676cd"
@@ -712,6 +982,56 @@
       "path": "tests/golf-registration-regression.cjs",
       "bytes": 3714,
       "sha256": "7037b6c8189527c9eb556bd56e1db3fb707667bd97a64de87c839bb62cb6d268"
+    },
+    {
+      "path": "tests/greenbook-source-test.cjs",
+      "bytes": 3988,
+      "sha256": "df570be9d508d54a6eb52336034f9e9f3c39f45c4fbd4e50234b58b630d0202a"
+    },
+    {
+      "path": "tests/hd-field-test.cjs",
+      "bytes": 4359,
+      "sha256": "432a763711877bc96de27a0f21daa427ab3cce20db163eae1962a4fc3abb77d0"
+    },
+    {
+      "path": "tests/hd-material-test.cjs",
+      "bytes": 2594,
+      "sha256": "1b4e1142a355b84b27194e94da25f79ff9fe2347f262884d6e2d1144deb2f8ae"
+    },
+    {
+      "path": "tests/image-trace-test.cjs",
+      "bytes": 3312,
+      "sha256": "10f98ae886835e86c0e2aed05858d1c544395827402977027119c27522fc604e"
+    },
+    {
+      "path": "tests/map-generation-test.cjs",
+      "bytes": 6258,
+      "sha256": "5a075875798c0c9241a7710719469c84a3fa57da71677bb40e4c8049784029bd"
+    },
+    {
+      "path": "tests/project-fixture.cjs",
+      "bytes": 1930,
+      "sha256": "f39ff1264ddba532e63cccf994e53b310d06a3a8d623730c4f46c61c364b3040"
+    },
+    {
+      "path": "tests/recognition-local-test.cjs",
+      "bytes": 1991,
+      "sha256": "56f842cc6e78807f4b73f49ef0da4e1b520ef208db45251c19dba86493fbd5a6"
+    },
+    {
+      "path": "tests/recognition-worker-test.py",
+      "bytes": 2249,
+      "sha256": "635422520b2c48550affc24dfc3a6d479a44dd11217b33e79d5558ea0760fbea"
+    },
+    {
+      "path": "tests/website-adapter-test.cjs",
+      "bytes": 4233,
+      "sha256": "14eb3dc34f576780fc44ff72807eb159f3ef3a8a3e017492ca070c7c6113f24e"
+    },
+    {
+      "path": "tests/workflow-test.cjs",
+      "bytes": 4090,
+      "sha256": "87f11354b50bd415add089a566a829a3e23fc50f641b8af86772c293b821b185"
     }
   ]
 }

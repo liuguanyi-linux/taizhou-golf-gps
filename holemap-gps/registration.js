@@ -155,7 +155,7 @@
     model.pxPerMeter = (Math.hypot(b[1], b[0]) + Math.hypot(a[1], a[0])) / (2 * Math.abs(determinant));
     model.extentGeo = [Math.min(...controls.map(p => p.coordinate[0])), Math.min(...controls.map(p => p.coordinate[1])),
       Math.max(...controls.map(p => p.coordinate[0])), Math.max(...controls.map(p => p.coordinate[1]))];
-    const declared = controls.every(p => typeof p.source === 'string' && p.source.trim() && !/default|estimated|synthetic|derived|virtual|unknown|approx/i.test(p.source));
+    const declared = controls.every(p => typeof p.source === 'string' && p.source.trim() && !/default|estimated|synthetic|derived|virtual|unknown|approx|generated|manual_map/i.test(p.source));
     model.quality = declared ? 'calibrated' : 'estimated';
     model.sources = controls.map(p => ({ id: p.id || null, source: p.source || 'unknown', declared_accuracy_m: p.accuracy_m ?? null }));
     const training = errorSummary(residuals(model, controls));

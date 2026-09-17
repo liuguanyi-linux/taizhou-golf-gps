@@ -8,6 +8,15 @@
 <link rel="stylesheet" href="lib/leaflet-geoman.css">
 <script src="lib/leaflet.js"></script>
 <script src="lib/leaflet-geoman.min.js"></script>
+<script src="../course-workspace/store.js"></script>
+<script src="../course-workspace/projects.js"></script>
+<script src="../course-workspace/website.js"></script>
+<script src="../holemap-gps/registration.js"></script>
+<script src="../course-workspace/image-editor.js"></script>
+<link rel="stylesheet" href="../course-workspace/projects.css">
+<script src="../holemap-gps/gps-core.js"></script>
+<script src="../holemap-gps/point-workspace.js"></script>
+<link rel="stylesheet" href="../course-workspace/editor.css">
 <style>
   :root{--bg:#1a2016;--pan:#232c1d;--ink:#e9efe1;--mut:#9bae89;--line:#374429;--acc:#8fc457;}
   *{box-sizing:border-box;} html,body{margin:0;height:100%;font-family:-apple-system,"PingFang SC",Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);overflow:hidden;}
@@ -216,7 +225,7 @@ function teeIcon(c){const col=TEES[c][1];return L.divIcon({className:'',iconSize
 function emojiIcon(e){return L.divIcon({className:'',iconSize:[24,24],iconAnchor:[12,12],html:`<div class="msc" style="transform-origin:50% 50%;position:relative;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:18px;text-shadow:0 1px 2px #000,0 0 3px #000">${e}<i style="position:absolute;left:12px;top:12px;width:4px;height:4px;margin:-2px 0 0 -2px;background:#ff2d2d;border:1px solid #fff;border-radius:50%;z-index:2"></i></div>`});}
 function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function newPointId(){return (typeof crypto!=='undefined'&&crypto.randomUUID)?crypto.randomUUID():`point-${Date.now()}-${Math.random().toString(16).slice(2)}`;}
-function devicePointIcon(point){const cart=point?.kind==='cart_test', name=esc(point?.name||(cart?'球车测试位置':'GPS 参考点'));
+function devicePointIcon(point){const cart=['cart','cart_test'].includes(point?.kind), name=esc(point?.name||(cart?'球车测试位置':'GPS 参考点'));
   return L.divIcon({className:'',iconSize:[130,30],iconAnchor:[12,15],html:`<div class="msc" style="display:flex;align-items:center;gap:5px;white-space:nowrap;font:700 11px/1.2 system-ui;color:#fff;text-shadow:0 1px 2px #000"><i style="width:16px;height:16px;border-radius:50%;background:${cart?'#147bd1':'#ff9f1c'};border:2px solid #fff;box-shadow:0 1px 3px #0008"></i><b style="background:#142415d9;border:1px solid #ffffff66;border-radius:4px;padding:3px 5px">${cart?'🛺 ': '📍 '}${name}</b></div>`});}
 // 发球台距离 tooltip 只在前台 viewer 显示(后台不显示)
 function styleLayer(l,t){ l._gtype=t;
@@ -262,7 +271,7 @@ Object.keys(TEES).forEach(c=>{const d=document.createElement('div');d.className=
 
 // ===== GreenBook 数据层 (原 GolfMapTool 本地 JSON / serve.py → Golf.CC 后台 API) =====
 const QS=new URLSearchParams(location.search);
-const GB=QS.get('gb')||'cn0000385';
+const GB=CourseWebsite.enabled?CourseWebsite.localID:(QS.get('gb')||'cn0000385');
 const CODEX_DRAFT=true; // 独立测试包不写入原项目后台。
 const DRAFT_GEOMETRY_URL='../holemap-data/'+encodeURIComponent(GB)+'-codex.json';
 const API='';
@@ -317,22 +326,23 @@ if(CODEX_DRAFT){
 
 // 加载球场 / 洞 (从 GreenBook 读整场球洞图 courseData)
 async function loadCourse(){ if(!GB){ toast('缺少 ?gb= 球场ID', false); return; } prog('加载球场…');
-  try{ const r=await fetch(CODEX_DRAFT?DRAFT_GEOMETRY_URL:`${API}/v1/admin/gb/venues/${GB}/holemap`,CODEX_DRAFT?{}:{headers:gbHeaders()});
+  try{ if(CourseWebsite.enabled){courseData=await CourseWebsite.load();}else if(QS.get('workspace')==='1'){courseData=await CourseStore.load(GB);}else{const r=await fetch(CODEX_DRAFT?DRAFT_GEOMETRY_URL:`${API}/v1/admin/gb/venues/${GB}/holemap`,CODEX_DRAFT?{}:{headers:gbHeaders()});
     const j=await r.json(); if(!r.ok) throw new Error((j&&j.error&&j.error.message)||('HTTP '+r.status));
     courseData=CODEX_DRAFT?j:j.data;
     // 独立的设备路线草稿只在 Codex 本地预览合并；不写入 Claude / GreenBook。
-    if(CODEX_DRAFT){try{const rr=await fetch('../holemap-data/'+encodeURIComponent(GB)+'-device-routes.json',{cache:'no-store'});if(rr.ok){const rd=await rr.json(),byHole=new Map((rd.holes||[]).map(x=>[Number(x.n),x]));courseData.holes=(courseData.holes||[]).map(h=>Object.assign(h,byHole.get(Number(h.n))||{}));}}catch(_){} }
-  }catch(e){ prog(null); toast('读取失败: '+e, false); return; }
+    if(CODEX_DRAFT){try{const rr=await fetch('../holemap-data/'+encodeURIComponent(GB)+'-device-routes.json',{cache:'no-store'});if(rr.ok){const rd=await rr.json(),byHole=new Map((rd.holes||[]).map(x=>[Number(x.n),x]));courseData.holes=(courseData.holes||[]).map(h=>Object.assign(h,byHole.get(Number(h.n))||{}));}}catch(_){} }}
+  }catch(e){ prog(null); toast('读取失败: '+e, false); if(CourseWebsite.enabled){CourseWebsite.lastError=e.message;window.dispatchEvent(new CustomEvent('website-load-error',{detail:e.message}));}return; }
   if(!courseData.holes) courseData.holes=[];
   if(courseData.center) map.setView([courseData.center[1],courseData.center[0]], courseData.zoom||16);
   const cn=document.getElementById('cname'); if(cn) cn.textContent=courseData.name||GB;
   buildHoleGrid();
-  prog(null); loadHole(courseData.holes[0]?courseData.holes[0].n:1); if(isTaizhouCourse())setVirtualDock(true);
+  prog(null); loadHole(courseData.holes.some(h=>h.n===+QS.get('hole'))?+QS.get('hole'):(courseData.holes[0]?.n||1)); if(isTaizhouCourse()&&QS.get('workspace')!=='1')setVirtualDock(true);
+  window.dispatchEvent(new Event('course-loaded'));
 }
 function clearLayers(){ map.pm.getGeomanLayers().forEach(l=>map.removeLayer(l)); }
 function loadHole(n){ curHole=n; if(ovGroup){map.removeLayer(ovGroup);ovGroup=null;} inOverview=false; document.querySelectorAll('#holegrid button').forEach(b=>b.classList.toggle('on',+b.dataset.n===n));
   clearLayers(); const h=(courseData.holes||[]).find(x=>x.n===n);
-  document.getElementById('par').value=h&&h.par||4;
+  document.getElementById('par').value=h?.par_status==='unknown'&&h.par==null?'':h&&h.par||4;
   ['black','gold','blue','white','red'].forEach(k=>document.getElementById('d_'+k).value=(h&&h.dist&&h.dist[k])||'');
   document.getElementById('ai').value=h&&h.ai||'';
   if(!h) return;
@@ -350,10 +360,11 @@ function loadHole(n){ curHole=n; if(ovGroup){map.removeLayer(ovGroup);ovGroup=nu
   ['front','mid','back'].forEach(k=>{ if(pins[k]){ const l=L.marker(C2L(pins[k]),{draggable:true,autoPan:true}).addTo(map); l._gtype='pin'; l._pin=k; l.setIcon(pinIcon(k, n)); } });   // 可直接拖动微调
   // 球车路线属于本洞：与球洞边界、Tee、果岭共用同一套 WGS84 坐标。
   if(h.cart_route&&h.cart_route.length){const l=L.polyline(h.cart_route.map(C2L),{color:'#ff7a3c',weight:3,dashArray:'2 4'}).addTo(map);l._gtype='cartroute';}
-  (h.device_points||[]).forEach(point=>{if(!point||!Array.isArray(point.coordinate))return;const l=L.marker(C2L(point.coordinate),{draggable:true,autoPan:true}).addTo(map);l._gtype='devicepoint';l._devicePoint={id:point.id||newPointId(),name:point.name||'GPS 参考点',kind:point.kind||'reference'};l.setIcon(devicePointIcon(l._devicePoint));});
+  (h.device_points||[]).forEach(point=>{if(!point||!Array.isArray(point.coordinate))return;const l=L.marker(C2L(point.coordinate),{draggable:true,autoPan:true}).addTo(map);l._gtype='devicepoint';l._devicePoint={...point,id:point.id||newPointId(),name:point.name||'GPS 参考点',kind:point.kind||'reference'};l.setIcon(devicePointIcon(l._devicePoint));});
   cartRouteReady=true;   // 本洞车道层状态已建立, collectCartRoute 此后可信地同步(含删除)
   ensureCart();
   renderList(); updateMppBR(); if(document.getElementById('app').classList.contains('virtual-open'))syncVirtualDock();
+  window.dispatchEvent(new Event('hole-loaded'));
 }
 document.getElementById('load').onclick=()=>loadCourse();
 function buildHoleGrid(){ const host=document.getElementById('holegrid'); if(!host||!courseData)return; host.innerHTML='';
@@ -374,25 +385,25 @@ function showAll(){ if(!courseData)return;
   if(pts.length) map.fitBounds(L.latLngBounds(pts.map(C2L)),{padding:[50,50],maxZoom:18});
   toast('🌐 全场全景：'+courseData.holes.filter(h=>(h.holeperim||[]).length>=3).length+' 洞有周界 · 点黄圈洞号进入编辑'); }
 document.getElementById('overview').onclick=showAll;
-document.getElementById('newhole').onclick=()=>{ saveHole(true); const mx=Math.max(0,...courseData.holes.map(h=>h.n)); const n=mx+1;
+document.getElementById('newhole').onclick=()=>{ if(courseData.holes.length>=72){toast('单个项目最多 72 洞');return;} if(saveHole(true)===false)return; const mx=Math.max(0,...courseData.holes.map(h=>h.n)); const n=mx+1;
   const blank={n,par:4,dist:{},tees:{},tee:null,flag:null,pins:{front:null,mid:null,back:null},ai:''}; Object.values(TYPES).forEach(s=>{ blank[s.key]=[]; }); courseData.holes.push(blank);
   buildHoleGrid(); loadHole(n); };
 
 // 收集本洞 → 写回 courseData
-function collectHole(){ const obj={n:curHole,par:+document.getElementById('par').value||4,
+function collectHole(){ const obj={n:curHole,par:currentHoleData()?.par_status==='unknown'&&!document.getElementById('par').value.trim()?null:+document.getElementById('par').value||4,
   dist:{}, tees:{}, tee:null, flag:null, pins:{front:null,mid:null,back:null}, device_points:[], ai:document.getElementById('ai').value.trim() };
   Object.values(TYPES).forEach(s=>{ obj[s.key]=[]; });
   ['black','gold','blue','white','red'].forEach(k=>{const v=+document.getElementById('d_'+k).value;if(v)obj.dist[k]=v;});
   map.pm.getGeomanLayers().forEach(l=>{ const t=l._gtype; if(!t||t==='cartroute')return; const s=TYPES[t];
     if(t==='pin'){ obj.pins[l._pin||'mid']=L2C(l.getLatLng()); return; }                  // 果岭旗 前/中/后
     if(t==='tee'){obj.tees[l._tee||'black']=L2C(l.getLatLng()); return;}                   // 5 色发球台各存坐标
-    if(t==='devicepoint'){const point=l._devicePoint||{};obj.device_points.push({id:point.id||newPointId(),name:point.name||'GPS 参考点',kind:point.kind||'reference',coordinate:L2C(l.getLatLng())});return;}
+    if(t==='devicepoint'){const point=l._devicePoint||{},coordinate=L2C(l.getLatLng());if(point.coordinate&&coordinate.some((v,i)=>Math.abs(v-point.coordinate[i])>1e-7)){Object.assign(point,{source:'manual_map',accuracy_m:null,updated_at:new Date().toISOString(),coordinate});}obj.device_points.push({...point,id:point.id||newPointId(),name:point.name||'GPS 参考点',kind:point.kind||'reference',coordinate});return;}
     if(t==='dist'){ obj.dists.push({pt:L2C(l.getLatLng()), y:l._dist||''}); return; }      // 距离桩 带码数
     if(s&&s.g==='marker'){ obj[s.key].push(L2C(l.getLatLng())); return; }
     if(s&&l.getLatLngs){ let ll=l.getLatLngs(); if(Array.isArray(ll[0]))ll=ll[0]; const c=ll.map(L2C);
       if(s.multi) obj[s.key].push(c); else obj[s.key]=c; }});
   obj.tee=obj.tees.black||obj.tees.gold||obj.tees.blue||obj.tees.white||obj.tees.red||null;  // 默认基准(黑优先)
-  if(!obj.pins.mid && obj.green.length){ const cx=obj.green.reduce((a,p)=>a+p[0],0)/obj.green.length, cy=obj.green.reduce((a,p)=>a+p[1],0)/obj.green.length; obj.pins.mid=[cx,cy]; }  // 中钉缺→果岭形心兜底
+  if(!obj.pins.mid && obj.green.length && QS.get('workspace')!=='1'){ const cx=obj.green.reduce((a,p)=>a+p[0],0)/obj.green.length, cy=obj.green.reduce((a,p)=>a+p[1],0)/obj.green.length; obj.pins.mid=[cx,cy]; }  // 独立工具不将几何中心冒充实测旗位
   obj.flag=obj.pins.mid||obj.pins.front||obj.pins.back||null;   // 旧 flag=中钉, 前台 viewer 兼容
   return obj; }
 function collectCartRoute(){ if(!courseData||!cartRouteReady)return;   // loadHole 还没建立车道层状态 → 不动 cart_route(防加载/竞态误清)
@@ -400,13 +411,15 @@ function collectCartRoute(){ if(!courseData||!cartRouteReady)return;   // loadHo
   const ls=map.pm.getGeomanLayers().filter(l=>l._gtype==='cartroute'&&l.getLatLngs);
   if(ls.length){ let ll=ls[0].getLatLngs(); if(Array.isArray(ll[0]))ll=ll[0]; h.cart_route=ll.map(L2C); }
   else h.cart_route=[]; }   // 已就绪且车道层不在 = 用户删了 → 持久化删除
-function saveHole(silent){ if(!courseData||inOverview)return; collectCartRoute(); const obj=collectHole();
+function saveHole(silent){ if(!courseData||inOverview)return false; collectCartRoute(); const obj=collectHole();
   const i=courseData.holes.findIndex(h=>h.n===curHole);
+  if(i>=0&&QS.get('workspace')==='1'&&['green','pins','tees'].some(k=>JSON.stringify(courseData.holes[i][k])!==JSON.stringify(obj[k])))delete courseData.holes[i].green_targets;
   if(i>=0)courseData.holes[i]=Object.assign({},courseData.holes[i],obj);   // 合并: 编辑器不认识的字段(scan_meta 等)保活, 认识的全量覆盖
   else courseData.holes.push(obj);
   // 本机 GPS 预览立即读取同一份草稿；真正交付仍以导出的 JSON / GeoJSON 为准。
   if(CODEX_DRAFT){try{const h=currentHoleData();localStorage.setItem('golfmap.gps-draft.'+GB+'.hole-'+curHole,JSON.stringify({hole_data:h}));}catch(_){}}
-  if(!silent) toast('第 '+curHole+' 洞已暂存：GPS 预览会立即读取；交付设备请导出 JSON / GeoJSON。'); }
+  if(QS.get('workspace')==='1'){try{CourseStore.save(GB,courseData);window.dispatchEvent(new Event('course-saved'));}catch(e){toast('保存失败：'+e.message,false);return false;}}
+  if(!silent) toast('第 '+curHole+' 洞已暂存：GPS 预览会立即读取；交付设备请导出 JSON / GeoJSON。'); return true; }
 document.getElementById('savehole').onclick=()=>saveHole(false);
 document.getElementById('savesrv').onclick=async()=>{ if(!courseData){toast('先加载球场');return;} if(!GB){toast('缺少球场ID',false);return;} saveHole(true); courseData.holes.sort((a,b)=>a.n-b.n);
   if(CODEX_DRAFT){toast('Codex 草稿只允许导出 JSON，不写 GreenBook',false);return;}
@@ -428,10 +441,10 @@ function renderList(){ const host=document.getElementById('flist'); if(!host)ret
     else if(t==='pin'){ const p=PINI[l._pin||'mid']; zh='果岭旗·'+p[0]; color=p[1]; }
     else if(t==='dist'){ zh='距离桩 '+(l._dist||'')+'y'; color='#222'; }
     else if(t==='cartroute'){ zh='球车行驶路线（本洞）'; color='#ff7a3c'; }
-    else if(t==='devicepoint'){ zh=(l._devicePoint?.kind==='cart_test'?'球车测试位置：':'GPS 参考点：')+(l._devicePoint?.name||'未命名'); color=l._devicePoint?.kind==='cart_test'?'#147bd1':'#ff9f1c'; }
+    else if(t==='devicepoint'){ const cart=['cart','cart_test'].includes(l._devicePoint?.kind);zh=(cart?'球车测试位置：':'GPS 参考点：')+(l._devicePoint?.name||'未命名'); color=cart?'#147bd1':'#ff9f1c'; }
     else { zh=TYPES[t]?TYPES[t].zh:t; color=(TYPES[t]&&(TYPES[t].fill||TYPES[t].color))||'#fff'; }
     const label=(TYPES[t]&&TYPES[t].multi)?zh+' #'+cnt[t]:zh;
-    const d=document.createElement('div'); d.className='feat'; d.innerHTML=`<span class="sw" style="background:${color}"></span>${label}<span class="x">✕</span>`;
+    const d=document.createElement('div'); d.className='feat'; const sw=document.createElement('span');sw.className='sw';sw.style.background=color;const name=document.createTextNode(label);const x=document.createElement('span');x.className='x';x.textContent='✕';d.append(sw,name,x);
     d.querySelector('.x').onclick=()=>{ map.removeLayer(l); renderList(); };
     host.appendChild(d); }); }
 document.getElementById('clearhole').onclick=()=>{ if(confirm('清空本洞所有标注?（含本洞球车路线）')){ map.pm.getGeomanLayers().forEach(l=>map.removeLayer(l)); const h=currentHoleData();if(h)h.cart_route=[]; renderList(); } };
@@ -532,5 +545,19 @@ map.on('click',e=>{ inspectCoordinate(e.latlng); if(!armSE||!courseData) return;
 document.querySelector('#polytypes button').classList.add('on');
 loadCourse();
 </script>
+<script src="../course-workspace/generator.js"></script>
+<script src="../course-workspace/course-recognition.js"></script>
+<script src="../course-workspace/generation-ui.js"></script>
+<script src="../course-workspace/image-trace.js"></script>
+<script src="../course-workspace/image-trace-ui.js"></script>
+<script src="../course-workspace/satellite-capture.js"></script>
+<script src="../course-workspace/model-recognition-ui.js"></script>
+<script src="../course-workspace/hd-map.js"></script>
+<script src="../course-workspace/field-audit.js"></script>
+<script src="../course-workspace/production-ui.js"></script>
+<script src="../course-workspace/workflow.js"></script>
+<script src="../course-workspace/workflow-ui.js"></script>
+<script src="../course-workspace/editor.js"></script>
+<script src="../course-workspace/website-ui.js"></script>
 </body>
 </html>

@@ -1302,7 +1302,8 @@ window.GolfPointEditor={
   (course.holes||[]).forEach(restoreGpsDraft);
   document.getElementById('cname').textContent=course.name||PARAM;
   if(course.center) map.setView([course.center[1],course.center[0]], course.zoom||16);
-  buildHoles(); selectHole(course.holes&&course.holes[0]?course.holes[0].n:1);   // 默认只显示第1洞
+  buildHoles(); selectHole(course.holes.some(h=>h.n===+QS.get('hole'))?+QS.get('hole'):(course.holes[0]?.n||1));
+  if(QS.get('edit')==='1')setEditMode(true);
   setTimeout(()=>{ try{ map.invalidateSize(); applyOrientation(); }catch(e){} }, 250);   // 布局就绪后补对正(首屏稳)
 })();
 </script>

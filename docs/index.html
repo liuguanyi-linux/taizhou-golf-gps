@@ -1,4 +1,19 @@
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>泰州 GPS 技术文档</title><style>body{max-width:1000px;margin:32px auto;padding:0 22px;color:#202d1b;background:#fafaf5;font:16px/1.8 system-ui,sans-serif}a{color:#426b24}nav{display:flex;gap:20px;flex-wrap:wrap}h1,h2,h3{line-height:1.35;margin-top:2em}code{background:#e9eddf;padding:2px 4px;border-radius:4px}pre{background:#e9eddf;padding:18px;overflow:auto;line-height:1.6}pre code{padding:0}.table{overflow:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:10px;border:1px solid #ced6c6;text-align:left}th{background:#e9eddf}@media print{nav{display:none}pre{white-space:pre-wrap}.table{overflow:visible}h2,h3{break-after:avoid}}</style></head><body><nav><a href="../index.html">返回交付首页</a><a href="index.html">技术文档</a><a href="QUICKSTART.html">操作指南</a><a href="DISTRIBUTION.html">访问与分发</a><a href="TECHNICAL.md" download>下载 Markdown 原文</a></nav><h1>高尔夫虚拟图与 GPS 点位工作台技术文档</h1>
+<h2>2026-09-17 通用工具发布补充（优先于下文历史基线）</h2>
+<p>当前公开版本为 <code>v2026.09.17-tool-preview</code>。下文 2026-09-07 章节保留泰州旧版实现说明，不应将其范围或统计直接套用到所有新项目。</p>
+<p>通用入口是 <code>cn/map/</code>，支持检索本地原站、导入项目或建立独立球场；进入 <code>holemap-editor/?gb=项目ID&amp;workspace=1</code> 同页操作。共享数据以 WGS84 <code>[longitude, latitude]</code> 为准，图片只是有控制点的显示层。编辑保存在 localStorage，图片以内容哈希保存在 IndexedDB；跨设备通过 <code>golf-project/1</code> 完整包传递。</p>
+<div class="table"><table><thead><tr><th>模块</th><th>实现与技术说明</th></tr></thead><tbody>
+<tr><td>球场检索与独立项目</td><td><code>course-workspace/catalog.js</code>、<code>store.js</code>、<code>projects.js</code>；<code>GENERIC-TOOL.md</code>、<code>GREENBOOK-CONNECTION.md</code></td></tr>
+<tr><td>地理要素候选</td><td><code>generator.js</code>、<code>course-recognition.js</code>、<code>generation-ui.js</code>；<code>MAP-GENERATION.md</code>、<code>WHOLE-COURSE-RECOGNITION.md</code></td></tr>
+<tr><td>影像辅助识别</td><td><code>image-trace.js</code>、<code>satellite-capture.js</code>、本机 Python CLIPSeg；<code>LOCAL-IMAGE-RECOGNITION.md</code></td></tr>
+<tr><td>高清制图与配准</td><td><code>hd-map.js</code>、<code>image-editor.js</code>、<code>holemap-gps/registration.js</code>；<code>HD-AND-FIELD-ACCURACY.md</code>、<code>SIMPLE-HD-EDITOR.md</code></td></tr>
+<tr><td>点位、测距、精度检查</td><td><code>editor.js</code>、<code>holemap-gps/point-workspace.js</code>、<code>field-audit.js</code>；地图数据与设备坐标使用相同坐标系，模拟不当作实测</td></tr>
+<tr><td>缺失检查与交付</td><td><code>workflow.js</code>、<code>workflow-ui.js</code>；<code>WORKFLOW-AND-DELIVERY.md</code></td></tr>
+<tr><td>本地克隆网站适配</td><td><code>website.js</code>、<code>website-ui.js</code>、<code>install-local-website.cjs</code>；<code>LOCAL-WEBSITE-INTEGRATION.md</code></td></tr>
+</tbody></table></div>
+<p>部署分三个层级：GitHub Pages 仅运行静态编辑和已提供的数据；本机 Node 启动器增加只读地图和原站查询，识别功能另需本机 Python 及模型；克隆网站集成还需原站鉴权、Go API 与数据库迁移。静态包中的安装器只安装工具资源，不自动安装或发布整个原网站后端。后台接入文档列出的 Go 接点位于本地克隆项目，本仓库不声称仅下载此 ZIP 就具备全部后台接口。</p>
+<p>9 月 16–17 日浏览器验收：泰州原站读取 18 洞 → 新建副本 → 第 1 洞 2048 px 图片 → 编辑球车、Tee 和路线 → 测距 → 保存刷新 → 下载含 18 洞、19 份图片的约 40 MB 完整包 → 文件重新导入通过。点位和配准控制点逐字段一致。大型包的文本粘贴测试超时，建议使用文件导入。原 18 张旧图未通过有效配准检查，本次仅生成第 1 洞；修改 Tee 后图片正确标记待重绘。详情见 <code>RELEASE-2026-09-17.md</code>。</p>
+<p>没有现场测量或实车定位验证。没有把自动投影残差等同绝对精度，也没有证明任意新球场仅凭名称就能自动完成所有洞。</p>
 <p>实现基线日期：2026-09-07；公开分发更新：2026-09-08。</p>
 <p>适用球场标识：<code>cn0000385</code>。</p>
 <p>适用范围：18 洞虚拟图、同页编辑、坐标校准、点位测距、GPS 预览与数据交换。</p>

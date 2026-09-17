@@ -51,7 +51,7 @@
     if (!id) errors.push(issue('missing_id', 'id', '每个点需要非空且稳定的 ID'));
     const coord = coordinate(input.coordinate);
     if (!coord) errors.push(issue('invalid_coordinate', 'coordinate', '坐标必须为 [经度, 纬度]，不能空白或超出 WGS84 范围'));
-    const kind = input.kind || 'reference';
+    const kind = input.kind === 'cart_test' ? 'cart' : (input.kind || 'reference');
     if (kind !== 'reference' && kind !== 'cart') errors.push(issue('invalid_kind', 'kind', '点类型必须是 reference 或 cart'));
     const rawAccuracy = input.accuracy_m;
     const accuracy = rawAccuracy == null || rawAccuracy === '' ? null : number(rawAccuracy);
@@ -290,6 +290,7 @@
       distance_type: DISTANCE_TYPE,
       distance_unit: 'm',
       properties: { course_id: catalog.course_id, course_name: course?.name || '',
+        ...(course?.map_generation ? {map_source:course.map_generation.source, map_status:course.map_generation.status} : {}),
         accuracy_note: 'accuracy_m is reported measurement accuracy, not coordinate decimal precision; null means unknown.',
         registration_note: 'unverified registration must be field-calibrated before reliable physical deployment.' },
       features,

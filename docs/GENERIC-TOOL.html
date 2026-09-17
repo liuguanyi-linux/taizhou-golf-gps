@@ -1,0 +1,17 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>通用球场项目工具 · 使用说明</title><style>
+body{margin:0;background:#f5f6f1;color:#223a27;font:16px/1.8 system-ui,-apple-system,"PingFang SC",sans-serif}main{max-width:860px;margin:auto;padding:40px 24px}a{color:#167645}h1{font-size:32px;line-height:1.3}h2{font-size:22px;margin-top:36px}li{margin:12px 0}aside{background:#fff4da;padding:18px;border-left:4px solid #bc8f29}nav{display:flex;gap:20px;flex-wrap:wrap}code{background:#e6eadd;padding:2px 5px}small{color:#64735e}</style></head><body><main>
+<nav><a href="../cn/map/">← 打开球场项目工具</a><a href="GENERIC-TOOL.md">完整技术文档与验收记录</a></nav>
+<small>2026-09-13 · 本地通用工具版</small><h1>换一个球场，使用同一套工具</h1><p>每个球场是一个独立项目；各洞的地图要素、虚拟图片、配准点和 GPS 数据放在一起。新增球场不需要复制网站或修改编辑器代码。</p><p><strong>新入口：球场制作流程。</strong>编辑器左上四步：补充地图 → 批量生成 → 编辑 / GPS → 交付检查。重复选择同一来源球场，优先继续已有项目；不覆盖旧编辑。<a href="WORKFLOW-AND-DELIVERY.md">持续编辑、差异和交付说明</a></p>
+<h2>以后做新球场，按这个顺序</h2><ol>
+<li><strong>先检索原网站。</strong>输入“钟山”等关键词，选择原站结果，点击“接入为独立项目并编辑”。工具自动带入原站位置和已发布逐洞数据；缺失数据明确显示待补。也可手动新建或导入 JSON/GeoJSON。</li>
+<li><strong>生成地图要素。</strong>选洞后，点击左上“读取公开地图并生成…”，确认球场边界、候选洞号与要素类型，再点“确认归属，生成矢量图 + GPS 参考点”。没有的数据可在实景地图补画；不会覆盖原有几何。<a href="MAP-GENERATION.md">生成说明与限制</a>。</li>
+<li><strong>生成或绑定图片。</strong>第二步批量生成缺少的 2K–4K 制图风格图片，自动对应源地图坐标。已有美术图片可使用“本洞图片 / 配准”上传并选同一地物配准。至少 3 个不共线点，建议 5 个以上，并留独立检验点。自动生成不提高源数据的实地精度。</li>
+<li><strong>随意放点、编辑。</strong>配准有效后，在“图片操作”选择球车、目标点、Tee 或果岭旗，直接点图。用“移动视野 / 拖动已有点”修改；路线画完后点“完成并保存路线”。</li>
+<li><strong>查看 GPS。</strong>图片左侧可模拟车道或启动实时 GPS。顶部“GPS 测距”可以选择球车 A→球车 B、球车→其他洞 Tee 等任意起终点，不需要新开网页。</li>
+<li><strong>备份与交付。</strong>第四步检查缺失、相对上次本机导出的变化和隐私，再下载完整项目包。另一个浏览器从地图页导入即可恢复图片与数据，成为独立副本。下载不等于发布到原网站或云端。</li></ol>
+<h2>放大后怎么看完整图片？</h2><p>滚轮或 ＋/− 缩放，拖空白平移，“全图”恢复完整图像。只缩放画布，左侧 GPS 与编辑控件保持可见。</p>
+<aside><strong>地图坐标准确，不等于图片已经准确配准。</strong><p>只在绿色控制点覆盖范围内转换图片坐标；范围外不猜测位置。配准残差不是实地精度。名称查询只定位球场，不能自动得到可靠逐洞划分。现场检验和客户硬件协议仍需单独验收。</p></aside>
+<h2>长期使用要注意</h2><p>本机草稿不是云端备份。图片在 IndexedDB、数据在 localStorage；清理浏览器前下载<strong>完整项目包</strong>，普通 JSON 不携带上传图片。建议始终使用同一个域名和 3034 端口。</p><p>SVG 和高清制图均依赖已有地理几何；美术图可自行上传。批量生成不覆盖已有图片，也不会伪造缺失坐标。</p>
+<h2>这次测过什么</h2><p>新建 3 洞项目、导入带图的 2 洞项目、图片放球车与拖动保存、刷新恢复、图片内车道模拟、缩放全图恢复、完整项目包导出再导入，均已实际浏览器验证。样本为明确标记的合成数据，不是实测球场。</p>
+<p>新工具目前只在本地，尚未再次推送 GitHub。3030、8088 与原站 Docker 不受影响。</p><nav><a href="../cn/map/">开始编辑 →</a><a href="GENERIC-TOOL.md">查看格式、模块与限制</a></nav>
+</main></body></html>

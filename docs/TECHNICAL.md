@@ -1,5 +1,27 @@
 # 高尔夫虚拟图与 GPS 点位工作台技术文档
 
+## 2026-09-17 通用工具发布补充（优先于下文历史基线）
+
+当前公开版本为 `v2026.09.17-tool-preview`。下文 2026-09-07 章节保留泰州旧版实现说明，不应将其范围或统计直接套用到所有新项目。
+
+通用入口是 `cn/map/`，支持检索本地原站、导入项目或建立独立球场；进入 `holemap-editor/?gb=项目ID&workspace=1` 同页操作。共享数据以 WGS84 `[longitude, latitude]` 为准，图片只是有控制点的显示层。编辑保存在 localStorage，图片以内容哈希保存在 IndexedDB；跨设备通过 `golf-project/1` 完整包传递。
+
+| 模块 | 实现与技术说明 |
+| --- | --- |
+| 球场检索与独立项目 | `course-workspace/catalog.js`、`store.js`、`projects.js`；`GENERIC-TOOL.md`、`GREENBOOK-CONNECTION.md` |
+| 地理要素候选 | `generator.js`、`course-recognition.js`、`generation-ui.js`；`MAP-GENERATION.md`、`WHOLE-COURSE-RECOGNITION.md` |
+| 影像辅助识别 | `image-trace.js`、`satellite-capture.js`、本机 Python CLIPSeg；`LOCAL-IMAGE-RECOGNITION.md` |
+| 高清制图与配准 | `hd-map.js`、`image-editor.js`、`holemap-gps/registration.js`；`HD-AND-FIELD-ACCURACY.md`、`SIMPLE-HD-EDITOR.md` |
+| 点位、测距、精度检查 | `editor.js`、`holemap-gps/point-workspace.js`、`field-audit.js`；地图数据与设备坐标使用相同坐标系，模拟不当作实测 |
+| 缺失检查与交付 | `workflow.js`、`workflow-ui.js`；`WORKFLOW-AND-DELIVERY.md` |
+| 本地克隆网站适配 | `website.js`、`website-ui.js`、`install-local-website.cjs`；`LOCAL-WEBSITE-INTEGRATION.md` |
+
+部署分三个层级：GitHub Pages 仅运行静态编辑和已提供的数据；本机 Node 启动器增加只读地图和原站查询，识别功能另需本机 Python 及模型；克隆网站集成还需原站鉴权、Go API 与数据库迁移。静态包中的安装器只安装工具资源，不自动安装或发布整个原网站后端。后台接入文档列出的 Go 接点位于本地克隆项目，本仓库不声称仅下载此 ZIP 就具备全部后台接口。
+
+9 月 16–17 日浏览器验收：泰州原站读取 18 洞 → 新建副本 → 第 1 洞 2048 px 图片 → 编辑球车、Tee 和路线 → 测距 → 保存刷新 → 下载含 18 洞、19 份图片的约 40 MB 完整包 → 文件重新导入通过。点位和配准控制点逐字段一致。大型包的文本粘贴测试超时，建议使用文件导入。原 18 张旧图未通过有效配准检查，本次仅生成第 1 洞；修改 Tee 后图片正确标记待重绘。详情见 `RELEASE-2026-09-17.md`。
+
+没有现场测量或实车定位验证。没有把自动投影残差等同绝对精度，也没有证明任意新球场仅凭名称就能自动完成所有洞。
+
 实现基线日期：2026-09-07；公开分发更新：2026-09-08。
 适用球场标识：`cn0000385`。
 适用范围：18 洞虚拟图、同页编辑、坐标校准、点位测距、GPS 预览与数据交换。

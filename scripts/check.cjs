@@ -16,5 +16,6 @@ for(const file of walk(root)){
 const base=JSON.parse(fs.readFileSync(path.join(root,'holemap-data/cn0000385-codex.json'),'utf8'));
 assert.deepEqual(base.holes.map(h=>h.n).sort((a,b)=>a-b),Array.from({length:18},(_,i)=>i+1));
 for(let n=1;n<=18;n++)assert.ok(fs.statSync(path.join(root,'holemap-hd/assets/satellite-hd-h'+n+'.jpg')).size>1000);
-for(const test of ['golf-point-workspace-test.cjs','golf-registration-regression.cjs'])cp.execFileSync(process.execPath,[path.join(root,'tests',test)],{stdio:'inherit'});
+for(const test of ['golf-point-workspace-test.cjs','golf-registration-regression.cjs','course-workspace-test.cjs','generic-project-test.cjs','greenbook-source-test.cjs','map-generation-test.cjs','course-recognition-test.cjs','generation-ui-test.cjs','image-trace-test.cjs','recognition-local-test.cjs','hd-field-test.cjs','workflow-test.cjs','website-adapter-test.cjs'])cp.execFileSync(process.execPath,[path.join(root,'tests',test)],{stdio:'inherit'});
 console.log('PASS JavaScript/HTML syntax, JSON parsing, 18-hole inventory, reference images and scoped credential/path scan. Not a comprehensive security audit or field accuracy test.');
+cp.execFileSync(process.execPath,[path.join(root,'tests/hd-material-test.cjs')],{stdio:'inherit'});

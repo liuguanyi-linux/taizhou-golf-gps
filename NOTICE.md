@@ -19,3 +19,7 @@
 新增模块使用 Leaflet 1.9.4，BSD 许可全文见 `kingswan/vendor/LICENSE-Leaflet.txt`。全场参考范围来自 OpenStreetMap way 775530696，© OpenStreetMap contributors，ODbL 1.0；保留在 baseline 中的来源信息和页面署名。在线 Esri 影像仅通过署名瓦片服务显示，没有打包瓦片或赋予额外再分发权。
 
 金沙湾文档见 `kingswan/TECHNICAL.md`；独立几何与 18 张资源测试可运行 `node --test kingswan/tests/geometry.cjs`。几何配准、控制点与实时位置均未通过现场精度验收。
+
+## 地图选场整合（2026-09-11）
+
+新增 `cn/map/` 与 `course-workspace/` 是独立地图目录和现有编辑器的扩展，保留原版编辑器及第三方库的来源声明。未复制原网站的账户、预订、人员或完整场地数据库。新版本地启动器仅代理原站 8088 的两个公开 GET 接口：球场检索与已发布球洞图；不转发 Cookie、登录令牌或后台操作。选中球场后由用户接入独立本机副本，源响应及来源信息保留在项目内，不随代码上传现场拉取的数据库内容。外部 OpenStreetMap 地名查询仅作手动备用。详细说明见 `docs/GREENBOOK-CONNECTION.md`。本次没有重做或替换已有球洞图片。

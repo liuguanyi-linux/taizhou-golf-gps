@@ -1,0 +1,124 @@
+{
+  "version": 1,
+  "courses": [
+    {
+      "id": "cn0000385",
+      "name": "泰州华侨城云海湿地高尔夫球会",
+      "center": [
+        120.0723,
+        32.6144
+      ],
+      "holes": 18,
+      "status": "已有逐洞几何和高清图 · 地理精度待核验",
+      "source": "holemap-data/cn0000385-codex.json",
+      "format": "course",
+      "routes": "holemap-data/cn0000385-device-routes.json",
+      "artwork": {
+        "1": {
+          "src": "holemap-hd/assets/hole-01-hd-concept-v1.png",
+          "width": 886,
+          "height": 1775
+        },
+        "2": {
+          "src": "holemap-hd/assets/hole-02-hd-concept-v1.png",
+          "width": 1033,
+          "height": 1522
+        },
+        "3": {
+          "src": "holemap-hd/assets/hole-03-hd-concept-v1.png",
+          "width": 1089,
+          "height": 1444
+        },
+        "4": {
+          "src": "holemap-hd/assets/hole-04-hd-concept-v1.png",
+          "width": 1199,
+          "height": 1312
+        },
+        "5": {
+          "src": "holemap-hd/assets/hole-05-hd-concept-v1.png",
+          "width": 1098,
+          "height": 1433
+        },
+        "6": {
+          "src": "holemap-hd/assets/hole-06-hd-concept-v1.png",
+          "width": 1003,
+          "height": 1568
+        },
+        "7": {
+          "src": "holemap-hd/assets/hole-07-hd-concept-v1.png",
+          "width": 1293,
+          "height": 1217
+        },
+        "8": {
+          "src": "holemap-hd/assets/hole-08-hd-concept-v1.png",
+          "width": 947,
+          "height": 1660
+        },
+        "9": {
+          "src": "holemap-hd/assets/hole-09-hd-concept-v1.png",
+          "width": 1222,
+          "height": 1287
+        },
+        "10": {
+          "src": "holemap-hd/assets/hole-10-hd-concept-v2.png",
+          "width": 1005,
+          "height": 1565
+        },
+        "11": {
+          "src": "holemap-hd/assets/hole-11-hd-concept-v2.png",
+          "width": 1060,
+          "height": 1484
+        },
+        "12": {
+          "src": "holemap-hd/assets/hole-12-hd-concept-v2.png",
+          "width": 1078,
+          "height": 1459
+        },
+        "13": {
+          "src": "holemap-hd/assets/hole-13-hd-concept-v2.png",
+          "width": 1050,
+          "height": 1498
+        },
+        "14": {
+          "src": "holemap-hd/assets/hole-14-hd-concept-v2.png",
+          "width": 1244,
+          "height": 1265
+        },
+        "15": {
+          "src": "holemap-hd/assets/hole-15-hd-concept-v2.png",
+          "width": 1103,
+          "height": 1426
+        },
+        "16": {
+          "src": "holemap-hd/assets/hole-16-hd-concept-v2.png",
+          "width": 1551,
+          "height": 1014
+        },
+        "17": {
+          "src": "holemap-hd/assets/hole-17-hd-concept-v2.png",
+          "width": 1740,
+          "height": 904
+        },
+        "18": {
+          "src": "holemap-hd/assets/hole-18-hd-concept-v2.png",
+          "width": 958,
+          "height": 1641
+        }
+      },
+      "legacy_editor": "holemap-viewer/index.html"
+    },
+    {
+      "id": "cn0000386",
+      "name": "常州金坛金沙湾乡村俱乐部",
+      "center": [
+        119.328599,
+        31.746528
+      ],
+      "holes": 18,
+      "status": "已有美术图与记分卡 · 逐洞几何待建立",
+      "source": "kingswan/baseline.js",
+      "format": "scorecard-assignment",
+      "asset_root": "kingswan/"
+    }
+  ]
+}
