@@ -1,6 +1,6 @@
 {
   "algorithm": "SHA-256",
-  "generated_at": "2026-09-17T03:23:14.655Z",
+  "generated_at": "2026-09-17T08:03:37.743Z",
   "excludes": [
     ".git",
     "hidden files",
@@ -20,8 +20,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 12656,
-      "sha256": "8392889a91ca8df36ed62f3ffda6da0178a10396fb3a639aa149d10db3e8c2fb"
+      "bytes": 13442,
+      "sha256": "103fc5b43c47610f962b5a6584d7c33bf9c1e2d2f65762381589f64db4d33a6b"
     },
     {
       "path": "cn/map/index.html",
@@ -65,8 +65,8 @@
     },
     {
       "path": "course-workspace/editor.js",
-      "bytes": 30925,
-      "sha256": "f79555f65118ee04299d51fabace00ebfc8007bb6399d5cdcfb6b4962deacd36"
+      "bytes": 34050,
+      "sha256": "d01a0b6e6c719408142e54d7cdf9c5a2cc370a43d7fe3c64717d8502da70181b"
     },
     {
       "path": "course-workspace/field-audit.js",
@@ -84,6 +84,11 @@
       "sha256": "6044fa7f44bbb1328bbe4380a09690394f8db9f03cd29b661b317bea6121f535"
     },
     {
+      "path": "course-workspace/gnss-quality.js",
+      "bytes": 4780,
+      "sha256": "4f9bb457142a664ccef65f96e8824d4140925e95c073e9cec79b3de26cc04b6e"
+    },
+    {
       "path": "course-workspace/greenbook.js",
       "bytes": 4232,
       "sha256": "87149e4f3ea741002235da2c49fb10ba5a91a98a68aa4fc62a56bea57cc8b6fb"
@@ -95,8 +100,8 @@
     },
     {
       "path": "course-workspace/image-editor.js",
-      "bytes": 16752,
-      "sha256": "7ff3db5168240631f98cbfd8945f89b713f1ddc606fa6e304875ad7967200b32"
+      "bytes": 17991,
+      "sha256": "18284aa8f2e437b1e2abdd43a60963b83b88f02248520a4ca7a00099d5ecf476"
     },
     {
       "path": "course-workspace/image-trace-ui.js",
@@ -209,6 +214,16 @@
       "sha256": "790c7fb2f3cede3cfa4e376979d19cb785da040f11d08d8682613e327641b875"
     },
     {
+      "path": "docs/PRECISION-INPUT.md",
+      "bytes": 5172,
+      "sha256": "aa436624cb97aa03600e4d11402af1cf6f9bd020fc09d36a4cc5b8a19c483581"
+    },
+    {
+      "path": "docs/PRECISION-QA-2026-09-17.md",
+      "bytes": 2335,
+      "sha256": "614ea97cf1036deea9732ea6028e3b1feabeb461852405f0f61488a834b0e67f"
+    },
+    {
       "path": "docs/QUICKSTART.html",
       "bytes": 4221,
       "sha256": "a0c9db91d420486ecfb3eaf8f29be245ccd1d9b04a48f1134751d652d540e398"
@@ -245,8 +260,8 @@
     },
     {
       "path": "docs/TECHNICAL.md",
-      "bytes": 43098,
-      "sha256": "3678f4b1ed63527df9435fce27b4cf3259f9e41fc307213614a62aef76c2ebaa"
+      "bytes": 43665,
+      "sha256": "fe36ab6aaf7dd05557fec5f3b65f3bc64478a9847460fcf18be834975612546d"
     },
     {
       "path": "docs/UPDATE-2026-09-11.html",
@@ -270,18 +285,18 @@
     },
     {
       "path": "docs/index.html",
-      "bytes": 52838,
-      "sha256": "6faf6883a640c929f246ea2f8096e5f029bbf33a1b4402ce77b7216e12172265"
+      "bytes": 53427,
+      "sha256": "6bcc04c7cf7180899d928818a4dd92e6fefb2fbca2e2690ad1db2e2d6b067e63"
     },
     {
       "path": "downloads/cn0000385-baseline-test-package.json",
       "bytes": 190048,
-      "sha256": "383bdad2cf1f8e46b04fcf458e266d84bd3e08f14a273f39a5f4dc76cf8da01b"
+      "sha256": "0b8e3ba585c4caaef86fb7c4e6659889febbeaf92bdf1ec4b149331eff24bcff"
     },
     {
       "path": "downloads/cn0000385-geometry.geojson",
       "bytes": 953990,
-      "sha256": "4a3cd7a7c4f81851fbb2c15e5687022c1f006754e99c5b6f1475a44cae8e265a"
+      "sha256": "78d9fc6f4a249c0f72092e22a47edd2507761ca37b2cde9a8dfd8bff7e0e4808"
     },
     {
       "path": "downloads/cn0000385-points.geojson",
@@ -291,7 +306,7 @@
     {
       "path": "downloads/data-inventory.json",
       "bytes": 9931,
-      "sha256": "d1f75755e622183793335abb76ca96efe6ffdd7f62d68ff56dd20ae6bddfc5ff"
+      "sha256": "af6dddffe12eb3dba0edb6ead63fc7260220ead6f37197166c6562bbfe2cc356"
     },
     {
       "path": "downloads/registration-audit.json",
@@ -315,8 +330,8 @@
     },
     {
       "path": "holemap-editor/index.html",
-      "bytes": 59113,
-      "sha256": "66412493d0121c842950974a789cb957a52020c7d875406a6219eece4eccf2bf"
+      "bytes": 59270,
+      "sha256": "f7efda505051e3c9e575595e55c2b951244fd0c56f10286215b52b58f656fe19"
     },
     {
       "path": "holemap-editor/lib/images/layers-2x.png",
@@ -390,13 +405,13 @@
     },
     {
       "path": "holemap-gps/point-workspace.js",
-      "bytes": 20204,
-      "sha256": "99cd492d76979ae2e1e40dd806d54953b482aa9aea67b6db89a928321c46fa8d"
+      "bytes": 20494,
+      "sha256": "4c68b449315bf23f3446e8c0cd5ecba4cd6afa514d401e70f89f39c9c53db906"
     },
     {
       "path": "holemap-gps/registration.js",
-      "bytes": 12092,
-      "sha256": "e7ae3321935febe7a85fdcd69a0e342d943d6b02a364c84ba97bfba3bfcbd0e4"
+      "bytes": 12971,
+      "sha256": "5e437ee50e75c07284ca212952251980c3ae70ec45c3c5b5f21c9ac2edecc343"
     },
     {
       "path": "holemap-gps/vector-renderer.js",
@@ -880,8 +895,8 @@
     },
     {
       "path": "scripts/check.cjs",
-      "bytes": 2301,
-      "sha256": "6c8317aa34860bdb8ca5ba7e77a728772e1e425ade2508aa81d3e952c69fbd5b"
+      "bytes": 2402,
+      "sha256": "27a6d4a65a216261802d9dfa6c61205ac3d969de97ca2e75465b2b55b8d1f793"
     },
     {
       "path": "scripts/greenbook-readonly.cjs",
@@ -969,6 +984,11 @@
       "sha256": "a824446380a7b104bd13de953aef8adfb389deb52e3143b54f18c9a5c1e42ad9"
     },
     {
+      "path": "tests/gnss-quality-test.cjs",
+      "bytes": 2709,
+      "sha256": "2a4b2a3c5fce0f33b1ea534dbf249d466e7f80f2e4c7c4ffa0590a109ac7772a"
+    },
+    {
       "path": "tests/golf-point-workspace-test.cjs",
       "bytes": 7531,
       "sha256": "28a9e3aecafea6d716e1e2f8910bdd6e5417dc39c145eef13448046c849676cd"
@@ -980,8 +1000,8 @@
     },
     {
       "path": "tests/golf-registration-regression.cjs",
-      "bytes": 3714,
-      "sha256": "7037b6c8189527c9eb556bd56e1db3fb707667bd97a64de87c839bb62cb6d268"
+      "bytes": 4631,
+      "sha256": "77120f7e820b6e230881436e6610f1c3b067e1540efc7686f981f187687e02e9"
     },
     {
       "path": "tests/greenbook-source-test.cjs",

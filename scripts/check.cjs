@@ -19,3 +19,4 @@ for(let n=1;n<=18;n++)assert.ok(fs.statSync(path.join(root,'holemap-hd/assets/sa
 for(const test of ['golf-point-workspace-test.cjs','golf-registration-regression.cjs','course-workspace-test.cjs','generic-project-test.cjs','greenbook-source-test.cjs','map-generation-test.cjs','course-recognition-test.cjs','generation-ui-test.cjs','image-trace-test.cjs','recognition-local-test.cjs','hd-field-test.cjs','workflow-test.cjs','website-adapter-test.cjs'])cp.execFileSync(process.execPath,[path.join(root,'tests',test)],{stdio:'inherit'});
 console.log('PASS JavaScript/HTML syntax, JSON parsing, 18-hole inventory, reference images and scoped credential/path scan. Not a comprehensive security audit or field accuracy test.');
 cp.execFileSync(process.execPath,[path.join(root,'tests/hd-material-test.cjs')],{stdio:'inherit'});
+cp.execFileSync(process.execPath,[path.join(root,'tests/gnss-quality-test.cjs')],{stdio:'inherit'});

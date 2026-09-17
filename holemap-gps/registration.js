@@ -124,6 +124,7 @@
         accuracy_statement: 'Fit and checkpoint residuals are consistency checks, not proof of absolute GPS or survey accuracy.' } };
     const fail = (reason, degenerate = false) => { model.valid = false; model.diagnostics.reason = reason; model.diagnostics.degenerate = degenerate; return model; };
     if (controls.length < 3) return fail('at_least_three_controls_required', true);
+    if (controls.length > 100) return fail('too_many_controls');
     if (controls.some(p => !p || !isPixel(p.pixel) || !isWgs84(p.coordinate) || (p.accuracy_m != null && (!finite(p.accuracy_m) || p.accuracy_m < 0)))) return fail('invalid_control');
     const uniquePixels = new Set(controls.map(p => `${p.pixel.x},${p.pixel.y}`));
     if (uniquePixels.size !== controls.length) return fail('duplicate_control_pixel', true);
@@ -169,11 +170,19 @@
     const independent = [];
     for (const p of checkpoints) {
       if (!p || !isPixel(p.pixel) || !isWgs84(p.coordinate) || !pixelToGeo(model, p.pixel, { allowExtrapolation: true })) { model.diagnostics.warnings.push('invalid_checkpoint_excluded'); continue; }
-      if (controls.some(c => (p.id && c.id === p.id) || Math.hypot(c.pixel.x - p.pixel.x, c.pixel.y - p.pixel.y) < 1e-6)) { model.diagnostics.warnings.push('checkpoint_duplicates_control_excluded'); continue; }
+      const same=c=>(p.id&&c.id===p.id)||Math.hypot(c.pixel.x-p.pixel.x,c.pixel.y-p.pixel.y)<1e-6||Math.hypot((c.coordinate[0]-p.coordinate[0])*model.meters_per_degree.lng,(c.coordinate[1]-p.coordinate[1])*model.meters_per_degree.lat)<0.01;
+      if (controls.some(same)) { model.diagnostics.warnings.push('checkpoint_duplicates_control_excluded'); continue; }
+      if (independent.some(same)) { model.diagnostics.warnings.push('duplicate_checkpoint_excluded'); continue; }
       independent.push(p);
     }
     model.diagnostics.independent = errorSummary(residuals(model, independent));
     if (!independent.length) model.diagnostics.warnings.push('no_independent_checkpoints');
+    // Withhold each control once. This exposes fragile controls, but is NOT independent field validation.
+    if (controls.length >= 5 && !options.skipLeaveOneOut) {
+      const errors=[];let excluded=0;
+      controls.forEach((p,i)=>{const sub=fit(controls.filter((_,j)=>i!==j),{...options,checkpoints:[],skipLeaveOneOut:true});if(sub.valid&&pixelToGeo(sub,p.pixel,{allowExtrapolation:true}))errors.push(...residuals(sub,[p]));else excluded++;});
+      model.diagnostics.leave_one_out={...errorSummary(errors),excluded,field_verified:false};
+    }
     model.diagnostics.warnings = [...new Set(model.diagnostics.warnings)];
     return model;
   }

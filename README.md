@@ -2,6 +2,12 @@
 
 公开开发预览 · 2026-09-17 · 通用球场制作工具（含泰州、金沙湾资料）
 
+## 发布后更新：定位质量与配准检查
+
+在线版和本分支新增 **定位质量 / RTK 接入**：新鲜度、95% 水平误差半径、RTK 固定解/差分龄期、跳变检查；高清图测距显示设备声明与历史快照标识，导出保留来源。手工改点后原设备精度声明清除。配准增加重复检验点排除与留一交叉检验。详见 [精度输入技术说明](docs/PRECISION-INPUT.md) 和 [测试记录](docs/PRECISION-QA-2026-09-17.md)。
+
+[下载最新分支完整源码与资源](https://github.com/liuguanyi-linux/taizhou-golf-gps/archive/refs/heads/codex/delivery.zip)。下方发布标签及其 ZIP 保持为优化前基线，不覆盖已发布版本。未接收真实 RTK 观测，不能宣称实地精度已经提升到厘米级。
+
 ## 当前发布：v2026.09.17-tool-preview
 
 [通用工具入口](cn/map/) · [版本说明与验收](docs/RELEASE-2026-09-17.md) · [完整技术文档](docs/TECHNICAL.md) · [下载版本](https://github.com/liuguanyi-linux/taizhou-golf-gps/releases/tag/v2026.09.17-tool-preview)

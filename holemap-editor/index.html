@@ -397,7 +397,7 @@ function collectHole(){ const obj={n:curHole,par:currentHoleData()?.par_status==
   map.pm.getGeomanLayers().forEach(l=>{ const t=l._gtype; if(!t||t==='cartroute')return; const s=TYPES[t];
     if(t==='pin'){ obj.pins[l._pin||'mid']=L2C(l.getLatLng()); return; }                  // 果岭旗 前/中/后
     if(t==='tee'){obj.tees[l._tee||'black']=L2C(l.getLatLng()); return;}                   // 5 色发球台各存坐标
-    if(t==='devicepoint'){const point=l._devicePoint||{},coordinate=L2C(l.getLatLng());if(point.coordinate&&coordinate.some((v,i)=>Math.abs(v-point.coordinate[i])>1e-7)){Object.assign(point,{source:'manual_map',accuracy_m:null,updated_at:new Date().toISOString(),coordinate});}obj.device_points.push({...point,id:point.id||newPointId(),name:point.name||'GPS 参考点',kind:point.kind||'reference',coordinate});return;}
+    if(t==='devicepoint'){const point=l._devicePoint||{},coordinate=L2C(l.getLatLng());if(point.coordinate&&coordinate.some((v,i)=>Math.abs(v-point.coordinate[i])>1e-10)){for(const k of ['accuracy_confidence','fix_type','correction_age_s','receiver'])delete point[k];Object.assign(point,{source:'manual_map',accuracy_m:null,updated_at:new Date().toISOString(),coordinate});}obj.device_points.push({...point,id:point.id||newPointId(),name:point.name||'GPS 参考点',kind:point.kind||'reference',coordinate});return;}
     if(t==='dist'){ obj.dists.push({pt:L2C(l.getLatLng()), y:l._dist||''}); return; }      // 距离桩 带码数
     if(s&&s.g==='marker'){ obj[s.key].push(L2C(l.getLatLng())); return; }
     if(s&&l.getLatLngs){ let ll=l.getLatLngs(); if(Array.isArray(ll[0]))ll=ll[0]; const c=ll.map(L2C);
@@ -554,6 +554,7 @@ loadCourse();
 <script src="../course-workspace/model-recognition-ui.js"></script>
 <script src="../course-workspace/hd-map.js"></script>
 <script src="../course-workspace/field-audit.js"></script>
+<script src="../course-workspace/gnss-quality.js"></script>
 <script src="../course-workspace/production-ui.js"></script>
 <script src="../course-workspace/workflow.js"></script>
 <script src="../course-workspace/workflow-ui.js"></script>
