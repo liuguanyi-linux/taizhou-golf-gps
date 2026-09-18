@@ -1,6 +1,6 @@
 {
   "algorithm": "SHA-256",
-  "generated_at": "2026-09-17T08:03:37.743Z",
+  "generated_at": "2026-09-18T03:10:25.644Z",
   "excludes": [
     ".git",
     "hidden files",
@@ -20,8 +20,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 13442,
-      "sha256": "103fc5b43c47610f962b5a6584d7c33bf9c1e2d2f65762381589f64db4d33a6b"
+      "bytes": 13943,
+      "sha256": "8f8985ac3fbfc40605b7f08fd4c973d01aca556639be81311d95696a468773a9"
     },
     {
       "path": "cn/map/index.html",
@@ -65,8 +65,8 @@
     },
     {
       "path": "course-workspace/editor.js",
-      "bytes": 34050,
-      "sha256": "d01a0b6e6c719408142e54d7cdf9c5a2cc370a43d7fe3c64717d8502da70181b"
+      "bytes": 33836,
+      "sha256": "9204bdaf113cf0663e832e48a309d710865fd14e3af3655fc05643fce1fed919"
     },
     {
       "path": "course-workspace/field-audit.js",
@@ -85,8 +85,13 @@
     },
     {
       "path": "course-workspace/gnss-quality.js",
-      "bytes": 4780,
-      "sha256": "4f9bb457142a664ccef65f96e8824d4140925e95c073e9cec79b3de26cc04b6e"
+      "bytes": 5320,
+      "sha256": "ea1de376e35a9844d5dafc03c4c009e0cb3a32314210ca780d4d1c7734181c33"
+    },
+    {
+      "path": "course-workspace/gnss-session.js",
+      "bytes": 2742,
+      "sha256": "fd8d2ab165edc804323c3d30cd9b89fedd4c8afc5759583894477efb0a816645"
     },
     {
       "path": "course-workspace/greenbook.js",
@@ -100,8 +105,8 @@
     },
     {
       "path": "course-workspace/image-editor.js",
-      "bytes": 17991,
-      "sha256": "18284aa8f2e437b1e2abdd43a60963b83b88f02248520a4ca7a00099d5ecf476"
+      "bytes": 17967,
+      "sha256": "2aa4ee87232b24572d303c7c8db71cd85c7547a5b0a01279966f5b70988751e6"
     },
     {
       "path": "course-workspace/image-trace-ui.js",
@@ -260,8 +265,8 @@
     },
     {
       "path": "docs/TECHNICAL.md",
-      "bytes": 43665,
-      "sha256": "fe36ab6aaf7dd05557fec5f3b65f3bc64478a9847460fcf18be834975612546d"
+      "bytes": 44269,
+      "sha256": "a320fe8051f6c87a4e86a3b5cd70aec905ebf60f33c63e1491e4d46567deec62"
     },
     {
       "path": "docs/UPDATE-2026-09-11.html",
@@ -272,6 +277,11 @@
       "path": "docs/UPDATE-2026-09-11.md",
       "bytes": 7764,
       "sha256": "a26dceb9367d6791601c58f4f9b1d71f40b2248a6ac4018cda402f95dc0e72f2"
+    },
+    {
+      "path": "docs/UPDATE-2026-09-18.md",
+      "bytes": 3414,
+      "sha256": "c841fcd4c06684bdf61b7dd15d2368c42636717c33bb425784fa449cb483b2f4"
     },
     {
       "path": "docs/WHOLE-COURSE-RECOGNITION.md",
@@ -285,18 +295,18 @@
     },
     {
       "path": "docs/index.html",
-      "bytes": 53427,
-      "sha256": "6bcc04c7cf7180899d928818a4dd92e6fefb2fbca2e2690ad1db2e2d6b067e63"
+      "bytes": 54064,
+      "sha256": "5500863880f6203f51c2fd0e7df59f2ae64dd8072c77723eab7e163d124baf2a"
     },
     {
       "path": "downloads/cn0000385-baseline-test-package.json",
       "bytes": 190048,
-      "sha256": "0b8e3ba585c4caaef86fb7c4e6659889febbeaf92bdf1ec4b149331eff24bcff"
+      "sha256": "511b5c1f237df9a385dc99b7dceb659ab01674049c9d9b93a53bbd108f9dbcd0"
     },
     {
       "path": "downloads/cn0000385-geometry.geojson",
       "bytes": 953990,
-      "sha256": "78d9fc6f4a249c0f72092e22a47edd2507761ca37b2cde9a8dfd8bff7e0e4808"
+      "sha256": "038690f2fc6cfd4df81b6239aae879258e19c35bbe39b1124373426ffff97dfb"
     },
     {
       "path": "downloads/cn0000385-points.geojson",
@@ -306,7 +316,7 @@
     {
       "path": "downloads/data-inventory.json",
       "bytes": 9931,
-      "sha256": "af6dddffe12eb3dba0edb6ead63fc7260220ead6f37197166c6562bbfe2cc356"
+      "sha256": "8da55cc57c23b38b4f42baac8d5558d0b347a89c82e3186f975c137685baabd9"
     },
     {
       "path": "downloads/registration-audit.json",
@@ -330,8 +340,8 @@
     },
     {
       "path": "holemap-editor/index.html",
-      "bytes": 59270,
-      "sha256": "f7efda505051e3c9e575595e55c2b951244fd0c56f10286215b52b58f656fe19"
+      "bytes": 59330,
+      "sha256": "064cdaa26212dc551038ca99b24f9b4994dc0382f41dd5a0914273cbe4e21eb8"
     },
     {
       "path": "holemap-editor/lib/images/layers-2x.png",
@@ -895,8 +905,8 @@
     },
     {
       "path": "scripts/check.cjs",
-      "bytes": 2402,
-      "sha256": "27a6d4a65a216261802d9dfa6c61205ac3d969de97ca2e75465b2b55b8d1f793"
+      "bytes": 2503,
+      "sha256": "07d2e601565b9749416571468dd0dea143507a126df97c3845200492427818a4"
     },
     {
       "path": "scripts/greenbook-readonly.cjs",
@@ -987,6 +997,11 @@
       "path": "tests/gnss-quality-test.cjs",
       "bytes": 2709,
       "sha256": "2a4b2a3c5fce0f33b1ea534dbf249d466e7f80f2e4c7c4ffa0590a109ac7772a"
+    },
+    {
+      "path": "tests/gnss-session-test.cjs",
+      "bytes": 3960,
+      "sha256": "55987e5826bc77520e43a7aebbd9a16efddcb9ecae6d16ae7c51b554c2bb4bd5"
     },
     {
       "path": "tests/golf-point-workspace-test.cjs",

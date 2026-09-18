@@ -42,5 +42,13 @@
     const age=now-Date.parse(p.updated_at),fresh=Number.isFinite(age)&&age>=-2000&&age<=defaults.maxAge;
     return `${p.source==='external_gnss'?'导入快照（非持续定位） · ':''}${p.fix_type==='rtk_fixed'?'RTK 固定解（设备声明）':'设备定位'} · ${fresh?'最近采集':'历史 / 过期位置'} · 水平误差半径 ${p.accuracy_m??'未知'} m${p.accuracy_confidence===0.95?'（95% 设备声明）':''} · 目标点与底图误差另计`;
   }
-  return Object.freeze({defaults,evaluate,browserSample,snapshot,describe});
+  function measurement(from,to,now=Date.now()){
+    if(!from||!to)return '';
+    const endpoint=(p,label)=>{
+      const declared=Number.isFinite(p.accuracy_m)&&p.accuracy_m>0;
+      return label+'：'+(declared?'声明水平误差 '+p.accuracy_m+' m'+(p.accuracy_confidence===0.95?'（95%）':'（置信度未知）'):'点位精度未知');
+    };
+    return [endpoint(from,'起点'),endpoint(to,'终点'),'距离为坐标计算值，测距精度未实测',describe(from,now),describe(to,now)].filter(Boolean).join('；');
+  }
+  return Object.freeze({defaults,evaluate,browserSample,snapshot,describe,measurement});
 });

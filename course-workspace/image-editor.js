@@ -28,7 +28,7 @@ root.createCourseImageEditor=function(host,api){
   // The primary distance output is live; hide the obsolete click-only readout.
   $('art-distance').hidden=true;
   let img=null,url=null,model=null,scale=1,x=0,y=0,baseScale=1,active=false,sequence=0,drag=null,route=[],hits=[],viewHole=null,followLive=false,measuredFrom=null,measuredTo=null;
-  function updateQuality(){if(active)$('art-pair-quality').textContent=[root.CourseGNSS?.describe(measuredFrom),root.CourseGNSS?.describe(measuredTo),followLive&&!api.live?.()?api.gpsStatus?.():''].filter(Boolean).join('；');}
+  function updateQuality(){if(active)$('art-pair-quality').textContent=[root.CourseGNSS?.measurement(measuredFrom,measuredTo),followLive&&!api.live?.()?api.gpsStatus?.():''].filter(Boolean).join('；');}
   const message=t=>$('art-position').textContent=t;
   const visual=()=>api.hole().visual;
   const point=e=>{const b=canvas.getBoundingClientRect();return {x:e.clientX-b.left,y:e.clientY-b.top};};

@@ -20,3 +20,4 @@ for(const test of ['golf-point-workspace-test.cjs','golf-registration-regression
 console.log('PASS JavaScript/HTML syntax, JSON parsing, 18-hole inventory, reference images and scoped credential/path scan. Not a comprehensive security audit or field accuracy test.');
 cp.execFileSync(process.execPath,[path.join(root,'tests/hd-material-test.cjs')],{stdio:'inherit'});
 cp.execFileSync(process.execPath,[path.join(root,'tests/gnss-quality-test.cjs')],{stdio:'inherit'});
+cp.execFileSync(process.execPath,[path.join(root,'tests/gnss-session-test.cjs')],{stdio:'inherit'});
