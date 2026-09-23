@@ -101,7 +101,9 @@ if(QS.get('workspace')==='1') (function(){
   $('apply-coordinate').onclick=()=>{const coord=[$('point-lng').value,$('point-lat').value].map(x=>x.trim()===''?NaN:Number(x));if(!CourseStore.valid(coord)){status('坐标无效，请填写 WGS84 经度和纬度。');return;}const p=catalog.find(p=>p.id===$('distance-from').value);if(!p||p.hole!==curHole){status('请先选择本洞的一个球车或自定义点作为起点。');return;}const h=currentHoleData(),d=h.device_points?.find(x=>x.id===p.local_id);if(!d){status('此处更新球车 / 自定义点；Tee 和果岭请直接拖动或使用原版工具。');return;}sync();putPoint(d.kind,coord,d.name,d.id,{source:'manual_coordinate',accuracy_m:null});status('所选点坐标已更新并保存。');};
   let gpsMessage='未启用设备定位。';
   function gnssOptions(){const maxAccuracy=Number($('gnss-limit').value);if(!Number.isFinite(maxAccuracy)||maxAccuracy<0.01||maxAccuracy>100)throw Error('水平误差门槛需在 0.01–100 m 之间');return {maxAccuracy};}
+  const stationarySurvey=createStationarySurveyUI(panel,{owner:()=>GB+':'+curHole,policy:gnssOptions,start:()=>$('live-start').click(),save:report=>{if(!sync())throw Error('当前项目保存失败');const h=currentHoleData();h.device_points??=[];h.device_points.push({id:crypto.randomUUID(),name:'静止采点候选（未实测认证）',kind:'reference',coordinate:report.coordinate.slice(),source:'stationary_gnss_estimate',accuracy_m:null,updated_at:new Date().toISOString(),stationary_report:structuredClone(report)});persistImageChange();}});
   const gpsSession=CourseGNSSSession.create({geolocation:navigator.geolocation,policy:gnssOptions,onChange:s=>{
+    stationarySurvey.observe(s);
     live=s.sample;gpsMessage=s.message;status(gpsMessage);
     if(live){const ll=C2L(live.coordinate);if(!liveMarker)liveMarker=L.circleMarker(ll,{radius:9,color:'#fff',fillColor:'#128bfa',fillOpacity:1,pmIgnore:true}).addTo(map).bindTooltip('设备实时 GPS');else liveMarker.setLatLng(ll);}
     else{if(liveMarker)map.removeLayer(liveMarker);liveMarker=null;}refresh();
@@ -109,7 +111,7 @@ if(QS.get('workspace')==='1') (function(){
   $('live-start').onclick=()=>{$('cartstop').click();trackingMode='gps';$('distance-from').value='live';gpsSession.start();updateDistance();};
   $('gnss-limit').onchange=()=>{gpsSession.tick();imageEditor.updateQuality();};
   let freshnessTimer=null;
-  function startFreshnessTimer(){if(freshnessTimer===null)freshnessTimer=setInterval(()=>{gpsSession.tick();imageEditor.updateQuality();},1000);}
+  function startFreshnessTimer(){if(freshnessTimer===null)freshnessTimer=setInterval(()=>{gpsSession.tick();stationarySurvey.tick();imageEditor.updateQuality();},1000);}
   startFreshnessTimer();window.addEventListener('pageshow',startFreshnessTimer);
   $('gnss-apply').onclick=()=>{try{const rows=CourseGNSS.snapshot($('gnss-input').value,currentHoleData().device_points||[],gnssOptions()),bad=rows.filter(x=>!x.quality.accepted);if(bad.length)throw Error(bad.map(x=>x.sample.id+'：'+x.quality.message).join('；'));if(!sync())throw Error('当前项目保存失败');const h=currentHoleData(),next=structuredClone(h.device_points||[]);for(const {sample} of rows){const i=next.findIndex(x=>x.id===sample.id);if(i>=0)next[i]={...next[i],...sample};else next.push(sample);}const old=h.device_points;h.device_points=next;try{persistImageChange();}catch(e){h.device_points=old;throw e;}$('gnss-status').textContent='已接入 '+rows.length+' 个设备快照，保存原始坐标及精度声明；这是快照，不是持续连接。';}catch(e){$('gnss-status').textContent='未接入：'+e.message;}};
   $('live-stop').onclick=()=>gpsSession.stop();window.addEventListener('pagehide',()=>{clearInterval(freshnessTimer);freshnessTimer=null;gpsSession.stop();});

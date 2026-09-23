@@ -1,6 +1,6 @@
 {
   "algorithm": "SHA-256",
-  "generated_at": "2026-09-23T02:59:52.950Z",
+  "generated_at": "2026-09-23T04:16:14.074Z",
   "excludes": [
     ".git",
     "hidden files",
@@ -80,8 +80,8 @@
     },
     {
       "path": "course-workspace/editor.js",
-      "bytes": 34506,
-      "sha256": "63d5adb030d22516525cf0455c705faa867843bd70f753ccfced796595b04c75"
+      "bytes": 35112,
+      "sha256": "4ab3cdce9fdc13e7561e2bb0848d179177ae6b95621451555a32657ebbf643fe"
     },
     {
       "path": "course-workspace/field-audit.js",
@@ -157,6 +157,16 @@
       "path": "course-workspace/satellite-capture.js",
       "bytes": 2283,
       "sha256": "23a35fa89f22f57fda94603c8c4fa0c882ad56705123ad18e0afb2fca0b0425d"
+    },
+    {
+      "path": "course-workspace/stationary-survey-ui.js",
+      "bytes": 5305,
+      "sha256": "e57fe0bb07eb872449043200e9adc8ec6dc43cb34caead7d39dd4dc9f898bc0d"
+    },
+    {
+      "path": "course-workspace/stationary-survey.js",
+      "bytes": 5230,
+      "sha256": "d452928c0fefe8765b9eff6a6f7c064656416a33d4c956001d02187d47a2a8c5"
     },
     {
       "path": "course-workspace/store.js",
@@ -284,9 +294,14 @@
       "sha256": "818dce30f231df4d0124f849152ab42b5be74080723af1eedddafe4ade896716"
     },
     {
+      "path": "docs/STATIONARY-SURVEY.md",
+      "bytes": 3953,
+      "sha256": "fa495b0e83863d3493d4361d4d284722d32548cf0bd43fa893fe581c50d7d2e2"
+    },
+    {
       "path": "docs/TECHNICAL.md",
-      "bytes": 44759,
-      "sha256": "f0fa8b1b67774ab58449e787f86ac426dee5642656ebc1f724a771b35fcfb7c0"
+      "bytes": 45222,
+      "sha256": "97bb8d1475c14fbd8b6e2bbb82422439060ddc5096660f19ba041cea8522e273"
     },
     {
       "path": "docs/UPDATE-2026-09-11.html",
@@ -315,18 +330,18 @@
     },
     {
       "path": "docs/index.html",
-      "bytes": 54576,
-      "sha256": "8aedd7fe157065d39f8b59116f2ebce4de84e79505d38e12a805a7c71c00b663"
+      "bytes": 55072,
+      "sha256": "770c225812242ae51d0997fa402fa8561040cc9217b02ede1f119a33c1e18981"
     },
     {
       "path": "downloads/cn0000385-baseline-test-package.json",
       "bytes": 190048,
-      "sha256": "d8e7d5962cc9d75cccac0c717101598ee9b2984885daf543424a08cfc03762f4"
+      "sha256": "c7a44d49d5e510ce5b28e5b40367b750d83c7044be524057f2a958aac9d74d68"
     },
     {
       "path": "downloads/cn0000385-geometry.geojson",
       "bytes": 953990,
-      "sha256": "1bffefc0ee73a84cf6407bea0875848c16871271200ea3231e4e7b8e25195b88"
+      "sha256": "aa5b4d792dcf291cdf5df58343a68af9214a37e3095ae018ea3261f42f83ced7"
     },
     {
       "path": "downloads/cn0000385-points.geojson",
@@ -336,7 +351,7 @@
     {
       "path": "downloads/data-inventory.json",
       "bytes": 9931,
-      "sha256": "52de789b2a731fda581d515886af78ceaf98d5cbd34f36763aa03023eb92be53"
+      "sha256": "f5e2fec69706f3f79615fa76c6065900d34a09fe5799fddde696afeca907d1db"
     },
     {
       "path": "downloads/registration-audit.json",
@@ -360,8 +375,8 @@
     },
     {
       "path": "holemap-editor/index.html",
-      "bytes": 59523,
-      "sha256": "867ee28c4a04a56223345ada66628ef2e97d9cb6732ec9dc81b034c2b0b5a3f8"
+      "bytes": 59656,
+      "sha256": "f7fd99a456b31102c14cf633e5a3d12d80d0f3eeecda4932ec898cee4a9fb517"
     },
     {
       "path": "holemap-editor/lib/images/layers-2x.png",
@@ -925,8 +940,8 @@
     },
     {
       "path": "scripts/check.cjs",
-      "bytes": 2604,
-      "sha256": "20ed62027e3069ec955d49616dea54dede279a8fd003f34f8686cabcea5d6aa5"
+      "bytes": 2710,
+      "sha256": "c5a8181526ff532cc73206d3535e583f4b1457f8275b61aa2db8f986b22aa899"
     },
     {
       "path": "scripts/greenbook-readonly.cjs",
@@ -1082,6 +1097,11 @@
       "path": "tests/recognition-worker-test.py",
       "bytes": 2249,
       "sha256": "635422520b2c48550affc24dfc3a6d479a44dd11217b33e79d5558ea0760fbea"
+    },
+    {
+      "path": "tests/stationary-survey-test.cjs",
+      "bytes": 3847,
+      "sha256": "7d1420e891ddfbcbeb835ce72dc60ebcb07783241da959420253028e93b8fe99"
     },
     {
       "path": "tests/website-adapter-test.cjs",
