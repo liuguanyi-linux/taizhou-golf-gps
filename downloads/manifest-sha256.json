@@ -1,6 +1,6 @@
 {
   "algorithm": "SHA-256",
-  "generated_at": "2026-09-18T03:10:25.644Z",
+  "generated_at": "2026-09-23T02:59:52.950Z",
   "excludes": [
     ".git",
     "hidden files",
@@ -39,6 +39,21 @@
       "sha256": "a60567c66a42b2bb52a53b0ef6b12569df31879a5d2d021c75fdddffa0411894"
     },
     {
+      "path": "course-workspace/cart-preview-core.js",
+      "bytes": 1666,
+      "sha256": "33ff7d3e7d34146640de6b90e9e5b3e9a7f700afc1d1d5a93d3f613e7d784266"
+    },
+    {
+      "path": "course-workspace/cart-preview.css",
+      "bytes": 9311,
+      "sha256": "a08edf93dbcda580efec140f39d0fa6fc2496f3b8fc51ecfbf82f0d234037a06"
+    },
+    {
+      "path": "course-workspace/cart-preview.js",
+      "bytes": 16648,
+      "sha256": "e13e159c790a4614f62faac54baec1fd782cc9e2324e6beb7b42d2237e2dce51"
+    },
+    {
       "path": "course-workspace/catalog.css",
       "bytes": 2632,
       "sha256": "74c63535bc81ab2b647ed8173afd8e1594b9fda1652ec78a69579455b6fe38c3"
@@ -65,8 +80,8 @@
     },
     {
       "path": "course-workspace/editor.js",
-      "bytes": 33836,
-      "sha256": "9204bdaf113cf0663e832e48a309d710865fd14e3af3655fc05643fce1fed919"
+      "bytes": 34506,
+      "sha256": "63d5adb030d22516525cf0455c705faa867843bd70f753ccfced796595b04c75"
     },
     {
       "path": "course-workspace/field-audit.js",
@@ -100,8 +115,8 @@
     },
     {
       "path": "course-workspace/hd-map.js",
-      "bytes": 10628,
-      "sha256": "0f0d785dfd0fa5394562a154435c32695c2d59202910fc8afde342d7946c71bd"
+      "bytes": 11529,
+      "sha256": "98d88fa769e9a63bd9570fb02283d90b73a0254724fe3f86a732b7eb02aa50b9"
     },
     {
       "path": "course-workspace/image-editor.js",
@@ -169,6 +184,11 @@
       "sha256": "777b9a796bee03840c47b216f061cd599942723479fa95823d9a63c0e44e9e30"
     },
     {
+      "path": "docs/CART-PREVIEW.md",
+      "bytes": 3655,
+      "sha256": "891f437a7899d3bc7d9e5a2d32f18605bffd7bf5d2672161ac727452cd4f7550"
+    },
+    {
       "path": "docs/DISTRIBUTION.html",
       "bytes": 3508,
       "sha256": "288bb5e2a7acd5be1910942ea108e8ff64d30dd11676521f5d26562cf6f36c1f"
@@ -230,13 +250,13 @@
     },
     {
       "path": "docs/QUICKSTART.html",
-      "bytes": 4221,
-      "sha256": "a0c9db91d420486ecfb3eaf8f29be245ccd1d9b04a48f1134751d652d540e398"
+      "bytes": 4762,
+      "sha256": "580f90c75691cbc19957c95e6dfc84d34927370909a00adfc316f26f6e9e0374"
     },
     {
       "path": "docs/QUICKSTART.md",
-      "bytes": 2977,
-      "sha256": "37071ba484e71dfd099504b82e1c23d77156d85986ec874a2b79695f603c573c"
+      "bytes": 3496,
+      "sha256": "2a6a4f6c2d6cd356df7af94a40e4fa27546390424cac72bcd4cd1c67ef9130e7"
     },
     {
       "path": "docs/RELEASE-2026-09-07.md",
@@ -265,8 +285,8 @@
     },
     {
       "path": "docs/TECHNICAL.md",
-      "bytes": 44269,
-      "sha256": "a320fe8051f6c87a4e86a3b5cd70aec905ebf60f33c63e1491e4d46567deec62"
+      "bytes": 44759,
+      "sha256": "f0fa8b1b67774ab58449e787f86ac426dee5642656ebc1f724a771b35fcfb7c0"
     },
     {
       "path": "docs/UPDATE-2026-09-11.html",
@@ -295,18 +315,18 @@
     },
     {
       "path": "docs/index.html",
-      "bytes": 54064,
-      "sha256": "5500863880f6203f51c2fd0e7df59f2ae64dd8072c77723eab7e163d124baf2a"
+      "bytes": 54576,
+      "sha256": "8aedd7fe157065d39f8b59116f2ebce4de84e79505d38e12a805a7c71c00b663"
     },
     {
       "path": "downloads/cn0000385-baseline-test-package.json",
       "bytes": 190048,
-      "sha256": "511b5c1f237df9a385dc99b7dceb659ab01674049c9d9b93a53bbd108f9dbcd0"
+      "sha256": "d8e7d5962cc9d75cccac0c717101598ee9b2984885daf543424a08cfc03762f4"
     },
     {
       "path": "downloads/cn0000385-geometry.geojson",
       "bytes": 953990,
-      "sha256": "038690f2fc6cfd4df81b6239aae879258e19c35bbe39b1124373426ffff97dfb"
+      "sha256": "1bffefc0ee73a84cf6407bea0875848c16871271200ea3231e4e7b8e25195b88"
     },
     {
       "path": "downloads/cn0000385-points.geojson",
@@ -316,7 +336,7 @@
     {
       "path": "downloads/data-inventory.json",
       "bytes": 9931,
-      "sha256": "8da55cc57c23b38b4f42baac8d5558d0b347a89c82e3186f975c137685baabd9"
+      "sha256": "52de789b2a731fda581d515886af78ceaf98d5cbd34f36763aa03023eb92be53"
     },
     {
       "path": "downloads/registration-audit.json",
@@ -340,8 +360,8 @@
     },
     {
       "path": "holemap-editor/index.html",
-      "bytes": 59330,
-      "sha256": "064cdaa26212dc551038ca99b24f9b4994dc0382f41dd5a0914273cbe4e21eb8"
+      "bytes": 59523,
+      "sha256": "867ee28c4a04a56223345ada66628ef2e97d9cb6732ec9dc81b034c2b0b5a3f8"
     },
     {
       "path": "holemap-editor/lib/images/layers-2x.png",
@@ -905,8 +925,8 @@
     },
     {
       "path": "scripts/check.cjs",
-      "bytes": 2503,
-      "sha256": "07d2e601565b9749416571468dd0dea143507a126df97c3845200492427818a4"
+      "bytes": 2604,
+      "sha256": "20ed62027e3069ec955d49616dea54dede279a8fd003f34f8686cabcea5d6aa5"
     },
     {
       "path": "scripts/greenbook-readonly.cjs",
@@ -974,6 +994,11 @@
       "sha256": "755664fdde90d84075d552059032d35e25d4a80e1883b1feed4631584fdcf1b9"
     },
     {
+      "path": "tests/cart-preview-test.cjs",
+      "bytes": 2351,
+      "sha256": "463cdee3d563c3c65cfb83176210cb85ace0b0a9ae8e44010b8ca2c02241c91f"
+    },
+    {
       "path": "tests/course-recognition-test.cjs",
       "bytes": 5436,
       "sha256": "dcdfbb28b9c2aa87d83079394301fc4e6ec6450cc9ddeace487c288702bde697"
@@ -1030,8 +1055,8 @@
     },
     {
       "path": "tests/hd-material-test.cjs",
-      "bytes": 2594,
-      "sha256": "1b4e1142a355b84b27194e94da25f79ff9fe2347f262884d6e2d1144deb2f8ae"
+      "bytes": 3115,
+      "sha256": "dc50e0417f3bf114951490ede62296aa848cf9d7feccf6e004a03dc90fbc3e55"
     },
     {
       "path": "tests/image-trace-test.cjs",

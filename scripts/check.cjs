@@ -21,3 +21,4 @@ console.log('PASS JavaScript/HTML syntax, JSON parsing, 18-hole inventory, refer
 cp.execFileSync(process.execPath,[path.join(root,'tests/hd-material-test.cjs')],{stdio:'inherit'});
 cp.execFileSync(process.execPath,[path.join(root,'tests/gnss-quality-test.cjs')],{stdio:'inherit'});
 cp.execFileSync(process.execPath,[path.join(root,'tests/gnss-session-test.cjs')],{stdio:'inherit'});
+cp.execFileSync(process.execPath,[path.join(root,'tests/cart-preview-test.cjs')],{stdio:'inherit'});

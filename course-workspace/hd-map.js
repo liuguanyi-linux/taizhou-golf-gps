@@ -36,19 +36,23 @@
     const controls=[[0,0],[width,0],[width,height],[0,height]].map(([x,y],i)=>({id:'render-'+i,pixel:{x,y},coordinate:coordinate({x,y}),source:'generated_projection',accuracy_m:null}));
     return {width,height,scale,angle,origin,items,pixel,coordinate,controls,source_signature:signature(h)};
   }
-  async function render(h,name,size){
+  async function render(h,name,size,options={}){
     h=structuredClone(h);
     const plan=layout(h,size),{width:w,height:hgt,pixel,items}=plan,c=document.createElement('canvas');c.width=w;c.height=hgt;const x=c.getContext('2d');
     const turf=await loadTurf();let turfPattern=null;if(turf){const tile=document.createElement('canvas');tile.width=tile.height=384;tile.getContext('2d').drawImage(turf,0,0,384,384);turfPattern=x.createPattern(tile,'repeat');}
-    x.fillStyle='#eee8d9';x.fillRect(0,0,w,hgt);
+    if(!options.presentation){x.fillStyle='#eee8d9';x.fillRect(0,0,w,hgt);}
     let seed=7183;const random=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};
     const colors={holeperim:['#48653b','#304b32'],rough:['#698044','#465e30'],native:['#42653a','#233f2b'],fairway:['#86ab44','#568035'],water:['#437984','#163d50'],bunkers:['#f5e4bb','#d4bc8b'],teebox:['#92b24e','#678b3e'],fringe:['#7d9d43','#587d36'],green:['#a1bf59','#7b9e40'],bridges:['#bbaa88','#9b886b'],buildings:['#d6d2c7','#a7a59c']};
+    if(options.presentation)Object.assign(colors,{holeperim:['#476334','#203a29'],fairway:['#9ac649','#62912f'],green:['#b0cf63','#81a840'],water:['#3a727c','#153e49'],bunkers:['#f9edc9','#d9c795']});
     // Reusable material tiles, not invented geographic objects. All paint is clipped
     // to the original polygon; its vertices and registration remain untouched.
     const textures=new Map();
     function material(key){if(textures.has(key))return textures.get(key);const tile=document.createElement('canvas');tile.width=tile.height=192;const t=tile.getContext('2d');
       for(let i=0;i<8500;i++){const px=random()*192,py=random()*192;t.fillStyle=i%3?'rgba(15,35,12,.10)':'rgba(240,250,206,.19)';t.fillRect(px,py,.6+random(),key==='bunkers'?.7:1+random()*2.2);}
       if(key==='water'){t.clearRect(0,0,192,192);for(let i=0;i<160;i++){const px=random()*192,py=random()*192;t.strokeStyle=i%3?'#bad5c714':'#0f32451a';t.lineWidth=.7;t.beginPath();t.moveTo(px,py);t.lineTo(px+3+random()*15,py-.5);t.stroke();}}
+      // Canopy-like material only, clipped to supplied surrounding polygons.
+      // These lobes are NOT exported as measured tree locations.
+      if(options.presentation&&['holeperim','native','rough'].includes(key))for(let i=0;i<180;i++){const px=random()*192,py=random()*192,r=3+random()*11,g=t.createRadialGradient(px-r*.3,py-r*.4,0,px,py,r);g.addColorStop(0,'#b5c75d');g.addColorStop(.42,'#657e35');g.addColorStop(1,'#223e28');t.shadowColor='#122817aa';t.shadowBlur=5;t.shadowOffsetX=2;t.shadowOffsetY=4;t.fillStyle=g;t.beginPath();t.arc(px,py,r,0,Math.PI*2);t.fill();}t.shadowBlur=t.shadowOffsetX=t.shadowOffsetY=0;
       const pattern=x.createPattern(tile,'repeat');textures.set(key,pattern);return pattern;
     }
     function path(s){x.beginPath();s.coordinates.forEach((p,i)=>{const q=pixel(p);i?x.lineTo(q.x,q.y):x.moveTo(q.x,q.y);});if(s.polygon)x.closePath();}
@@ -66,10 +70,12 @@
       x.restore();path(s);x.strokeStyle=palette[1];x.lineWidth=1;x.stroke();
     }
     for(const p of h.trees||[]){if(!R.isWgs84(p))continue;const q=pixel(p),r=Math.max(5,plan.scale*2);x.shadowColor='#10231366';x.shadowBlur=r*.7;x.shadowOffsetX=r*.3;x.shadowOffsetY=r*.5;const g=x.createRadialGradient(q.x-r/3,q.y-r/3,0,q.x,q.y,r);g.addColorStop(0,'#91a85b');g.addColorStop(.55,'#536f35');g.addColorStop(1,'#26472a');x.fillStyle=g;x.beginPath();x.arc(q.x,q.y,r,0,Math.PI*2);x.fill();x.shadowBlur=x.shadowOffsetX=x.shadowOffsetY=0;for(let i=0;i<12;i++){const a=random()*Math.PI*2,rr=random()*r*.7;x.fillStyle=i%2?'#c1cd7030':'#18372238';x.beginPath();x.arc(q.x+Math.cos(a)*rr,q.y+Math.sin(a)*rr,r*.24,0,Math.PI*2);x.fill();}}
+    if(!options.presentation){
     for(const [color,c] of Object.entries(h.tees||{})){if(!R.isWgs84(c))continue;const p=pixel(c);x.fillStyle=({black:'#25312a',gold:'#c0a044',blue:'#367aac',white:'#fffdf2',red:'#ce5144'})[color]||'#fff';x.beginPath();x.arc(p.x,p.y,7,0,Math.PI*2);x.fill();x.strokeStyle='#fffdf0';x.lineWidth=2;x.stroke();}
     x.fillStyle='#26432d';x.font='600 25px system-ui';x.fillText(String(name).slice(0,35),48,55,w-96);x.font='700 42px system-ui';x.fillText('第 '+h.n+' 洞'+(h.par_status==='unknown'||h.par==null?'':' · PAR '+h.par),48,112);
     if(h.flag){const p=pixel(h.flag);x.strokeStyle='#f4f1d7';x.lineWidth=4;x.beginPath();x.moveTo(p.x,p.y);x.lineTo(p.x,p.y-48);x.stroke();x.fillStyle='#cf483a';x.beginPath();x.moveTo(p.x,p.y-48);x.lineTo(p.x+34,p.y-35);x.lineTo(p.x,p.y-23);x.fill();}
     x.font='20px system-ui';x.fillStyle='#3c4f3b';x.fillText('坐标驱动高清制图 · 装饰纹理不代表实景 · 实地精度待核验',48,hgt-88,w-96);x.font='17px system-ui';x.fillText('© OpenStreetMap contributors（如采用 OSM 数据） · 源坐标不因渲染而改变',48,hgt-52,w-96);
+    }
     const blob=await new Promise(resolve=>c.toBlob(resolve,'image/png'));if(!blob)throw Error('高清图片生成失败');
     return {blob,visual:{width:w,height:hgt,controls:plan.controls,checkpoints:[],generator:VERSION,material:turf?'turf-material-v1':'procedural-fallback',generated_at:new Date().toISOString(),source_signature:plan.source_signature,accuracy_m:null,projection:'local-linear-wgs84',orientation:plan.angle}};
   }

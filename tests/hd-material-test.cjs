@@ -24,3 +24,7 @@ test('render snapshots geometry before asynchronous material loading',async()=>{
   const r=renderer(true),h=hole(),signature=r.api.signature(h),pending=r.api.render(h,'Test',2048);h.fairway[0][0]+=.01;
   const result=await pending;assert.equal(result.visual.source_signature,signature);
 });
+test('cart presentation preserves controls and geometry and claims no field accuracy',async()=>{
+  const r=renderer(true),h=hole(),before=JSON.stringify(h),normal=await r.api.render(h,'Test',2048),preview=await r.api.render(h,'Test',2048,{presentation:true});
+  assert.equal(JSON.stringify(normal.visual.controls),JSON.stringify(preview.visual.controls));assert.equal(preview.visual.source_signature,normal.visual.source_signature);assert.equal(preview.visual.accuracy_m,null);assert.equal(JSON.stringify(h),before);
+});
