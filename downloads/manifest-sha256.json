@@ -1,6 +1,6 @@
 {
   "algorithm": "SHA-256",
-  "generated_at": "2026-09-23T04:16:14.074Z",
+  "generated_at": "2026-09-23T09:50:09.309Z",
   "excludes": [
     ".git",
     "hidden files",
@@ -25,8 +25,8 @@
     },
     {
       "path": "cn/map/index.html",
-      "bytes": 3009,
-      "sha256": "abdf28a96281b3c574816e7401fd413f7fc248d1de74a98888b4cce6569e1b31"
+      "bytes": 3122,
+      "sha256": "580af9738bc745fadd0e7f55163cc9a0817dd23af6bcfb99d229ec773f4ad29d"
     },
     {
       "path": "course-workspace/assets/README.md",
@@ -55,8 +55,8 @@
     },
     {
       "path": "course-workspace/catalog.css",
-      "bytes": 2632,
-      "sha256": "74c63535bc81ab2b647ed8173afd8e1594b9fda1652ec78a69579455b6fe38c3"
+      "bytes": 3224,
+      "sha256": "af64c7cb7fa07a8a8b2ca5a940f7ae75c66c2f81d9c5c67c021fa1bed0e52109"
     },
     {
       "path": "course-workspace/catalog.js",
@@ -80,8 +80,8 @@
     },
     {
       "path": "course-workspace/editor.js",
-      "bytes": 35112,
-      "sha256": "4ab3cdce9fdc13e7561e2bb0848d179177ae6b95621451555a32657ebbf643fe"
+      "bytes": 35447,
+      "sha256": "fe08cb115e0c2c86c159591085d96b132a8d1398b01d08c21b33170b94ca79cb"
     },
     {
       "path": "course-workspace/field-audit.js",
@@ -120,8 +120,8 @@
     },
     {
       "path": "course-workspace/image-editor.js",
-      "bytes": 17967,
-      "sha256": "2aa4ee87232b24572d303c7c8db71cd85c7547a5b0a01279966f5b70988751e6"
+      "bytes": 18532,
+      "sha256": "810dbbadef3cb7605bd413237c66158cf7a4de444c2bcbb8a1b54ffc9ea3949e"
     },
     {
       "path": "course-workspace/image-trace-ui.js",
@@ -175,13 +175,23 @@
     },
     {
       "path": "course-workspace/website-ui.js",
-      "bytes": 5138,
-      "sha256": "d2adfd6f68e33b2419682e0ceb72d681095e698821d42bec3e0105b55c8aaca5"
+      "bytes": 5485,
+      "sha256": "be3c8516044217c06e333410d32ab7592135ee86f67536479dfe8dfd5b115347"
     },
     {
       "path": "course-workspace/website.js",
       "bytes": 4542,
       "sha256": "e78ee56043bb5b3f9916ed625b24cb912a6913c409019c781036f406b1ff24ab"
+    },
+    {
+      "path": "course-workspace/workbench.css",
+      "bytes": 4369,
+      "sha256": "00a19ac8f4e9430c6e52c969bee89057e0c9437b403cb8701d5f66a689b0e5f4"
+    },
+    {
+      "path": "course-workspace/workbench.js",
+      "bytes": 6990,
+      "sha256": "f02382d69244337489b432c1bda69e0c88e99b66b1e6e1ece2eed1e937cd544c"
     },
     {
       "path": "course-workspace/workflow-ui.js",
@@ -260,13 +270,13 @@
     },
     {
       "path": "docs/QUICKSTART.html",
-      "bytes": 4762,
-      "sha256": "580f90c75691cbc19957c95e6dfc84d34927370909a00adfc316f26f6e9e0374"
+      "bytes": 5229,
+      "sha256": "27e518c1648e0883213caa4ceb525015fb3edae430811cfe0c2a30d42ec9405c"
     },
     {
       "path": "docs/QUICKSTART.md",
-      "bytes": 3496,
-      "sha256": "2a6a4f6c2d6cd356df7af94a40e4fa27546390424cac72bcd4cd1c67ef9130e7"
+      "bytes": 3930,
+      "sha256": "06d9675e1fc2f509c04f0e9579907d767afaab97234cff5e71ca33a2caa01985"
     },
     {
       "path": "docs/RELEASE-2026-09-07.md",
@@ -300,8 +310,8 @@
     },
     {
       "path": "docs/TECHNICAL.md",
-      "bytes": 45222,
-      "sha256": "97bb8d1475c14fbd8b6e2bbb82422439060ddc5096660f19ba041cea8522e273"
+      "bytes": 45633,
+      "sha256": "9a08f76f602d8359d0fdbb1dce5b91d0ece6b1d2fe862c0d4f548f9e6476d30d"
     },
     {
       "path": "docs/UPDATE-2026-09-11.html",
@@ -324,24 +334,34 @@
       "sha256": "2320366625ee5e7173cb96d250a499e3e8be39d4baa9b98412a5b7098e6fd06a"
     },
     {
+      "path": "docs/WORKBENCH.html",
+      "bytes": 3985,
+      "sha256": "6794c0e1a694f264826b7fa91c22a12a24e55d3e3c0898e803889c4e9871a280"
+    },
+    {
+      "path": "docs/WORKBENCH.md",
+      "bytes": 2774,
+      "sha256": "954fe7ba6055656fafeab6677f419dedf6684835b06dc427bbf1d1265fb6e8ad"
+    },
+    {
       "path": "docs/WORKFLOW-AND-DELIVERY.md",
       "bytes": 4628,
       "sha256": "15fa574d0781952045f7fd305d62c81cd42b3bc5869146a08751fc1881710e76"
     },
     {
       "path": "docs/index.html",
-      "bytes": 55072,
-      "sha256": "770c225812242ae51d0997fa402fa8561040cc9217b02ede1f119a33c1e18981"
+      "bytes": 55516,
+      "sha256": "4f650832071dc89bef7e4580e48d5105a03a2aa8563b0b4d9cc9a7d4444c0078"
     },
     {
       "path": "downloads/cn0000385-baseline-test-package.json",
       "bytes": 190048,
-      "sha256": "c7a44d49d5e510ce5b28e5b40367b750d83c7044be524057f2a958aac9d74d68"
+      "sha256": "63c6659d70cd2e428f20e573e68219b0bd08facd6fc5d470bf520c478d32fb2b"
     },
     {
       "path": "downloads/cn0000385-geometry.geojson",
       "bytes": 953990,
-      "sha256": "aa5b4d792dcf291cdf5df58343a68af9214a37e3095ae018ea3261f42f83ced7"
+      "sha256": "be0f483fbf33c4a4aaa95d4ed912897b33204fe69e7ec7d44006ec31a48cb624"
     },
     {
       "path": "downloads/cn0000385-points.geojson",
@@ -351,7 +371,7 @@
     {
       "path": "downloads/data-inventory.json",
       "bytes": 9931,
-      "sha256": "f5e2fec69706f3f79615fa76c6065900d34a09fe5799fddde696afeca907d1db"
+      "sha256": "a769014ab64ac0cb60fa288c50062151535e9221515e956253c10798a8cb52cf"
     },
     {
       "path": "downloads/registration-audit.json",
@@ -375,8 +395,8 @@
     },
     {
       "path": "holemap-editor/index.html",
-      "bytes": 59656,
-      "sha256": "f7fd99a456b31102c14cf633e5a3d12d80d0f3eeecda4932ec898cee4a9fb517"
+      "bytes": 59778,
+      "sha256": "876290372e182383e441d1b2b930f1488956003b2dad043ca646eeed9d071e17"
     },
     {
       "path": "holemap-editor/lib/images/layers-2x.png",
@@ -935,13 +955,13 @@
     },
     {
       "path": "scripts/build-delivery.cjs",
-      "bytes": 7095,
-      "sha256": "d0701004926f18f83e3a7f10f422db0ff043f6fbf3291ed081e5c3cb2d1c3c9a"
+      "bytes": 7129,
+      "sha256": "5eaebdde9e40ed25edcaab94135531616d77d6a556e05d12e2598d1df3d9b164"
     },
     {
       "path": "scripts/check.cjs",
-      "bytes": 2710,
-      "sha256": "c5a8181526ff532cc73206d3535e583f4b1457f8275b61aa2db8f986b22aa899"
+      "bytes": 2808,
+      "sha256": "a10b4577003327dbdfcde646299cce924049678304cbc9add4a7884bbc1bc194"
     },
     {
       "path": "scripts/greenbook-readonly.cjs",
@@ -1107,6 +1127,11 @@
       "path": "tests/website-adapter-test.cjs",
       "bytes": 4233,
       "sha256": "14eb3dc34f576780fc44ff72807eb159f3ef3a8a3e017492ca070c7c6113f24e"
+    },
+    {
+      "path": "tests/workbench-test.cjs",
+      "bytes": 6224,
+      "sha256": "466ca0bf4c9969a922f1f9d0ea54d0fe57e62f2d25004d32f114f65c82390939"
     },
     {
       "path": "tests/workflow-test.cjs",

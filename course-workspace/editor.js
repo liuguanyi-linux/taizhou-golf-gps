@@ -7,7 +7,8 @@ if(QS.get('workspace')==='1') (function(){
   const bar=document.createElement('nav');bar.className='workspace-bar';bar.innerHTML='<a href="../cn/map/">← 地图选球场</a><strong id="workspace-title">逐洞编辑</strong><button id="mode-real" aria-pressed="true">实景地图</button><button id="mode-vector" aria-pressed="false">虚拟地图 · 可编辑</button><button id="mode-hd">高清图 / 配准编辑</button><button id="mode-gps">GPS 测距</button><button id="workspace-save">保存本机数据</button>';
   document.body.prepend(bar);
   const cartButton=document.createElement('button');cartButton.id='mode-cart';cartButton.textContent='球车预览';bar.insertBefore(cartButton,$('mode-real'));
-  function reveal(element){for(let p=element;p&&p!==document.body;p=p.parentElement)if(p.tagName==='DETAILS')p.open=true;element.scrollIntoView({block:'nearest'});}
+  let workbench=null;
+  function reveal(element){if(workbench)return workbench.reveal(element);for(let p=element;p&&p!==document.body;p=p.parentElement)if(p.tagName==='DETAILS')p.open=true;element.scrollIntoView({block:'nearest'});}
   function selectView(id){for(const key of ['mode-real','mode-vector','mode-hd'])$(key).setAttribute('aria-pressed',String(key===id));}
   const quickHole=document.createElement('select');quickHole.id='workspace-hole';quickHole.setAttribute('aria-label','当前球洞');quickHole.style.width='90px';bar.insertBefore(quickHole,$('mode-real'));quickHole.onchange=()=>{const target=+quickHole.value;if(sync())loadHole(target);};
   const copy=document.createElement('button');copy.id='workspace-copy';copy.textContent='另存副本';bar.append(copy);copy.onclick=()=>{if(!courseData||!sync())return;const id='local-'+crypto.randomUUID(),c=structuredClone(courseData);c.name+=' · 副本';CourseStore.register(id,c);location.href='?'+new URLSearchParams({gb:id,hole:String(curHole),workspace:'1'});};
@@ -152,5 +153,6 @@ if(QS.get('workspace')==='1') (function(){
   const recognitionHandler=recognitionEntry.onclick;recognitionEntry.onclick=()=>{advanced.open=true;recognitionHandler();};
   bar.insertBefore($('mode-hd'),$('mode-real'));$('hd-open').onclick=openHD;
   for(const id of ['mode-real','mode-vector']){const handler=$(id).onclick;$(id).onclick=async()=>{await handler();selectView(vector?'mode-vector':'mode-real');};}
+  workbench=createCourseWorkbench({cancel,status,resize:()=>map.invalidateSize(),endEditing:()=>{for(const method of ['disableGlobalEditMode','disableGlobalDragMode','disableGlobalRemovalMode','disableGlobalCutMode','disableGlobalRotateMode'])map.pm[method]?.();}});
   setVirtualDock(false);setSrc('esri');map.invalidateSize();if(courseData){hookLayers();refresh();zoomToHole();}
 })();

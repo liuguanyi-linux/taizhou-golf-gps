@@ -1,0 +1,57 @@
+/* App chrome never scales the map DOM or changes its projection. */
+.workbench{--pan:#20291f;--line:#3d4b38}
+.workbench .workspace-bar{gap:8px;background:#172016;padding:8px 16px;overflow:visible}
+.workbench .workspace-bar button,.workbench .workspace-bar select{font-size:13px;min-height:36px;border-radius:6px}
+.workbench .workspace-bar a{font-size:12px;flex-shrink:0}
+.workbench .workspace-bar strong{font-size:13px;display:block;min-width:40px}
+.workbench #workspace-hole{width:86px!important}
+.workbench #workbench-view{width:120px;margin:0}
+.workbench #workspace-save{background:#99c963;color:#15220e}
+.workbench #side{width:288px;flex-basis:288px;padding:0 16px 16px;position:relative}
+.workbench-tabs{display:flex;gap:4px;position:sticky;top:0;z-index:2;background:var(--pan);padding:16px 0 12px;border-bottom:1px solid var(--line)}
+.workbench-tabs button{flex:1;min-height:40px;font-size:13px;background:transparent;border:1px solid transparent}
+.workbench-tabs button[aria-pressed=true]{background:#35472c;border-color:#759356;color:#e6f3d8}
+.workbench .workbench-panels{padding-top:12px}
+.workbench .workflow-tools{border:0;padding:8px 0;margin:0}
+.workbench .workflow-tools h2{font-size:18px;margin:4px 0 12px}
+.workbench .workflow-tools p{font-size:13px;line-height:1.8}
+.workbench #flow-next{margin:18px 0 6px;min-height:44px}
+.workbench .workflow-note{display:none}
+.workbench-footer{font-size:11px;color:#b1bea7;line-height:1.7;border-top:1px solid var(--line);padding-top:16px;margin-top:24px}
+.workbench #simple-points,.workbench #simple-advanced{border:0;padding:0}
+.workbench #simple-points .workspace-tools{border:0;background:none;padding:0;margin:0}
+.workbench .workspace-tools h2{font-size:18px;margin:8px 0 12px}
+.workbench .workspace-tools label{font-size:12px}
+.workbench #workbench-add{background:#99c963;color:#15220e;min-height:42px;margin-top:8px}
+.workbench #cancel-tool{background:none;border:1px solid var(--line);margin-top:8px}
+.workbench .workbench-help{font-size:12px;color:#c8d4bf;line-height:1.7}
+.workbench-extra{border-top:1px solid var(--line);padding-top:12px;margin-top:14px}
+.workbench-extra summary{cursor:pointer;font-size:13px;line-height:1.7}
+.workbench-extra button{margin:6px 0}
+.workbench #workspace-quality{font-size:11px;line-height:1.6}
+.workbench #simple-advanced>button{margin:6px 4px}
+.workbench:not([data-workbench-panel=advanced]) .leaflet-pm-toolbar,
+.workbench:not(.workbench-drawing) .leaflet-pm-toolbar{display:none}
+.workbench #workbench-menu{display:none}
+#art-tools-toggle{display:none}
+.workbench .workbench-veil{position:fixed;inset:58px 0 0;background:#08100966;border:0;border-radius:0;z-index:1700}
+.workbench .workspace-bar button:focus-visible,.workbench select:focus-visible,.workbench-tabs button:focus-visible{outline:2px solid #c8ee9e;outline-offset:2px}
+@media(max-width:1000px){.workbench .workspace-bar{padding:8px;gap:5px}.workbench .workspace-bar strong{max-width:160px}.workbench .workspace-bar a{max-width:82px;overflow:hidden}}
+@media(max-width:700px){
+ .workbench .workspace-bar{height:104px;flex-wrap:wrap;align-content:center;gap:5px;padding:8px}
+ .workbench .workspace-bar a{max-width:none}.workbench .workspace-bar strong{max-width:none;flex:1;min-width:140px}
+ .workbench #workbench-menu{display:block;min-height:34px}
+ .workbench .workspace-bar button,.workbench .workspace-bar select{font-size:12px;padding:6px 9px;min-height:34px}
+ .workbench #workspace-hole{width:74px!important}.workbench #workbench-view{width:106px}
+ .workbench #app{height:calc(100dvh - 104px)}
+ .workbench #side{position:fixed;left:0;top:104px;bottom:0;width:min(320px,calc(100vw - 40px));z-index:1800;display:none;box-shadow:8px 0 28px #0005}
+ .workbench.workbench-side-open #side{display:block}
+ .workbench .workbench-veil{top:104px}
+ .workbench #generic-image-panel,.workbench .workspace-photo{top:104px}
+ .workbench .image-workspace{grid-template-columns:minmax(0,1fr);position:relative}
+ .workbench .image-settings{display:none;position:absolute;inset:0 auto 0 0;width:min(300px,calc(100vw - 40px));z-index:3;box-shadow:6px 0 20px #0004}
+ .workbench .image-tools-open .image-settings{display:block}
+ .workbench #art-tools-toggle{display:block}
+ .workbench .image-toolbar strong{display:none}
+ .workbench .generation-review{top:112px;bottom:8px;width:calc(100vw - 16px);right:8px;z-index:1900}
+}

@@ -15,6 +15,10 @@ root.createCourseImageEditor=function(host,api){
   <section class="image-viewport"><canvas id="art-canvas" aria-label="通用球洞图片编辑画布"></canvas></section></div>`;
   const $=id=>host.querySelector('#'+id),canvas=$('art-canvas'),ctx=canvas.getContext('2d');
   const settings=host.querySelector('.image-settings'),toolbar=host.querySelector('.image-toolbar');toolbar.querySelector('strong').textContent='高清虚拟图';$('art-return').textContent='返回地图';
+  const toolsButton=document.createElement('button');toolsButton.id='art-tools-toggle';toolsButton.textContent='点位工具';toolsButton.setAttribute('aria-expanded','false');toolbar.prepend(toolsButton);
+  const imageWorkspace=host.querySelector('.image-workspace');
+  const showTools=open=>{imageWorkspace.classList.toggle('image-tools-open',open);toolsButton.setAttribute('aria-expanded',String(open));};
+  toolsButton.onclick=()=>showTools(!imageWorkspace.classList.contains('image-tools-open'));
   const hint=settings.querySelector('p');hint.textContent='滚轮放大，拖动空白移动画面。点击按钮后，在图上放点。';
   const actions=document.createElement('div');actions.className='image-quick-actions';actions.innerHTML='<button id="art-action-pan" aria-pressed="true">移动 / 拖点</button><button id="art-action-cart" aria-pressed="false">放球车</button><button id="art-action-reference" aria-pressed="false">放目标点</button>';hint.after(actions);
   const extra=document.createElement('details');extra.className='image-extra';extra.innerHTML='<summary>更多点位 / 绘制路线</summary>';extra.append($('art-mode').parentElement,$('art-route-finish'),$('art-route-cancel'));settings.append(extra);
@@ -23,7 +27,7 @@ root.createCourseImageEditor=function(host,api){
   const registration=$('art-registration');registration.append($('art-upload').parentElement);settings.append(registration);
   const coverage=document.createElement('label');coverage.innerHTML='<input id="art-coverage" type="checkbox">显示校准范围';registration.prepend(coverage);
   function setMode(mode){if(mode==='cart'||mode==='reference')followLive=false;$('art-mode').value=mode;for(const key of ['pan','cart','reference'])$('art-action-'+key).setAttribute('aria-pressed',String(key===mode));$('art-route-finish').hidden=$('art-route-cancel').hidden=mode!=='route';message(mode==='pan'?'可拖动画面或已有点位。':mode==='cart'?'在图上点击放置球车，放下后可拖动。':mode==='reference'?'在图上点击放置目标点，放下后可拖动。':'在图上点击设置位置。');}
-  for(const key of ['pan','cart','reference'])$('art-action-'+key).onclick=()=>setMode(key);
+  for(const key of ['pan','cart','reference'])$('art-action-'+key).onclick=()=>{setMode(key);if(matchMedia('(max-width:700px)').matches)showTools(false);};
   $('art-mode').onchange=()=>setMode($('art-mode').value);$('art-route-finish').hidden=$('art-route-cancel').hidden=true;
   // The primary distance output is live; hide the obsolete click-only readout.
   $('art-distance').hidden=true;

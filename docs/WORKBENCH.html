@@ -1,0 +1,21 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>泰州 GPS 技术文档</title><style>body{max-width:1000px;margin:32px auto;padding:0 22px;color:#202d1b;background:#fafaf5;font:16px/1.8 system-ui,sans-serif}a{color:#426b24}nav{display:flex;gap:20px;flex-wrap:wrap}h1,h2,h3{line-height:1.35;margin-top:2em}code{background:#e9eddf;padding:2px 4px;border-radius:4px}pre{background:#e9eddf;padding:18px;overflow:auto;line-height:1.6}pre code{padding:0}.table{overflow:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:10px;border:1px solid #ced6c6;text-align:left}th{background:#e9eddf}@media print{nav{display:none}pre{white-space:pre-wrap}.table{overflow:visible}h2,h3{break-after:avoid}}</style></head><body><nav><a href="../index.html">返回交付首页</a><a href="index.html">技术文档</a><a href="QUICKSTART.html">操作指南</a><a href="DISTRIBUTION.html">访问与分发</a><a href="TECHNICAL.md" download>下载 Markdown 原文</a></nav><h1>简洁工作台</h1>
+<p>这是现有网页工具的统一操作界面，不是独立安装的桌面软件。不修改项目格式、WGS84 坐标、GPS 质量门槛或原站数据。</p>
+<h2>日常操作</h2>
+<ul>
+<li>在 <code>cn/map/</code> 搜索球场，打开已有项目，选择球洞。</li>
+<li>左侧“制作”只保留一个下一步按钮，按数据状态提示补地图、生成图片或打开图片。缺少地物时仍需要核对和补绘，不能仅凭球场名字生成可靠实测数据。</li>
+<li>“放点测距”中选择球车、目标点、果岭旗或球车路线，点击“在图上放置 / 绘制”，再点击地图。点位可拖动；选择起点和终点查看直线距离。</li>
+<li>顶部下拉菜单切换卫星地图、高清虚拟图和矢量地图；“预览”打开球车界面，“保存”保存本机数据，“导出”检查后下载包含图片的完整项目包。</li>
+<li>手机上点“工具”展开主侧栏；高清图上点“点位工具”展开图片编辑。放点时自动收起侧栏，地图不会被永久挤窄。滚轮缩放和“全图”保留。</li>
+</ul>
+<h2>高级功能在哪里</h2>
+<ul>
+<li>“高级”：点线面编辑、生成参数、批量生成、候选识别、项目管理。开启“地图点线面编辑”才显示地图绘图工具栏。</li>
+<li>“放点测距 → 坐标与定位高级设置”：精确经纬度输入、RTK、多车快照、静止采点、数据节点和单项导出。</li>
+<li>高清图中的“坐标校准（高级）”：图片上传、对应点、独立检查点。</li>
+<li>网站集成模式的“高级 → 网站后台保存 / 发布”：原有显式草稿保存和发布确认仍保留，普通“保存”不会自动发布。</li>
+</ul>
+<p>已有项目、按钮内部 ID、处理函数和数据格式保持兼容。界面只重新组织原有节点，不复制数据模型或另建定位状态。切换工作区会结束绘图和编辑模式，避免遗留的删除/拖动模式影响下次放点。</p>
+<h2>验证范围</h2>
+<p>工作台 DOM 合约测试覆盖原操作处理函数保留、单一面板、放点分派、高级入口定位及视图切换。浏览器另行验证桌面/手机布局、保存刷新、同坐标测距、设备预览和导出。所有界面测试不等于实地 GPS 精度验收。</p>
+<p>2026-09-23 本地验收：4 项新增合约测试与原有回归通过。独立测试项目从球场列表进入编辑；新增点保存刷新后坐标一致，距离仍为 177.4 m（仅测试数据）；三节点测试路线保存刷新一致；矢量/高清视图和球车预览可打开；交付包生成并发起下载。390 × 844 视口下，放点后主侧栏收起，地图宽度为 390 px。最后一轮浏览器检查无新增脚本错误。没有向原站发布、没有改变实际球场测绘数据，也没有进行现场精度验收。</p></body></html>
