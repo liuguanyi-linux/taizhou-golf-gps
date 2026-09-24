@@ -74,8 +74,8 @@ if(QS.get('workspace')==='1') (function(){
     updateDistance();styleScene();generation.refresh();production.refresh();workflow.refresh();
   }
   function styleScene(){if(vector&&!Object.values(TYPES).some(t=>t.g!=='marker'&&currentHoleData()?.[t.key]?.length)){vector=false;$('mode-real').setAttribute('aria-pressed','true');$('mode-vector').setAttribute('aria-pressed','false');}document.body.classList.toggle('vector-scene',vector);for(const l of map.pm.getGeomanLayers()){const s=TYPES[l._gtype];if(l.setStyle&&s?.fill)l.setStyle({fillOpacity:vector?0.93:0.45});}}
-  function cancel(){imageTrace?.cancel();modelRecognition?.cancel();place=null;map.pm.disableDraw();map.getContainer().style.cursor='';status('已结束放点。可拖动已有标记，或使用左侧原版编辑工具。');}
-  function arm(kind){cancel();place=kind;map.getContainer().style.cursor='crosshair';status(kind==='pin'?'点击地图设置当前洞果岭中旗。':'点击地图放置'+(kind==='cart_test'?'球车':'自定义目标')+'；放下后可直接拖动。');}
+  function cancel(){imageTrace?.cancel();modelRecognition?.cancel();place=null;map.pm.disableDraw();workbench?.setTask('');map.getContainer().style.cursor='';status('已结束操作；未完成的绘制不保存，已有点线保留。');}
+  function arm(kind){cancel();place=kind;map.getContainer().style.cursor='crosshair';const message=kind==='pin'?'点击地图设置当前洞果岭中旗。':'点击地图放置'+(kind==='cart_test'?'球车':'自定义目标')+'；放下后可直接拖动。';status(message);workbench?.setTask(message);}
   function putPoint(kind,coord,name,id,meta={}){
     const h=currentHoleData();if(!h)return;const existing=(h.device_points||[]).find(p=>p.id===id);
     if(existing){existing.coordinate=coord;for(const k of ['accuracy_confidence','fix_type','correction_age_s','receiver'])delete existing[k];Object.assign(existing,{source:'manual_map',accuracy_m:null,updated_at:new Date().toISOString()},meta);}
@@ -85,7 +85,7 @@ if(QS.get('workspace')==='1') (function(){
     const p=catalog.find(p=>p.local_id===(id||h.device_points.at(-1).id)&&p.hole===curHole);if(p)$('distance-from').value=p.id;updateDistance();
   }
   $('place-cart').onclick=()=>arm('cart_test');$('place-point').onclick=()=>arm('reference');$('place-pin').onclick=()=>arm('pin');$('cancel-tool').onclick=cancel;
-  $('draw-route').onclick=()=>{cancel();curType='cartroute';map.pm.enableDraw('Line');status('沿真实球车道依次点击，点击最后一个节点完成；不会使用球道中线代替车道。');};
+  $('draw-route').onclick=()=>{cancel();curType='cartroute';map.pm.enableDraw('Line');const message='沿球车道依次点击；再点最后一个节点完成。取消不会保存未完成路线。';status(message);workbench?.setTask(message);};
   map.on('click',e=>{if(!place)return;const kind=place;cancel();sync();const c=[e.latlng.lng,e.latlng.lat];if(kind==='pin'){const h=currentHoleData();h.pins={...h.pins,mid:c};h.flag=c;CourseStore.save(GB,courseData);localStorage.setItem('golfmap.gps-draft.'+GB+'.hole-'+curHole,JSON.stringify({hole_data:h}));loadHole(curHole);refresh();}else putPoint(kind,c,$('point-name').value.trim()||(kind==='cart_test'?'球车 '+((currentHoleData().device_points||[]).length+1):'自定义目标'));status('已放置并保存本机草稿。');});
   $('mode-real').onclick=async()=>{await closePhoto();vector=false;styleScene();$('mode-real').setAttribute('aria-pressed','true');$('mode-vector').setAttribute('aria-pressed','false');};
   $('mode-vector').onclick=async()=>{await closePhoto();const h=currentHoleData();if(!h||!Object.values(TYPES).some(t=>t.g!=='marker'&&h[t.key]?.length)){vector=false;styleScene();$('mode-real').setAttribute('aria-pressed','true');$('mode-vector').setAttribute('aria-pressed','false');generation.open();status('本洞还没有地图要素。请从左上“生成虚拟图与 GPS 数据”读取地图或在实景上绘制；暂保留卫星图。');return;}vector=true;styleScene();$('mode-real').setAttribute('aria-pressed','false');$('mode-vector').setAttribute('aria-pressed','true');zoomToHole();};
@@ -134,7 +134,8 @@ if(QS.get('workspace')==='1') (function(){
   };
   function hookLayers(){if(cartMarker){routePosition={coordinate:L2C(cartMarker.getLatLng())};if(!cartMarker._workspaceHooked){cartMarker._workspaceHooked=true;cartMarker.on('move',()=>{routePosition={coordinate:L2C(cartMarker.getLatLng())};if($('distance-from').value==='route-live')updateDistance();});}}else routePosition=null;for(const l of map.pm.getGeomanLayers()){if(l._workspaceHooked)continue;l._workspaceHooked=true;l.on('dragend pm:edit pm:dragend',()=>{clearTimeout(saveTimer);saveTimer=setTimeout(sync,100);});}}
   window.addEventListener('hole-loaded',()=>{const url=new URL(location.href);url.searchParams.set('hole',String(curHole));history.replaceState(null,'',url);cancel();hookLayers();refresh();if(!restoring)zoomToHole();});window.addEventListener('course-loaded',()=>{zoomToHole();hookLayers();refresh();});
-  map.on('pm:create pm:remove',()=>{hookLayers();clearTimeout(saveTimer);saveTimer=setTimeout(sync,100);});
+  map.on('pm:create pm:remove',e=>{hookLayers();clearTimeout(saveTimer);saveTimer=setTimeout(()=>{if(sync()&&e.type==='pm:create'&&e.layer?._gtype==='cartroute')status('球车路线已完成并保存到本机。');},100);});
+  map.on('pm:drawend',()=>workbench?.setTask(''));
   // Existing source controls remain available; map state is never CSS-scaled.
   imageTrace=createImageTraceUI($('side'),{map,course:()=>courseData,hole:()=>currentHoleData(),provider:()=>curSrc,layer:()=>baseLayers[curSrc],sync,begin:async()=>{cancel();armSE=null;stopCart(false);if(!sync())throw Error('请先处理当前保存错误');imageEditor.close();mapPick=null;await $('mode-real').onclick();},apply:async c=>{CourseStore.validate(c);CourseStore.save(GB,c);for(const h of c.holes)localStorage.setItem('golfmap.gps-draft.'+GB+'.hole-'+h.n,JSON.stringify({hole_data:h}));courseData=c;restoring=true;loadHole(curHole);restoring=false;refresh();}});
   const modelOptions=document.createElement('details');modelOptions.id='model-options';modelOptions.innerHTML='<summary>AI 卫星识别（试验功能，结果需核对）</summary>';document.querySelector('.workflow-tools').after(modelOptions);
@@ -149,7 +150,7 @@ if(QS.get('workspace')==='1') (function(){
   const advanced=document.createElement('details');advanced.id='simple-advanced';advanced.className='workflow-advanced';advanced.innerHTML='<summary>更多工具</summary>';const workflowBox=document.querySelector('.workflow-tools');for(const el of [...$('side').children])if(el!==workflowBox&&el!==$('simple-points'))advanced.append(el);
   advanced.prepend(copy,$('mode-vector'),$('mode-gps'));advanced.append(recognitionEntry,modelEntry);
   $('side').replaceChildren(workflowBox,$('simple-points'),editDetails,advanced);
-  for(const b of [recognitionEntry,modelEntry,traceShortcut,traceEmpty]){const handler=b.onclick;b.onclick=()=>{advanced.open=true;handler();};}
+  for(const [b,target] of [[recognitionEntry,$('generation-options')],[modelEntry,modelOptions],[traceShortcut,traceDetails],[traceEmpty,traceDetails]]){const handler=b.onclick;b.onclick=()=>{reveal(target);handler();};}
   const recognitionHandler=recognitionEntry.onclick;recognitionEntry.onclick=()=>{advanced.open=true;recognitionHandler();};
   bar.insertBefore($('mode-hd'),$('mode-real'));$('hd-open').onclick=openHD;
   for(const id of ['mode-real','mode-vector']){const handler=$(id).onclick;$(id).onclick=async()=>{await handler();selectView(vector?'mode-vector':'mode-real');};}

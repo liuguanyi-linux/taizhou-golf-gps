@@ -38,7 +38,7 @@ function createCourseWorkbench(api){
   const veil=document.createElement('button');veil.className='workbench-veil';veil.hidden=true;veil.setAttribute('aria-label','收起工具面板');document.body.append(veil);
   function mobile(open){document.body.classList.toggle('workbench-side-open',open);menu.setAttribute('aria-expanded',String(open));veil.hidden=!open;}
   menu.onclick=async()=>{const open=!document.body.classList.contains('workbench-side-open');if(open)await $('mode-real').onclick();mobile(open);};veil.onclick=()=>mobile(false);
-  view.onchange=async()=>{try{await $(view.value).onclick();}catch(e){api.status(e.message);}finally{updateView();}};
+  view.onchange=async()=>{if(view.disabled)return;view.disabled=true;api.cancel();try{await $(view.value).onclick();}catch(e){api.status(e.message);}finally{view.disabled=false;updateView();}};
   function updateView(){const active=['mode-hd','mode-vector','mode-real'].find(id=>$(id).getAttribute('aria-pressed')==='true');view.value=active||'mode-real';if(active==='mode-hd')mobile(false);}
   const observer=new MutationObserver(updateView);for(const id of ['mode-real','mode-vector','mode-hd'])observer.observe($(id),{attributes:true,attributeFilter:['aria-pressed']});updateView();
 
@@ -53,15 +53,21 @@ function createCourseWorkbench(api){
   for(const el of [...panel.children])if(el.tagName==='DETAILS')precise.append(el);panel.append(precise);
   const pointName=$('point-name').parentElement;picker.after(pointName);
   panel.querySelector('h2').textContent='放点测距';
-  $('cancel-tool').textContent='完成 / 取消操作';
+  $('cancel-tool').textContent='取消当前操作';$('cancel-tool').hidden=true;
   type.onchange=()=>{api.cancel();add.textContent=type.value==='draw-route'?'在图上绘制':'在图上放置';};
   add.onclick=()=>{$(type.value).click();mobile(false);};
   $('cancel-tool').addEventListener('click',()=>mobile(false));
   const help=document.createElement('p');help.className='workbench-help';help.textContent='选择内容后在地图上点击；已有点可拖动。';picker.before(help);
+  // Contextual, not a permanent toolbar: stays reachable when the mobile drawer closes.
+  const task=document.createElement('div');task.id='workbench-task';task.className='workbench-task';task.hidden=true;
+  const hint=document.createElement('span');hint.id='workbench-task-hint';hint.setAttribute('role','status');hint.setAttribute('aria-live','polite');
+  const abort=document.createElement('button');abort.id='workbench-task-cancel';abort.type='button';abort.textContent='取消';abort.setAttribute('aria-label','取消地图操作');
+  abort.onclick=()=>{api.cancel();setTask('');};task.append(hint,abort);document.body.append(task);
+  function setTask(message){hint.textContent=message||'';task.hidden=!message;}
   let active='make';
   function activate(key){
     if(!sections.has(key))return;
-    api.cancel();api.endEditing?.();active=key;
+    api.cancel();setTask('');api.endEditing?.();active=key;
     for(const [k,node] of sections){node.hidden=k!==key;$('workbench-tab-'+k).setAttribute('aria-pressed',String(k===key));}
     document.body.dataset.workbenchPanel=key;side.scrollTop=0;api.resize();
   }
@@ -72,5 +78,5 @@ function createCourseWorkbench(api){
   document.addEventListener('keydown',e=>{if(e.key==='Escape'){mobile(false);api.cancel();}});
   const onResize=()=>{if(!matchMedia('(max-width: 700px)').matches)mobile(false);api.resize();};window.addEventListener('resize',onResize);
   activate('make');
-  return {reveal,activate,updateView};
+  return {reveal,activate,updateView,setTask};
 }

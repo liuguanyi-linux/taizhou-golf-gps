@@ -52,3 +52,17 @@ test('view switch delegates to existing handler and reflects the actual resultin
   const h=setup();let calls=0;h.$('mode-vector').onclick=()=>{calls++;h.$('mode-real').setAttribute('aria-pressed','false');h.$('mode-vector').setAttribute('aria-pressed','true');};
   h.$('workbench-view').value='mode-vector';await h.$('workbench-view').onchange();assert.equal(calls,1);assert.equal(h.$('workbench-view').value,'mode-vector');
 });
+test('map instruction is temporary and cancellation remains available outside the drawer',()=>{
+  const h=setup(),task=h.$('workbench-task');assert.equal(task.hidden,true);
+  h.api.setTask('沿车道依次点击');assert.equal(task.hidden,false);assert.equal(h.$('workbench-task-hint').textContent,'沿车道依次点击');
+  assert.ok(!h.$('side').contains(task));assert.equal(h.$('cancel-tool').hidden,true);
+  const before=h.cancels;h.$('workbench-task-cancel').click();assert.equal(h.cancels,before+1);assert.equal(task.hidden,true);
+  h.api.setTask('放置球车');h.api.activate('make');assert.equal(task.hidden,true);
+});
+test('view selector rejects concurrent activation and unlocks after failure',async()=>{
+  const h=setup(),view=h.$('workbench-view');let reject,calls=0;
+  h.$('mode-hd').onclick=()=>{calls++;return new Promise((resolve,no)=>{reject=no;});};
+  view.value='mode-hd';const pending=view.onchange();assert.equal(view.disabled,true);
+  await view.onchange();assert.equal(calls,1);reject(Error('test failure'));await pending;
+  assert.equal(view.disabled,false);assert.equal(view.value,'mode-real');
+});

@@ -33,11 +33,16 @@
 .workbench:not([data-workbench-panel=advanced]) .leaflet-pm-toolbar,
 .workbench:not(.workbench-drawing) .leaflet-pm-toolbar{display:none}
 .workbench #workbench-menu{display:none}
+.workbench-task{position:fixed;bottom:calc(30px + env(safe-area-inset-bottom,0px));left:calc(50% + 144px);transform:translateX(-50%);width:max-content;max-width:calc(100vw - 340px);display:flex;align-items:center;gap:16px;padding:12px 14px;background:#172016f5;color:#edf4e5;border:1px solid #759356;border-radius:8px;box-shadow:0 4px 18px #0004;z-index:1200;font-size:13px;line-height:1.6}
+.workbench-task[hidden]{display:none}
+.workbench-task button{flex-shrink:0;min-height:44px;min-width:56px;border:1px solid #759356;border-radius:6px;background:#35472c;color:#edf4e5;cursor:pointer}
+.workbench-task button:focus-visible{outline:2px solid #c8ee9e;outline-offset:2px}
 #art-tools-toggle{display:none}
 .workbench .workbench-veil{position:fixed;inset:58px 0 0;background:#08100966;border:0;border-radius:0;z-index:1700}
 .workbench .workspace-bar button:focus-visible,.workbench select:focus-visible,.workbench-tabs button:focus-visible{outline:2px solid #c8ee9e;outline-offset:2px}
 @media(max-width:1000px){.workbench .workspace-bar{padding:8px;gap:5px}.workbench .workspace-bar strong{max-width:160px}.workbench .workspace-bar a{max-width:82px;overflow:hidden}}
 @media(max-width:700px){
+ .workbench-task{left:12px;right:12px;transform:none;width:auto;max-width:none;font-size:12px;gap:10px}
  .workbench .workspace-bar{height:104px;flex-wrap:wrap;align-content:center;gap:5px;padding:8px}
  .workbench .workspace-bar a{max-width:none}.workbench .workspace-bar strong{max-width:none;flex:1;min-width:140px}
  .workbench #workbench-menu{display:block;min-height:34px}
