@@ -1,7 +1,7 @@
 /* Course-independent image editor. Pixel edits are allowed only inside fitted control coverage. */
 (function(root){'use strict';
 root.createCourseImageEditor=function(host,api){
-  const R=HoleRegistration,P=HolePointWorkspace;
+  const R=HoleRegistration,P=HolePointWorkspace,G=CourseRegistrationGuide;
   host.innerHTML=`<div class="image-toolbar"><strong>本洞图片与坐标配准</strong><label>上传 / 更换图片<input id="art-upload" type="file" accept="image/png,image/jpeg,image/webp"></label><button id="art-fit">全图</button><button id="art-minus">−</button><span id="art-scale">100%</span><button id="art-plus">＋</button><button id="art-return">返回地图编辑</button></div>
   <div class="image-workspace"><aside class="image-settings"><p>所有球场使用同一个工具。原图锁定，滚轮缩放，拖空白平移；坐标仅在配准控制点覆盖范围内可编辑。</p><button id="art-live">实时 GPS</button><button id="art-live-stop">停止定位</button><button id="art-sim">模拟本洞车道</button><button id="art-sim-stop">停止模拟</button><p id="art-live-state" role="status"></p>
   <label>图片操作<select id="art-mode"><option value="pan">移动视野 / 拖动已有点</option><option value="control">添加配准对应点</option><option value="cart">放置球车</option><option value="reference">放置目标点</option><option value="flag">设置果岭旗</option><option value="black">设置黑 Tee</option><option value="gold">设置金 Tee</option><option value="blue">设置蓝 Tee</option><option value="white">设置白 Tee</option><option value="red">设置红 Tee</option><option value="route">绘制替换球车路线</option></select></label>
@@ -17,7 +17,7 @@ root.createCourseImageEditor=function(host,api){
   const settings=host.querySelector('.image-settings'),toolbar=host.querySelector('.image-toolbar');toolbar.querySelector('strong').textContent='高清虚拟图';$('art-return').textContent='返回地图';
   const toolsButton=document.createElement('button');toolsButton.id='art-tools-toggle';toolsButton.textContent='点位工具';toolsButton.setAttribute('aria-expanded','false');toolbar.prepend(toolsButton);
   const imageWorkspace=host.querySelector('.image-workspace');
-  const showTools=open=>{imageWorkspace.classList.toggle('image-tools-open',open);toolsButton.setAttribute('aria-expanded',String(open));};
+  const showTools=open=>{imageWorkspace.classList.toggle('image-tools-open',open);toolsButton.setAttribute('aria-expanded',String(open));if(open)settings.scrollTop=0;};
   toolsButton.onclick=()=>showTools(!imageWorkspace.classList.contains('image-tools-open'));
   const hint=settings.querySelector('p');hint.textContent='滚轮放大，拖动空白移动画面。点击按钮后，在图上放点。';
   const actions=document.createElement('div');actions.className='image-quick-actions';actions.innerHTML='<button id="art-action-pan" aria-pressed="true">移动 / 拖点</button><button id="art-action-cart" aria-pressed="false">放球车</button><button id="art-action-reference" aria-pressed="false">放目标点</button>';hint.after(actions);
@@ -25,13 +25,18 @@ root.createCourseImageEditor=function(host,api){
   const gps=document.createElement('details');gps.className='image-extra';gps.innerHTML='<summary>实时 GPS / 车道模拟</summary>';gps.append($('art-live'),$('art-live-stop'),$('art-sim'),$('art-sim-stop'),$('art-live-state'));$('art-pair-distance').after(gps);
   const accuracy=document.createElement('p');accuracy.id='art-pair-quality';accuracy.setAttribute('role','status');$('art-pair-distance').after(accuracy);
   const registration=$('art-registration');registration.append($('art-upload').parentElement);settings.append(registration);
+  const guide=document.createElement('section');guide.className='registration-guide';guide.setAttribute('aria-label','图片校准向导');
+  guide.innerHTML='<strong id="art-guide-title"></strong><p id="art-guide-state" role="status"></p><button id="art-guide-next">开始坐标校准</button><p id="art-guide-hint"></p><small>地图选同一地物 → 图片点对应位置 → 用新地物检查</small>';
+  hint.after(guide);
+  const guideBanner=document.createElement('div');guideBanner.className='registration-banner';guideBanner.hidden=true;guideBanner.setAttribute('role','status');
+  guideBanner.innerHTML='<span>点击图片上的同一地物；可先缩放查看。</span><button id="art-guide-cancel">取消配对</button>';canvas.parentElement.append(guideBanner);
   const coverage=document.createElement('label');coverage.innerHTML='<input id="art-coverage" type="checkbox">显示校准范围';registration.prepend(coverage);
-  function setMode(mode){if(mode==='cart'||mode==='reference')followLive=false;$('art-mode').value=mode;for(const key of ['pan','cart','reference'])$('art-action-'+key).setAttribute('aria-pressed',String(key===mode));$('art-route-finish').hidden=$('art-route-cancel').hidden=mode!=='route';message(mode==='pan'?'可拖动画面或已有点位。':mode==='cart'?'在图上点击放置球车，放下后可拖动。':mode==='reference'?'在图上点击放置目标点，放下后可拖动。':'在图上点击设置位置。');}
+  function setMode(mode){if(mode!=='control'){pendingPair=null;guideBanner.hidden=true;}if(mode==='cart'||mode==='reference')followLive=false;$('art-mode').value=mode;for(const key of ['pan','cart','reference'])$('art-action-'+key).setAttribute('aria-pressed',String(key===mode));$('art-route-finish').hidden=$('art-route-cancel').hidden=mode!=='route';message(mode==='pan'?'可拖动画面或已有点位。':mode==='cart'?'在图上点击放置球车，放下后可拖动。':mode==='reference'?'在图上点击放置目标点，放下后可拖动。':'在图上点击设置位置。');}
   for(const key of ['pan','cart','reference'])$('art-action-'+key).onclick=()=>{setMode(key);if(matchMedia('(max-width:700px)').matches)showTools(false);};
   $('art-mode').onchange=()=>setMode($('art-mode').value);$('art-route-finish').hidden=$('art-route-cancel').hidden=true;
   // The primary distance output is live; hide the obsolete click-only readout.
   $('art-distance').hidden=true;
-  let img=null,url=null,model=null,scale=1,x=0,y=0,baseScale=1,active=false,sequence=0,drag=null,route=[],hits=[],viewHole=null,followLive=false,measuredFrom=null,measuredTo=null;
+  let img=null,url=null,model=null,scale=1,x=0,y=0,baseScale=1,active=false,sequence=0,drag=null,route=[],hits=[],viewHole=null,followLive=false,measuredFrom=null,measuredTo=null,pendingPair=null;
   function updateQuality(){if(active)$('art-pair-quality').textContent=[root.CourseGNSS?.measurement(measuredFrom,measuredTo),followLive&&!api.live?.()?api.gpsStatus?.():''].filter(Boolean).join('；');}
   const message=t=>$('art-position').textContent=t;
   const visual=()=>api.hole().visual;
@@ -39,10 +44,15 @@ root.createCourseImageEditor=function(host,api){
   const pixel=p=>({x:(p.x-x)/scale,y:(p.y-y)/scale});
   const validPixel=p=>img&&p.x>=0&&p.y>=0&&p.x<=img.width&&p.y<=img.height;
   function resize(){const b=canvas.parentElement.getBoundingClientRect();canvas.width=Math.max(1,Math.floor(b.width));canvas.height=Math.max(1,Math.floor(b.height));if(active){if(img)fit();else draw();}}
-  function fit(){if(!img)return;baseScale=Math.min((canvas.width-40)/img.width,(canvas.height-40)/img.height);scale=Math.max(.01,baseScale);x=(canvas.width-img.width*scale)/2;y=(canvas.height-img.height*scale)/2;draw();}
+  function fit(){if(!img)return;const height=canvas.height-(guideBanner.hidden?0:guideBanner.getBoundingClientRect().height+24);baseScale=Math.min((canvas.width-40)/img.width,(height-40)/img.height);scale=Math.max(.01,baseScale);x=(canvas.width-img.width*scale)/2;y=(height-img.height*scale)/2;draw();}
   function zoom(mult){if(!img)return;const center={x:canvas.width/2,y:canvas.height/2},old=pixel(center);scale=Math.min(baseScale*12,Math.max(baseScale*.5,scale*mult));x=center.x-old.x*scale;y=center.y-old.y*scale;draw();}
-  function build(){const v=visual();model=v?R.fit(v.controls||[],{checkpoints:v.checkpoints||[]}):null;
-    $('art-quality').textContent=!v?'尚未绑定图片。上传本洞图片后再配准。':!model.valid?'未完成有效配准：'+model.diagnostics.reason+'。当前不能把图片点击当成 GPS。':v.generator?'由源地图坐标自动配准；零拟合残差只表示转换一致，不表示现场误差为零。现场精度未验证。':'配准覆盖内可编辑 · 拟合残差 '+model.diagnostics.rms_m.toFixed(2)+' m · 独立检验 '+model.diagnostics.independent.count+' 点 · 绝对精度未实测';
+  function undoState(){const checking=$('art-checkpoint').checked;$('art-undo').textContent=checking?'撤销最后一个检查点':'撤销最后一个对应点';$('art-undo').disabled=!(visual()?.[checking?'checkpoints':'controls']||[]).length;}
+  function build(){const v=visual(),report=G.assess(v);model=report.valid?report.model:null;
+    $('art-guide-title').textContent=report.title;$('art-guide-next').textContent=report.action;$('art-guide-next').disabled=!!v&&!img;
+    $('art-guide-hint').textContent=report.hint;
+    $('art-guide-state').textContent=report.controlCount+' 个对应点 · '+report.checkCount+' 个有效检查点'+(report.valid?' · 图片覆盖 '+report.coverage.toFixed(1)+'%':'')+(report.maxCheck!=null?' · 检查最大偏差 '+report.maxCheck.toFixed(2)+' m':'')+(report.outsideChecks?' · '+report.outsideChecks+' 个检查点在覆盖外':'')+(report.excludedChecks?' · '+report.excludedChecks+' 个重复或无效检查点未采用':'');
+    undoState();
+    $('art-quality').textContent=!v?'尚未绑定图片。上传本洞图片后再配准。':!model?.valid?'未完成有效配准：'+report.hint+'。当前不能把图片点击当成 GPS。':v.generator?'由源地图坐标自动配准；零拟合残差只表示转换一致，不表示现场误差为零。现场精度未验证。':'配准覆盖内可编辑 · 拟合残差 '+model.diagnostics.rms_m.toFixed(2)+' m · 独立检验 '+model.diagnostics.independent.count+' 点 · 绝对精度未实测';
     if(model?.valid){const d=model.diagnostics;$('art-quality').textContent+=' · 图上平均比例 '+(1/model.pxPerMeter).toFixed(3)+' m/像素（不是定位精度）'+(d.independent.count?' · 检验最大偏差 '+d.independent.max_m.toFixed(2)+' m':' · 尚无独立检验')+(d.leave_one_out?.count?' · 留一检验最大偏差 '+d.leave_one_out.max_m.toFixed(2)+' m':'');if(d.warnings.some(w=>/checkpoint.*excluded/.test(w)))$('art-quality').textContent+=' · 已排除无效或重复检验点';}
     $('art-controls').replaceChildren();for(const p of [...(v?.controls||[]),...(v?.checkpoints||[])]){const li=document.createElement('li');li.textContent=(p.source||'未知')+' · 像素 '+p.pixel.x.toFixed(1)+','+p.pixel.y.toFixed(1)+' ↔ '+p.coordinate.map(n=>n.toFixed(7)).join(',');$('art-controls').append(li);}
     $('art-controls-json').value=JSON.stringify({controls:v?.controls||[],checkpoints:v?.checkpoints||[]},null,2);draw();
@@ -56,15 +66,15 @@ root.createCourseImageEditor=function(host,api){
     if(followLive)$('art-from').value=tracked?'image-live':'';
     const from=all.find(p=>p.id===$('art-from').value),to=all.find(p=>p.id===$('art-to').value);$('art-pair-distance').textContent=from&&to?'直线距离 '+P.distanceMeters(from.coordinate,to.coordinate).toFixed(1)+' m':'放置球车并选择测距目标';
     measuredFrom=from;measuredTo=to;updateQuality();
-    if(model?.valid&&$('art-coverage').checked){ctx.beginPath();model.hull.forEach((p,i)=>i?ctx.lineTo(x+p.x*scale,y+p.y*scale):ctx.moveTo(x+p.x*scale,y+p.y*scale));ctx.closePath();ctx.strokeStyle='#00ab93';ctx.lineWidth=2;ctx.setLineDash([7,5]);ctx.stroke();ctx.setLineDash([]);}
+    if(model?.valid&&$('art-coverage').checked){ctx.beginPath();ctx.rect(x,y,img.width*scale,img.height*scale);model.hull.forEach((p,i)=>i?ctx.lineTo(x+p.x*scale,y+p.y*scale):ctx.moveTo(x+p.x*scale,y+p.y*scale));ctx.closePath();ctx.fillStyle='#18231966';ctx.fill('evenodd');ctx.beginPath();model.hull.forEach((p,i)=>i?ctx.lineTo(x+p.x*scale,y+p.y*scale):ctx.moveTo(x+p.x*scale,y+p.y*scale));ctx.closePath();ctx.strokeStyle='#00ab93';ctx.lineWidth=2;ctx.setLineDash([7,5]);ctx.stroke();ctx.setLineDash([]);}
     path(api.hole().cart_route||[],'#a1d453',[8,6]);path(route,'#fc872d');
     for(const p of api.points()){const pt=R.geoToPixel(model,p.coordinate);if(!pt||!validPixel(pt))continue;const sx=x+pt.x*scale,sy=y+pt.y*scale,selected=p.id===from?.id||p.id===to?.id;ctx.beginPath();ctx.arc(sx,sy,selected?7:4,0,Math.PI*2);ctx.fillStyle=/cart/.test(p.kind)?'#1486ef':'#ffd34c';ctx.fill();ctx.strokeStyle='#fff';ctx.lineWidth=selected?2:1;ctx.stroke();ctx.font='12px system-ui';ctx.fillStyle='#182317';if($('art-labels').checked||selected)ctx.fillText(p.name,sx+10,sy-8);hits.push({x:sx,y:sy,p});}
     const live=api.live?.();$('art-live-state').textContent=live?(live.name+' · '+(R.geoToPixel(model,live.coordinate)?'图片范围内':'图片配准范围外，不显示假位置')+(api.hole().flag?' · 距旗 '+P.distanceMeters(live.coordinate,api.hole().flag).toFixed(1)+' m':'')):api.gpsStatus?.()||'未启用定位或路线模拟';
-    if($('art-coverage').checked)for(const [i,c] of (visual()?.controls||[]).entries()){ctx.beginPath();ctx.arc(x+c.pixel.x*scale,y+c.pixel.y*scale,5,0,Math.PI*2);ctx.fillStyle='#00a890';ctx.fill();ctx.fillText(String(i+1),x+c.pixel.x*scale+8,y+c.pixel.y*scale);}
+    if($('art-coverage').checked)for(const kind of ['controls','checkpoints'])for(const [i,c] of (visual()?.[kind]||[]).entries()){ctx.beginPath();ctx.arc(x+c.pixel.x*scale,y+c.pixel.y*scale,5,0,Math.PI*2);ctx.fillStyle=kind==='controls'?'#00a890':'#ea7200';ctx.fill();ctx.fillText((kind==='controls'?'配':'检')+(i+1),x+c.pixel.x*scale+8,y+c.pixel.y*scale);}
   }
   async function save(){await api.changed();build();}
-  async function open(){active=true;host.hidden=false;const token=++sequence;route=[];drag=null;img=null;if(viewHole!==api.hole().n){viewHole=api.hole().n;$('art-from').replaceChildren();$('art-to').replaceChildren();$('art-name').value='';setMode('pan');}resize();const v=visual();build();if(!v){draw();return;}try{const b=await CourseProjects.source(v);if(token!==sequence)return;if(url)URL.revokeObjectURL(url);url=URL.createObjectURL(b);const next=new Image();next.src=url;await next.decode();if(token!==sequence)return;if(next.width*next.height>50000000)throw Error('图片尺寸超过限制');img=next;fit();build();}catch(e){message(e.message);}}
-  function close(){active=false;++sequence;host.hidden=true;route=[];drag=null;}
+  async function open(){active=true;host.hidden=false;const token=++sequence;route=[];drag=null;img=null;if(viewHole!==api.hole().n){viewHole=api.hole().n;$('art-from').replaceChildren();$('art-to').replaceChildren();$('art-name').value='';setMode('pan');}resize();const v=visual();build();if(!v){draw();return;}try{const b=await CourseProjects.source(v);if(token!==sequence)return;if(url)URL.revokeObjectURL(url);url=URL.createObjectURL(b);const next=new Image();next.src=url;await next.decode();if(token!==sequence)return;if(next.width*next.height>50000000)throw Error('图片尺寸超过限制');if(next.width!==v.width||next.height!==v.height)throw Error('图片尺寸与配准记录不一致，请重新上传并校准');img=next;fit();build();}catch(e){message(e.message);}}
+  function close(){active=false;++sequence;host.hidden=true;route=[];drag=null;pendingPair=null;guideBanner.hidden=true;}
   $('art-return').onclick=()=>{close();api.close();};$('art-fit').onclick=fit;$('art-minus').onclick=()=>zoom(1/1.2);$('art-plus').onclick=()=>zoom(1.2);
   $('art-from').onchange=()=>{followLive=false;draw();};$('art-to').onchange=draw;$('art-labels').onchange=draw;$('art-coverage').onchange=draw;
   $('art-live').onclick=()=>{followLive=true;api.startGPS();draw();};$('art-live-stop').onclick=()=>{api.stopGPS();draw();};$('art-sim').onclick=()=>{followLive=true;api.startSimulation();draw();};$('art-sim-stop').onclick=()=>{api.stopSimulation();draw();};
@@ -75,16 +85,20 @@ root.createCourseImageEditor=function(host,api){
   canvas.onpointerup=async e=>{if(!drag)return;const d=drag;drag=null;const px=pixel(point(e));if(!validPixel(px))return;try{
     if(d.hit&&d.moved){const c=R.pixelToGeo(model,px);if(!c)throw Error('拖动目标超出配准覆盖，不修改坐标');await api.move(d.hit.p,c);build();return;}
     if(d.moved)return;const mode=$('art-mode').value;
-    if(mode==='control'){const values=[$('art-lng').value,$('art-lat').value],c=values.map(Number);if(values.some(v=>v.trim()==='')||!CourseStore.valid(c))throw Error('先选地图对应点或填写有效 WGS84 坐标');const v=visual(),key=$('art-checkpoint').checked?'checkpoints':'controls';v[key]??=[];v[key].push({id:crypto.randomUUID(),pixel:px,coordinate:c,source:'manual_map',accuracy_m:null});await save();return;}
+    if(mode==='control'){const values=[$('art-lng').value,$('art-lat').value],c=pendingPair?.coordinate||values.map(Number);if((!pendingPair&&values.some(v=>v.trim()===''))||!CourseStore.valid(c))throw Error('先选地图对应点或填写有效 WGS84 坐标');const v=visual(),key=pendingPair?.kind||($('art-checkpoint').checked?'checkpoints':'controls'),next=G.append(v,key,{id:crypto.randomUUID(),pixel:px,coordinate:c,source:'manual_map',accuracy_m:null});const previous=api.hole().visual;api.hole().visual=next;try{await save();}catch(err){api.hole().visual=previous;build();throw err;}pendingPair=null;guideBanner.hidden=true;setMode('pan');message(key==='controls'?'对应点已保存。继续添加分布在球洞两侧的对应点。':'检查点已保存，不参与拟合。偏差请看校准面板。');showTools(true);return;}
     if(mode==='pan'){if(d.hit&&api.hole().flag)$('art-distance').textContent=d.hit.p.name+' → 果岭旗：'+P.distanceMeters(d.hit.p.coordinate,api.hole().flag).toFixed(1)+' m（直线）';return;}
     const c=R.pixelToGeo(model,px);if(!c)throw Error('请先建立有效配准；只允许在绿色控制点覆盖范围内放点');
     if(mode==='route'){route.push(c);draw();message('待保存路线 '+route.length+' 节点；完成后才替换当前路线');return;}
     const previous=new Set(api.points().map(p=>p.id));await api.place(mode,c,$('art-name').value.trim());build();const added=api.points().find(p=>!previous.has(p.id));if(added){$('art-from').value=added.id;draw();}setMode('pan');message('已放置并保存，可直接拖动调整。');if(api.hole().flag)$('art-distance').textContent='此点 → 果岭旗：'+P.distanceMeters(c,api.hole().flag).toFixed(1)+' m（直线）';
   }catch(err){message(err.message);}};
   $('art-upload').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const id=await CourseProjects.put(f),u=URL.createObjectURL(f);try{const temp=new Image();temp.src=u;await temp.decode();if(temp.width*temp.height>50000000)throw Error('图片尺寸超过限制');api.hole().visual={asset_id:id,width:temp.width,height:temp.height,controls:[],checkpoints:[]};await save();await open();message('已绑定本洞图片。更换图片后需要重新配准；旧图片仍保留在本机资源库。');}finally{URL.revokeObjectURL(u);}}catch(err){message(err.message);}};
-  $('art-pick-map').onclick=()=>{close();api.pick(c=>{$('art-lng').value=c[0];$('art-lat').value=c[1];$('art-mode').value='control';open();message('地图位置已记录，请点击图片上的同一地物。');});};
-  $('art-undo').onclick=async()=>{const v=visual();if(!v)return;(v.controls||[]).pop();await save();};
-  $('art-controls-apply').onclick=async()=>{try{const d=JSON.parse($('art-controls-json').value),v=visual();if(!v)throw Error('请先绑定图片');if(!Array.isArray(d.controls)||d.controls.length>100||!Array.isArray(d.checkpoints||[]))throw Error('需要 controls 数组，最多 100 点');for(const p of [...d.controls,...(d.checkpoints||[])])if(!CourseStore.valid(p.coordinate)||!Number.isFinite(p.pixel?.x)||!Number.isFinite(p.pixel?.y)||!validPixel(p.pixel))throw Error('配准点格式或范围无效');v.controls=d.controls;v.checkpoints=d.checkpoints||[];await save();}catch(e){message(e.message);}};
+  function pickPair(kind){const hole=api.hole().n;close();api.pick(async c=>{if(api.hole().n!==hole)return;await open();if(!active||!img)return;pendingPair={kind,coordinate:c.slice()};$('art-lng').value=c[0];$('art-lat').value=c[1];$('art-checkpoint').checked=kind==='checkpoints';$('art-coverage').checked=true;setMode('control');undoState();guideBanner.hidden=false;message('地图位置已记录，请点击图片上的同一地物。');if(matchMedia('(max-width:700px)').matches)showTools(false);fit();});}
+  $('art-pick-map').onclick=()=>pickPair($('art-checkpoint').checked?'checkpoints':'controls');
+  $('art-guide-next').onclick=()=>{if(!visual()){$('art-upload').click();return;}pickPair(G.assess(visual()).kind);};
+  $('art-guide-cancel').onclick=()=>{pendingPair=null;guideBanner.hidden=true;setMode('pan');message('已取消配对，未保存任何对应点。');};
+  $('art-checkpoint').onchange=undoState;
+  $('art-undo').onclick=async()=>{const v=visual();if(!v)return;const kind=$('art-checkpoint').checked?'checkpoints':'controls';api.hole().visual=G.undo(v,kind);try{await save();message(kind==='controls'?'已撤销最后一个对应点':'已撤销最后一个检查点');}catch(e){api.hole().visual=v;build();message('保存失败：'+e.message);}};
+  $('art-controls-apply').onclick=async()=>{try{const d=JSON.parse($('art-controls-json').value),v=visual();if(!v)throw Error('请先绑定图片');if(!Array.isArray(d.controls)||d.controls.length>100||!Array.isArray(d.checkpoints||[])||(d.checkpoints||[]).length>100)throw Error('需要 controls / checkpoints 数组，每类最多 100 点');for(const p of [...d.controls,...(d.checkpoints||[])])if(!CourseStore.valid(p?.coordinate)||!Number.isFinite(p?.pixel?.x)||!Number.isFinite(p?.pixel?.y)||!validPixel(p.pixel))throw Error('配准点格式或范围无效');api.hole().visual={...v,controls:d.controls,checkpoints:d.checkpoints||[]};try{await save();}catch(err){api.hole().visual=v;build();throw err;}setMode('pan');message('配准与检查点已保存；当前状态请看校准向导。');}catch(e){message(e.message);}};
   $('art-route-finish').onclick=async()=>{if(route.length<2){message('至少绘制两个路线节点');return;}api.hole().cart_route=route.map(p=>p.slice());route=[];await save();message('本洞球车路线已保存');};$('art-route-cancel').onclick=()=>{route=[];draw();};
   new ResizeObserver(resize).observe(canvas.parentElement);
   return {open,close,updateQuality,refresh:()=>{if(active)draw();}};

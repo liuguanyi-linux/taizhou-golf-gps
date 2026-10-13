@@ -9,6 +9,7 @@ root.createCourseCartPreview=function(host,api){
   <aside class="cart-right"><section class="cart-readout"><h3>拖点测距</h3><div class="cart-leg"><span>起点 → 目标</span><b id="cart-leg-one">--</b></div><div class="cart-leg"><span>目标 → 旗杆</span><b id="cart-leg-two">--</b></div><button id="cart-save-target">保存目标点</button><div id="cart-target-status" role="status">临时测距点，不自动修改地图</div></section><div class="cart-gps"><button id="cart-gps-start" class="cart-primary">使用实时 GPS</button><button id="cart-route-start">车道模拟</button><button id="cart-track-stop">停止定位/模拟</button></div><details><summary>坐标与精度</summary><p id="cart-coordinate"></p><p id="cart-accuracy"></p><p>直线距离不是沿车道距离。材质与阴影为示意，不代表实测坡度。源数据和现场精度仍需核验。</p></details></aside></main>
   <footer><button id="cart-place">放置球车</button><button id="cart-target-reset">重置测距点</button><div class="cart-toolbar-group"><button id="cart-fit">全图</button><button id="cart-zoom-out" aria-label="预览缩小">−</button><button id="cart-zoom-in" aria-label="预览放大">＋</button></div><button id="cart-unit" aria-label="切换米码">m / yd</button><div class="cart-footnote">坐标驱动的球车端预览<br>非实测车辆轨迹 · 不含虚构坡度</div></footer>`;
   const $=id=>host.querySelector('#'+id),canvas=$('cart-canvas'),ctx=canvas.getContext('2d');
+  const imageSource=document.createElement('p');imageSource.id='cart-image-source';$('cart-accuracy').after(imageSource);
   const layoutButton=document.createElement('button');layoutButton.textContent='竖屏预览';layoutButton.setAttribute('aria-pressed','false');$('cart-exit').before(layoutButton);
   layoutButton.onclick=()=>{const portrait=host.classList.toggle('cart-portrait');layoutButton.textContent=portrait?'横屏预览':'竖屏预览';layoutButton.setAttribute('aria-pressed',String(portrait));};
   let previousFocus=null,inertSiblings=[];
@@ -16,7 +17,7 @@ root.createCourseCartPreview=function(host,api){
   function status(text){$('cart-target-status').textContent=text;}
   function currentOrigin(){return followLive?api.live?.():api.allPoints().find(p=>p.id===originId);}
   function resetTarget(){const from=currentOrigin()?.coordinate,to=api.hole().flag;target=from&&to?[(from[0]+to[0])/2,(from[1]+to[1])/2]:null;}
-  function geometryKey(){return api.hole().n+'|'+H.signature(api.hole());}
+  function geometryKey(){return api.hole().n+'|'+H.signature(api.hole())+'|'+JSON.stringify(api.hole().visual||null);}
   function resize(){const b=canvas.parentElement.getBoundingClientRect();width=Math.max(1,b.width);height=Math.max(1,b.height);const dpr=Math.min(2,root.devicePixelRatio||1);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
   function project(c){if(!model||!camera)return null;const px=R.geoToPixel(model,c);return px?camera.screen(px):null;}
   function unproject(p){return model&&camera?R.pixelToGeo(model,camera.pixel(p)):null;}
@@ -41,19 +42,21 @@ root.createCourseCartPreview=function(host,api){
     if(!active)return;
     ctx.clearRect(0,0,width,height);const bg=ctx.createLinearGradient(0,0,width,height);bg.addColorStop(0,'#244d3b');bg.addColorStop(.55,'#254738');bg.addColorStop(1,'#102f31');ctx.fillStyle=bg;ctx.fillRect(0,0,width,height);
     if(!image||!plan){for(const id of ['cart-front','cart-middle','cart-back','cart-leg-one','cart-leg-two'])$(id).textContent='--';$('cart-save-target').disabled=true;return;}
-    const angle=!host.classList.contains('cart-portrait')&&host.clientWidth>700&&width>height*1.05?.95:0;
-    const shapePixels=plan.items.flatMap(s=>s.coordinates.map(plan.pixel)),xs=shapePixels.map(p=>p.x),ys=shapePixels.map(p=>p.y),left=Math.min(...xs)-20,top=Math.min(...ys)-40;
-    const frame={left,top,width:Math.max(...xs)-left+20,height:Math.max(...ys)-top+20};
+    const angle=!plan.frame&&!host.classList.contains('cart-portrait')&&host.clientWidth>700&&width>height*1.05?.95:0;
+    const shapePixels=plan.items?.flatMap(s=>s.coordinates.map(plan.pixel)),xs=shapePixels?.map(p=>p.x),ys=shapePixels?.map(p=>p.y),left=xs?Math.min(...xs)-20:0,top=ys?Math.min(...ys)-40:0;
+    const frame=plan.frame||{left,top,width:Math.max(...xs)-left+20,height:Math.max(...ys)-top+20};
     camera=C.camera(width,height,plan.width,plan.height,angle,zoom,pan,frame);
     // Decorative backdrop uses the same rendered map, blurred; it is not another data layer.
     const center=camera.screen({x:plan.width/2,y:plan.height/2});ctx.save();ctx.translate(center.x,center.y);ctx.rotate(angle);ctx.globalAlpha=.23;ctx.filter='blur(25px)';ctx.scale(camera.scale*1.28,camera.scale*1.28);ctx.drawImage(image,-plan.width/2,-plan.height/2);ctx.restore();
     ctx.save();ctx.translate(center.x,center.y);ctx.rotate(angle);ctx.scale(camera.scale,camera.scale);ctx.drawImage(image,-plan.width/2,-plan.height/2);ctx.restore();
     const h=api.hole(),origin=currentOrigin(),from=origin?.coordinate,flag=h.flag;
     lastOrigin=origin;lastMetrics=C.metrics(from,target,h);
+    host.querySelector('.cart-metric-label').textContent=lastMetrics.middleLabel;
     for(const part of ['front','middle','back'])$('cart-'+part).textContent=C.format(lastMetrics[part],unit);
     $('cart-leg-one').textContent=C.format(lastMetrics.toTarget,unit)+' '+unit;$('cart-leg-two').textContent=C.format(lastMetrics.targetToFlag,unit)+' '+unit;
     host.querySelectorAll('.cart-unit').forEach(e=>e.textContent=unit);
     $('cart-source').textContent=followLive?(origin?origin.name:api.gpsStatus?.()||'当前没有有效定位，未使用旧点代替'):(origin?'静态起点：'+origin.name+'（非实时 GPS）':'请放置球车或选择起点');
+    if(followLive&&origin?.source==='browser_geolocation')$('cart-source').textContent+=' · 设备声明水平误差半径 '+origin.accuracy_m+' m（95%） · 底图误差另计';
     $('cart-accuracy').textContent=CourseGNSS.measurement(origin,flag?{coordinate:flag}:null)||'没有有效起点，无法计算当前位置的距离。';
     $('cart-coordinate').textContent=target?'临时目标 WGS84：'+target.map(n=>n.toFixed(7)).join(', '):'尚未设置临时测距点';
     $('cart-save-target').disabled=!target||!!drag;
@@ -72,7 +75,15 @@ root.createCourseCartPreview=function(host,api){
     const token=++sequence;key=next;image=null;plan=null;model=null;$('cart-render-status').hidden=false;$('cart-render-status').textContent='正在准备高清球洞…';
     if(holeNumber!==api.hole().n){holeNumber=api.hole().n;originId='';target=null;zoom=1;pan={x:0,y:0};}
     options();resize();
-    try{const h=structuredClone(api.hole()),result=await H.render(h,api.course().name,2048,{presentation:true});if(!active||token!==sequence)return;const url=URL.createObjectURL(result.blob);try{const img=new Image();img.src=url;await img.decode();if(!active||token!==sequence)return;image=img;plan=H.layout(h,2048);model=R.fit(plan.controls);if(!target)resetTarget();$('cart-render-status').hidden=true;resize();}finally{URL.revokeObjectURL(url);}}
+    try{
+      const h=structuredClone(api.hole());
+      const {blob,plan:nextPlan,model:nextModel,note:sourceNote}=await C.artwork(h,api.course().name,{hd:H,source:v=>CourseProjects.source(v)});
+      if(!active||token!==sequence)return;
+      const url=URL.createObjectURL(blob);try{const img=new Image();img.src=url;await img.decode();if(!active||token!==sequence)return;
+        if(img.width!==nextPlan.width||img.height!==nextPlan.height)throw Error('图片尺寸与配准记录不一致，请重新校准');
+        image=img;plan=nextPlan;model=nextModel;if(!target)resetTarget();$('cart-render-status').hidden=true;status(sourceNote);imageSource.textContent=sourceNote;resize();
+      }finally{URL.revokeObjectURL(url);}
+    }
     catch(e){if(token!==sequence)return;key='';target=null;$('cart-render-status').textContent='暂不能生成本洞预览：'+e.message+'。请返回编辑补充本洞地图数据。';draw();}
   }
   async function open(){previousFocus=document.activeElement;inertSiblings=[...host.parentElement.children].filter(e=>e!==host&&!e.inert);inertSiblings.forEach(e=>e.inert=true);active=true;host.hidden=false;$('cart-exit').focus();await prepare();}
@@ -92,10 +103,10 @@ root.createCourseCartPreview=function(host,api){
   $('cart-fit').onclick=()=>{zoom=1;pan={x:0,y:0};draw();};$('cart-zoom-in').onclick=()=>zoomBy(1.2);$('cart-zoom-out').onclick=()=>zoomBy(1/1.2);
   $('cart-unit').onclick=()=>{unit=unit==='m'?'yd':'m';$('cart-unit').textContent=unit==='m'?'m / yd':'yd / m';draw();};
   canvas.addEventListener('wheel',e=>{e.preventDefault();zoomBy(e.deltaY<0?1.08:1/1.08);},{passive:false});
-  canvas.onpointerdown=e=>{if(!plan)return;const p=point(e),near=q=>q&&Math.hypot(q.x-p.x,q.y-p.y)<22;const kind=near(targetScreen)?'target':near(originScreen)&&!followLive&&lastOrigin?.local_id&&/cart/.test(lastOrigin.kind)?'cart':'pan';drag={kind,start:p,last:p,moved:false,original:target?.slice(),origin:lastOrigin};canvas.setPointerCapture(e.pointerId);};
-  canvas.onpointermove=e=>{if(!drag)return;const p=point(e);if(Math.hypot(p.x-drag.start.x,p.y-drag.start.y)>4)drag.moved=true;if(drag.kind==='target'){const c=unproject(p);if(c){target=c;status('临时目标已移动；点击保存才写入地图');}}else if(drag.kind==='pan'&&!placing){pan.x+=p.x-drag.last.x;pan.y+=p.y-drag.last.y;}drag.last=p;draw();};
+  canvas.onpointerdown=e=>{if(!plan)return;const p=point(e),near=q=>q&&Math.hypot(q.x-p.x,q.y-p.y)<22;const kind=near(targetScreen)?'target':near(originScreen)&&!followLive&&lastOrigin?.local_id&&/cart/.test(lastOrigin.kind)?'cart':'pan';drag={kind,start:p,last:p,anchor:kind==='target'?targetScreen:originScreen,moved:false,original:target?.slice(),origin:lastOrigin};canvas.setPointerCapture(e.pointerId);};
+  canvas.onpointermove=e=>{if(!drag)return;const p=point(e);if(Math.hypot(p.x-drag.start.x,p.y-drag.start.y)>4)drag.moved=true;if(drag.kind==='target'&&drag.moved){const c=unproject(C.dragPoint(drag.start,p,drag.anchor));if(c){target=c;status('临时目标已移动；点击保存才写入地图');}}else if(drag.kind==='pan'&&!placing){pan.x+=p.x-drag.last.x;pan.y+=p.y-drag.last.y;}drag.last=p;draw();};
   canvas.onpointercancel=()=>{if(drag?.kind==='target')target=drag.original;drag=null;draw();};
-  canvas.onpointerup=async e=>{if(!drag)return;const d=drag,p=point(e),c=unproject(p);drag=null;try{if(!c){status('超出本洞制图范围，没有修改点位');draw();return;}if(placing&&!d.moved){const before=new Set(api.allPoints().map(p=>p.id));await api.place('cart',c,'预览球车');originId=api.allPoints().find(p=>!before.has(p.id))?.id||originId;followLive=false;placing=false;$('cart-place').setAttribute('aria-pressed','false');resetTarget();options();status('球车位置已保存为静态点，不是设备定位');}else if(d.kind==='cart'&&d.moved){await api.move(d.origin,c);status('静态球车位置已保存，原设备精度声明不保留');}else if(!d.moved&&d.kind==='pan'){target=c;status('临时目标已设置，点击保存才写入地图');}}catch(err){status(err.message);}draw();};
+  canvas.onpointerup=async e=>{if(!drag)return;const d=drag,p=point(e),c=unproject(d.kind==='cart'&&d.moved?C.dragPoint(d.start,p,d.anchor):p);drag=null;try{if(!c){status('超出本洞制图范围，没有修改点位');draw();return;}if(placing&&!d.moved){const before=new Set(api.allPoints().map(p=>p.id));await api.place('cart',c,'预览球车');originId=api.allPoints().find(p=>!before.has(p.id))?.id||originId;followLive=false;placing=false;$('cart-place').setAttribute('aria-pressed','false');resetTarget();options();status('球车位置已保存为静态点，不是设备定位');}else if(d.kind==='cart'&&d.moved){await api.move(d.origin,c);status('静态球车位置已保存，原设备精度声明不保留');}else if(!d.moved&&d.kind==='pan'){target=c;status('临时目标已设置，点击保存才写入地图');}}catch(err){status(err.message);}draw();};
   new ResizeObserver(resize).observe(canvas.parentElement);
   return {open,close,refresh,isOpen:()=>active};
 };

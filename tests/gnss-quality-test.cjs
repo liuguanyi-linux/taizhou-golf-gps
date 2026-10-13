@@ -14,6 +14,7 @@ assert.throws(()=>G.snapshot(JSON.stringify({coordinate_system:'GCJ02',positions
 const before=JSON.stringify(sample),rows=G.snapshot(pack([sample]),[],{now});assert.equal(rows[0].quality.accepted,true);assert.equal(rows[0].quality.field_verified,false);assert.equal(JSON.stringify(sample),before);
 assert.match(G.describe(sample,now+11000),/历史.*过期/);assert.match(G.describe(sample,now),/非持续定位/);
 const b=G.browserSample({timestamp:now,coords:{longitude:120,latitude:32,accuracy:1.5}});assert.equal(G.evaluate(b,null,{now}).accepted,true);assert.equal(b.accuracy_confidence,0.95);
+const phoneRejected=G.evaluate({...b,accuracy_m:8},null,{now});assert.equal(phoneRejected.accepted,false);assert.match(phoneRejected.message,/8.0 m.*≤ 2 m.*未采用/);assert.equal(phoneRejected.field_verified,false);
 const course={slug:'qa',holes:[{n:1,device_points:[sample]}]};
 const exported=P.exportGeoJSON(course).features[0].properties;
 for(const k of ['accuracy_confidence','fix_type','correction_age_s','receiver','updated_at'])assert.equal(exported[k],sample[k]);

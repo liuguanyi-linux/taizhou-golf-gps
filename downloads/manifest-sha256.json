@@ -1,6 +1,6 @@
 {
   "algorithm": "SHA-256",
-  "generated_at": "2026-09-24T03:48:39.646Z",
+  "generated_at": "2026-10-13T06:41:51.035Z",
   "excludes": [
     ".git",
     "hidden files",
@@ -20,8 +20,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 13943,
-      "sha256": "8f8985ac3fbfc40605b7f08fd4c973d01aca556639be81311d95696a468773a9"
+      "bytes": 15119,
+      "sha256": "2f717e86cb30f7628723ca717b74d9c22a1c6d9bb4a64b6109bcf9f21e08844a"
     },
     {
       "path": "cn/map/index.html",
@@ -40,18 +40,18 @@
     },
     {
       "path": "course-workspace/cart-preview-core.js",
-      "bytes": 1666,
-      "sha256": "33ff7d3e7d34146640de6b90e9e5b3e9a7f700afc1d1d5a93d3f613e7d784266"
+      "bytes": 3464,
+      "sha256": "e6ae8bbbc1420251a0558da58665ca99f8e3d572f3a139849968bf3066550305"
     },
     {
       "path": "course-workspace/cart-preview.css",
-      "bytes": 9311,
-      "sha256": "a08edf93dbcda580efec140f39d0fa6fc2496f3b8fc51ecfbf82f0d234037a06"
+      "bytes": 9637,
+      "sha256": "86c671eac130d24731978b0c8b788057b76d92c5e61666099390516d9af1ec67"
     },
     {
       "path": "course-workspace/cart-preview.js",
-      "bytes": 16648,
-      "sha256": "e13e159c790a4614f62faac54baec1fd782cc9e2324e6beb7b42d2237e2dce51"
+      "bytes": 17555,
+      "sha256": "8a3b4ee5eb00ed0bad80f82dc0eff87a3db0737cd462025580b22203708bba35"
     },
     {
       "path": "course-workspace/catalog.css",
@@ -80,8 +80,8 @@
     },
     {
       "path": "course-workspace/editor.js",
-      "bytes": 35796,
-      "sha256": "86cb07c422abc310f4fef54bd45e43f65c09f7052fe60c3540bea90eb1bd6087"
+      "bytes": 36437,
+      "sha256": "ae2dbf4434b905fe8898d5d0d1ba6dff9545cba9350cafcb25acf4c2535a00cc"
     },
     {
       "path": "course-workspace/field-audit.js",
@@ -100,8 +100,8 @@
     },
     {
       "path": "course-workspace/gnss-quality.js",
-      "bytes": 5320,
-      "sha256": "ea1de376e35a9844d5dafc03c4c009e0cb3a32314210ca780d4d1c7734181c33"
+      "bytes": 5549,
+      "sha256": "c363d1bb66cb21f666c4966cedc335c62b8d9aa433ca7164bfd80dcfd8095535"
     },
     {
       "path": "course-workspace/gnss-session.js",
@@ -120,8 +120,8 @@
     },
     {
       "path": "course-workspace/image-editor.js",
-      "bytes": 18532,
-      "sha256": "810dbbadef3cb7605bd413237c66158cf7a4de444c2bcbb8a1b54ffc9ea3949e"
+      "bytes": 22479,
+      "sha256": "fbbe057ee9e90a9979d661c4124f8f286aca8ee6521347af81eb30ec029c8ea6"
     },
     {
       "path": "course-workspace/image-trace-ui.js",
@@ -145,13 +145,18 @@
     },
     {
       "path": "course-workspace/projects.css",
-      "bytes": 2948,
-      "sha256": "ce643249f9d07d59c28cff52542686ea686b5398cad4ec03f59eab1d92968996"
+      "bytes": 3777,
+      "sha256": "abe0f6f18909dda99815dbd6ca310ec8ae63f6065813407a4af48a17684b399f"
     },
     {
       "path": "course-workspace/projects.js",
       "bytes": 8712,
       "sha256": "3b8dd1544fade56b495f0ee6dbd906dff7ad10f09cda8fdf0aa9c87f5af3582f"
+    },
+    {
+      "path": "course-workspace/registration-guide.js",
+      "bytes": 3795,
+      "sha256": "01f4f537ad2acebca74daeb35307f8107051297f5d424284da8e0a1661af51a7"
     },
     {
       "path": "course-workspace/satellite-capture.js",
@@ -310,8 +315,8 @@
     },
     {
       "path": "docs/TECHNICAL.md",
-      "bytes": 45633,
-      "sha256": "9a08f76f602d8359d0fdbb1dce5b91d0ece6b1d2fe862c0d4f548f9e6476d30d"
+      "bytes": 47041,
+      "sha256": "89dd640aaa9c3311fc16f3cf1433de578fe1afe9462f640b27d01abdc86b3809"
     },
     {
       "path": "docs/UPDATE-2026-09-11.html",
@@ -329,19 +334,24 @@
       "sha256": "c841fcd4c06684bdf61b7dd15d2368c42636717c33bb425784fa449cb483b2f4"
     },
     {
+      "path": "docs/UPDATE-2026-10-13.md",
+      "bytes": 3056,
+      "sha256": "40feda850ea188b2644d530c9c314bb932ca5ebaeb3e49e90f47fcda00ff30dc"
+    },
+    {
       "path": "docs/WHOLE-COURSE-RECOGNITION.md",
       "bytes": 7659,
       "sha256": "2320366625ee5e7173cb96d250a499e3e8be39d4baa9b98412a5b7098e6fd06a"
     },
     {
       "path": "docs/WORKBENCH.html",
-      "bytes": 5048,
-      "sha256": "9216f9f655772392c978bbadbd3749020b464cb4366fb59ee0daea9c915a4919"
+      "bytes": 10003,
+      "sha256": "afa85dade874c10c899d80a20452fe6385b683a9f745ca561daed4ce561ad9da"
     },
     {
       "path": "docs/WORKBENCH.md",
-      "bytes": 3814,
-      "sha256": "2d4d61c4bd419e5412b897691e3b40aa7deedb4bc62d1492da527916a62cf580"
+      "bytes": 8605,
+      "sha256": "4d8a37f990144dbb6dfe50317a4d1bb3095e2c8858a36194b6b8276704e05af9"
     },
     {
       "path": "docs/WORKFLOW-AND-DELIVERY.md",
@@ -350,28 +360,28 @@
     },
     {
       "path": "docs/index.html",
-      "bytes": 55516,
-      "sha256": "4f650832071dc89bef7e4580e48d5105a03a2aa8563b0b4d9cc9a7d4444c0078"
+      "bytes": 57008,
+      "sha256": "200c75495e9832d1ea211098556b85fcf1dd5f4a059647d35fe6aa956635a67c"
     },
     {
       "path": "downloads/cn0000385-baseline-test-package.json",
-      "bytes": 190048,
-      "sha256": "dcda733720b36ff7234bef5d57d33954f859eb4f620615a07fcd54f68ac5657d"
+      "bytes": 189945,
+      "sha256": "486b68a074c93139b7af06ced7073e560773702d3d1356f6570b864a60a25f61"
     },
     {
       "path": "downloads/cn0000385-geometry.geojson",
       "bytes": 953990,
-      "sha256": "1458ea2a22d49890a160af6c2216a0e4c135567559141bc1271c4c98f5e044b6"
+      "sha256": "b9ccbf0e0396ec3763422ed4a52eb6693ee77c9fada3d07283f4d104bb6e97e6"
     },
     {
       "path": "downloads/cn0000385-points.geojson",
-      "bytes": 171702,
-      "sha256": "ffa8e6b3cd059d587a43ba0455bdd28e7ad2826c6da126fa3af87222ac228f33"
+      "bytes": 171599,
+      "sha256": "ee9bdccb724a4d9470854deeea6c0090bcc5094b454a037c5d2127d954972ee3"
     },
     {
       "path": "downloads/data-inventory.json",
       "bytes": 9931,
-      "sha256": "1edc0996a58c8d37b44c21aeb728111a4d6f66310c4740884192c1d721d4db1b"
+      "sha256": "6f5f101fa48573226e8b3935356ba78eb0f72fa9feb5f470898e08c14bd389c6"
     },
     {
       "path": "downloads/registration-audit.json",
@@ -395,8 +405,8 @@
     },
     {
       "path": "holemap-editor/index.html",
-      "bytes": 59778,
-      "sha256": "876290372e182383e441d1b2b930f1488956003b2dad043ca646eeed9d071e17"
+      "bytes": 59844,
+      "sha256": "8f6d907938d22b44645bdbd5aec3b8c5245695882b056073c897cd7b3631b201"
     },
     {
       "path": "holemap-editor/lib/images/layers-2x.png",
@@ -450,8 +460,8 @@
     },
     {
       "path": "holemap-gps/gps-core.js",
-      "bytes": 13621,
-      "sha256": "68ae2082c81f6d9d39f7b196deff3543266f2584edefa402b3855377966384fb"
+      "bytes": 13915,
+      "sha256": "4c3a1dea85f8bf71c06bb14f7ee38a64e522d28054998fedea9e3eac22177762"
     },
     {
       "path": "holemap-gps/gps.css",
@@ -790,8 +800,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 4664,
-      "sha256": "ff727da2d51ddd179e3e4a573db925bb9e0ca09ff4762af7b857580a20cdb0fa"
+      "bytes": 5085,
+      "sha256": "a16407c3de3fa9cd23044ba230b1e6c8a2f03b6570f1818905ae47af0c3999c5"
     },
     {
       "path": "kingswan/QA.md",
@@ -960,8 +970,8 @@
     },
     {
       "path": "scripts/check.cjs",
-      "bytes": 2808,
-      "sha256": "a10b4577003327dbdfcde646299cce924049678304cbc9add4a7884bbc1bc194"
+      "bytes": 2915,
+      "sha256": "54a995fe31451f409f659ceff028727f07c5968c88fb48c2cc0efbd60306a554"
     },
     {
       "path": "scripts/greenbook-readonly.cjs",
@@ -1030,8 +1040,8 @@
     },
     {
       "path": "tests/cart-preview-test.cjs",
-      "bytes": 2351,
-      "sha256": "463cdee3d563c3c65cfb83176210cb85ace0b0a9ae8e44010b8ca2c02241c91f"
+      "bytes": 6029,
+      "sha256": "9b79cc5e4afccd143dab46e10a252453ea6121e1543a003c3c8188f179fa7d49"
     },
     {
       "path": "tests/course-recognition-test.cjs",
@@ -1055,8 +1065,8 @@
     },
     {
       "path": "tests/gnss-quality-test.cjs",
-      "bytes": 2709,
-      "sha256": "2a4b2a3c5fce0f33b1ea534dbf249d466e7f80f2e4c7c4ffa0590a109ac7772a"
+      "bytes": 2929,
+      "sha256": "5121b124f0464eac5cc252c17a84b3d4375c3c34ac0dcd4d7c3d97581df99c99"
     },
     {
       "path": "tests/gnss-session-test.cjs",
@@ -1117,6 +1127,11 @@
       "path": "tests/recognition-worker-test.py",
       "bytes": 2249,
       "sha256": "635422520b2c48550affc24dfc3a6d479a44dd11217b33e79d5558ea0760fbea"
+    },
+    {
+      "path": "tests/registration-guide-test.cjs",
+      "bytes": 2891,
+      "sha256": "5cde9914d38b54a09c2edd3140081d07ee2dc1ae9f7d7e3aebd9e0ee85551e2c"
     },
     {
       "path": "tests/stationary-survey-test.cjs",

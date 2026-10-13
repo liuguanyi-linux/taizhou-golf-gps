@@ -1,4 +1,9 @@
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>泰州 GPS 技术文档</title><style>body{max-width:1000px;margin:32px auto;padding:0 22px;color:#202d1b;background:#fafaf5;font:16px/1.8 system-ui,sans-serif}a{color:#426b24}nav{display:flex;gap:20px;flex-wrap:wrap}h1,h2,h3{line-height:1.35;margin-top:2em}code{background:#e9eddf;padding:2px 4px;border-radius:4px}pre{background:#e9eddf;padding:18px;overflow:auto;line-height:1.6}pre code{padding:0}.table{overflow:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:10px;border:1px solid #ced6c6;text-align:left}th{background:#e9eddf}@media print{nav{display:none}pre{white-space:pre-wrap}.table{overflow:visible}h2,h3{break-after:avoid}}</style></head><body><nav><a href="../index.html">返回交付首页</a><a href="index.html">技术文档</a><a href="QUICKSTART.html">操作指南</a><a href="DISTRIBUTION.html">访问与分发</a><a href="TECHNICAL.md" download>下载 Markdown 原文</a></nav><h1>高尔夫虚拟图与 GPS 点位工作台技术文档</h1>
+<h2>2026-10-13 发布补充</h2>
+<p>当前开发预览标签为 <code>v2026.10.13-workbench-preview</code>，包含下述简洁工作台、静止采点、球车预览与最新校准改进。旧章节的版本标识和测试日期保留为历史证据，不代表最新发布版本。</p>
+<p><code>course-workspace/registration-guide.js</code> 从图片尺寸、控制点及独立检查点计算下一步操作、控制点凸包覆盖和检查结果；不改写原 WGS84 几何，也不颁发现场精度状态。<code>image-editor.js</code> 实现地图取点 → 图片对应位置 → 自动保存，并对控制点和检查点分别撤销；匹配图片尺寸，拒绝重复点及覆盖外坐标编辑。手机配对时收起工具抽屉，全图适配给操作提示预留位置。详见 <code>docs/WORKBENCH.md</code>。</p>
+<p>球车预览优先复用有效配准的高清图片，缺少资源或配准时明确回退坐标制图；3K 显示分辨率不是测绘分辨率。测距共用果岭参考几何，排除闭合环重复顶点引起的中心偏移；拖点保留手指抓取偏移。设备报告精度、图片配准残差和实地真值误差分别标注，不相互替代。</p>
+<p>发布包仅由磁盘基线与已跟踪源码构建，不包含浏览器 QA 副本、个人草稿、真实设备轨迹或朋友的整站源码。静态 Pages 不提供本机 8088 球场查询或 Python 模型服务。验证与升级注意事项见 <code>docs/UPDATE-2026-10-13.md</code>。</p>
 <h2>2026-09-23 简洁工作台</h2>
 <p>新增 <code>workbench.js / workbench.css</code>，把编辑器收拢为制作、放点测距、高级三个工作区。顶部统一洞号、视图、预览、保存和导出；手机主侧栏和高清图点位工具改为可收起面板。复用已有节点与处理函数，不更改坐标、定位策略或项目格式。后台发布仍需明确确认。操作见 <code>docs/WORKBENCH.md</code>。</p>
 <h2>2026-09-23 静止采点与误差检查</h2>

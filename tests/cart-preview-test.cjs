@@ -24,3 +24,46 @@ test('18-hole geographic projection round trip remains unchanged by preview rota
     for(const control of plan.controls){const pixel=R.geoToPixel(model,control.coordinate),geo=R.pixelToGeo(model,cam.pixel(cam.screen(pixel)));assert.ok(geo);assert.ok(Math.abs(geo[0]-control.coordinate[0])<1e-8);assert.ok(Math.abs(geo[1]-control.coordinate[1])<1e-8);}
   }
 });
+test('preview uses shared green geometry while explicit pins take precedence',()=>{
+  const P=require('../holemap-gps/point-workspace.js');
+  for(const hole of base.holes){const origin=hole.tees.black,points=P.buildCatalog({holes:[hole]}).points,d=C.metrics(origin,null,hole);
+    for(const role of ['front','middle','back']){const target=role==='middle'?points.find(p=>p.role===role)?.coordinate:hole.pins?.[role]||points.find(p=>p.role===role)?.coordinate;if(target)assert.ok(Math.abs(d[role]-P.distanceMeters(origin,target))<1e-8);}
+  }
+  const h={n:1,flag:[120,32.001],green_targets:{front:[120,32.0008],middle:[120,32.001],back:[120,32.0012]},pins:{front:[120,32.0007]}};
+  assert.equal(C.metrics([120,32],null,h).front,P.distanceMeters([120,32],h.pins.front));
+});
+test('opening or closing a GeoJSON green ring never changes the reference distances',()=>{
+  const G=require('../holemap-gps/gps-core.js'),h={n:1,tees:{black:[120,32]},green:[[120,32.001],[120.0002,32.001],[120.0002,32.0014],[120,32.0014]]};
+  const before=JSON.stringify(h),closed={...h,green:[...h.green,h.green[0]]};
+  assert.deepEqual(G.greenTargets(h),G.greenTargets(closed));
+  assert.deepEqual(C.metrics(h.tees.black,null,h),C.metrics(h.tees.black,null,closed));
+  assert.equal(JSON.stringify(h),before);
+});
+test('finger grip offset does not shift the dragged coordinate, at any camera scale',()=>{
+  for(const zoom of [.6,1,6]){const cam=C.camera(600,480,1024,2048,.95,zoom),anchor=cam.screen({x:500,y:1000}),start={x:anchor.x+17,y:anchor.y-12};
+    assert.deepEqual(C.dragPoint(start,start,anchor),anchor);
+    const p=C.dragPoint(start,{x:start.x+30,y:start.y-20},anchor),q=cam.pixel(p),expected=cam.pixel({x:anchor.x+30,y:anchor.y-20});
+    assert.deepEqual(q,expected);
+  }
+});
+test('only dimensionally valid registered artwork can drive preview coordinates',()=>{
+  const plan=H.layout(base.holes[0],2048),v={width:plan.width,height:plan.height,controls:plan.controls};
+  assert.ok(C.registeredImage(v)?.valid);
+  assert.equal(C.registeredImage({...v,controls:[]}),null);
+  assert.equal(C.registeredImage({...v,width:10}),null);
+  assert.equal(C.registeredImage({...v,width:100000,height:100000}),null);
+  assert.equal(C.registeredImage(null),null);
+});
+test('registered artwork reuses its exact coordinates; missing or unregistered art falls back explicitly',async()=>{
+  const hole=structuredClone(base.holes[0]),plan=H.layout(hole,2048),blob=new Blob(['synthetic asset, not a field map']);
+  hole.visual={width:plan.width,height:plan.height,controls:plan.controls,src:'test'};
+  let renders=0,reads=0;
+  const hd={layout:H.layout,render:async(h,n,size,options)=>{renders++;assert.equal(size,3072);assert.equal(options.presentation,true);return {blob};}};
+  const source=async()=>{reads++;return blob;},before=JSON.stringify(hole);
+  const art=await C.artwork(hole,'QA',{hd,source});assert.equal(art.blob,blob);assert.equal(renders,0);assert.equal(reads,1);assert.equal(art.plan.width,plan.width);
+  for(const p of plan.controls){const c=R.pixelToGeo(art.model,p.pixel);assert.ok(Math.abs(c[0]-p.coordinate[0])<1e-8);assert.ok(Math.abs(c[1]-p.coordinate[1])<1e-8);}
+  assert.equal(JSON.stringify(hole),before);
+  const missing=await C.artwork(hole,'QA',{hd,source:async()=>{throw Error('missing image');}});assert.match(missing.note,/资源不可用.*回退/);assert.equal(renders,1);
+  hole.visual.controls=[];const invalid=await C.artwork(hole,'QA',{hd,source});assert.match(invalid.note,/尚未有效配准/);assert.equal(reads,1);assert.equal(renders,2);
+  hole.visual.generator='coordinate-hd/2';await C.artwork(hole,'QA',{hd,source});assert.equal(renders,3);assert.equal(reads,1);
+});

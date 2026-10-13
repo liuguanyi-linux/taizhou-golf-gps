@@ -15,7 +15,7 @@
     if(time>now+2000)return result('future');if(now-time>o.maxAge)return result('stale');
     if(previous&&sample.id===previous.id&&time<=Date.parse(previous.updated_at))return result('order');
     if(sample.accuracy_confidence!==0.95)return result('confidence');
-    if(sample.accuracy_m>o.maxAccuracy)return result('accuracy');
+    if(sample.accuracy_m>o.maxAccuracy)return {...result('accuracy'),message:`声明精度未达门槛：设备报告 ${sample.accuracy_m.toFixed(1)} m，当前要求 ≤ ${o.maxAccuracy} m；未采用此定位。可在定位高级设置调整门槛，放宽门槛不会提高实际精度。`};
     if(o.requireFixed&&sample.fix_type!=='rtk_fixed')return result('fix');
     if(o.requireFixed&&(!Number.isFinite(sample.correction_age_s)||sample.correction_age_s<0||sample.correction_age_s>o.maxCorrectionAge))return result('correction');
     if(previous&&sample.id===previous.id&&P.coordinate(previous.coordinate)&&Number.isFinite(previous.accuracy_m)){

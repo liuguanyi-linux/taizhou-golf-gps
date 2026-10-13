@@ -24,3 +24,4 @@ cp.execFileSync(process.execPath,[path.join(root,'tests/gnss-session-test.cjs')]
 cp.execFileSync(process.execPath,[path.join(root,'tests/cart-preview-test.cjs')],{stdio:'inherit'});
 cp.execFileSync(process.execPath,[path.join(root,'tests/stationary-survey-test.cjs')],{stdio:'inherit'});
 cp.execFileSync(process.execPath,[path.join(root,'tests/workbench-test.cjs')],{stdio:'inherit'});
+cp.execFileSync(process.execPath,[path.join(root,'tests/registration-guide-test.cjs')],{stdio:'inherit'});

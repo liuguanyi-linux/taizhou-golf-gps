@@ -282,7 +282,10 @@
 
   function greenTargets(hole) {
     if (hole.green_targets?.front && hole.green_targets?.middle && hole.green_targets?.back) return hole.green_targets;
-    const ring = rings(hole.green)[0] || [];
+    const rawRing = rings(hole.green)[0] || [];
+    // GeoJSON repeats the first vertex to close a ring; Leaflet may omit it.
+    // It must not count twice when deriving the shared green reference centre.
+    const ring = rawRing.length>1&&rawRing[0][0]===rawRing.at(-1)[0]&&rawRing[0][1]===rawRing.at(-1)[1]?rawRing.slice(0,-1):rawRing;
     if (!ring.length) return { front: hole.flag, middle: hole.flag, back: hole.flag };
     const tee = hole.tees?.black || hole.tee || hole.centerline?.[0] || ring[0];
     const ordered = ring.map((point) => ({ point, distance: haversine(tee, point) })).sort((a, b) => a.distance - b.distance);

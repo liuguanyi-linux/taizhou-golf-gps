@@ -1,6 +1,14 @@
 # 泰州云海湿地 · 虚拟图与 GPS 点位工作台
 
-公开开发预览 · 2026-09-18 · 通用球场制作工具（含泰州、金沙湾资料）
+公开开发预览 · 2026-10-13 · 通用球场制作工具（含泰州、金沙湾资料）
+
+## 2026-10-13：简洁工作台与图片校准向导
+
+本次集中发布 9 月 23 日至 10 月 12 日的工具更新：制作 / 放点测距 / 高级三工作区、同页球车端预览、静止采点检查、手机布局修复、高清图复用、地图与图片两步校准、独立检查点和分类型撤销。保留 WGS84 / GeoJSON 共享数据；不含浏览器个人草稿或现场轨迹。
+
+[在线使用最新版](https://liuguanyi-linux.github.io/taizhou-golf-gps/cn/map/) · [工作台与校准操作说明](docs/WORKBENCH.md) · [技术文档](docs/TECHNICAL.md) · [本次更新说明](docs/UPDATE-2026-10-13.md) · [固定版本下载](https://github.com/liuguanyi-linux/taizhou-golf-gps/releases/tag/v2026.10.13-workbench-preview)
+
+新增 7 项校准向导回归及全套检查通过；本机浏览器已验证配对、保存刷新、检查点撤销、取消和手机布局。现场 GPS 精度未认证，软件校准偏差不等于手机真实误差。GitHub Pages 仅支持静态工具：原站球场检索与本机模型识别仍需本地启动器和相应服务。下文“尚未推送 / 未公开”属于当时的历史记录，本次已纳入发布。
 
 ## 2026-09-18：定位状态与测距可靠性
 
@@ -12,7 +20,7 @@
 
 [下载最新分支完整源码与资源](https://github.com/liuguanyi-linux/taizhou-golf-gps/archive/refs/heads/codex/delivery.zip)。下方发布标签及其 ZIP 保持为优化前基线，不覆盖已发布版本。未接收真实 RTK 观测，不能宣称实地精度已经提升到厘米级。
 
-## 当前发布：v2026.09.17-tool-preview
+## 历史发布：v2026.09.17-tool-preview
 
 [通用工具入口](cn/map/) · [版本说明与验收](docs/RELEASE-2026-09-17.md) · [完整技术文档](docs/TECHNICAL.md) · [下载版本](https://github.com/liuguanyi-linux/taizhou-golf-gps/releases/tag/v2026.09.17-tool-preview)
 

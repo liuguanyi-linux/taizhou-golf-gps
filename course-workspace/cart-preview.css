@@ -1,4 +1,8 @@
 /* Preview layer 1600, above editors; controls occupy grid cells, never cover the map. */
+.cart-preview{grid-template-columns:minmax(0,1fr)}
+.cart-preview>header,.cart-preview>main,.cart-preview>footer,.cart-preview .cart-main>*,.cart-preview .cart-left>*,.cart-preview .cart-right>*{min-width:0}
+.cart-preview header>button,.cart-preview header>label{flex-shrink:0}
+.cart-preview .cart-main-distance{color:#8dd7ff}
 @media(max-width:700px) and (orientation:portrait){.cart-preview .cart-left>div:first-child{grid-row:1/3}.cart-preview .cart-left{overflow:auto}}
 .cart-preview.cart-portrait .cart-left>div:first-child{grid-row:1/3}.cart-preview.cart-portrait header{padding:8px;gap:6px}.cart-preview.cart-portrait header select{width:74px}.cart-preview.cart-portrait footer{padding:6px;overflow-y:hidden}
 .cart-preview.cart-portrait{width:min(430px,100%);left:50%;right:auto;transform:translateX(-50%);box-shadow:0 0 0 100vmax #061613ef;grid-template-rows:68px minmax(0,1fr) 64px}
