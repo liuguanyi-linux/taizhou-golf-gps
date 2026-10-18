@@ -1,0 +1,20 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+const root=path.resolve(__dirname,'..'),P=require('../desktop/policy.cjs');
+for(const url of ['https://app/cn/map/','golf://evil/cn/map/','golf://user@app/cn/map/','golf://app:99/cn/map/','golf://app/scripts/recognition-local.cjs','golf://app/.git/config','golf://app/app/%2e%2e%2f%2e%2e%2fsecret','golf://app/app/%5csecret'])assert.equal(P.publicFile(root,url),null,url);
+assert.equal(P.publicFile(root,'golf://app/cn/map/'),path.join(root,'cn/map/index.html'));
+assert.equal(P.publicFile(root,'golf://app/holemap-editor/index.html?workspace=1'),path.join(root,'holemap-editor/index.html'));
+assert(P.newer('1.10.0','1.9.0'));assert(!P.newer('1.0.0','1.0.0'));assert(!P.newer('evil','1.0.0'));assert(!P.newer('0.9.0','1.0.0'));
+const name='Golf-Workbench-1.1.0-mac-arm64.dmg',url=P.RELEASES+'/download/app-v1.1.0/'+name;
+const release={tag_name:'app-v1.1.0',draft:false,assets:[{state:'uploaded',name,browser_download_url:url}]};
+assert.equal(P.selectRelease([release],'1.0.0','darwin','arm64').url,url);
+assert.equal(P.selectRelease([release],'1.1.0','darwin','arm64'),null);
+assert.equal(P.selectRelease([release],'1.0.0','win32','x64'),null);
+assert.equal(P.selectRelease([{...release,draft:true}],'1.0.0','darwin','arm64'),null);
+assert.equal(P.selectRelease([{...release,assets:[{...release.assets[0],browser_download_url:'https://evil.test/app.dmg'}]}],'1.0.0','darwin','arm64'),null);
+const context={self:{}};vm.runInNewContext(fs.readFileSync(path.join(root,'app/precache.js'),'utf8'),context);
+const build=context.self.GOLF_BUILD;assert(build.files.length>50);for(const p of build.files){assert(fs.existsSync(path.join(root,p)),p);assert(!/course-source|map-source|\.local\.js|desktop\//.test(p));}
+assert.equal(JSON.parse(fs.readFileSync(path.join(root,'app/version.json'))).version,require('../package.json').version);
+for(const p of ['cn/map/index.html','holemap-editor/index.html','index.html'])assert(fs.readFileSync(path.join(root,p),'utf8').includes('app/client.js'));
+const sw=fs.readFileSync(path.join(root,'sw.js'),'utf8');assert(!sw.includes('caches.keys'));assert(sw.includes('ACTIVATE_SAVED_UPDATE'));assert(!sw.includes('localStorage.clear'));
+console.log('PASS app path isolation, version comparison, per-platform trusted update assets, precache inventory, entry points. Native OS install/GPS not covered.');

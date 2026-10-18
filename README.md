@@ -1,6 +1,14 @@
 # 泰州云海湿地 · 虚拟图与 GPS 点位工作台
 
-公开开发预览 · 2026-10-13 · 通用球场制作工具（含泰州、金沙湾资料）
+公开开发预览 · 2026-10-19 · 通用球场制作工具（含泰州、金沙湾资料）
+
+## 2026-10-19：安装版与主屏幕应用 1.0.0
+
+[下载 Windows / Mac 安装包](https://github.com/liuguanyi-linux/taizhou-golf-gps/releases/tag/app-v1.0.0) · [iPhone / iPad 在线入口](https://liuguanyi-linux.github.io/taizhou-golf-gps/cn/map/) · [安装、更新与技术说明](docs/APP.md) · [本次验收记录](docs/UPDATE-2026-10-19-APP.md)
+
+Windows x64 提供 EXE 安装器，Mac 提供 Apple Silicon / Intel DMG；无需安装 Node 或 Docker 即可使用内置资料与编辑器。iOS 使用 Safari 添加到主屏幕。顶部“应用 / 更新”可检查版本：桌面首版下载新版安装包，由使用者退出后安装；PWA 在保存确认后切换新版，不静默刷新正在编辑的项目。
+
+**未签名开发预览**：Mac Apple Silicon 已实际启动并打开编辑器与高清图；Windows、Intel Mac 和 iOS 尚未完成真机验收。没有云端同步、没有捆绑朋友后台或大型识别模型，也没有新增实地 GPS 精度保证。浏览器和安装版草稿独立，请用包含图片的项目包迁移。
 
 ## 2026-10-13：简洁工作台与图片校准向导
 

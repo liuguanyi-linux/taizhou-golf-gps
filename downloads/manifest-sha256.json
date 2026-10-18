@@ -1,6 +1,6 @@
 {
   "algorithm": "SHA-256",
-  "generated_at": "2026-10-13T06:41:51.035Z",
+  "generated_at": "2026-10-18T18:03:13.292Z",
   "excludes": [
     ".git",
     "hidden files",
@@ -20,13 +20,43 @@
     },
     {
       "path": "README.md",
-      "bytes": 15119,
-      "sha256": "2f717e86cb30f7628723ca717b74d9c22a1c6d9bb4a64b6109bcf9f21e08844a"
+      "bytes": 16183,
+      "sha256": "3ac03b6e397f0a004fea3c165e2c12153441b74df1f848a2d3f73d6109f3ba1e"
+    },
+    {
+      "path": "app/client.css",
+      "bytes": 1045,
+      "sha256": "6ea1fc3e54862a5be3521cf0b47e2e43c23cba764356e8514ce5a88ae0ddfcba"
+    },
+    {
+      "path": "app/client.js",
+      "bytes": 5535,
+      "sha256": "51c824e284b0a38c419e3d28496e9d0d59f657f6b2114d994d67831f5605ff48"
+    },
+    {
+      "path": "app/icon-192.png",
+      "bytes": 1045,
+      "sha256": "e3b086122206db59839ceb30889f5f09021fef7956279fbf6579579a91cefd5c"
+    },
+    {
+      "path": "app/icon-512.png",
+      "bytes": 4058,
+      "sha256": "c2b1fcf1e0b462f34f709ce877eb2057ac920aeb714b3fab49dac70e94fcb663"
+    },
+    {
+      "path": "app/precache.js",
+      "bytes": 2383,
+      "sha256": "c87cea82f143f182ed99d5c192e9e0b00287b85a2ab193aeb8dbe1b74f38c4b8"
+    },
+    {
+      "path": "app/version.json",
+      "bytes": 20,
+      "sha256": "705f5e244229493ee06e69f5af0b066b5d0aa1eb92548a8d1d98bd81953371ea"
     },
     {
       "path": "cn/map/index.html",
-      "bytes": 3122,
-      "sha256": "580af9738bc745fadd0e7f55163cc9a0817dd23af6bcfb99d229ec773f4ad29d"
+      "bytes": 3171,
+      "sha256": "212d4366ceed2bbae93946f56f726e1fb96bcab5dca469404e009b8195a76e5f"
     },
     {
       "path": "course-workspace/assets/README.md",
@@ -209,6 +239,26 @@
       "sha256": "777b9a796bee03840c47b216f061cd599942723479fa95823d9a63c0e44e9e30"
     },
     {
+      "path": "desktop/main.cjs",
+      "bytes": 5815,
+      "sha256": "2b330ecc98f1935db873c2154bbfc09bc06fe76abea08af24fdc33d546ed0718"
+    },
+    {
+      "path": "desktop/policy.cjs",
+      "bytes": 1956,
+      "sha256": "18feca5ffc9e4666776d61f7c4235fa047546986da344887d71120da75134d9c"
+    },
+    {
+      "path": "desktop/preload.cjs",
+      "bytes": 289,
+      "sha256": "b213f96a19c49eb453cfc26cb2502387b47c36cef4cd7586b41b8c75a355aded"
+    },
+    {
+      "path": "docs/APP.md",
+      "bytes": 4702,
+      "sha256": "a7e219719442783e3bafcab9116885146be92b90cb47fc4dbd008983e6647b4a"
+    },
+    {
       "path": "docs/CART-PREVIEW.md",
       "bytes": 3655,
       "sha256": "891f437a7899d3bc7d9e5a2d32f18605bffd7bf5d2672161ac727452cd4f7550"
@@ -339,6 +389,11 @@
       "sha256": "40feda850ea188b2644d530c9c314bb932ca5ebaeb3e49e90f47fcda00ff30dc"
     },
     {
+      "path": "docs/UPDATE-2026-10-19-APP.md",
+      "bytes": 2621,
+      "sha256": "2ef83a4b69ee82162cd4c2dda6e3a441c5b3393689ee8ff2769b2b6d3cb113d2"
+    },
+    {
       "path": "docs/WHOLE-COURSE-RECOGNITION.md",
       "bytes": 7659,
       "sha256": "2320366625ee5e7173cb96d250a499e3e8be39d4baa9b98412a5b7098e6fd06a"
@@ -405,8 +460,8 @@
     },
     {
       "path": "holemap-editor/index.html",
-      "bytes": 59844,
-      "sha256": "8f6d907938d22b44645bdbd5aec3b8c5245695882b056073c897cd7b3631b201"
+      "bytes": 59891,
+      "sha256": "790109ee0c4bfea1d6e5f7a5bb941e2a569bd67ec7e01e8cb9dc68551e78b938"
     },
     {
       "path": "holemap-editor/lib/images/layers-2x.png",
@@ -800,8 +855,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 5085,
-      "sha256": "a16407c3de3fa9cd23044ba230b1e6c8a2f03b6570f1818905ae47af0c3999c5"
+      "bytes": 5536,
+      "sha256": "ef8c49e2659ea5af863175da1db4f71ad4b7249bddd5e252b8cd792a1581e952"
     },
     {
       "path": "kingswan/QA.md",
@@ -964,14 +1019,34 @@
       "sha256": "90d786f4415edadb4586a2b8813613c18d32e835e965e240113afb768654a803"
     },
     {
+      "path": "manifest.webmanifest",
+      "bytes": 401,
+      "sha256": "84f63923296857a7a3a319cc1be261b33ec116645acef1a7401033ebc8583ff4"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 124837,
+      "sha256": "09036958093d30fff15b1b0ea2bbec889abc0ac74640128f9690366f06b391b9"
+    },
+    {
+      "path": "package.json",
+      "bytes": 1527,
+      "sha256": "609959c6a9a5355362771cc458ba0804a3b26a18bdbf5f6d8b53a66ededd71fd"
+    },
+    {
+      "path": "scripts/build-app.cjs",
+      "bytes": 2339,
+      "sha256": "eff015787a6e22ddd5894ce10f5e1edbccbcd5a7d77e39ee2ab1697ec8c35714"
+    },
+    {
       "path": "scripts/build-delivery.cjs",
       "bytes": 7129,
       "sha256": "5eaebdde9e40ed25edcaab94135531616d77d6a556e05d12e2598d1df3d9b164"
     },
     {
       "path": "scripts/check.cjs",
-      "bytes": 2915,
-      "sha256": "54a995fe31451f409f659ceff028727f07c5968c88fb48c2cc0efbd60306a554"
+      "bytes": 2932,
+      "sha256": "f5f8093c1b033875f0aa2428851d08a3d210c87489c4dc91af457ceefa38ea3a"
     },
     {
       "path": "scripts/greenbook-readonly.cjs",
@@ -1015,8 +1090,8 @@
     },
     {
       "path": "scripts/refresh-manifest.cjs",
-      "bytes": 1094,
-      "sha256": "fddbf255802b43fc80cfdf555e376c6d9b29864a25ddcf7e727854df24e73848"
+      "bytes": 1091,
+      "sha256": "b43a9b6dd7aae51beef352102cebcbbcdb6ab13a7969ae7f61c8f065ae567c56"
     },
     {
       "path": "scripts/serve.cjs",
@@ -1037,6 +1112,16 @@
       "path": "start.command",
       "bytes": 68,
       "sha256": "755664fdde90d84075d552059032d35e25d4a80e1883b1feed4631584fdcf1b9"
+    },
+    {
+      "path": "sw.js",
+      "bytes": 1149,
+      "sha256": "8fbfe67a4899d1140e4f05a37bcba17fe668c827204bc8a675a97895c51f699f"
+    },
+    {
+      "path": "tests/app-test.cjs",
+      "bytes": 2462,
+      "sha256": "8171b5d350139bf57a446144d2e4e29d5992d139049f6ed482fdf6f0e43d4811"
     },
     {
       "path": "tests/cart-preview-test.cjs",
@@ -1132,6 +1217,11 @@
       "path": "tests/registration-guide-test.cjs",
       "bytes": 2891,
       "sha256": "5cde9914d38b54a09c2edd3140081d07ee2dc1ae9f7d7e3aebd9e0ee85551e2c"
+    },
+    {
+      "path": "tests/service-worker-test.cjs",
+      "bytes": 2033,
+      "sha256": "244a7315959d5ccdec49091baedf06fd2c472d875b9e1b2a3b315a15253232ed"
     },
     {
       "path": "tests/stationary-survey-test.cjs",

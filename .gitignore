@@ -3,6 +3,7 @@
 .env.*
 *.local.js
 node_modules/
+dist/
 *.log
 *.zip
 artifacts/
