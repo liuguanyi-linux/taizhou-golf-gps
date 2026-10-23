@@ -9,7 +9,7 @@
   "scripts": {
     "start": "electron .",
     "prepare:app": "node scripts/build-app.cjs",
-    "test": "node scripts/check.cjs && node tests/app-test.cjs && node tests/service-worker-test.cjs",
+    "test": "node scripts/check.cjs && node tests/app-test.cjs && node tests/service-worker-test.cjs && node tests/app-client-test.cjs",
     "pack:mac": "npm run prepare:app && electron-builder --mac dmg --arm64 --x64 --publish never",
     "pack:win": "npm run prepare:app && electron-builder --win nsis --x64 --publish never"
   },

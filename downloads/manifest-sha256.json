@@ -1,6 +1,6 @@
 {
   "algorithm": "SHA-256",
-  "generated_at": "2026-10-18T18:03:13.292Z",
+  "generated_at": "2026-10-23T01:52:54.327Z",
   "excludes": [
     ".git",
     "hidden files",
@@ -20,8 +20,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 16183,
-      "sha256": "3ac03b6e397f0a004fea3c165e2c12153441b74df1f848a2d3f73d6109f3ba1e"
+      "bytes": 16680,
+      "sha256": "9c5e74b8e484d8f5e643af6a63e058cd6f3e520ef2b563a3ca6f74ed078b67a1"
     },
     {
       "path": "app/client.css",
@@ -30,8 +30,8 @@
     },
     {
       "path": "app/client.js",
-      "bytes": 5535,
-      "sha256": "51c824e284b0a38c419e3d28496e9d0d59f657f6b2114d994d67831f5605ff48"
+      "bytes": 6509,
+      "sha256": "9f0d490020ce62b0cf4e25703d8f9617d1f290a969b52f503b312d28682ce0fe"
     },
     {
       "path": "app/icon-192.png",
@@ -46,7 +46,7 @@
     {
       "path": "app/precache.js",
       "bytes": 2383,
-      "sha256": "c87cea82f143f182ed99d5c192e9e0b00287b85a2ab193aeb8dbe1b74f38c4b8"
+      "sha256": "34a137fbf1972c07681cca9aac44a73f3344b005715f45a76b05e01990b45304"
     },
     {
       "path": "app/version.json",
@@ -392,6 +392,11 @@
       "path": "docs/UPDATE-2026-10-19-APP.md",
       "bytes": 2621,
       "sha256": "2ef83a4b69ee82162cd4c2dda6e3a441c5b3393689ee8ff2769b2b6d3cb113d2"
+    },
+    {
+      "path": "docs/UPDATE-2026-10-22.md",
+      "bytes": 2739,
+      "sha256": "4611c159aa97d3452286ef1cbb1725facedeba5fdfaa998d854ac27616c632b3"
     },
     {
       "path": "docs/WHOLE-COURSE-RECOGNITION.md",
@@ -1030,8 +1035,8 @@
     },
     {
       "path": "package.json",
-      "bytes": 1527,
-      "sha256": "609959c6a9a5355362771cc458ba0804a3b26a18bdbf5f6d8b53a66ededd71fd"
+      "bytes": 1561,
+      "sha256": "1faa7942701e40e9f947c7d9bfb427e504d3019d3a5c4a6a71f8e1f5b4b0365d"
     },
     {
       "path": "scripts/build-app.cjs",
@@ -1115,8 +1120,13 @@
     },
     {
       "path": "sw.js",
-      "bytes": 1149,
-      "sha256": "8fbfe67a4899d1140e4f05a37bcba17fe668c827204bc8a675a97895c51f699f"
+      "bytes": 1845,
+      "sha256": "419c6b471681ec3a9e34143937ee3afd2279686f647e1adaceaf9974c80f6d45"
+    },
+    {
+      "path": "tests/app-client-test.cjs",
+      "bytes": 3817,
+      "sha256": "19d956d53a13c0bba6325cd5799668040e6d464d72df6e3892c3b573c52c19f0"
     },
     {
       "path": "tests/app-test.cjs",
@@ -1220,8 +1230,8 @@
     },
     {
       "path": "tests/service-worker-test.cjs",
-      "bytes": 2033,
-      "sha256": "244a7315959d5ccdec49091baedf06fd2c472d875b9e1b2a3b315a15253232ed"
+      "bytes": 3067,
+      "sha256": "05263b813724ed784b8e471bc082cc96760ccfe9cb4a6ff48548b06a85efadfa"
     },
     {
       "path": "tests/stationary-survey-test.cjs",
